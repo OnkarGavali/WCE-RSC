@@ -4,6 +4,7 @@ import React, {Components, useState} from 'react';
 import Header from './components/Header';
 import Home from './components/Home';
 import Tmp from './components/Tmp';
+import TmpHome from './components/TmpHome';
 
 function App() {
   
@@ -14,7 +15,8 @@ function App() {
   return (
     <div className="App">
       
-      <Home></Home>
+      {/* <Home></Home> */}
+      <TmpHome/>
     </div>
     
   );

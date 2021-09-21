@@ -9,13 +9,13 @@ import { Subscribe } from './Subscribe'
 export const Footer = () => {
     return (
         <footer>
-            <div className="container fixed-top">
+            {/* <div className="container fixed-top">
                 <div style={{"float":' right','margin':'10px'}}>
                     <button  className='btn btn-success btn-sm '>
                     <i className="fa fa-edit"></i>
                     </button>
                 </div>
-            </div>
+            </div> */}
             <div className="container position-relative">
                 
                 <div className="row footer-widgets justify-content-md-between">
