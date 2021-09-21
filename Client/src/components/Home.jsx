@@ -5,6 +5,7 @@ import Notifications from './Notifications';
 import Sponsors from './Sponsors';
 import { Footer } from './Footer';
 import HomeBody from './HomeBody';
+import Slider from './Slider';
 
 
 function Home() {
@@ -13,7 +14,9 @@ function Home() {
             <Header></Header>
             <div id="content" style={{padding:'60px 0px'}}>
                 <div className="container " style={{ textAlign: 'justify' }}>
+                <Slider/>
                     <div className="row">
+                        
                         <HomeBody/>
                         <Sponsors></Sponsors>
                        
