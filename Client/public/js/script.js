@@ -709,10 +709,10 @@ $(document).ready(function(){
 	//Layout Switcher
 	$(".layout-style").change(function(){
 		if( $(this).val() == 1){
-			$("#container").removeClass("boxed-page"),
+			$(".containeri").removeClass("boxed-page"),
 			$(window).resize();
 		} else{
-			$("#container").addClass("boxed-page"),
+			$(".containeri").addClass("boxed-page"),
 			$(window).resize();
 		}
 	});

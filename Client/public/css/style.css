@@ -205,7 +205,7 @@ input[type="submit"] {
     -o-border-radius: 2px;
 }
 
-#content {
+.contenti {
 	padding: 60px 0;
 }
 
@@ -286,7 +286,7 @@ input[type="submit"] {
 	color: #c4c4c4;
 }
 
-#container {
+.containeri {
     background-color: #fff;
 }
 

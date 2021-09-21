@@ -10,7 +10,7 @@ function Home() {
     return (
         <div>
             <Header></Header>
-            <div id="content">
+            <div id="content" style={{padding:'60px 0px'}}>
                 <div className="container " style={{ textAlign: 'justify' }}>
                     <div className="row">
                         <div className="col-md-8" >
