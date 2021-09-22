@@ -1,10 +1,8 @@
 import React, { Components, useState,useEffect } from 'react';
 import Navbar from './Navbar';
 import Header from './Header';
-import Notifications from './Notifications';
-import Sponsors from './Sponsors';
-import { Footer } from './Footer';
-import Contact from './Contact';
+import { Footer } from './Footer/Footer';
+import Contact from './RouteingTable/Contact/Contact';
 
 
 

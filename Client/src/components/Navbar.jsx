@@ -8,10 +8,10 @@ import {
 } from "react-router-dom";
 import Socials from './Socials';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
-import Contact from './Contact';
-import Gallery from './Gallery';
-import About from './About';
-import Home from './Home';
+import Contact from './RouteingTable/Contact/Contact';
+import Gallery from './RouteingTable/Gallery/Gallery';
+import About from './RouteingTable/About/About';
+import Home from './RouteingTable/Home/Home';
 
 
 

@@ -1,8 +1,7 @@
 import React, { Components, useState } from 'react';
 import Navbar from './Navbar';
-import Sponsors from './Sponsors';
-import Notifications from './Notifications';
-import Home from './Home';
+
+import Home from './RouteingTable/Home/Home';
 
 function Header() {
   //rname = "rsc2021@walchandsangli.ac.in";
