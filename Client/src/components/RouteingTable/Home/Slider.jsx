@@ -7,7 +7,7 @@ function Slider() {
         <div>
             <section id="home">
                 
-                <div id="main-slide" class="carousel slide" data-ride="carousel" style={{marginTop:"-100px"}}>
+                <div id="main-slide" class="carousel slide" data-ride="carousel" style={{marginTop:"-50px"}}>
 
                    
                     <ol class="carousel-indicators">

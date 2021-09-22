@@ -57,12 +57,12 @@ function Navbar(props) {
 
                 <ul className="dropdown">
 
-                  <li><a href="call_for.html">Call for Contributions <span className="pull-right"><i className="fa fa-bullhorn"></i></span></a>
+                <li><Link to="/call-for-contribution">Call for Contributions <span className="pull-right"><i className="fa fa-bullhorn"></i></span></Link>
                   </li>
 
-                  <li><a href="instructions.html">Presentation <br /> Instructions <span className="pull-right"><i className="fa fa-info-circle"></i></span></a>
+                  <li><Link to="/Presentation-Instructions">Presentation <br /> Instructions <span className="pull-right"><i className="fa fa-info-circle"></i></span></Link>
                   </li>
-                  <li><a href="submission.html">Paper Submission <span className="pull-right"><i className="fa fa-upload"></i></span></a>
+                  <li><Link to="/Paper-Submission">Paper Submission <span className="pull-right"><i className="fa fa-upload"></i></span></Link>
                   </li>
 
                   <li><a href="dates.html">Important Dates<span className="pull-right"><i className="fa fa-calendar"></i></span></a></li><li><a href="asset/latex.zip">LaTeX Template<span className="pull-right"><i className="fa fa-file"></i></span></a></li><li><a href="asset/word.zip">Word Template<span className="pull-right"><i className="fa fa-file"></i></span></a>
