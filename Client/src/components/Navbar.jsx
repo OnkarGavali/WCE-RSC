@@ -65,7 +65,7 @@ function Navbar(props) {
                   <li><Link to="/Paper-Submission">Paper Submission <span className="pull-right"><i className="fa fa-upload"></i></span></Link>
                   </li>
 
-                  <li><a href="dates.html">Important Dates<span className="pull-right"><i className="fa fa-calendar"></i></span></a></li><li><a href="asset/latex.zip">LaTeX Template<span className="pull-right"><i className="fa fa-file"></i></span></a></li><li><a href="asset/word.zip">Word Template<span className="pull-right"><i className="fa fa-file"></i></span></a>
+                  <li><Link to="/Important-Dates">Important Dates<span className="pull-right"><i className="fa fa-calendar"></i></span></Link></li><li><a href="asset/latex.zip">LaTeX Template<span className="pull-right"><i className="fa fa-file"></i></span></a></li><li><a href="asset/word.zip">Word Template<span className="pull-right"><i className="fa fa-file"></i></span></a>
                   </li>
                 </ul>
 

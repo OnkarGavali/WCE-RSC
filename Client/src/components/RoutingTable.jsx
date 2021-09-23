@@ -8,6 +8,7 @@ import Home from './RouteingTable/Home/Home'
 import CallForContriBution from '../components/RouteingTable/Authors/CallForContribution';
 import PresentationInstructions from '../components/RouteingTable/Authors/PresentationInstructions';
 import Submission from '../components/RouteingTable/Authors/Submission';
+import Dates from './RouteingTable/Authors/Dates'
 
 
 export default class RoutingTable extends Component {
@@ -34,7 +35,11 @@ export default class RoutingTable extends Component {
                   </Route>  
                   <Route path="/Paper-Submission">
                   <Submission/>
-                  </Route>  
+                  </Route> 
+                  <Route path="/Important-Dates">
+                  <Dates/>
+                  </Route> 
+                   
                   <Route path="/">
                     <Home/>
                     </Route>
