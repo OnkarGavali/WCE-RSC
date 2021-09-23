@@ -72,7 +72,7 @@ function Navbar(props) {
               </li>
 
               <li className="drop">
-                <a href="#"><span className="pull-left"><i className="fa fa-calendar-check-o"></i></span>&nbsp;&nbsp;Programs</a>
+                <a href="#"><span className="pull-left"><i className="fa fa-calendar"></i></span>&nbsp;&nbsp;Programs</a>
                 <ul className="dropdown">
                   <li><a href="keynotes.html">Keynotes &amp; Awards Presentation<span className="pull-right"><i className="fa fa-microphone"></i></span></a>
                   </li>
@@ -102,13 +102,13 @@ function Navbar(props) {
                 <ul className="dropdown">
                   <li>
                   <Link to="/venue">
-                    <a href="">Conference Venue<span className="pull-right"><i className="fa fa-location-arrow"></i></span></a>
+                    Conference Venue<span className="pull-right"><i className="fa fa-location-arrow"></i></span>
                     </Link>
                   </li>
 
                   <li>
                   <Link to="/location">
-                    <a href="">Conference Location<span className="pull-right"><i className="fa fa-map-marker"></i></span></a>
+                    Conference Location<span className="pull-right"><i className="fa fa-map-marker"></i></span>
                     </Link>
                   </li>
 
