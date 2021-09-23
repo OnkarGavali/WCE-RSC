@@ -16,7 +16,19 @@
         "id":3,
         "name":"Dr. Aniruddha Gokhale",
         "designation":"Professor of Computer Science & Computer Engineering,Institute for Software Integrated Systems, Dept of EECS Vanderbilt University"
+    },
+    {
+        "id":4,
+        "name":"Dr. Ganesh Bhutkar",
+        "designation":"VIT Pune"
+    },
+    {
+        "id":5,
+        "name":"Dr. Prachi Gharpure",
+        "designation":"SPIT Mumbai"
     }
+    
+
     
 
 ]
