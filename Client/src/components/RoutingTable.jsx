@@ -12,6 +12,9 @@ import Submission from '../components/RouteingTable/Authors/Submission';
 import PosterPresentation from './RouteingTable/Programs/PosterPresentation'
 import Dates from './RouteingTable/Authors/Dates'
 import Keynotes from './RouteingTable/Programs/Keynotes'
+import Schedule from './RouteingTable/Programs/Schedule'
+
+import Register from './RouteingTable/Programs/Register';
 
 
 export default class RoutingTable extends Component {
@@ -51,8 +54,14 @@ export default class RoutingTable extends Component {
                     <Route path="/Poster-Presentation">
                         <PosterPresentation/>
                     </Route>
-                    <Route path="/">
+                    <Route path="/Schedule">
+                        <Schedule/>
                     </Route>
+                    <Route path="/Register">
+                        <Register/>
+                    </Route>
+
+                    
 
                     <Route path="/">
                         <Home />

@@ -39,7 +39,7 @@ function Navbar(props) {
               <i class="fa fa-bars"></i>
             </button>
 
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="index">
 
             </a>
           </div>
@@ -75,26 +75,26 @@ function Navbar(props) {
               <li className="drop">
                 <Link to="#"><span className="pull-left"><i className="fa fa-calendar"></i></span>&nbsp;&nbsp;Programs</Link>
                 <ul className="dropdown">
-                  <li><Link to="keynotes.html">Keynotes &amp; Awards Presentation<span className="pull-right"><i className="fa fa-microphone"></i></span></Link>
+                  <li><Link to="/Keynotes">Keynotes &amp; Awards Presentation<span className="pull-right"><i className="fa fa-microphone"></i></span></Link>
                   </li>
-                  <li><Link to="paper_presentation.html">Paper Presentation<span className="pull-right"><i className="fa fa-newspaper-o"></i></span></Link>
+                  <li><Link to="/Paper-Presentation">Paper Presentation<span className="pull-right"><i className="fa fa-newspaper-o"></i></span></Link>
                   </li>
-                  <li><Link to="poster_presentation.html">Poster Presentation<span className="pull-right"><i className="fa fa-image"></i></span></Link>
+                  <li><Link to="/Poster-Presentation">Poster Presentation<span className="pull-right"><i className="fa fa-image"></i></span></Link>
                   </li>
-                  <li><Link to="schedule.html">Event Schedule<span className="pull-right"><i className="fa fa-calendar"></i></span></Link>
+                  <li><Link to="/Schedule">Event Schedule<span className="pull-right"><i className="fa fa-calendar"></i></span></Link>
                   </li>
 
-                  <li><Link to="register.html">Event Registration<span className="pull-right"><i className="fa fa-edit"></i></span></Link>
+                  <li><Link to="/Register">Event Registration<span className="pull-right"><i className="fa fa-edit"></i></span></Link>
                   </li>
                 </ul>
               </li>
               <li className="drop">
                 <Link to="#"><span className="pull-left"><i className="fa fa-sitemap"></i></span>&nbsp;&nbsp;Organisation</Link>
                 <ul className="dropdown">
-                  <li><Link to="org_committee.html"> Organising Committee<span className="pull-right"><i className="fa fa-group"></i></span></Link>
+                  <li><Link to="org_committee"> Organising Committee<span className="pull-right"><i className="fa fa-group"></i></span></Link>
                   </li>
 
-                  <li><Link to="adv_committee.html"> Advisory Committee<span className="pull-right"><i className="fa fa-group"></i></span></Link>
+                  <li><Link to="adv_committee"> Advisory Committee<span className="pull-right"><i className="fa fa-group"></i></span></Link>
                   </li>
 
                 </ul>
@@ -114,7 +114,7 @@ function Navbar(props) {
                   </li>
 
 
-                  <li><Link to="accessing.html">Accessing Sangli<span className="pull-right"><i className="fa fa-plane"></i></span></Link>
+                  <li><Link to="accessing">Accessing Sangli<span className="pull-right"><i className="fa fa-plane"></i></span></Link>
                   </li>
                 </ul>
               </li>
