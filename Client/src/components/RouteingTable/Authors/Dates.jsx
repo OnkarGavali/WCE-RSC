@@ -2,6 +2,12 @@ import React, { Components, useState } from 'react';
 import PageBanner from '../PageBanner';
 import Date from '../../../JSON/date.json';
 import Table from 'react-bootstrap/Table'
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+  } from "react-router-dom";
 
 
 
@@ -14,13 +20,13 @@ function Dates() {
                     <div className="page-content">
 
                         <div className="col-md-9">
-                            <div>   
-                                <br/>
-                            <h1 className="accent-color">WCE Research Symposium on Computing - RSC 2021</h1><br/>
-                            <p><strong>Organized by WCE ACM Student Chapter <br />National  Level Event By Department of Computer Science & Engineering</strong></p>
-                            </div> 
+                            <div>
+                                <br />
+                                <h1 className="accent-color">WCE Research Symposium on Computing - RSC 2021</h1><br />
+                                <p><strong>Organized by WCE ACM Student Chapter <br />National  Level Event By Department of Computer Science & Engineering</strong></p>
+                            </div>
                             <h1 className="accent-color">Important Dates</h1>
-                            <br/>
+                            <br />
                             <Table className="table table-responsive table-condensed table-bordered"><br />
                                 <thead>
                                     <th>Sr No</th>
@@ -47,7 +53,28 @@ function Dates() {
                             <div class="widget widget-categories">
                                 <h4>Related Links <span class="head-line"></span></h4>
                                 <ul>
-                                    
+                                    <li>
+
+                                        <Link to="Presentation-Instructions">Presentation Instructions</Link>
+
+                                    </li>
+
+                                    <li>
+
+
+
+                                        <Link to="Call-for-contribution">Call for Contributions</Link>
+
+
+
+
+                                    </li>
+
+                                    <li>
+
+                                        <Link to="Paper-Submission">Paper Submission</Link>
+
+                                    </li>
 
                                 </ul>
                             </div>
@@ -56,9 +83,9 @@ function Dates() {
                 </div>
 
             </div>
-            </div>
+        </div>
 
-            );
+    );
 }
 
-            export default Dates;
+export default Dates;

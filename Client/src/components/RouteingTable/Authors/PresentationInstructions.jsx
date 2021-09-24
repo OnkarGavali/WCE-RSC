@@ -6,13 +6,13 @@ import {
     Switch,
     Route,
     Link
-  } from "react-router-dom";
+} from "react-router-dom";
 
 
 function PresentationInstructions() {
     return (
         <div>
-            
+
             <PageBanner name="Presentation Instructions " head="Author" subhead="Presentation Instructions" info="Feel Free To Get In Touch" />
             <div id="content">
 
@@ -39,20 +39,20 @@ function PresentationInstructions() {
                             <br />
 
 
-                            
-                            <ul style={{listStyleType:'disc'}}>
-                            <li>Simultaneous submissions (papers already submitted to other conferences/journals) are not allowed.
-                            </li>
-                            <li>All papers must follow the conference template strictly for the submission.Violation of which leads
-                            to rejection of the paper.</li>
-                            <li><b>Double Blind Review: </b> The author's identity such as name, affiliation and email address need to
-                            be provided in Easy Chair Account.No identity information shall be included in the initial paper.</li>
-                            <li>Plagiarism Policy: A similarity upto 10% (Turn-It-In/ iThenticate verification) will be considered for
-                            the review process.</li>
-                            <li>Maximum number of authors per paper shall not be more than four.</li>
-                            <li>Paper Length: upto 8 pages including figures, tables and refrences.</li>
-                            <li>File Size limitation: 5.0 MB.</li>
-                            <li>No page numbering on the manuscript is allowed.</li>
+
+                            <ul style={{ listStyleType: 'disc' }}>
+                                <li>Simultaneous submissions (papers already submitted to other conferences/journals) are not allowed.
+                                </li>
+                                <li>All papers must follow the conference template strictly for the submission.Violation of which leads
+                                    to rejection of the paper.</li>
+                                <li><b>Double Blind Review: </b> The author's identity such as name, affiliation and email address need to
+                                    be provided in Easy Chair Account.No identity information shall be included in the initial paper.</li>
+                                <li>Plagiarism Policy: A similarity upto 10% (Turn-It-In/ iThenticate verification) will be considered for
+                                    the review process.</li>
+                                <li>Maximum number of authors per paper shall not be more than four.</li>
+                                <li>Paper Length: upto 8 pages including figures, tables and refrences.</li>
+                                <li>File Size limitation: 5.0 MB.</li>
+                                <li>No page numbering on the manuscript is allowed.</li>
                             </ul>
 
 
@@ -81,7 +81,7 @@ function PresentationInstructions() {
 
 
 
-                            
+
                             <div class="widget widget-categories">
 
 
@@ -102,7 +102,7 @@ function PresentationInstructions() {
 
 
 
-                                    <Link to="Call-for-contribution">Call for Contributions</Link>
+                                        <Link to="Call-for-contribution">Call for Contributions</Link>
 
 
 
@@ -137,13 +137,10 @@ function PresentationInstructions() {
 
                                     <li>
 
-
-
-                                        <a href="dates.html">Important Dates</a>
-
-
+                                        <Link to="Important-Dates">Important Dates</Link>
 
                                     </li>
+
 
 
 
