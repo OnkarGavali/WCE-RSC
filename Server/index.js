@@ -11,6 +11,7 @@ const app = express();
 app.use(express.json());
 
 app.use('/',require('./routes/auth.js'));
+app.use('/post',require('./routes/common.js'));
 
 app.listen(5000,() => {
     console.log("Server is Running");

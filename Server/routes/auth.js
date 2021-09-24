@@ -3,22 +3,7 @@ const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const router = express.Router()
 const User = require('../models/User');
-
-const verifyJWT = (req,res,next) => {
-    const token = req.headers["x-access-token"];
-    if(!token)
-        res.send("Yoo you dont have any token");
-    else{
-        jwt.verify(token,"miniProject",(err,decoded) => {
-            if(err){
-                res.json({auth:false,msg:"You failed to authenticate"});
-            }else{
-                req.userId = decoded.id;
-                next();
-            }
-        });
-    }
-}
+const verifyJWT = require('../middleware/common');
 
 
 router.post('/register',(req,res) => {
