@@ -42,7 +42,7 @@
 /*------------------------------------------*/
 body {
 	font-family: 'Open Sans', sans-serif;
-	font-size: 13px;
+	font-size: 16px;
     line-height: 21px;
 	font-weight: 300;
 	color: #666;
@@ -124,7 +124,7 @@ h6 {
 
 p {
     color: #666;
-    font-size: 13px;
+    font-size: 14px;
     font-family: 'Open Sans', sans-serif;
     line-height: 22px;
     margin: 0;
