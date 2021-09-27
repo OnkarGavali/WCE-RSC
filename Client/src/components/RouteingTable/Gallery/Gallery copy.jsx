@@ -20,7 +20,7 @@ function Gallery ()
           <div className="recent-projects">
             <h4 className="title"><span>Gallery</span></h4>
             <div className="projects-carousel touch-carousel">
-               
+                <div className='row'>
                 {isImages?
                    (
                       galleryImgs.map(
@@ -35,7 +35,7 @@ function Gallery ()
                     
                   </div>)
                 }
-                
+                </div>
               </div>
             </div>
 
