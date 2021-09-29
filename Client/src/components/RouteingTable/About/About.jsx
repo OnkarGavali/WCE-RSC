@@ -5,6 +5,8 @@ import AboutRSC from './AboutRSC';
 import AboutWCE from './AboutWCE';
 import AboutDept from './AboutDept';
 import PageBanner from '../../RouteingTable/PageBanner';
+import bg from '../../../images/patterns/5.png';
+
 
 import {
     BrowserRouter as Router,
@@ -15,13 +17,13 @@ import {
 
 function About() {
     return (
-        <div>
+        <div >
             
-            <div className="containeri">
+            <div className="containeri" >
 
                 <PageBanner  name="About Us"  head ="About" info="We Are WCE Research Symposium"/>
 
-                <div className="contenti">
+                <div className="contenti" >
                     <div className="container">
                         <div className="page-content">
                             <div className="row" style={{ textAlign: 'justify' }}>

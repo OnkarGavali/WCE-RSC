@@ -2,6 +2,13 @@ import React, { Components, useState } from 'react';
 import PageBanner from '../PageBanner';
 import Date from '../../../JSON/date.json';
 import Table from 'react-bootstrap/Table'
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+  } from "react-router-dom";
+
 
 
 import Key from '../../../JSON/Keynote.json'
@@ -37,6 +44,32 @@ function Keynotes() {
                                     }
                                 </tbody>
                             </Table>
+                        </div>
+                        <div class="col-md-3 sidebar right-sidebar">
+                         
+                            <div class="widget widget-categories">
+                                <h4>Related Links <span class="head-line"></span></h4>
+                                <ul>
+
+                                    <li>
+                                        <Link to="/Paper-Presentation">Paper Presentation</Link>
+                                    </li>
+
+
+                                    <li>
+                                        <Link to="/Poster-Presentation">Poster Presentation</Link>
+                                    </li>
+
+                                    <li>
+                                        <Link to="/Schedule">Event Schedule</Link>
+                                    </li>
+                                    <li>
+                                        <Link to="/Register">Registration</Link>
+                                    </li>
+
+
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
