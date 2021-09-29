@@ -14,7 +14,7 @@ function App() {
   const[name,setName] = useState('');
   
   return (
-    <div className="App">
+    <div className="boxed-page" id="container">
       <MainPage/>
       {/* <Home></Home> */}
       {/* <TmpHome/> */}
