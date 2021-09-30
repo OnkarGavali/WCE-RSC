@@ -66,7 +66,9 @@ function Navbar(props) {
                   <li><Link to="/Paper-Submission">Paper Submission <span className="pull-right"><i className="fa fa-upload"></i></span></Link>
                   </li>
 
-                  <li><Link to="/Important-Dates">Important Dates<span className="pull-right"><i className="fa fa-calendar"></i></span></Link></li><li><Link to="asset/latex.zip">LaTeX Template<span className="pull-right"><i className="fa fa-file"></i></span></Link></li><li><Link to="asset/word.zip">Word Template<span className="pull-right"><i className="fa fa-file"></i></span></Link>
+                  <li><Link to="/Important-Dates">Important Dates<span className="pull-right"><i className="fa fa-calendar"></i></span></Link></li>
+                  <li><a href="../asset/latex.zip">LaTeX Template<span className="pull-right"><i className="fa fa-file"></i></span></a></li>
+                  <li><a href="../asset/word.zip">Word Template<span className="pull-right"><i className="fa fa-file"></i></span></a>
                   </li>
                 </ul>
 
@@ -114,7 +116,7 @@ function Navbar(props) {
                   </li>
 
 
-                  <li><Link to="accessing">Accessing Sangli<span className="pull-right"><i className="fa fa-plane"></i></span></Link>
+                  <li><Link to="/accessing">Accessing Sangli<span className="pull-right"><i className="fa fa-plane"></i></span></Link>
                   </li>
                 </ul>
               </li>

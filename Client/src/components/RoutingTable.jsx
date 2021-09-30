@@ -15,6 +15,8 @@ import Keynotes from './RouteingTable/Programs/Keynotes'
 import Schedule from './RouteingTable/Programs/Schedule'
 
 import Register from './RouteingTable/Programs/Register';
+import Org_Committee from './RouteingTable/Organisation/Org_committee'
+import Adv_Committee from './RouteingTable/Organisation/Advisory_committee'
 
 
 export default class RoutingTable extends Component {
@@ -46,22 +48,29 @@ export default class RoutingTable extends Component {
                         <Dates />
                     </Route>
                     <Route path="/Keynotes">
-                        <Keynotes/>
+                        <Keynotes />
                     </Route>
                     <Route path="/Paper-Presentation">
-                        <PaperPresentation/>
+                        <PaperPresentation />
                     </Route>
                     <Route path="/Poster-Presentation">
-                        <PosterPresentation/>
+                        <PosterPresentation />
                     </Route>
-                    <Route path="/Schedule">
-                        <Schedule/>
+                    <Route path="/Org_committee">
+                        <Org_Committee />
                     </Route>
-                    <Route path="/Register">
-                        <Register/>
+                    <Route path="/Adv_committee">
+                        <Adv_Committee/>
                     </Route>
 
-                    
+                    <Route path="/Schedule">
+                        <Schedule />
+                    </Route>
+                    <Route path="/Register">
+                        <Register />
+                    </Route>
+
+
 
                     <Route path="/">
                         <Home />
