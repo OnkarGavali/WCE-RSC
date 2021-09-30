@@ -10,7 +10,7 @@
     {
         
         "id":"2",
-        "role":"Symposium Patron",
+        "role":"",
         "name":"Prof. A.K. Sharma",
         "designation":"Principal, Jabalpur College of Engineering, Jabalpur"
     },
@@ -23,7 +23,7 @@
     },
     {
         "id":"4",
-        "role":"Convener",
+        "role":"",
         "name":"Dr. A. J. Umbarkar",
         "designation":"HoD, Department of Information Technology, WCE"
 
