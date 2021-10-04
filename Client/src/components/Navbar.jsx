@@ -35,11 +35,11 @@ function Navbar(props) {
         <div className="container">
           <div class="navbar-header">
 
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" style={{ marginBottom: '0%' }}>
-              <i class="fa fa-bars"></i>
+            <button type="button" className="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" style={{ marginBottom: '0%' }}>
+              <i className="fa fa-bars"></i>
             </button>
 
-            <a class="navbar-brand" href="index">
+            <a className="navbar-brand" href="index">
 
             </a>
           </div>
