@@ -17,6 +17,9 @@ import Schedule from './RouteingTable/Programs/Schedule'
 import Register from './RouteingTable/Programs/Register';
 import Org_Committee from './RouteingTable/Organisation/Org_committee'
 import Adv_Committee from './RouteingTable/Organisation/Advisory_committee'
+import Venue from './RouteingTable/Local/Venue'
+import Location from './RouteingTable/Local/Location'
+import Accessing from './RouteingTable/Local/Accessing'
 
 
 export default class RoutingTable extends Component {
@@ -44,6 +47,15 @@ export default class RoutingTable extends Component {
                     <Route path="/Paper-Submission">
                         <Submission />
                     </Route>
+                    <Route path="/venue">
+                        <Venue/>
+                        </Route>
+                    <Route path="/location">
+                        <Location/>
+                        </Route>    
+                    <Route path="/accessing">
+                        <Accessing/>
+                        </Route>    
                     <Route path="/Important-Dates">
                         <Dates />
                     </Route>
