@@ -3,6 +3,7 @@ import Sponsors from './Sponsors';
 import { Footer } from '../../Footer/Footer';
 import HomeBody from './HomeBody';
 import Slider from './Slider';
+import ImpDates from './ImpDates';
 
 
 
@@ -18,6 +19,7 @@ function Home() {
                     <div className="row">
                         
                         <HomeBody/>
+                        <ImpDates/>
                         <Sponsors></Sponsors>
                        
                     </div>
