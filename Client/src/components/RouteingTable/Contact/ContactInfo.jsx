@@ -17,7 +17,7 @@ export const ContactInfo = () => {
               {/* <!-- Info - Icons List --> */}
               <ul className="icons-list">
                 <li><i className="fa fa-globe">  </i> <strong>Address:</strong> Walchand College of Engineering, Sangli</li>
-                <li><i className="fa fa-envelope-o"></i> <strong>Email:</strong>  rsc2021@walchandsangli.ac.in</li>
+                <li><i className="fa fa-envelope-o"></i> <strong>Email:</strong>  rsc2022@walchandsangli.ac.in</li>
                 <li><i className="fa fa-mobile"></i> <strong>Phone:</strong>  +91 88057 09102 | 7030226700</li>
               </ul>
 

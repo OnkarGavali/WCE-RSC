@@ -20,7 +20,7 @@ function Header() {
               <ul className="contact-details">
                 <li><a href="#"><i className="fa fa-map-marker"></i> Walchand College of Engineering, Sangli, MH-IN</a>
                 </li>
-                <li><a href="mailto:  rsc2021@walchandsangli.ac.in  "><i className="fa fa-envelope-o"></i>  rsc2021@walchandsangli.ac.in</a>
+                <li><a href="mailto:  rsc2021@walchandsangli.ac.in  "><i className="fa fa-envelope-o"></i>  rsc2022@walchandsangli.ac.in</a>
                 </li>
                 <li><a href="#"><i className="fa fa-phone"></i>   +91 88057 09102 | 7030226700  </a>
                 </li>
@@ -57,8 +57,8 @@ function Header() {
           <div style={{ marginBottom: '-4%' }} >
               <a href="index.html">
             </a>
-              <h1>  <img src="images/iferp.png" alt="IFERP" style={{ width: '100px', paddingTop: '1%' }} /> WCE Research Symposium on Computing - RSC 2021  </h1>
-              <small   style={{ paddingLeft: '20%' , fontSize:'15px' }}> FIFTH NATIONAL RESEARCH SYMPOSIUM ON COMPUTING  </small>
+              <h1 style={{paddingTop:'1%'}}> {/* <img src="images/iferp.png" alt="IFERP" style={{ width: '100px', paddingTop: '1%' }} /> */}WCE Research Symposium on Computing - RSC 2022  </h1>
+              <small   style={{ paddingLeft: '' , fontSize:'15px' }}> SIXTH RESEARCH SYMPOSIUM ON COMPUTING  </small>
           </div>
           
           
