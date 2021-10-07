@@ -1,5 +1,5 @@
 import React, { Components, useState } from 'react';
-import logo from '../../../images/publication/Logo.JPG';
+import logo from '../../../images/publication/Springer.jpg';
 
 
 function Publications() {
@@ -7,7 +7,7 @@ function Publications() {
         <div>
             <div class="tab-content">
                             <div class="latest-posts" >
-                                <h3 class="classic-title" id="notifications"><span>Proceedings Approved</span></h3>
+                                <h3 class="classic-title" id="notifications"><span>Published By</span></h3>
                                 <img src={logo}></img>
 
                             </div>

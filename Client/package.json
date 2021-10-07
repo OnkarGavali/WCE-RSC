@@ -10,6 +10,7 @@
     "jquery": "^3.6.0",
     "react": "^17.0.2",
     "react-bootstrap": "^2.0.0-beta.6",
+    "react-css-marquee": "0.0.13",
     "react-dom": "^17.0.2",
     "react-fast-marquee": "^1.2.1",
     "react-marquee-master": "^1.4.5",

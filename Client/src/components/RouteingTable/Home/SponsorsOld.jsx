@@ -6,6 +6,22 @@ function SponsorsOld() {
 
   return (
     <div>
+
+      <div class="tab-content">
+        <div class="latest-posts" >
+          <h3 class="classic-title" id="notifications"><span>Supported By</span></h3>
+          <img src="images/wceacm.png" width="300" height="50" alt="WCE ACM Student Chapter" />
+
+        </div>
+      </div>
+
+
+
+
+
+
+
+      {/*
       <div class="col-md-4" id="news">
         <div class="latest-posts">
 
@@ -18,17 +34,20 @@ function SponsorsOld() {
 
           <div class="tab-content">
             <div class="tab-pane fade in active" id="tab1">
+              {/*
               <img src="images/iet.png" width="300" height="50" alt="ACM India" />
               <br />
               <br />
 
               <img src="images/teqip3logo.png" width="300" height="50" alt="TEQIP-III" /><br /><br />
+              <img src="images/FinIQ.png" width="300" height="50" alt="FinIQ" />
 
+              
               <img src="images/wceacm.png" width="300" height="50" alt="WCE ACM Student Chapter" />
               <br /><br />
-              <img src="images/FinIQ.png" width="300" height="50" alt="FinIQ" />
+              
             </div>
-
+            
             <div class="tab-pane fade" id="tab2">
 
               <h5><a href="http://www.iccet2020.in/publications.html" target="_blank"><img src="image/ICCET2020.jpg" alt="Springer" /></a></h5>
@@ -58,6 +77,7 @@ function SponsorsOld() {
 
               <br /><br />
             </div>
+           
 
           </div>
 
@@ -66,9 +86,11 @@ function SponsorsOld() {
         </div>
         <br/><br/>
 
-        <Notifications></Notifications>
+       
 
       </div>
+    </div>
+    */}
     </div>
   );
 }

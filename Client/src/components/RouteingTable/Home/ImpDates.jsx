@@ -1,7 +1,9 @@
 import React, { Components, useState } from 'react';
 
 import Chair from '../../../images/publication/chair.png';
+import Notifications from './Notifications';
 import Publications from './Publications';
+import SponsorsOld from './SponsorsOld';
 
 function ImpDates() {
     return (
@@ -65,6 +67,13 @@ function ImpDates() {
                                 </div>
                             </div>
                         </div>
+                        <br/>
+                        <Notifications/>
+                        <br/>
+                        <br/>
+                        <SponsorsOld/>
+                        <br/>
+
                         <br/>
                         <Publications/>
                         <br/>
