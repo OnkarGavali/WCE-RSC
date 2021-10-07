@@ -9,7 +9,7 @@ function Notifications() {
                 <div className="latest-posts">
 
                  <div className="tab-content" >
-                    <h4 className="classNameic-title" id="notifications"><span>Notifications</span></h4>
+                 <h3 class="classic-title" id="notifications"><span>Notifications</span></h3>
                    
 
 
