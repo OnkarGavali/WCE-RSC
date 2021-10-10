@@ -61,7 +61,7 @@ function Navbar(props) {
                 <li><Link to="/call-for-contribution">Call for Contributions <span className="pull-right"><i className="fa fa-bullhorn"></i></span></Link>
                   </li>
 
-                  <li><Link to="/Presentation-Instructions">Presentation <br /> Instructions <span className="pull-right"><i className="fa fa-info-circle"></i></span></Link>
+                  <li><Link to="/Guidlines">Submission Guidlines<span className="pull-right"><i className="fa fa-info-circle"></i></span></Link>
                   </li>
                   <li><Link to="/Paper-Submission">Paper Submission <span className="pull-right"><i className="fa fa-upload"></i></span></Link>
                   </li>

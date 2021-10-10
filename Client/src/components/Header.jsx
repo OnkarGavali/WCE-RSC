@@ -1,5 +1,11 @@
 import React, { Components, useState } from 'react';
 import Navbar from './Navbar';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 import Home from './RouteingTable/Home/Home';
 
@@ -18,11 +24,11 @@ function Header() {
             <div className="col-md-9">
 
               <ul className="contact-details">
-                <li><a href="#"><i className="fa fa-map-marker"></i> Walchand College of Engineering, Sangli, MH-IN</a>
+                <li><Link to="/contact"><i className="fa fa-map-marker"></i> Walchand College of Engineering, Sangli, MH-IN</Link>
                 </li>
-                <li><a href="mailto:  rsc2021@walchandsangli.ac.in  "><i className="fa fa-envelope-o"></i>  rsc2022@walchandsangli.ac.in</a>
+                <li><a href="mailto:  rsc2022@walchandsangli.ac.in  "><i className="fa fa-envelope-o"></i>  rsc2022@walchandsangli.ac.in</a>
                 </li>
-                <li><a href="#"><i className="fa fa-phone"></i>   +91 88057 09102 | 7030226700  </a>
+                <li><Link to="/contact"><i className="fa fa-phone"></i>   +91 88057 09102 | 7030226700  </Link>
                 </li>
               </ul>
 
@@ -32,16 +38,16 @@ function Header() {
 
               <ul className="social-list" style={{ listStyle: 'none', display: 'block' }}>
                 <li>
-                  <a className="facebook itl-tooltip" data-placement="bottom" title="Facebook" href="  $acm->SiteFB();  "><i className="fa fa-facebook"></i></a>
+                  <a className="facebook itl-tooltip" data-placement="bottom" title="Facebook" href="https://www.facebook.com/wceacm"><i className="fa fa-facebook"></i></a>
                 </li>
                 <li>
-                  <a className="twitter itl-tooltip" data-placement="bottom" title="Twitter" href="  $acm->SiteTwitter();  "><i className="fa fa-twitter"></i></a>
+                  <a className="twitter itl-tooltip" data-placement="bottom" title="Twitter" href="https://twitter.com/wce_acm"><i className="fa fa-twitter"></i></a>
                 </li>
                 <li>
-                  <a className="google itl-tooltip" data-placement="bottom" title="Google Plus" href="  $acm->SiteLinkedIn();  "><i className="fa fa-google-plus"></i></a>
+                  <a className="google itl-tooltip" data-placement="bottom" title="Google Plus" href="  mailto:  rsc2022@walchandsangli.ac.in   "><i className="fa fa-envelope-o"></i></a>
                 </li>
                 <li>
-                  <a className="linkdin itl-tooltip" data-placement="bottom" title="Linkedin" href="  $acm->SiteGplus();  "><i className="fa fa-linkedin"></i></a>
+                  <a className="linkdin itl-tooltip" data-placement="bottom" title="Linkedin" href="https://www.linkedin.com/company/wce-acm-student-chapter/mycompany/ "><i className="fa fa-linkedin"></i></a>
                 </li>
               </ul>
 

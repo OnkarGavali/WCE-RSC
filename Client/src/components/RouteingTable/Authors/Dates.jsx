@@ -22,8 +22,8 @@ function Dates() {
                         <div className="col-md-9">
                             <div>
                                 <br />
-                                <h1 className="accent-color">WCE Research Symposium on Computing - RSC 2021</h1><br />
-                                <p><strong>Organized by WCE ACM Student Chapter <br />National  Level Event By Department of Computer Science & Engineering</strong></p>
+                                <h1 className="accent-color">WCE Research Symposium on Computing - RSC 2022</h1><br />
+                                <p><strong>Organized by WCE ACM Student Chapter <br />Event By Department of Computer Science & Engineering</strong></p>
                             </div>
                             <h1 className="accent-color">Important Dates</h1>
                             <br />

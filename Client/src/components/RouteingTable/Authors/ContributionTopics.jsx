@@ -18,6 +18,8 @@ function ContributionTopics() {
                 <li><i class="fa fa-check-circle"></i>Cryptography & Data Security</li>
                 <li><i class="fa fa-check-circle"></i>Software Engineering</li>
                 <li><i class="fa fa-check-circle"></i>Smart City Applications</li>
+                <li><i class="fa fa-check-circle"></i>Multimedia, Game Development and Virtual Reality</li>
+                <li><i class="fa fa-check-circle"></i>IoT in Smart Agriculture</li>
                 <li><i class="fa fa-check-circle"></i>E-learning Tracks</li>
                 <em>
                 <li>Content Design</li>

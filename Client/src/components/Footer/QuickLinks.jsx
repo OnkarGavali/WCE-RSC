@@ -1,4 +1,11 @@
 import React from 'react'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
 
 export const QuickLinks = () => {
     return (
@@ -7,18 +14,20 @@ export const QuickLinks = () => {
             <h4>Quick Links<span class="head-line"></span></h4>
             <ul>
               <li>
-                <a href="asset/RSC-2018.pdf" target="_blank">e-Proceeding Download </a>
+                <Link to="asset/RSC-2018.pdf" target="_blank">e-Proceeding Download </Link>
               </li>
               <li>
-                <a href="about.html">About Us </a>
+                <Link to="/about">About Us </Link>
               </li>
 
               <li>
-                <a href="contact.html">Contact Us </a>
+                <Link to="/contact">Contact Us </Link>
               </li>
+              {/*
               <li>
-                <a href="terms.html">Terms of Use</a>
+                <Link to="">Terms of Use</Link>
               </li>
+              */}
             </ul>
           </div>
         </div>

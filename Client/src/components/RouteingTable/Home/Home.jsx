@@ -22,6 +22,7 @@ function Home() {
                     <div className="row">
                         
                         <HomeBody/>
+                        
 
                         <ImpDates/>
                         
@@ -30,8 +31,8 @@ function Home() {
                     
                 </div>
                 <div className="hr5" style={{marginTop:'30px',marginBottom:'40px'}}></div>
+               
                 
-                <Speakers/>
                   <div className="hr5" style={{marginTop:'30px',marginBottom:'40px'}}></div>
                 {/*<Sponsors/> */}
             </div>
