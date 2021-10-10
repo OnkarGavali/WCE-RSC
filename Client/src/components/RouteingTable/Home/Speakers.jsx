@@ -29,7 +29,7 @@ export default class Speakers extends Component {
                         <div className="row">
 
                             {/* <!-- Start Memebr 1 --> */}
-                            <div className="col-md-2 col-sm-6 col-xs-12" style={{width:'18%'}}   data-animation="fadeIn" data-animation-delay="03">
+                            <div className="col-md-2 col-sm-4 col-xs-8"    data-animation="fadeIn" data-animation-delay="03">
                                 <div className="team-member modern">
                                     {/* <!-- Memebr Photo, Name & Position --> */}
                                     <div className="member-photo">
@@ -56,7 +56,7 @@ export default class Speakers extends Component {
                             {/* <!-- End Memebr 1 -->
 
                             <!-- Start Memebr 2 --> */}
-                            <div className="col-md-2 col-sm-6 col-xs-12" style={{width:'18%'}} data-animation="fadeIn" data-animation-delay="04">
+                            <div className="col-md-2 col-sm-4 col-xs-8" data-animation="fadeIn" data-animation-delay="04">
                                 <div className="team-member modern">
                                     {/* <!-- Memebr Photo, Name & Position --> */}
                                     <div className="member-photo" >
@@ -83,7 +83,7 @@ export default class Speakers extends Component {
                             {/* <!-- End Memebr 2 -->
 
                             <!-- Start Memebr 3 --> */}
-                            <div className="col-md-2 col-sm-6 col-xs-12" style={{width:'18%'}} data-animation="fadeIn" data-animation-delay="05">
+                            <div className="col-md-2 col-sm-4 col-xs-8" data-animation="fadeIn" data-animation-delay="05">
                                 <div className="team-member modern">
                                     {/* <!-- Memebr Photo, Name & Position --> */}
                                     <div className="member-photo">
