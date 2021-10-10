@@ -79,7 +79,9 @@ function Navbar(props) {
                 <ul className="dropdown">
                   <li><Link to="/Keynotes">Keynotes &amp; Awards Presentation<span className="pull-right"><i className="fa fa-microphone"></i></span></Link>
                   </li>
-                  <li><Link to="/Paper-Presentation">Paper Presentation<span className="pull-right"><i className="fa fa-newspaper-o"></i></span></Link>
+                  <li><Link to="/Paper-Presentation">Paper Presentation<span className="pull-right"><i className="fa fa-file"></i></span></Link>
+                  </li>
+                  <li><Link to="/IPS">Innovative Project Showcase<span className="pull-right"><i className="fa fa-file"></i></span></Link>
                   </li>
                   <li><Link to="/Poster-Presentation">Poster Presentation<span className="pull-right"><i className="fa fa-image"></i></span></Link>
                   </li>

@@ -12,7 +12,7 @@ import PosterPresentation from './RouteingTable/Programs/PosterPresentation'
 import Dates from './RouteingTable/Authors/Dates'
 import Keynotes from './RouteingTable/Programs/Keynotes'
 import Schedule from './RouteingTable/Programs/Schedule'
-
+import IPS from './RouteingTable/Programs/IPS';
 import Register from './RouteingTable/Programs/Register';
 import Org_Committee from './RouteingTable/Organisation/Org_committee'
 import Adv_Committee from './RouteingTable/Organisation/Advisory_committee'
@@ -37,6 +37,9 @@ export default class RoutingTable extends Component {
                     <Route path="/about">
                         <About />
                     </Route>
+                    <Route path="/IPS">
+                        <IPS/>
+                        </Route>
 
                     <Route path="/call-for-contribution">
                         <CallForContriBution />
