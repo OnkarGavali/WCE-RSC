@@ -6,4 +6,5 @@ const keyNotesSchema = new mongoose.Schema({
     Designation:{type:String}
 })
 
+
 module.exports = mongoose.model('keyNote',keyNotesSchema)

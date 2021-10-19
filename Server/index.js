@@ -4,15 +4,18 @@ const connectDB = require('./config/db')
 
 
 dotenv.config({path:'./config/config.env'});
+// console.log(process.env);
 connectDB();
 
 const app = express();
 
 app.use(express.json());
 
-app.use('/',require('./routes/auth.js'));
-app.use('/post',require('./routes/common.js'));
+app.use('/auth',require('./routes/auth.js'));
+app.use('/post',require('./routes/PostRoutes.js'));
+app.use('/get',require('./routes/GetRoutes.js'))
+app.use('/delete',require('./routes/DeleteRoutes.js'))
 
-app.listen(5000,() => {
+app.listen(process.env.PORT,() => {
     console.log("Server is Running");
 })
