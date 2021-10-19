@@ -6,17 +6,20 @@ import Contact from './RouteingTable/Contact/Contact'
 import Gallery from './RouteingTable/Gallery/Gallery'
 import Home from './RouteingTable/Home/Home'
 import CallForContriBution from '../components/RouteingTable/Authors/CallForContribution';
-import PresentationInstructions from '../components/RouteingTable/Authors/PresentationInstructions';
 import PaperPresentation from './RouteingTable/Programs/PaperPresentation'
 import Submission from '../components/RouteingTable/Authors/Submission';
 import PosterPresentation from './RouteingTable/Programs/PosterPresentation'
 import Dates from './RouteingTable/Authors/Dates'
 import Keynotes from './RouteingTable/Programs/Keynotes'
 import Schedule from './RouteingTable/Programs/Schedule'
-
+import IPS from './RouteingTable/Programs/IPS';
 import Register from './RouteingTable/Programs/Register';
 import Org_Committee from './RouteingTable/Organisation/Org_committee'
 import Adv_Committee from './RouteingTable/Organisation/Advisory_committee'
+import Venue from './RouteingTable/Local/Venue'
+import Location from './RouteingTable/Local/Location'
+import Accessing from './RouteingTable/Local/Accessing'
+import Guidlines from './RouteingTable/Authors/Guidlines'
 
 
 export default class RoutingTable extends Component {
@@ -34,16 +37,28 @@ export default class RoutingTable extends Component {
                     <Route path="/about">
                         <About />
                     </Route>
+                    <Route path="/IPS">
+                        <IPS/>
+                        </Route>
 
                     <Route path="/call-for-contribution">
                         <CallForContriBution />
                     </Route>
-                    <Route path="/Presentation-Instructions">
-                        <PresentationInstructions />
+                    <Route path="/Guidlines">
+                        <Guidlines/>
                     </Route>
                     <Route path="/Paper-Submission">
                         <Submission />
                     </Route>
+                    <Route path="/venue">
+                        <Venue/>
+                        </Route>
+                    <Route path="/location">
+                        <Location/>
+                        </Route>    
+                    <Route path="/accessing">
+                        <Accessing/>
+                        </Route>    
                     <Route path="/Important-Dates">
                         <Dates />
                     </Route>

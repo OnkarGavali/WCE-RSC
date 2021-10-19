@@ -51,7 +51,7 @@ function Submission() {
                                             <img src="/images/Sub.jpg" alt="Submission"/>
                                             </div>
                                             <div class ="alert alert-success alert-dismissible">
-                                            <h3><a href="https://easychair.org/conferences/?conf=rsc2021" target="_blank">Click Here</a> for submission of papers, RSC 2021</h3>
+                                            <h3><a href="https://easychair.org/conferences/?conf=rsc2021" target="_blank">Click Here</a> for submission of papers, RSC 2022</h3>
                                             </div>
                                             </div>
                                         </div>
@@ -93,7 +93,7 @@ function Submission() {
                                             </li>
 
                                             <li>
-                                                <a href="dates.html">Important Dates</a>
+                                               <Link to="/Important-Dates">Important Dates</Link>
                                             </li>
 
                                         </ul>

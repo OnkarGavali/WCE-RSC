@@ -35,11 +35,11 @@ function Navbar(props) {
         <div className="container">
           <div class="navbar-header">
 
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" style={{ marginBottom: '0%' }}>
-              <i class="fa fa-bars"></i>
+            <button type="button" className="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" style={{ marginBottom: '0%' }}>
+              <i className="fa fa-bars"></i>
             </button>
 
-            <a class="navbar-brand" href="index">
+            <a className="navbar-brand" href="index">
 
             </a>
           </div>
@@ -61,7 +61,7 @@ function Navbar(props) {
                 <li><Link to="/call-for-contribution">Call for Contributions <span className="pull-right"><i className="fa fa-bullhorn"></i></span></Link>
                   </li>
 
-                  <li><Link to="/Presentation-Instructions">Presentation <br /> Instructions <span className="pull-right"><i className="fa fa-info-circle"></i></span></Link>
+                  <li><Link to="/Guidlines">Submission Guidlines<span className="pull-right"><i className="fa fa-info-circle"></i></span></Link>
                   </li>
                   <li><Link to="/Paper-Submission">Paper Submission <span className="pull-right"><i className="fa fa-upload"></i></span></Link>
                   </li>
@@ -79,7 +79,9 @@ function Navbar(props) {
                 <ul className="dropdown">
                   <li><Link to="/Keynotes">Keynotes &amp; Awards Presentation<span className="pull-right"><i className="fa fa-microphone"></i></span></Link>
                   </li>
-                  <li><Link to="/Paper-Presentation">Paper Presentation<span className="pull-right"><i className="fa fa-newspaper-o"></i></span></Link>
+                  <li><Link to="/Paper-Presentation">Paper Presentation<span className="pull-right"><i className="fa fa-file"></i></span></Link>
+                  </li>
+                  <li><Link to="/IPS">Innovative Project Showcase<span className="pull-right"><i className="fa fa-file"></i></span></Link>
                   </li>
                   <li><Link to="/Poster-Presentation">Poster Presentation<span className="pull-right"><i className="fa fa-image"></i></span></Link>
                   </li>

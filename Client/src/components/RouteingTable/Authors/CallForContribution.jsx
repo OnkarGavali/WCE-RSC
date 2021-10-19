@@ -27,9 +27,9 @@ function CallForContriBution() {
 
 
 
-                            <h1 class="accent-color">WCE Research Symposium on Computing - RSC 2021</h1>
+                            <h1 class="accent-color">WCE Research Symposium on Computing - RSC 2022</h1>
 
-                            <p><strong>FIFTH NATIONAL RESEARCH SYMPOSIUM ON COMPUTING <br />National Level joint Event by WCE ACM
+                            <p><strong>SIXTH RESEARCH SYMPOSIUM ON COMPUTING <br />National Level joint Event by WCE ACM
                                 Student Chapter and Department of CSE and Department of IT (WCE,Sangli) and Jabalpur College of
                                 Engineering, Jabalpur </strong></p>
 

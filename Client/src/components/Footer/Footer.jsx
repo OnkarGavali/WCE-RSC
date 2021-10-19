@@ -21,7 +21,7 @@ export const Footer = () => {
                 <div className="row footer-widgets justify-content-md-between">
                  
                     <div className="col-md-3">
-                        <Subscribe />
+                        
                         <SocialLinks/>
                     </div>
                     <QuickLinks/>

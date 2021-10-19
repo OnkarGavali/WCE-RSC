@@ -31,7 +31,7 @@ function About() {
                                 <div className="col-md-12">
 
 
-                                    <h4 className="classic-title"><span>Welcome To WCE Research Symposium on Computing 2021</span></h4>
+                                    <h4 className="classic-title"><span>Welcome To WCE Research Symposium on Computing 2022</span></h4>
 
 
                                     <ul className="nav nav-tabs">
