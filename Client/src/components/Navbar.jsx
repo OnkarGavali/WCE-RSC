@@ -141,6 +141,11 @@ function Navbar(props) {
                 <span className="pull-left"><i className="fa fa-envelope"></i></span>&nbsp;&nbsp;Contact
                 </Link>
               </li>
+              <li>
+              <Link to="/Admin">
+                <span className="pull-left"></span>&nbsp;&nbsp;Admin
+                </Link>
+              </li>
             </ul>
             
 

@@ -20,7 +20,7 @@ import Venue from './RouteingTable/Local/Venue'
 import Location from './RouteingTable/Local/Location'
 import Accessing from './RouteingTable/Local/Accessing'
 import Guidlines from './RouteingTable/Authors/Guidlines'
-
+import Login from './RouteingTable/Admin/Login'
 
 export default class RoutingTable extends Component {
     render() {
@@ -84,6 +84,9 @@ export default class RoutingTable extends Component {
                     <Route path="/Register">
                         <Register />
                     </Route>
+                    <Route path="/Admin">
+                        <Login/>
+                        </Route>
 
 
 
