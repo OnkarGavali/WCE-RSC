@@ -17,5 +17,5 @@ app.use('/get',require('./routes/GetRoutes.js'))
 app.use('/delete',require('./routes/DeleteRoutes.js'))
 
 app.listen(process.env.PORT,() => {
-    console.log("Server is Running");
+    console.log("Server is Running on port " + process.env.PORT );
 })

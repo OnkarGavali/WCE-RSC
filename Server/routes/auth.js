@@ -4,6 +4,13 @@ const jwt = require('jsonwebtoken')
 const router = express.Router()
 const User = require('../models/User');
 const verifyJWT = require('../middleware/common');
+const cors = require('cors');
+const app = express();
+app.use(
+    cors({
+        "origin":"http://localhost:3000/"
+    })
+);
 
 
 router.post('/register',(req,res) => {
@@ -89,8 +96,9 @@ router.post('/login',(req,res) => {
         });
 });
 
-router.get('/admin',verifyJWT,(req,res) => {
+router.get('/login',verifyJWT,(req,res) => {
     res.send("Admin Page");
 });
+
 
 module.exports = router;
