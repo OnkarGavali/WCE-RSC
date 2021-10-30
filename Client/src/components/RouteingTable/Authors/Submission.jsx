@@ -13,25 +13,25 @@ function Submission() {
         <div>
             
             <PageBanner name="Paper Submission" head="Author" subhead="Paper Submission" info="Feel Free To Get In Touch" />
-            <div id="content">
-                <div class="container">
-                    <div class="page-content">
+            <div className="contenti">
+                <div className="container">
+                    <div className="page-content">
 
-                        <div class="col-md-9">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    {/*<!-- <div class="alert alert-success alert-dismissible">
+                        <div className="col-md-9">
+                            <div className="row">
+                                <div className="col-sm-12">
+                                    {/*<!-- <div className="alert alert-success alert-dismissible">
                                         <h3>The Submissions portal is yet to open. For further updates stay tuned !.!.! <br /></h3>
                                     </div> -->
                                     */}
                                 </div>
                             </div>
 
-                            <div class="col-md-9">
-                                <div class="row">
-                                    <div class="col-sm-12">
+                            <div className="col-md-9">
+                                <div className="row">
+                                    <div className="col-sm-12">
 
-                                   {  /*   <!-- <div class="alert alert-danger">
+                                   {  /*   <!-- <div className="alert alert-danger">
                                             <h3>
                                                 The paper submission for possible inclusion in Springer / e-proceedings and Innovative project showcasing have been closed.  The submissions for Innovative Project Showcasing is open till 18 November 2018
                                             </h3>
@@ -50,26 +50,26 @@ function Submission() {
                                             <br/>
                                             <img src="/images/Sub.jpg" alt="Submission"/>
                                             </div>
-                                            <div class ="alert alert-success alert-dismissible">
+                                            <div className ="alert alert-success alert-dismissible">
                                             <h3><a href="https://easychair.org/conferences/?conf=rsc2021" target="_blank">Click Here</a> for submission of papers, RSC 2022</h3>
                                             </div>
                                             </div>
                                         </div>
 
 
-                                     { /*  <!--div class="row">
-                                        <div class="col-sm-12">
-                                            <div class="alert alert-success alert-dismissible">
-                                                <h3><i class="fa fa-download"></i> Download Template for Paper<br />
+                                     { /*  <!--div className="row">
+                                        <div className="col-sm-12">
+                                            <div className="alert alert-success alert-dismissible">
+                                                <h3><i className="fa fa-download"></i> Download Template for Paper<br />
                                                     <a href="IJCSE_Paper_Template.doc">IJCSE_Paper_Template.doc</a></h3>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div class="row">
-                                        <div class="col-sm-12">
-                                            <div class="alert alert-success alert-dismissible">
-                                                <h3><i class="fa fa-download"></i> Download Copyright Form <br />
+                                    <div className="row">
+                                        <div className="col-sm-12">
+                                            <div className="alert alert-success alert-dismissible">
+                                                <h3><i className="fa fa-download"></i> Download Copyright Form <br />
                                                     <a href="IJCSE_Copyright_Form.pdf">IJCSE_Copyright_Form.pdf</a></h3>
                                             </div>
                                         </div>
@@ -78,10 +78,10 @@ function Submission() {
 
 
                                 </div>
-                                <div class="col-md-3 sidebar right-sidebar">
+                                <div className="col-md-3 sidebar right-sidebar">
                                     
-                                    <div class="widget widget-categories">
-                                        <h4>Related Links <span class="head-line"></span></h4>
+                                    <div className="widget widget-categories">
+                                        <h4>Related Links <span className="head-line"></span></h4>
                                         <ul>
 
                                             <li>

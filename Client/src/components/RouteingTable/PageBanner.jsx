@@ -16,12 +16,26 @@ import {
                     <p>{props.info}</p>
                     
                 </div>
+                
                 <div className="col-md-6">
-                    <ul className="breadcrumbs">
-                    <li><Link to="/Home">Home</Link></li>
-                    <li>{props.head}</li>
-                    <li>{props.subhead}</li>
-                    </ul>
+                    
+                    {
+                        (props.subhead == null)? (
+                            <ul className="breadcrumbs">
+                                <li><Link to="/Home">Home</Link></li>
+                                <li>{props.head}</li>
+                            </ul>
+                        ):(
+                            <ul className="breadcrumbs">
+                                <li><Link to="/Home">Home</Link></li>
+                                <li><b>{props.head}</b></li>
+                                <li>{props.subhead}</li>
+                            </ul>
+                        )
+                    }
+
+                    
+                    
                 </div>
                 </div>
             </div>

@@ -15,13 +15,13 @@ function Dates() {
     return (
         <div>
             <PageBanner name="Important Dates" head="Author" subhead="Important Dates" info="Feel Free To Get In Touch" />
-            <div id="content">
+            <div className="contenti">
                 <div className="container">
                     <div className="page-content">
 
                         <div className="col-md-9">
                             <div>
-                                <br />
+                                
                                 <h1 className="accent-color">WCE Research Symposium on Computing - RSC 2022</h1><br />
                                 <p><strong>Organized by WCE ACM Student Chapter <br />Event By Department of Computer Science & Engineering</strong></p>
                             </div>
@@ -54,26 +54,15 @@ function Dates() {
                                 <h4>Related Links <span class="head-line"></span></h4>
                                 <ul>
                                     <li>
-
                                         <Link to="Presentation-Instructions">Presentation Instructions</Link>
-
                                     </li>
 
                                     <li>
-
-
-
                                         <Link to="Call-for-contribution">Call for Contributions</Link>
-
-
-
-
                                     </li>
 
                                     <li>
-
                                         <Link to="Paper-Submission">Paper Submission</Link>
-
                                     </li>
 
                                 </ul>

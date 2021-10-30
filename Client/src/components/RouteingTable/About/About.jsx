@@ -21,7 +21,7 @@ function About() {
             
             <div className="containeri" >
 
-                <PageBanner  name="About Us"  head ="About" info="We Are WCE Research Symposium"/>
+                <PageBanner  name="About Us"  head ="About"  info="We Are WCE Research Symposium"/>
 
                 <div className="contenti" >
                     <div className="container">

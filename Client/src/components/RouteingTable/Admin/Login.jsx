@@ -11,34 +11,34 @@ import PageBanner from '../PageBanner';
 function Login() {
     return (
         <div>
-            <PageBanner name="Login" />
+            <PageBanner name="Login" head='Admin'/>
             <div id="content">
-                <div class="container">
-                    <div class="page-content">
-                        <div class="col-md-5">
+                <div className="container">
+                    <div className="page-content">
+                        <div className="col-md-5">
 
                             <br/>
-                            <h4 class="classic-title"><span>Login for Admin Panel</span></h4>
+                            <h4 className="classic-title"><span>Login for Admin Panel</span></h4>
 
-                            <form role="form" class="contact-form" id="contact-form2" method="post"
+                            <form role="form" className="contact-form" id="contact-form2" method="post"
                                 action="<?php echo $acm->GetSelfScript(); ?>">
                                 <form id='login' method='post' accept-charset='UTF-8'>
                                     <input type='hidden' name='submitted' id='submitted' value='1' />
 
-                                    <div class="form-group">
-                                        <div class="controls">
-                                            <input type="email" placeholder="Registered Email ID" name="email" id="email" class="email"
+                                    <div className="form-group">
+                                        <div className="controls">
+                                            <input type="email" placeholder="Registered Email ID" name="email" id="email" className="email"
                                                 required="required" />
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <div class="controls">
-                                            <input type="password" class="email" placeholder="Password" name="password" id="password"
+                                    <div className="form-group">
+                                        <div className="controls">
+                                            <input type="password" className="email" placeholder="Password" name="password" id="password"
                                                 required="required" />
                                         </div>
                                     </div>
 
-                                    <button type="submit" id="submit" class="btn-system btn-large">Login</button>
+                                    <button type="submit" id="submit" className="btn-system btn-large">Login</button>
                                     <br/>
                                     <br/>
                                 </form>

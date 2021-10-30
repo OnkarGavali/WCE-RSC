@@ -28,71 +28,109 @@ export default class RoutingTable extends Component {
             <div>
 
                 <Switch>
-                    <Route path="/contact">
-                        <Contact />
-                    </Route>
-                    <Route path="/gallery">
-                        <Gallery />
-                    </Route>
-                    <Route path="/about">
-                        <About />
-                    </Route>
-                    <Route path="/IPS">
-                        <IPS/>
-                        </Route>
 
-                    <Route path="/call-for-contribution">
-                        <CallForContriBution />
-                    </Route>
-                    <Route path="/Guidlines">
-                        <Guidlines/>
-                    </Route>
-                    <Route path="/Paper-Submission">
-                        <Submission />
-                    </Route>
-                    <Route path="/venue">
-                        <Venue/>
+                    {/* Home - start*/}
+                        <Route exact path="/">
+                            <Home />
                         </Route>
-                    <Route path="/location">
-                        <Location/>
+                    {/* Home - end*/}
+
+
+                    {/* Authors - start*/}
+                        <Route exact path="/authors/call-for-contribution">
+                            <CallForContriBution />
+                        </Route>
+                        <Route exact path="/authors/Guidlines">
+                            <Guidlines/>
+                        </Route>
+                        <Route exact path="/authors/Paper-Submission">
+                            <Submission />
+                        </Route>
+                        <Route exact path="/authors/Important-Dates">
+                            <Dates />
+                        </Route>
+                    {/* Authors - end*/}
+
+
+                    {/* Programs - start*/}
+                        <Route exact path="/programs/Keynotes">
+                            <Keynotes />
+                        </Route>
+                        <Route exact path="/programs/Paper-Presentation">
+                            <PaperPresentation />
+                        </Route>
+                        <Route exact path="/programs/Poster-Presentation">
+                            <PosterPresentation />
+                        </Route>
+                        <Route exact path="/programs/IPS">
+                            <IPS/>
+                        </Route>
+                        <Route exact path="/programs/Schedule">
+                            <Schedule />
+                        </Route>
+                        <Route exact path="/programs/Register">
+                            <Register />
+                        </Route>
+                    {/* Programs - end*/}
+
+
+                    {/* Organisation - start*/}
+                        <Route exact path="/organisation/Org_committee">
+                            <Org_Committee />
+                        </Route>
+                        <Route exact path="/organisation/Adv_committee">
+                            <Adv_Committee/>
+                        </Route>
+                    {/* Organisation - end*/}
+
+
+                    {/* Local Info - start*/}
+                        <Route exact path="/localInfo/venue">
+                            <Venue/>
+                        </Route>
+                        <Route exact path="/localInfo/location">
+                            <Location/>
                         </Route>    
-                    <Route path="/accessing">
-                        <Accessing/>
-                        </Route>    
-                    <Route path="/Important-Dates">
-                        <Dates />
-                    </Route>
-                    <Route path="/Keynotes">
-                        <Keynotes />
-                    </Route>
-                    <Route path="/Paper-Presentation">
-                        <PaperPresentation />
-                    </Route>
-                    <Route path="/Poster-Presentation">
-                        <PosterPresentation />
-                    </Route>
-                    <Route path="/Org_committee">
-                        <Org_Committee />
-                    </Route>
-                    <Route path="/Adv_committee">
-                        <Adv_Committee/>
-                    </Route>
-
-                    <Route path="/Schedule">
-                        <Schedule />
-                    </Route>
-                    <Route path="/Register">
-                        <Register />
-                    </Route>
-                    <Route path="/Admin">
-                        <Login/>
+                        <Route exact path="/localInfo/accessing">
+                            <Accessing/>
                         </Route>
+                    {/* Local Info - end*/}
 
 
+                    {/* Gallery - start*/}
+                        <Route exact path="/gallery">
+                            <Gallery />
+                        </Route>
+                    {/* Gallery - end*/}
 
-                    <Route path="/">
-                        <Home />
-                    </Route>
+
+                    {/* About - start*/}
+                        <Route exact path="/about">
+                            <About />
+                        </Route>
+                    {/* About - end*/}
+
+
+                    {/* Contact - start*/}
+                        <Route exact path="/contact">
+                            <Contact />
+                        </Route>
+                    {/* Contact - end*/}
+
+
+                    {/* Admin - start*/}
+                        <Route exact path="/Admin">
+                            <Login/>
+                        </Route>
+                    {/* Admin - end*/}
+
+
+                    {/* Random Route - start*/}
+                        <Route path="*">
+                            <Home />
+                        </Route>
+                    {/* Random Route - end*/}
+                     
                 </Switch>
             </div>
         )
