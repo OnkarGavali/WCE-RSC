@@ -22,26 +22,26 @@ function Slider() {
                    
                     <div class="carousel-inner" style={{maxHeight:'450px'}}>
                         <div class="item active">
-                            <img class="img-responsive" src="images/slider/1.jpg" alt="slider"/>
+                            <img class="img-responsive" src="/images/slider/1.jpg" alt="slider"/>
                         </div>
                        
                         <div class="item">
-                            <img class="img-responsive" src="images/slider/2.jpg" alt="slider"/>
+                            <img class="img-responsive" src="/images/slider/2.jpg" alt="slider"/>
                         </div>
                         <div class="item">
-                            <img class="img-responsive" src="images/slider/3.jpg" alt="slider"/>
+                            <img class="img-responsive" src="/images/slider/3.jpg" alt="slider"/>
                         </div>
                         <div class="item">
-                            <img class="img-responsive" src="images/slider/4.jpg" alt="slider"/>
+                            <img class="img-responsive" src="/images/slider/4.jpg" alt="slider"/>
                         </div>
                         <div class="item">
-                            <img class="img-responsive" src="images/slider/5.jpg" alt="slider"/>
+                            <img class="img-responsive" src="/images/slider/5.jpg" alt="slider"/>
                         </div>
                         <div class="item">
-                            <img class="img-responsive" src="images/slider/6.jpg" alt="slider"/>
+                            <img class="img-responsive" src="/images/slider/6.jpg" alt="slider"/>
                         </div>
                         <div class="item">
-                            <img class="img-responsive" src="images/slider/7.jpg" alt="slider"/>
+                            <img class="img-responsive" src="/images/slider/7.jpg" alt="slider"/>
                         </div>
 
                        

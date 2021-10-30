@@ -9,23 +9,23 @@ export const Flicker = () => {
              
                   <li>
                     <a href="http://acm.org" class="lightbox">
-                      <img alt="ACM Official Website" src="images/ext/1.png"/>
+                      <img alt="ACM Official Website" src="/images/ext/1.png"/>
                     </a>
                   </li>
                   <li>
                     <a href="http://india.acm.org" class="lightbox">
-                      <img alt="ACM India Official Website" src="images/ext/2.png"/>
+                      <img alt="ACM India Official Website" src="/images/ext/2.png"/>
                     </a>
                   </li>
                   <li>
                     <a href="http://walchandsangli.ac.in" class="lightbox">
-                      <img alt="Walchand College of Engineering Official Website" src="images/ext/3.png"/>
+                      <img alt="Walchand College of Engineering Official Website" src="/images/ext/3.png"/>
                     </a>
                   </li>
                   
                   <li>
                     <a href="http://wce.acm.org" class="lightbox">
-                      <img alt="Wce ACM Official Website" src="images/news/3.jpg"/>
+                      <img alt="Wce ACM Official Website" src="/images/news/3.jpg"/>
                     </a>
                   </li>
                 
