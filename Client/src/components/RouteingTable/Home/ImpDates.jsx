@@ -18,7 +18,7 @@ function ImpDates() {
             <div class="container">
                 <div class="row">
                     <div className="col-md-4">
-                    <Link to="/Register" style={{marginLeft:'25%'}} className="btn btn-lg btn-system"> Register Now</Link>
+                    <Link to="Programs/Register" style={{marginLeft:'25%'}} className="btn btn-lg btn-system"> Register Now</Link>
                    
                         <div class="tab-content">
                             <div class="latest-posts">
