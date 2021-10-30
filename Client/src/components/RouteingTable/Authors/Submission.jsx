@@ -11,8 +11,10 @@ import {
 function Submission() {
     return (
         <div>
-            
+            {/* PageBanner - start */}
             <PageBanner name="Paper Submission" head="Author" subhead="Paper Submission" info="Feel Free To Get In Touch" />
+            {/* PageBanner - end */}
+           
             <div className="contenti">
                 <div className="container">
                     <div className="page-content">
@@ -78,7 +80,11 @@ function Submission() {
 
 
                                 </div>
-                                <div className="col-md-3 sidebar right-sidebar">
+                               
+                            </div>
+                            {/* Related Links - start */}
+                            {/* Related Links - end */}
+                            <div className="col-md-3 sidebar right-sidebar">
                                     
                                     <div className="widget widget-categories">
                                         <h4>Related Links <span className="head-line"></span></h4>
@@ -93,13 +99,12 @@ function Submission() {
                                             </li>
 
                                             <li>
-                                               <Link to="/Important-Dates">Important Dates</Link>
+                                               <Link to="Important-Dates">Important Dates</Link>
                                             </li>
 
                                         </ul>
                                     </div>
                                 </div>
-                            </div>
                         </div>
                     </div>
                     </div>

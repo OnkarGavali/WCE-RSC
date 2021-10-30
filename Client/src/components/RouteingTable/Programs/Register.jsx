@@ -1,11 +1,6 @@
 import React, { Components, useState } from 'react';
 import Table from 'react-bootstrap/Table';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+
 import PageBanner from '../PageBanner';
 
 
@@ -16,12 +11,7 @@ function Register() {
   return (
     <div>
       <PageBanner name="Register" head="Programs" subhead="Register" info="We Are WCE Research Symposium" />
-
-
-
-
-
-      <div id="content">
+      <div className="contenti">
         <div className="container">
           <div className="page-content">
           < h3 className="classic-title"><span>Note</span></h3>

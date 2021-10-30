@@ -14,7 +14,10 @@ import {
 function Dates() {
     return (
         <div>
+            {/* PageBanner - start */}
             <PageBanner name="Important Dates" head="Author" subhead="Important Dates" info="Feel Free To Get In Touch" />
+            {/* PageBanner - end */}
+            
             <div className="contenti">
                 <div className="container">
                     <div className="page-content">

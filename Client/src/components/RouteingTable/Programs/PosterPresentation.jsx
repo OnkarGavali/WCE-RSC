@@ -13,7 +13,7 @@ function PosterPresentation() {
     return (
         <div>
             <PageBanner name="Poster Presentations" head="Programs" subhead="Poster Presentations" info="Feel Free To Get In Touch" />
-            <div id="content">
+            <div className="contenti">
                 <div className="container">
                     <div className="page-content">
 

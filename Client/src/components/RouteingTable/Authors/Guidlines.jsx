@@ -2,9 +2,6 @@ import React, { Components, useState } from 'react';
 import PageBanner from '../PageBanner';
 import Header from '../../Header';
 import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
     Link
 } from "react-router-dom";
 
@@ -12,33 +9,16 @@ import {
 function Guidlines() {
     return (
         <div>
-
+            {/* PageBanner - start */}
             <PageBanner name="Submission Guidlines" head="Author" subhead="Submission Guidlines" info="Feel Free To Get In Touch" />
-            <br/>
-            <div id="content">
-
-
-
-                <div class="container">
-
-
-
-                    <div class="page-content">
-
-
-
-
-
-
-
-                        <div class="col-md-9">
-
-
+            {/* PageBanner - end */}
+           
+            <div className="contenti">
+                <div className="container">
+                    <div className="page-content">
+                        <div className="col-md-9">
                             {/*<!-- <h4>A research student who wants to submit a paper for the WCE Research Symposium on Computing should prepare:</h4> -->*/}
-                            <h3 class="classic-title" id="notifications"><span>Paper Submission Guidlines </span></h3>
-                            <br />
-
-
+                            <h3 className="classic-title" id="notifications"><span>Paper Submission Guidlines </span></h3>
 
                             <ul style={{ listStyleType: 'disc', marginLeft: '3%' }}>
                                 <li>Simultaneous submissions (papers already submitted to other conferences/journals) are not allowed.
@@ -55,129 +35,43 @@ function Guidlines() {
                                 <li>No page numbering on the manuscript is allowed.</li>
                             </ul>
 
+                            <div className="hr5" style={{marginTop:'30px',marginBottom:'30px'}}></div>
 
-
-                            <br />
-
-
-                            <br />
-                            <h3 class="classic-title" id="notifications"><span>Publication</span></h3>
+                            <h3 className="classic-title" id="notifications"><span>Publication</span></h3>
                             <p>All the selected and presented papers in the conference except E-learning Track will be
                                 published in Springer Book Series (in Process). The papers of E-learning track will be
                                 published in RSC proceedings only. The Organizing Committee's decision will be final
                                 on publications of paper in the journals.
                             </p>
-                            <br />
+                          
+                            <div className="hr5" style={{marginTop:'30px',marginBottom:'30px'}}></div>
 
-
-                            <br />
-
-
-
-
-                            <h3 class="classic-title" id="notifications"><span>Note</span></h3>
+                            <h3 className="classic-title" id="notifications"><span>Note</span></h3>
                             <p>All the three documents must be written in English.</p>
-
-
-
-
                         </div>
 
-
-
-                        <div class="col-md-3 sidebar right-sidebar">
-
-
-
-
-                            <div class="widget widget-categories">
-
-
-
-                                <h4>Related Links <span class="head-line"></span></h4>
-
-
-
+                        {/* Related Links - start */}
+                        {/* Related Links - end */}
+                        <div className="col-md-3 sidebar right-sidebar">
+                            <div className="widget widget-categories">
+                                <h4>Related Links <span className="head-line"></span></h4>
                                 <ul>
-
-
-
-
-
-
-
                                     <li>
-
-
-
                                         <Link to="Call-for-contribution">Call for Contributions</Link>
-
-
-
-
                                     </li>
-
-
-
-
-
-
-
-
-
-
-
                                     <li>
-
-
-
                                         <Link to="Paper-Submission">Paper Submission</Link>
-
-
-
                                     </li>
-
-
-
-
-
-
-
                                     <li>
-
                                         <Link to="Important-Dates">Important Dates</Link>
-
                                     </li>
-
-
-
-
-
-
-
-
                                 </ul>
-
-
-
                             </div>
-
-
-
                         </div>
-
-
 
                     </div>
-
-
-
                 </div>
-
-
-
             </div>
-
         </div>
     );
 }

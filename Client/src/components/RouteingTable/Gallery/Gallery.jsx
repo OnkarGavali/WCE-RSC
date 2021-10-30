@@ -3,6 +3,7 @@ import Header from '../../Header';
 import { GalleryImages } from './GalleryImages';
 
 import galleryImgs from '../../../JSON/gallaryImages.json'
+import PageBanner from '../PageBanner';
 
 function Gallery ()
 {
@@ -15,7 +16,9 @@ function Gallery ()
     })
     
     return (
-       <div id="content">
+      <React.Fragment>
+        <PageBanner name="Gallery" head="Gallery" />
+       <div className="contenti">
         <div className="container">
           <div className="recent-projects">
             <h4 className="title"><span>Gallery</span></h4>
@@ -41,6 +44,7 @@ function Gallery ()
 
           </div>
         </div>
+        </React.Fragment>
     );
 }
 
