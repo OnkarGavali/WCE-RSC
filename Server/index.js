@@ -1,6 +1,9 @@
 const express = require('express')
 const dotenv = require('dotenv')
 const connectDB = require('./config/db')
+const cors = require('cors');
+
+
 
 
 dotenv.config({path:'./config/config.env'});
@@ -8,6 +11,12 @@ dotenv.config({path:'./config/config.env'});
 connectDB();
 
 const app = express();
+
+app.use(
+    cors({
+        origin:"http://localhost:3000"
+    })
+);
 
 app.use(express.json());
 

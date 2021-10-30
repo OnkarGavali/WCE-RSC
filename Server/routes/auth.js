@@ -4,13 +4,7 @@ const jwt = require('jsonwebtoken')
 const router = express.Router()
 const User = require('../models/User');
 const verifyJWT = require('../middleware/common');
-const cors = require('cors');
-const app = express();
-app.use(
-    cors({
-        "origin":"http://localhost:3000/"
-    })
-);
+
 
 
 router.post('/register',(req,res) => {
@@ -62,6 +56,7 @@ router.post('/register',(req,res) => {
 });
 
 router.post('/login',(req,res) => {
+   
    const {Username,Password} = req.body;
     if(!Username || !Password)
     {
@@ -70,9 +65,9 @@ router.post('/login',(req,res) => {
 
     User.findOne({Username})
         .then((user) => {
-            if(!user){
-                return res.json({msg:"User does not exists"});
-            }
+            // if(!user){
+            //     return res.json({msg:"User does not exists"});
+            // }
 
             bcrypt.compare(Password,user.Password)
                 .then(isMatched => {

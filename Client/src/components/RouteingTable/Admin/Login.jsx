@@ -36,12 +36,10 @@ class Login extends Component {
     handleSubmit(e) {
         e.preventDefault();
         let dataToSend = {
-            userData: {
-                email: this.state.email,
-                password: this.state.password
-            }
+            Username: this.state.email,
+            Password: this.state.password
         };
-        console.log(JSON.stringify(dataToSend))
+        //console.log(JSON.stringify(dataToSend))
         let url = "http://localhost:5000/auth/login";
 
         fetch(url, {
@@ -52,14 +50,13 @@ class Login extends Component {
             }
         }).then(response => response.json())
             .then(responseJson => {
-                if (responseJson.success) {
-                    localStorage.setItem('DD101_TOKEN', responseJson.token);
+                    console.log(responseJson);
+                    localStorage.setItem('x-access-token', responseJson.token);
                     this.setState({
                         logged: true,
                         error: undefined
                     })
-                    this.loadUsers()
-                }
+                  
             }).catch(err => this.setState({ error: err }));
 
         e.target.reset()
@@ -99,7 +96,7 @@ class Login extends Component {
 
                                     <div className="form-group">
                                         <div className="controls">
-                                            <input type="email" placeholder="Registered Email ID" name="email" id="email" className="email"
+                                            <input type="text" placeholder="Enter Username" name="Username" id="email" className="email"
                                                 required="required" onChange={this.handleEmailChange} />
                                         </div>
                                     </div>
