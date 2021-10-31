@@ -23,6 +23,7 @@ import Guidlines from './RouteingTable/Authors/Guidlines'
 import Login from './RouteingTable/Admin/Login'
 import CallFor from './RouteingTable/Admin/Editor/Author/CallFor'
 import EHome from './RouteingTable/Admin/Editor/Home/EHome'
+import Ekeynotes from './RouteingTable/Admin/Editor/Keynotes/Ekeynotes'
 
 export default class RoutingTable extends Component {
     render() {
@@ -122,7 +123,7 @@ export default class RoutingTable extends Component {
 
                     {/* Admin - start*/}
                         <Route exact path="/Admin">
-                            <CallFor/>
+                            <Ekeynotes/>
                         </Route>
                     {/* Admin - end*/}
 
