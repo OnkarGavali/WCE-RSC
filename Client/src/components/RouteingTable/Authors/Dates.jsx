@@ -1,11 +1,8 @@
-import React, { Components, useState } from 'react';
+import React from 'react';
 import PageBanner from '../PageBanner';
 import Date from '../../../JSON/date.json';
 import Table from 'react-bootstrap/Table'
 import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
     Link
   } from "react-router-dom";
 
@@ -51,10 +48,12 @@ function Dates() {
                                 </tbody>
                             </Table>
                         </div>
-                        <div class="col-md-3 sidebar right-sidebar">
 
-                            <div class="widget widget-categories">
-                                <h4>Related Links <span class="head-line"></span></h4>
+                        {/* Related Links - start */}
+                         <div className="col-md-3 sidebar right-sidebar">
+
+                            <div className="widget widget-categories">
+                                <h4 className="accent-color">Related Links <span className="head-line"></span></h4>
                                 <ul>
                                     <li>
                                         <Link to="Presentation-Instructions">Presentation Instructions</Link>
@@ -71,6 +70,8 @@ function Dates() {
                                 </ul>
                             </div>
                         </div>
+                        {/* Related Links - end */}
+                       
                     </div>
                 </div>
 

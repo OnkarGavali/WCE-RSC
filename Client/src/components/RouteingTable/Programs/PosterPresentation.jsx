@@ -69,21 +69,20 @@ function PosterPresentation() {
                             <div className="widget widget-categories">
                                 <h4>Related Links <span className="head-line"></span></h4>
                                 <ul>
-
                                     <li>
-                                        <Link to="/Paper-Presentation">Paper Presentation</Link>
-                                    </li>
-
-
-                                    <li>
-                                        <Link to="/Poster-Presentation">Poster Presentation</Link>
-                                    </li>
-
-                                    <li>
-                                        <Link to="/Schedule">Event Schedule</Link>
+                                        <Link to="Keynotes">Keynotes & Award Presentation</Link>
                                     </li>
                                     <li>
-                                        <Link to="/Register">Registration</Link>
+                                        <Link to="Paper-Presentation">Paper Presentation</Link>
+                                    </li>
+                                    <li>
+                                        <Link to="IPS">Innovative Project Showcase</Link>
+                                    </li>
+                                    <li>
+                                        <Link to="Schedule">Event Schedule</Link>
+                                    </li>
+                                    <li>
+                                        <Link to="Register">Registration</Link>
                                     </li>
 
                                 </ul>

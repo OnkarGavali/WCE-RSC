@@ -14,10 +14,10 @@ function Accessing() {
             <br />
             <br />
             <div id="content">
-                <div class="container">
-                    <div class="page-content">
+                <div className="container">
+                    <div className="page-content">
 
-                        <div class="col-md-9">
+                        <div className="col-md-9">
 
                             <h3>1. By Road:</h3>
                             <ul>
@@ -38,10 +38,10 @@ function Accessing() {
                             <br />
                             <br />
                         </div>
-                        <div class="col-md-3 sidebar right-sidebar">
+                        <div className="col-md-3 sidebar right-sidebar">
 
-                            <div class="widget widget-categories">
-                                <h4>Related Links <span class="head-line"></span></h4>
+                            <div className="widget widget-categories">
+                                <h4>Related Links <span className="head-line"></span></h4>
                                 <ul>
 
 

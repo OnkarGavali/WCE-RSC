@@ -1,4 +1,4 @@
-import React, { Components, useState } from 'react';
+import React from 'react';
 
 
 function Notifications() {
@@ -9,7 +9,7 @@ function Notifications() {
                 <div className="latest-posts">
 
                  <div className="tab-content" >
-                 <h3 class="classic-title" id="notifications"><span>Notifications</span></h3>
+                 <h3 className="classic-title" id="notifications"><span>Notifications</span></h3>
                    
 
 

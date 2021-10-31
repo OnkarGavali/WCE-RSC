@@ -10,7 +10,7 @@ function Gallery ()
     const [isImages, setIsImages] = useState(false);
 
     useEffect(() => {
-        console.log(galleryImgs)
+        
         if(galleryImgs!=null)
             setIsImages(true)
     })

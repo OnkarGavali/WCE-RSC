@@ -2845,6 +2845,7 @@ ul.icons-list li i {
   padding-bottom: 8px;
   border-bottom: 1px solid;
   font-weight: 400;
+  line-height: 32px;
 }
 
 .big-title {
@@ -5685,4 +5686,7 @@ ul.footer-nav li a:hover {
 
 .navbar-collapse {
   max-height: 340px;
+}
+
+table {
 }

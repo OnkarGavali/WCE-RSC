@@ -54,7 +54,7 @@ function Guidlines() {
                         {/* Related Links - end */}
                         <div className="col-md-3 sidebar right-sidebar">
                             <div className="widget widget-categories">
-                                <h4>Related Links <span className="head-line"></span></h4>
+                                <h4 className="accent-color">Related Links <span className="head-line"></span></h4>
                                 <ul>
                                     <li>
                                         <Link to="Call-for-contribution">Call for Contributions</Link>

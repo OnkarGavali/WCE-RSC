@@ -4,6 +4,7 @@ import PageBanner from '../PageBanner';
 import ContributionTopics from './ContributionTopics';
 import {Link} from "react-router-dom";
 
+
 function CallForContriBution() {
     return (
         <div>
@@ -15,8 +16,9 @@ function CallForContriBution() {
                 <div className="container">
                     <div className="page-content">
                         <div className="col-md-9">
-                            <h1 className="classic-title" id="notifications"><span>Call for Papers</span></h1>
-                            <p>The WCE Research Symposium on Computing - RSC 2022 welcomes research paper submissions from faculty,
+                            <h2 className="classic-title" id="notifications"><span>Call for Papers</span></h2>
+                            <p>
+                                The WCE Research Symposium on Computing - RSC 2022 welcomes research paper submissions from faculty,
                                 doctoral students, research scholars and industry experts who are actively working in the area of Computer
                                 Science and Engineering and allied branches.
                                 The selected papers will be forwarded for its publication in Springer book series (in process)
@@ -24,10 +26,11 @@ function CallForContriBution() {
                             <p>
                                 Topics covered include, but are not limited to:
                             </p>
+
                             <ContributionTopics/>
+
                         </div>
                         {/* Related Links - start */}
-                        {/* Related Links - end */}
                         <div className ="col-md-3 sidebar right-sidebar">
                             <div className ="widget widget-categories">
                                 <h4 className="accent-color">Related Links <span className ="head-line"></span></h4>
@@ -44,6 +47,8 @@ function CallForContriBution() {
                                 </ul>
                             </div>
                         </div>
+                        {/* Related Links - end */}
+                        
                     </div>
                 </div>
             </div>

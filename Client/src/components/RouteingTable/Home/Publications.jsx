@@ -1,13 +1,13 @@
-import React, { Components, useState } from 'react';
+import React from 'react';
 import logo from '../../../images/publication/Springer.jpg';
 
 
 function Publications() {
     return (
         <div>
-            <div class="tab-content">
-                            <div class="latest-posts" >
-                                <h3 class="classic-title" id="notifications"><span>Published By</span></h3>
+            <div className="tab-content">
+                            <div className="latest-posts" >
+                                <h3 className="classic-title" id="notifications"><span>Published By</span></h3>
                                 <img src={logo}></img>
 
                             </div>

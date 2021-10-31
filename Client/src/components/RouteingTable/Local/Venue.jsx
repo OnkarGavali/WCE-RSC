@@ -1,8 +1,5 @@
 import React from 'react'
 import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
     Link
 } from "react-router-dom";
 import PageBanner from '../PageBanner';
@@ -12,11 +9,11 @@ function Venue() {
     return (
         <div>
             <PageBanner name="Conference Venue" head="Local Information" subhead="Conference Venue" info="We Are WCE Research Symposium" />
-            <div id="content">
-                <div class="container">
-                    <div class="page-content">
+            <div className="contenti">
+                <div className="container">
+                    <div className="page-content">
                         <br /><br />
-                        <div class="col-md-9" style={{ textAlign: 'justify' }}>
+                        <div className="col-md-9" style={{ textAlign: 'justify' }}>
                             <p>This year RSC will be held on online platform as per the given guidelines. But if you wish to visit our  college, here is everything you need:</p>
                             <p>Walchand College of Engineering is situated midway between Sangli and Miraj cities at Vishrambag, Sangli. The WCE campus is located on about 90 acres of land on southern side of Sangli – Miraj road.
 
@@ -34,10 +31,10 @@ function Venue() {
                             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3818.6064280556866!2d74.59915851435606!3d16.84586992263152!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc122870ab2ec23%3A0x467707a52abea79a!2sWalchand+College+of+Engineering!5e0!3m2!1sen!2sin!4v1476206553863" width="800" height="600" frameborder="0" style={{ border: '0' }} allowfullscreen></iframe>
                             <br /><br />
                         </div>
-                        <div class="col-md-3 sidebar right-sidebar">
+                        <div className="col-md-3 sidebar right-sidebar">
 
-                            <div class="widget widget-categories">
-                                <h4>Related Links <span class="head-line"></span></h4>
+                            <div className="widget widget-categories">
+                                <h4>Related Links <span className="head-line"></span></h4>
                                 <ul>
                                     <li>
                                         <Link to="/location">Conference Location</Link>

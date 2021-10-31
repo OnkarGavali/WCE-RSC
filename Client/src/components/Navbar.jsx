@@ -4,24 +4,10 @@ import {
   Link,
   NavLink
 } from "react-router-dom";
-import Socials from './Socials';
-import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
-import Contact from './RouteingTable/Contact/Contact';
-import Gallery from './RouteingTable/Gallery/Gallery';
-import About from './RouteingTable/About/About';
-import Home from './RouteingTable/Home/Home';
-import PaperPresentation from './RouteingTable/Programs/PaperPresentation';
-
-
-
-
-
-
 
 function Navbar(props) {
 
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [active, setActive] = useState(null);
   function toggle() {
     setDropdownOpen(prevState => !prevState);
   }
