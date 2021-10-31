@@ -1,10 +1,9 @@
-import React, { Components, useState } from 'react';
-import Speakers from './Speakers';
+import React from 'react';
 
 
 function HomeBody() {
     return (
-        <div>
+        <div >
             <div className="col-md-8" >
 
                 <h1 className="accent-color">WCE Research Symposium on Computing - RSC 2022 </h1>
@@ -32,7 +31,7 @@ function HomeBody() {
                     The symposium will be accompanied by prominent experts who will deliver the keynote addresses and will 
                     actively participate in critical discussions at the symposium. The selected papers will be forwarded for 
                     its publication in Springer's Book series. (Under Process)</p><br />
-            {/*<Speakers/>*/}
+           
             </div>
         </div>
     );

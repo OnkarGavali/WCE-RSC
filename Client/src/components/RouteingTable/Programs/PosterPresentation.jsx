@@ -12,7 +12,10 @@ import {
 function PosterPresentation() {
     return (
         <div>
+            {/* PageBanner - start */}
             <PageBanner name="Poster Presentations" head="Programs" subhead="Poster Presentations" info="Feel Free To Get In Touch" />
+            {/* PageBanner - end */}
+            
             <div className="contenti">
                 <div className="container">
                     <div className="page-content">

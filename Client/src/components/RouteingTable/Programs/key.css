@@ -1,0 +1,12 @@
+table {
+  width: 100%;
+}
+table thead th {
+  padding: 10px !important;
+  background-color: #00afd1;
+  color: #fff;
+}
+table tbody td {
+  padding: 10px !important;
+  color: #666;
+}

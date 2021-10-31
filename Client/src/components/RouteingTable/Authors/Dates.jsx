@@ -27,7 +27,7 @@ function Dates() {
                             </div>
                             <h1 className="accent-color">Important Dates</h1>
                             <br />
-                            <Table className="table table-responsive table-condensed table-bordered"><br />
+                            <Table className="table table-responsive table-condensed table-bordered">
                                 <thead>
                                     <th>Sr No</th>
                                     <th>Important Dates</th>
@@ -36,13 +36,9 @@ function Dates() {
                                 <tbody>
                                     {
                                         Date.map(Dates => <tr key={Dates.id}>
-
                                             <td>{Dates.id} </td>
-
                                             <td>{Dates.impDate}</td>
                                             <td>{Dates.details}</td>
-
-
                                         </tr>)
                                     }
                                 </tbody>
@@ -56,13 +52,11 @@ function Dates() {
                                 <h4 className="accent-color">Related Links <span className="head-line"></span></h4>
                                 <ul>
                                     <li>
-                                        <Link to="Presentation-Instructions">Presentation Instructions</Link>
-                                    </li>
-
-                                    <li>
                                         <Link to="Call-for-contribution">Call for Contributions</Link>
                                     </li>
-
+                                    <li>
+                                        <Link to="Presentation-Instructions">Presentation Instructions</Link>
+                                    </li>
                                     <li>
                                         <Link to="Paper-Submission">Paper Submission</Link>
                                     </li>

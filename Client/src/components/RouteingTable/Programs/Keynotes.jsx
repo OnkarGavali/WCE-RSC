@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import PageBanner from '../PageBanner';
-import Table from 'react-bootstrap/Table'
 import {Link} from "react-router-dom";
 import axios from 'axios'
-import Key from '../../../JSON/Keynote.json'
+// import Key from '../../../JSON/Keynote.json'
 
 
 function Keynotes() {
@@ -27,11 +26,9 @@ function Keynotes() {
             {/* PageBanner - start */}
             <PageBanner name="Presentations" head="Programs" subhead="Keynotes & Presentation" info="Feel Free To Get In Touch" />
             {/* PageBanner - end */}
-            <div id="content">
+            <div className="contenti">
                 <div className="container">
                     <div className="page-content">
-                        <br/>
-                        <br/>
                         <div className="col-md-9">
                             <table className="table table-responsive table-condensed table-bordered">
                                 <thead className='thead-dark'>
@@ -54,7 +51,7 @@ function Keynotes() {
                         {/* Related Links - start */}
                         <div className="col-md-3 sidebar right-sidebar">
                             <div className="widget widget-categories">
-                                <h4>Related Links <span className="head-line"></span></h4>
+                                <h4 className='accent-color'>Related Links <span className="head-line"></span></h4>
                                 <ul>
                                     <li>
                                         <Link to="Paper-Presentation">Paper Presentation</Link>

@@ -2767,8 +2767,8 @@ ul.icons-list li i {
 }
 
 .team-member.modern .member-photo img {
-  height: 200px;
-  width: 200px;
+  height: 256px;
+  width: 256px;
 }
 
 .team-member.modern .member-photo {
@@ -5689,4 +5689,15 @@ ul.footer-nav li a:hover {
 }
 
 table {
+  width: 100%;
+}
+table thead th {
+  padding: 10px !important;
+  background-color: #0bb586;
+  color: #fff;
+}
+table tbody td {
+  padding: 10px !important;
+  color: #666;
+  /* border: 1px solid #00afd1 !important; */
 }

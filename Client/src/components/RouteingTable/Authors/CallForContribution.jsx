@@ -1,11 +1,41 @@
-import React, { Components, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import PageBanner from '../PageBanner';
-import ContributionTopics from './ContributionTopics';
+
 import {Link} from "react-router-dom";
 
+import TopicsList from '../../../JSON/contributionTopics.json'
+import { MaintenanceBreak } from '../MaintenanceBreak';
 
 function CallForContriBution() {
+    const [allData, setAllData] = useState([]);
+    const [title, setTitle] = useState("Call For Paper");//by Desault
+    const [maintenanceBreakMessage, setMaintenanceBreakMessage] = useState(null);
+    const [toShow, setToShow] = useState(true);
+    const [titleParagraph, setTitleParagraph] = useState([]);
+    const [list, setList] = useState([])
+    useEffect(() => {
+        //api call
+        setAllData(TopicsList);
+        if(allData.title){
+            setTitle(allData.title);
+            console.log(title);
+            console.log('aa');
+        }
+        if(allData.maintenanceBreakState){
+            setToShow(false);
+            if(allData.maintenanceBreakMessage){
+                setMaintenanceBreakMessage(allData.maintenanceBreakMessage);
+            }else{
+                setMaintenanceBreakMessage(null);
+            }
+           
+        }else{
+            setToShow(true);
+            setTitleParagraph(allData.titleParagraph);
+            setList(allData.topicList);
+        }
+    }, [allData])
     return (
         <div>
             {/* PageBanner - start */}
@@ -16,18 +46,35 @@ function CallForContriBution() {
                 <div className="container">
                     <div className="page-content">
                         <div className="col-md-9">
-                            <h2 className="classic-title" id="notifications"><span>Call for Papers</span></h2>
-                            <p>
-                                The WCE Research Symposium on Computing - RSC 2022 welcomes research paper submissions from faculty,
-                                doctoral students, research scholars and industry experts who are actively working in the area of Computer
-                                Science and Engineering and allied branches.
-                                The selected papers will be forwarded for its publication in Springer book series (in process)
-                            </p>
-                            <p>
-                                Topics covered include, but are not limited to:
-                            </p>
-
-                            <ContributionTopics/>
+                            <h2 className="classic-title" id="notifications"><span>{title}</span></h2>
+                            {   
+                                toShow ? (
+                                    <React.Fragment>  
+                                        {
+                                            titleParagraph ? (
+                                                titleParagraph.map((para) =><p key={para.id}>{para.p}</p>)
+                                            ) : null
+                                        }
+                                        {
+                                            list ? (
+                                                <ul className="icons-list">
+                                                    <strong>
+                                                        {
+                                                            list.map((topic)=>(
+                                                                <li key={topic.id}><i className="fa fa-check-circle"></i>{topic.topicName}</li>
+                                                            ))
+                                                        }
+                                                    </strong>
+                                                </ul>
+                                            ) : null
+                                        }
+                                        
+                                    </React.Fragment>
+                                ) : ( 
+                                    <MaintenanceBreak message={maintenanceBreakMessage}/>
+                                )
+                            }
+                            
 
                         </div>
                         {/* Related Links - start */}

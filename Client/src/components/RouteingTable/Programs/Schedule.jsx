@@ -10,27 +10,25 @@ function Schedule()
 {
     return (
         <div>
-             <PageBanner name="Schedule" head="Programs" subhead="Schedule" info="Feel Free To Get In Touch" />
-             <div className="contenti">
+            {/* PageBanner - start */}
+            <PageBanner name="Schedule" head="Programs" subhead="Schedule" info="Feel Free To Get In Touch" />
+            {/* PageBanner - end */}
+
+            <div className="contenti">
                 <div className="container">
                     <div className="page-content">
-
                         <div className="col-md-9">
                             <div className="row">
                                 <div className="col-sm-12">
-                                <br/>
-                                        <br/>
                                     <div className="alert alert-success alert-dismissible">
-                                        
                                         <h3>More Information Will Be Displayed Soon! Stay Tuned For Updates.</h3>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div className="col-md-3 sidebar right-sidebar">
-                         
                             <div className="widget widget-categories">
-                                <h4>Related Links <span className="head-line"></span></h4>
+                                <h4 className='accent-color'>Related Links <span className="head-line"></span></h4>
                                 <ul>
 
                                     <li>
