@@ -10,24 +10,24 @@ import PageBanner from '../PageBanner';
 function Register() {
   return (
     <div>
+      {/* PageBanner - start */}
       <PageBanner name="Register" head="Programs" subhead="Register" info="We Are WCE Research Symposium" />
+      {/* PageBanner - end */}
+      
       <div className="contenti">
         <div className="container">
           <div className="page-content">
-          < h3 className="classic-title"><span>Note</span></h3>
-          <ul style={{ listStyleType: 'disc', marginLeft: '3%' }}>
-            
-            <li>  On account of ongoing Pandemic situation (COVID-19), the symposium will be organized via Virtual Mode (Online).</li>
-            <li>  Publication of the paper in conference proceedings, Book of Abstracts, Participation in all technical sessions, for two days of the symposium and Certificate of Speaker/Attendance</li>
-            <li>  Each author registration will cover only one paper.</li>
-            <li>  List of selected papers will be published on the symposium website.</li>
-
+            <h3 className="classic-title"><span>Note</span></h3>
+            <ul style={{ listStyleType: 'disc', marginLeft: '3%' }}>
+              <li>  On account of ongoing Pandemic situation (COVID-19), the symposium will be organized via Virtual Mode (Online).</li>
+              <li>  Publication of the paper in conference proceedings, Book of Abstracts, Participation in all technical sessions, for two days of the symposium and Certificate of Speaker/Attendance</li>
+              <li>  Each author registration will cover only one paper.</li>
+              <li>  List of selected papers will be published on the symposium website.</li>
             </ul>
-            <br />
-            <br />
-            < h3 className="classic-title"><span>Registration Fee Details</span></h3>
-            <br />
-            <Table className="table table-striped">
+
+            <h3 className="classic-title"><span>Registration Fee Details</span></h3>
+            
+            <table className="table table-striped">
               <thead>
                 <th>Registration Type</th>
                 <th className="text-center">Early Bird Registeration</th>
@@ -57,7 +57,7 @@ function Register() {
                   <td colspan="2" className="text-center">INR 300</td>
                 </tr>
               </tbody>
-            </Table>
+            </table>
             <h5>{/*<sup>*</sup>50% fee would be waived for registered IET members only in all categories */} </h5>
 
             <div style={{ margin: '0% 1%' }}>
@@ -69,12 +69,10 @@ function Register() {
                 <sub style={{ color: 'red' }}>Note : Prefer your 'walchandsangli' domain email id for the links. Mention paper id in the doc name.</sub>
               </ul>
             </div>
-            <br />
-
+              
             Payment of appropriate registration fee can be initiated in favour of (Bank Account Details):
-            <br />
-            <br />
-            <Table className="table table-light">
+              
+            <table className="table table-light">
               <tbody>
                 <tr>
                   <td>Account Number:</td>
@@ -101,26 +99,17 @@ function Register() {
                   <td>BKID001507</td>
                 </tr>
               </tbody>
-            </Table>
-
-
+            </table>
 
             <div style={{ textAlign: 'center' }}>
               <form action="https://docs.google.com/forms/d/e/1FAIpQLSeVXgC5F9Mqi25oWfxFnge_Ei0UgywMgV59Sxlcy_pyJTEy2w/viewform?usp=sf_link">
                 <button className="btn btn-lg btn-system"  type="submit">Register Now</button>
-                
               </form>
             </div>
-            <br />
-            <br />
-
-
           </div>
         </div>
       </div>
-
     </div>
-
   );
 }
 

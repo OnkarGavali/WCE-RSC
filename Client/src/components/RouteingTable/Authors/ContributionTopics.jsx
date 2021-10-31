@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import TopicsList from '../../../JSON/contributionTopics.json'
+import { MaintenanceBreak } from '../MaintenanceBreak';
 
 function ContributionTopics() {
     const [topicList, setTopicList] = useState([]);
@@ -15,7 +16,7 @@ function ContributionTopics() {
             if(TopicsList.MaintenanceBreakMessage.message){
                 setMaintenanceBreakMessage(TopicsList.MaintenanceBreakMessage.message);
             }else{
-                 setMaintenanceBreakMessage("List will update soon...");
+                setMaintenanceBreakMessage("List will update soon...");
             }
            
         }else{
@@ -36,9 +37,8 @@ function ContributionTopics() {
                         </strong>
                     </ul>
                 ) : (
-                    <div className="call-action call-action-boxed call-action-style1 clearfix">
-						<h2 className="primary">{maintenanceBreakMessage}</h2>
-					</div>
+                    <MaintenanceBreak message={maintenanceBreakMessage}/>
+                    
                 )
             }
            
