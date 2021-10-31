@@ -1101,8 +1101,8 @@ input[type="submit"] {
   color: #666fb5;
   font-size: 13px;
   font-family: "Open Sans", sans-serif;
-  border: 1px solid #eee;
-  border-radius: 2px;
+  border: 2px solid #eee;
+  border-radius: 3px;
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   -o-border-radius: 2px;

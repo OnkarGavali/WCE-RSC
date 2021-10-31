@@ -21,6 +21,8 @@ import Location from './RouteingTable/Local/Location'
 import Accessing from './RouteingTable/Local/Accessing'
 import Guidlines from './RouteingTable/Authors/Guidlines'
 import Login from './RouteingTable/Admin/Login'
+import CallFor from './RouteingTable/Admin/Editor/Author/CallFor'
+import EHome from './RouteingTable/Admin/Editor/Home/EHome'
 
 export default class RoutingTable extends Component {
     render() {
@@ -120,7 +122,7 @@ export default class RoutingTable extends Component {
 
                     {/* Admin - start*/}
                         <Route exact path="/Admin">
-                            <Login/>
+                            <CallFor/>
                         </Route>
                     {/* Admin - end*/}
 
