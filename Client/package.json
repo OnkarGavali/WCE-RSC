@@ -19,6 +19,7 @@
     "react-marquee-master": "^1.4.5",
     "react-router-dom": "^5.2.1",
     "react-scripts": "4.0.3",
+    "react-toggle": "^4.1.2",
     "react-validation": "^3.0.7",
     "reactstrap": "^8.9.0",
     "validator": "^13.6.0",
