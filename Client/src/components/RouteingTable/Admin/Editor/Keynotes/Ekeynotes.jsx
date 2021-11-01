@@ -1,135 +1,278 @@
-import React, { useState, useEffect } from 'react';
-import Container from '@material-ui/core/Container';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import RemoveIcon from '@material-ui/icons/Remove';
-import AddIcon from '@material-ui/icons/Add';
-import Icon from '@material-ui/core/Icon';
-import FormControl from '@material-ui/core/FormControl';
-import PageBanner from '../../../PageBanner';
-import { v4 as uuidv4 } from 'uuid';
-import Keynot from '../../../../../JSON/Keynote.json'
-import { makeStyles } from '@material-ui/core/styles';
+import React, { useState, Fragment } from "react";
+import { nanoid } from "nanoid";
+import PageBanner from "../../../PageBanner";
+import data from "../../../../../JSON/Keynote.json";
+//import ReadOnlyRow from "./components/ReadOnlyRow";
+//import EditableRow from "./components/EditableRow";
 
-const useStyles = makeStyles((theme) => ({
-    root: {
-        '& .MuiTextField-root': {
-            margin: theme.spacing(1),
-        },
-    },
-    button: {
-        margin: theme.spacing(1),
-    }
-}))
+const EditableRow = ({
+    editFormData,
+    handleEditFormChange,
+    handleCancelClick,
+}) => {
+    return (
+     
+        <tr>
+            
+            <td>
+         
+                <input
+                    className="email"
+                    type="text"
+                    required="required"
+                    placeholder="Enter Name"
+                    name="name"
+                    style={{width:'80%'}}
+                    value={editFormData.name}
+                    onChange={handleEditFormChange}
+                ></input>
+            </td>
+            <td>
+             
+                 <input
+                    className="email"
+                    type="text"
+                    required="required"
+                    placeholder="Enter Designation"
+                    name="designation"
+                    style={{width:'80%'}}
+                    value={editFormData.designation}
+                    onChange={handleEditFormChange}
+                ></input>
+               
+            </td>
 
-function Ekeynotes() {
-    const classes = useStyles()
-    const [inputFields, setInputFields] = useState(Keynot);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log("InputFields", inputFields);
+            <td>
+                <button type="submit" class="btn btn-success" >Save</button>
+                <button type="button" onClick={handleCancelClick} style={{marginTop:'4%'}}  class="btn btn-secondary" >
+                    Cancel
+                </button>
+            </td>
+        </tr>
+        
+    );
+};
+
+const ReadOnlyRow = ({ contact, handleEditClick, handleDeleteClick }) => {
+    return (
+        <tr>
+            <td>{contact.name}</td>
+            <td>{contact.designation}</td>
+
+            <td>
+                <button
+                   class="btn btn-primary"
+                    type="button"
+                    onClick={(event) => handleEditClick(event, contact)}
+                >
+                    Edit
+                </button>
+                <button 
+                class="btn btn-secondary"
+                type="button" onClick={() => handleDeleteClick(contact.id)} style={{marginTop:'4%'}}>
+                    Delete
+                </button>
+            </td>
+        </tr>
+    );
+};
+
+
+const App = () => {
+    const [contacts, setContacts] = useState(data);
+
+    const [addFormData, setAddFormData] = useState({
+        name: " ",
+        designation:" "
+
+
+    });
+
+    const [editFormData, setEditFormData] = useState({
+        name: " ",
+        designation:" "
+
+
+    });
+
+    const [editContactId, setEditContactId] = useState(null);
+
+    const handleAddFormChange = (event) => {
+        event.preventDefault();
+
+        const fieldName = event.target.getAttribute("name");
+        const fieldValue = event.target.value;
+
+        const newFormData = { ...addFormData };
+        newFormData[fieldName] = fieldValue;
+
+        setAddFormData(newFormData);
     };
 
-    const handleChangeInput = (id, event) => {
-        const newInputFields = inputFields.map(i => {
-            if (id === i.id) {
-                i[event.target.name] = event.target.value
-            }
-            return i;
-        })
+    const handleEditFormChange = (event) => {
+        event.preventDefault();
 
-        setInputFields(newInputFields);
+        const fieldName = event.target.getAttribute("name");
+        const fieldValue = event.target.value;
+
+        const newFormData = { ...editFormData };
+        newFormData[fieldName] = fieldValue;
+
+        setEditFormData(newFormData);
+    };
+
+    const handleAddFormSubmit = (event) => {
+        event.preventDefault();
+
+        const newContact = {
+            id: nanoid(),
+            name: addFormData.name,
+            designation:addFormData.designation
+
+        };
+
+        const newContacts = [...contacts, newContact];
+        setContacts(newContacts);
+    };
+
+    const handleEditFormSubmit = (event) => {
+        event.preventDefault();
+
+        const editedContact = {
+            id: editContactId,
+            name:  editFormData.name,
+            designation: editFormData.designation
+
+
+        };
+
+        const newContacts = [...contacts];
+
+        const index = contacts.findIndex((contact) => contact.id === editContactId);
+
+        newContacts[index] = editedContact;
+
+        setContacts(newContacts);
+        setEditContactId(null);
+    };
+
+    const handleEditClick = (event, contact) => {
+        event.preventDefault();
+        setEditContactId(contact.id);
+
+        const formValues = {
+            name: contact.name,
+           designation: contact.designation
+        };
+
+        setEditFormData(formValues);
+    };
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(contacts);
+
     }
 
-    const handleAddFields = () => {
-        setInputFields([...inputFields, { id: uuidv4(), Name: '', Designation: '' }])
-    }
+    const handleCancelClick = () => {
+        setEditContactId(null);
+    };
 
-    const handleRemoveFields = id => {
-        const values = [...inputFields];
-        values.splice(values.findIndex(value => value.id === id), 1);
-        setInputFields(values);
-    }
+    const handleDeleteClick = (contactId) => {
+        const newContacts = [...contacts];
+
+        const index = contacts.findIndex((contact) => contact.id === contactId);
+
+        newContacts.splice(index, 1);
+
+        setContacts(newContacts);
+    };
 
     return (
         <div>
-            <PageBanner name="Keynotes" head='Admin Panel' />
-            <div id="content">
+            <PageBanner name="Keynote Speakers" head="Admin Panel" />
+
+            <div className="contenti">
                 <div className="container">
                     <div className="page-content">
-                        <div className="col-md-12 ">
 
-                            <br />
-                            <h2 className="classic-title"><span>Edit Keynote Speakers</span></h2>
-
-
-                            <h3>Keynote Speakers</h3>
-                            <br />
-                           
-                            <form className={classes.root} onSubmit={handleSubmit}>
-                                {inputFields.map(inputField => (
-                                    <div key={inputField.id}>
-                                        <div className="col-md-5">
-                                            <input
-                                                className="email"
-                                                name="Name"
-                                                placeholder="Name"
-                                                variant="filled"
-                                                value={inputField.name}
-                                                onChange={event => handleChangeInput(inputField.id, event)}
-                                            />
-                                        </div>
-                                        <div className="col-md-5 ">
-                                            <input
-                                                className="email"
-                                                name="Designation"
-                                                placeholder="Designation"
-                                                variant="filled"
-                                                value={inputField.designation}
-                                                onChange={event => handleChangeInput(inputField.id, event)}
-                                            />
-                                        </div>
-                                        <div className="col-md-2">
-                                            <IconButton disabled={inputFields.length === 1} onClick={() => handleRemoveFields(inputField.id)}>
-                                                <RemoveIcon />
-                                            </IconButton>
-                                            <IconButton
-                                                onClick={handleAddFields}
-                                            >
-                                                <AddIcon />
-                                            </IconButton>
-                                        </div>
+                        <div className="col-md-9">
+                        <h2 className="classic-title"><span>Edit Keynote Speakers </span></h2>
+                            <div className="app-container">
+                                <form onSubmit={handleEditFormSubmit}>
+                                    <table className="table table-responsive table-condensed table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Designation</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {contacts.map((contact) => (
+                                                <Fragment>
+                                                    {editContactId === contact.id ? (
+                                                        <EditableRow
+                                                            editFormData={editFormData}
+                                                            handleEditFormChange={handleEditFormChange}
+                                                            handleCancelClick={handleCancelClick}
+                                                        />
+                                                    ) : (
+                                                        <ReadOnlyRow
+                                                            contact={contact}
+                                                            handleEditClick={handleEditClick}
+                                                            handleDeleteClick={handleDeleteClick}
+                                                        />
+                                                    )}
+                                                </Fragment>
+                                            ))}
+                                        </tbody>
+                                    </table>
+                                </form>
+                                <br />
+                                <h2>Add a New Entry</h2>
+                                <br />
+                                <form onSubmit={handleAddFormSubmit}>
+                                    <div className="col-md-4">
+                                        <input
+                                            className="email"
+                                            style={{ maxWidth: '100%' }}
+                                            type="text"
+                                            name="name"
+                                            required="required"
+                                            placeholder="Enter a Name"
+                                            onChange={handleAddFormChange}
+                                        />
                                     </div>
-                                ))}
+                                     <div className="col-md-4">
+                                         <input
+                                            className="email"
+                                            style={{ maxWidth: '100%' }}
+                                            type="text"
+                                            name="designation"
+                                            required="required"
+                                            placeholder="Enter Designation"
+                                            onChange={handleAddFormChange}
+                                        />
+                                    </div>
+                                    <div className=" " style={{marginLeft:'80%' }}>
+                                        <button type="submit"  class="btn btn-primary">Add</button>
+                                    </div>
 
-
-                                <div className="col-md-10">
-                                    <br />
-                                    <br />
-
-                                    <button
-                                        className="btn-system btn-large"
-                                        variant="contained"
-                                        color="primary"
-                                        type="submit"
-                                        endIcon={<Icon>send</Icon>}
-                                        onClick={handleSubmit}
-                                        style={{}}
-                                    >Save</button>
-                                    <br />
-                                    <br />
+                                </form>
+                                <br />
+                                <br/>
+                                <div className=" " style={{textAlign:'center'}}>
+                                <button type="submit" onClick={handleSubmit} className="btn btn-lg btn-system"  style={{marginTop:'10px'}}>Save</button>
                                 </div>
-                            </form>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
+
     );
-}
+};
 
-
-
-export default Ekeynotes;
+export default App;
