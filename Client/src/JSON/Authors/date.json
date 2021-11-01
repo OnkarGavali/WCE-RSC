@@ -1,0 +1,27 @@
+[
+    {
+        "id":1,
+        "impDate":"10th December 2021 ",
+        "details":"Last Date for full paper submission."
+    },
+    {
+        "id":2,
+        "impDate":"20th January 2022 ",
+        "details":"Paper Acceptance Notification"
+    },
+    {
+        "id":3,
+        "impDate":"25th January 2022 ",
+        "details":"Last date for submission of IPS"
+    },
+    {
+        "id":4,
+        "impDate":"20th of February 2022 ",
+        "details":"Camera Ready Submission Deadline"
+    },
+    {
+        "id":5,
+        "impDate":"28th of February 2022 ",
+        "details":"Final Deadline for Registration"
+    }
+]

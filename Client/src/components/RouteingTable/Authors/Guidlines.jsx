@@ -1,21 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useState } from 'react';
 import PageBanner from '../PageBanner';
 import {
     Link
 } from "react-router-dom";
 import displayNotice from '../DisplayNotice'
-import guidelines from '../../../JSON/Authors/guidelines.json'
+import guidelines from '../../../JSON/Authors/guidelines'
 import MaintenanceBreak from '../MaintenanceBreak';
 
 function Guidlines() {
 
-    const [allData, setAllData] = useState([]);
+    const [allData, setAllData] = useState({});
     const [titleOne, setTitleOne] = useState("Paper Submission Guidlines");//by Default
     const [titleTwo, setTitleTwo] = useState("Publication");//by Default
     const [titleThree, setTitleThree] = useState("Note");//by Default
     const [maintenanceBreakMessage, setMaintenanceBreakMessage] = useState(null);
     const [displayNotice, setDisplayNotice] = useState(null);
-    const [peperSubList, setPeperSubList] = useState([]);
+    const [peperSubList, setPeperSubList] = useState(null);
     const [toShow, setToShow] = useState(true);
 
     
@@ -24,37 +24,36 @@ function Guidlines() {
     useEffect(() => {
         //api call
         console.log('a');
-        setAllData(guidelines);
+        setAllData({...guidelines})
 
+        console.log('useEff guidelines:')
         console.log(guidelines)
 
+
+        console.log('useEff all data')
+        console.log(allData)
+
+
         if(allData){
-            console.log("empty")
+            console.log("all data is empty")
         }
         //set all titles
-        if(allData.title){
-            setTitleOne(allData.title)
-            console.log(titleOne)
-        }
-        if(allData.publicationInfoTitle){
-            setTitleTwo(allData.publicationInfoTitle)
-        }
-        if(allData.noteInfoTitle){
-            setTitleThree(allData.noteInfoTitle)
-            console.log(titleThree)
-        }
+        // if(allData.title){
+        //     setTitleOne(allData.title)
+        //     console.log(titleOne)
+        // }
 
 
-        if(allData.maintenanceBreakStatus){
+        if(false){
             setToShow(false);
 
         } else {
              setToShow(true);
-             setPeperSubList(allData.paperSubGuidelineList)
-             console.log(peperSubList)
+             //setPeperSubList(allData.paperSubGuidelineList)
+             //console.log(peperSubList)
         }
         
-    }, [allData])
+    }, [])
 
 
     return (
@@ -62,12 +61,16 @@ function Guidlines() {
             {/* PageBanner - start */}
             <PageBanner name="Submission Guidlines" head="Author" subhead="Submission Guidlines" info="Feel Free To Get In Touch" />
             {/* PageBanner - end */}
-           
+            {console.log("render")}
+            {console.log(allData)}
             <div className="contenti">
                 <div className="container">
                     <div className="page-content">
                         <div className="col-md-9">
                             {/*<!-- <h4>A research student who wants to submit a paper for the WCE Research Symposium on Computing should prepare:</h4> -->*/}
+                            {
+                                Object.keys(allData).length !== 0 && <>
+                            
                             <h3 className="classic-title" id="notifications"><span>Paper Submission Guidlines</span></h3>
 
                             { 
@@ -75,7 +78,8 @@ function Guidlines() {
                                     <React.Fragment>
                                         <ul style={{ listStyleType: 'disc', marginLeft: '3%' }}>
                                             {
-                                                peperSubList.map((item)=>{<li key={item.id}>{item.listItem}</li>})
+                                               
+                                                allData.paperSubGuidelineList.map((item)=><li key={item.id}>{item.listItem}</li>)
                                                
                                             }
                                         </ul>
@@ -91,6 +95,8 @@ function Guidlines() {
                                     
                                 )
                             }
+                            </>
+                        }
 
                             
 
