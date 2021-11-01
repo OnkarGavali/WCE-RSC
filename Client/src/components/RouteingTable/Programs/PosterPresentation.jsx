@@ -27,7 +27,7 @@ function PosterPresentation() {
                                     <li><i className="fa fa-check-circle"></i> As indicated in the figure below, and for authors and audience comfort, the landscape (horizontal) format is privileged. Each poster is assigned a 121 cm (48 in.) by 76 cm (30 in.) space and your poster must fit in this space. However, it is suggested that your poster should not exceed <b>101 cm (40 in.) x 68 cm (27 in.).</b></li><br />
                                     <li><i className="fa fa-check-circle"></i> The boards in the Poster Area will boast tags, indicating which board is assigned to your paper. These will be updated as papers sessions unfold.</li><br />
 
-                                    <li><img src="images/poster.png" alt="Poster" /></li>
+                                    <li><img src="/images/poster.png" alt="Poster" /></li>
 
                                     <li><i className="fa fa-check-circle"></i> Fixings (tack pins) will be available. The posters must be set up before the start of the poster session time, and at least one author must be present during the entire designated period for that session.</li><br />
                                 </ul>

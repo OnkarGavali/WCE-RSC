@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PageBanner from '../PageBanner';
-import Date from '../../../JSON/date.json';
-import Table from 'react-bootstrap/Table'
+import dates from '../../../JSON/Authors/date.json'
 import {
     Link
   } from "react-router-dom";
@@ -9,6 +8,20 @@ import {
 
 
 function Dates() {
+
+    const [isLoading, setIsLoading] = useState(true);
+
+    const [allData, setAllData] = useState([]);
+    
+    
+
+    useEffect(() => {
+        //ap call
+        setAllData(dates)
+        setIsLoading(false)
+        
+        
+    }, [])
     return (
         <div>
             {/* PageBanner - start */}
@@ -22,22 +35,31 @@ function Dates() {
                         <div className="col-md-9">
                             <h1 className="accent-color">Important Dates</h1>
                             <br />
-                            <table className="table table-responsive table-condensed table-bordered">
-                                <thead>
-                                    <th>Sr No</th>
-                                    <th>Important Dates</th>
-                                    <th>Particulars</th>
-                                </thead>
-                                <tbody>
-                                    {
-                                        Date.map(Dates => <tr key={Dates.id}>
-                                            <td>{Dates.id} </td>
-                                            <td>{Dates.impDate}</td>
-                                            <td>{Dates.details}</td>
-                                        </tr>)
-                                    }
-                                </tbody>
-                            </table>
+                            {
+                                isLoading ? (
+                                    <div className="spinner-border" role="status">
+                                        <span className="visually-hidden">Loading...</span>
+                                    </div>
+                                ) : (
+                                    <table className="table table-responsive table-condensed table-bordered">
+                                        <thead>
+                                            <th>Sr No</th>
+                                            <th>Important Dates</th>
+                                            <th>Particulars</th>
+                                        </thead>
+                                        <tbody>
+                                            {
+                                                allData.map(date => <tr key={date.id}>
+                                                    <td>{date.id} </td>
+                                                    <td>{date.impDate}</td>
+                                                    <td>{date.details}</td>
+                                                </tr>)
+                                            }
+                                        </tbody>
+                                    </table>
+                                )
+                            }
+                            
                         </div>
 
                         {/* Related Links - start */}

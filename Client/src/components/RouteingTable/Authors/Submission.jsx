@@ -14,14 +14,13 @@ function Submission() {
             <div className="contenti">
                 <div className="container">
                     <div className="page-content">
-
                         <div className="col-md-9">
                             <div className="row">
                                 <div className="col-sm-12">
-                                    {/*<!-- <div className="alert alert-success alert-dismissible">
+                                    <div className="alert alert-success alert-dismissible">
                                         <h3>The Submissions portal is yet to open. For further updates stay tuned !.!.! <br /></h3>
-                                    </div> -->
-                                    */}
+                                    </div> 
+                                    
                                 </div>
                             </div>
 
@@ -29,11 +28,11 @@ function Submission() {
                                 <div className="row">
                                     <div className="col-sm-12">
 
-                                   {  /*   <!-- <div className="alert alert-danger">
+                                        <div className="alert alert-danger">
                                             <h3>
                                                 The paper submission for possible inclusion in Springer / e-proceedings and Innovative project showcasing have been closed.  The submissions for Innovative Project Showcasing is open till 18 November 2018
                                             </h3>
-                                        </div> -->*/}
+                                        </div>
 
                                         <div>
                                             <h4>While submitting your paper through easy chair please mention your category of submission either A, B ,or C in the title section</h4>
@@ -99,9 +98,8 @@ function Submission() {
                             
                         </div>
                     </div>
-                    </div>
                 </div>
-                );
+        </div>
+    );
 }
-
-                export default Submission;
+export default Submission;
