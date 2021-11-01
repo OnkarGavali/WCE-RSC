@@ -1,4 +1,12 @@
-[
+{
+    "displayNoticeStatus":false,
+    "displayNoticeHeading":"Display Notice Heading",
+    "displayNoticeContent":"Display Notice Content",
+    "maintenanceBreakStatus":false,
+    "maintenanceBreakHeading":"MB Notice Heading",
+    "maintenanceBreakContent":"MB Notice Heading",
+
+    "Speakers":[
     {
         "id":1,
         "name":"Dr. D. Venkateswaran",
@@ -27,8 +35,8 @@
         "name":"Dr. Prachi Gharpure",
         "designation":"SPIT Mumbai"
     }
-    
-
-    
-
 ]
+
+    
+
+}

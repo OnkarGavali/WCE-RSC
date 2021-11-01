@@ -1,6 +1,8 @@
 import React, { useState, Fragment } from "react";
 import { nanoid } from "nanoid";
 import PageBanner from "../../../PageBanner";
+import "react-toggle/style.css" // for ES6 modules
+import Toggle from 'react-toggle'
 import data from "../../../../../JSON/Keynote.json";
 //import ReadOnlyRow from "./components/ReadOnlyRow";
 //import EditableRow from "./components/EditableRow";
@@ -11,46 +13,46 @@ const EditableRow = ({
     handleCancelClick,
 }) => {
     return (
-     
+
         <tr>
-            
+
             <td>
-         
+
                 <input
                     className="email"
                     type="text"
                     required="required"
                     placeholder="Enter Name"
                     name="name"
-                    style={{width:'80%'}}
+                    style={{ width: '80%' }}
                     value={editFormData.name}
                     onChange={handleEditFormChange}
                 ></input>
             </td>
             <td>
-             
-                 <input
+
+                <input
                     className="email"
                     type="text"
                     required="required"
                     placeholder="Enter Designation"
                     name="designation"
-                    style={{width:'80%'}}
+                    style={{ width: '80%' }}
                     value={editFormData.designation}
                     onChange={handleEditFormChange}
                 ></input>
-               
+
             </td>
 
 
             <td>
                 <button type="submit" class="btn btn-success" >Save</button>
-                <button type="button" onClick={handleCancelClick} style={{marginTop:'4%'}}  class="btn btn-secondary" >
+                <button type="button" onClick={handleCancelClick} style={{ marginTop: '4%' }} class="btn btn-secondary" >
                     Cancel
                 </button>
             </td>
         </tr>
-        
+
     );
 };
 
@@ -62,15 +64,15 @@ const ReadOnlyRow = ({ contact, handleEditClick, handleDeleteClick }) => {
 
             <td>
                 <button
-                   class="btn btn-primary"
+                    class="btn btn-primary"
                     type="button"
                     onClick={(event) => handleEditClick(event, contact)}
                 >
                     Edit
                 </button>
-                <button 
-                class="btn btn-secondary"
-                type="button" onClick={() => handleDeleteClick(contact.id)} style={{marginTop:'4%'}}>
+                <button
+                    class="btn btn-secondary"
+                    type="button" onClick={() => handleDeleteClick(contact.id)} style={{ marginTop: '4%' }}>
                     Delete
                 </button>
             </td>
@@ -79,19 +81,21 @@ const ReadOnlyRow = ({ contact, handleEditClick, handleDeleteClick }) => {
 };
 
 
-const App = () => {
-    const [contacts, setContacts] = useState(data);
+const Ekeynotes = () => {
+    const [contacts, setContacts] = useState(data.Speakers);
+    const [displayNotice, setdisplayNotice] = useState(false);
+    const [maintainanceBreak, setMaintainanceBreak] = useState(false);
 
     const [addFormData, setAddFormData] = useState({
         name: " ",
-        designation:" "
+        designation: " "
 
 
     });
 
     const [editFormData, setEditFormData] = useState({
         name: " ",
-        designation:" "
+        designation: " "
 
 
     });
@@ -128,7 +132,7 @@ const App = () => {
         const newContact = {
             id: nanoid(),
             name: addFormData.name,
-            designation:addFormData.designation
+            designation: addFormData.designation
 
         };
 
@@ -141,7 +145,7 @@ const App = () => {
 
         const editedContact = {
             id: editContactId,
-            name:  editFormData.name,
+            name: editFormData.name,
             designation: editFormData.designation
 
 
@@ -163,7 +167,7 @@ const App = () => {
 
         const formValues = {
             name: contact.name,
-           designation: contact.designation
+            designation: contact.designation
         };
 
         setEditFormData(formValues);
@@ -197,7 +201,7 @@ const App = () => {
                     <div className="page-content">
 
                         <div className="col-md-9">
-                        <h2 className="classic-title"><span>Edit Keynote Speakers </span></h2>
+                            <h2 className="classic-title"><span>Edit Keynote Speakers </span></h2>
                             <div className="app-container">
                                 <form onSubmit={handleEditFormSubmit}>
                                     <table className="table table-responsive table-condensed table-bordered">
@@ -230,9 +234,9 @@ const App = () => {
                                     </table>
                                 </form>
                                 <br />
-                                <h2>Add a New Entry</h2>
+                                <h2 className="classic-title"><span>Add a New Entry </span></h2>
                                 <br />
-                                <form onSubmit={handleAddFormSubmit}>
+                                <form onSubmit={handleAddFormSubmit} style={{ display: 'flex', justifyContent: 'space-between' }}>
                                     <div className="col-md-4">
                                         <input
                                             className="email"
@@ -244,8 +248,8 @@ const App = () => {
                                             onChange={handleAddFormChange}
                                         />
                                     </div>
-                                     <div className="col-md-4">
-                                         <input
+                                    <div className="col-md-4">
+                                        <input
                                             className="email"
                                             style={{ maxWidth: '100%' }}
                                             type="text"
@@ -255,24 +259,119 @@ const App = () => {
                                             onChange={handleAddFormChange}
                                         />
                                     </div>
-                                    <div className=" " style={{marginLeft:'80%' }}>
-                                        <button type="submit"  class="btn btn-primary">Add</button>
+                                    <div className=" " style={{}}>
+                                        <button type="submit" class="btn btn-primary">Add</button>
                                     </div>
 
                                 </form>
+
+                                <div className="hr5" style={{ marginTop: '20px', marginBottom: '20px' }}></div>
+                                <h2 className="classic-title"><span>Display Notice </span></h2>
+
+
+
+                                <span >Toggel Page to be displayed : {displayNotice ? "Yes" : "No"} </span>
                                 <br />
-                                <br/>
-                                <div className=" " style={{textAlign:'center'}}>
-                                <button type="submit" onClick={handleSubmit} className="btn btn-lg btn-system"  style={{marginTop:'10px'}}>Save</button>
-                                </div>
+                                <br />
+                                <form onSubmit={handleAddFormSubmit} style={{ display: 'flex', justifyContent: 'space-between' }}>
+                                    <div className="col-md-4">
+                                        <input
+                                            className="email"
+                                            style={{ maxWidth: '100%' }}
+                                            type="text"
+                                            name="noticehead"
+                                            required="required"
+                                            placeholder="Enter a Notice Heading"
+                                            onChange={handleAddFormChange}
+                                        />
+                                    </div>
+                                    <div className="col-md-4">
+                                        <textarea
+                                            className="email"
+                                            style={{ maxWidth: '100%' }}
+                                            type="text"
+                                            row="3"
+                                            name="noticecontent"
+                                            required="required"
+                                            placeholder="Enter Notice Content"
+                                            onChange={handleAddFormChange}
+                                        />
+                                    </div>
+                                    <div className=" " style={{ display: 'flex', justifyContent: 'space-between' }}>
+                                        <Toggle
+                                            id='dn'
+                                            defaultChecked={displayNotice}
+                                            aria-labelledby='biscuit-label'
+
+                                            onChange={() => {
+                                                setdisplayNotice(!displayNotice)
+                                            }} />
+                                        <button type="submit" class="btn btn-primary">Save</button>
+                                    </div>
+
+                                </form>
+
+                                <h2 className="classic-title"><span>Maintainance Break </span></h2>
+
+
+
+                                <span >Toggel Page to be displayed : {maintainanceBreak ? "Yes" : "No"} </span>
+                                <br />
+                                <br />
+                                <form onSubmit={handleAddFormSubmit} style={{ display: 'flex', justifyContent: 'space-between' }}>
+                                    <div className="col-md-4">
+                                        <input
+                                            className="email"
+                                            style={{ maxWidth: '100%' }}
+                                            type="text"
+                                            name="noticehead"
+                                            required="required"
+                                            placeholder="Enter a Notice Heading"
+                                            onChange={handleAddFormChange}
+                                        />
+                                    </div>
+                                    <div className="col-md-4">
+                                        <textarea
+                                            className="email"
+                                            style={{ maxWidth: '100%' }}
+                                            type="text"
+                                            row="3"
+                                            name="noticecontent"
+                                            required="required"
+                                            placeholder="Enter Notice Content"
+                                            onChange={handleAddFormChange}
+                                        />
+                                    </div>
+                                    <div className=" " style={{ display: 'flex', justifyContent: 'space-between' }}>
+                                        <Toggle
+                                            id='dn'
+                                            defaultChecked={maintainanceBreak}
+                                            aria-labelledby='biscuit-label'
+
+                                            onChange={() => {
+                                                setMaintainanceBreak(!maintainanceBreak)
+                                            }} />
+                                        <button type="submit" class="btn btn-primary">Save</button>
+                                    </div>
+
+                                </form>
+                                <div className="hr5" style={{ marginTop: '20px', marginBottom: '20px' }}></div>
+                                
+                            
+                            <div className="hr5" style={{ marginTop: '20px', marginBottom: '20px' }}></div>
+                            <div className=" " style={{ textAlign: 'right' }}>
+                                <button type="submit" onClick={handleSubmit} className="btn btn-lg btn-system" style={{ marginTop: '10px' }}>Update Content</button>
                             </div>
                         </div>
+
+
                     </div>
                 </div>
             </div>
+        </div>
         </div >
 
     );
 };
 
-export default App;
+export default Ekeynotes;
