@@ -2,18 +2,24 @@ import React from 'react'
 import {
     Link
 } from "react-router-dom";
+import { CollegeGoogleMap } from '../CollegeGoogleMap';
 import PageBanner from '../PageBanner';
 
 
 function Venue() {
     return (
         <div>
+            {/* PageBanner - start */}
             <PageBanner name="Conference Venue" head="Local Information" subhead="Conference Venue" info="We Are WCE Research Symposium" />
+            {/* PageBanner - end */}
+            
             <div className="contenti">
                 <div className="container">
                     <div className="page-content">
-                        <br /><br />
+
+                         {/* Main Content - start */}
                         <div className="col-md-9" style={{ textAlign: 'justify' }}>
+                            <h2 className="classic-title"><span>Conference Venue</span></h2>
                             <p>This year RSC will be held on online platform as per the given guidelines. But if you wish to visit our  college, here is everything you need:</p>
                             <p>Walchand College of Engineering is situated midway between Sangli and Miraj cities at Vishrambag, Sangli. The WCE campus is located on about 90 acres of land on southern side of Sangli – Miraj road.
 
@@ -27,26 +33,32 @@ function Venue() {
                             <p>
                                 Walchand College of Engineering became autonomous in 2007. The college revamped its academic structure and contents, in consultation with few US and IIT academic experts. Accordingly nomenclature of B.E and M.E programs has been changed to B Tech and M Tech programs. After completion of the first term of six years, the College has now received extension of autonomous status for the second term of six years till 2019-20. It participated in the World Bank funded, Government of India scheme, namely, Technical Education Quality Improvement Program (TEQIP) in Phase I from 2005-2009, wherein it stood all-India 2nd out of 127 participating institutions in terms of program impact performance. The college is presently participating in Phase II of TEQIP with outstanding performance
                             </p>
+                            <br />
 
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3818.6064280556866!2d74.59915851435606!3d16.84586992263152!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc122870ab2ec23%3A0x467707a52abea79a!2sWalchand+College+of+Engineering!5e0!3m2!1sen!2sin!4v1476206553863" width="800" height="600" frameborder="0" style={{ border: '0' }} allowfullscreen></iframe>
-                            <br /><br />
+                            {/* College Google Location - start */}
+                            <CollegeGoogleMap/>
+                            {/* College Google Location - end */}
+
                         </div>
+                        {/* Main Content - end */}
+                        
+                        {/* Related Links - start */}
                         <div className="col-md-3 sidebar right-sidebar">
-
                             <div className="widget widget-categories">
-                                <h4>Related Links <span className="head-line"></span></h4>
+                                <h4 className='accent-color'>Related Links <span className="head-line"></span></h4>
                                 <ul>
                                     <li>
-                                        <Link to="/location">Conference Location</Link>
+                                        <Link to="location">Conference Location</Link>
                                     </li>
 
                                     <li>
-                                        <Link to="/accessing">Accessing Sangli</Link>
+                                        <Link to="accessing">Accessing Sangli</Link>
                                     </li>
-
                                 </ul>
                             </div>
                         </div>
+                        {/* Related Links - end */}
+
                     </div>
                 </div>
             </div>
