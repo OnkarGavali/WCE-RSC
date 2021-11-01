@@ -25,6 +25,7 @@ import CallFor from './RouteingTable/Admin/Editor/Author/CallFor'
 import EHome from './RouteingTable/Admin/Editor/Home/EHome'
 import Ekeynotes from './RouteingTable/Admin/Editor/Keynotes/Ekeynotes'
 import EAdvCom from './RouteingTable/Admin/Editor/Committe/EAdvCom'
+import AdminPanel from './RouteingTable/Admin/Editor/AdminPanel'
 
 export default class RoutingTable extends Component {
     render() {
@@ -127,6 +128,12 @@ export default class RoutingTable extends Component {
                             <Ekeynotes/>
                         </Route>
                     {/* Admin - end*/}
+
+                    {/* Tmp AdminPanel - start*/}
+                        <Route exact path="/AdminPanel">
+                            <AdminPanel/>
+                        </Route>
+                    {/* tmp AdminPanel - end*/}
 
 
                     {/* Random Route - start*/}
