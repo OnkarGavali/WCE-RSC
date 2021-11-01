@@ -46,6 +46,22 @@ function Org_Committee() {
                             </table>
                         </div>
                         
+
+                        {/* Related Links - start */}
+                        <div className ="col-md-3 sidebar right-sidebar">
+                            <div className ="widget widget-categories">
+                                <h4 className="accent-color">Related Links <span className ="head-line"></span></h4>
+                                <ul>
+                                    <li>
+                                        <Link to="adv_committee">Advisory Committee</Link>
+                                    </li>
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                        {/* Related Links - end */}
+
+
                     </div>
                 </div>
             </div>
