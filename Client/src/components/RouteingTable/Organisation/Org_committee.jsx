@@ -17,13 +17,14 @@ function Org_Committee() {
     return (
         <div>
             <PageBanner name="Organising Committee" head="Organisation" subhead="Organising Committee" info="We Are WCE Research Symposium" />
-            <div id="content">
+            <div className="contenti">
                 <div className="container">
                     <div className="page-content">
-                        <br />
-                        <br />
+
                         <div className="col-md-9">
-                            <Table className="table table-responsive table-condensed table-bordered">
+                            <h1 className="accent-color">Organising Committee</h1>
+                            <br />
+                            <table className="table table-responsive table-condensed table-bordered">
                                 <thead>
                                     <th>Role</th>
                                     <th>Name</th>
@@ -42,7 +43,7 @@ function Org_Committee() {
                                         </tr>)
                                     }
                                 </tbody>
-                            </Table>
+                            </table>
                         </div>
                         
                     </div>

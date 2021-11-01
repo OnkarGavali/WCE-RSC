@@ -1,12 +1,8 @@
-import React, { Components, useState } from 'react';
-import Header from '../../Header';
+import React from 'react';
 import PageBanner from '../PageBanner';
 import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
     Link
-  } from "react-router-dom";
+} from "react-router-dom";
 
 function Submission() {
     return (
@@ -83,28 +79,24 @@ function Submission() {
                                
                             </div>
                             {/* Related Links - start */}
-                            {/* Related Links - end */}
-                            <div className="col-md-3 sidebar right-sidebar">
-                                    
-                                    <div className="widget widget-categories">
-                                        <h4 className="accent-color">Related Links <span className="head-line"></span></h4>
-                                        <ul>
-
-                                            <li>
-                                                <Link to="Call-for-contribution">Call for Contributions</Link>
-                                            </li>
-
-                                            <li>
-                                            <Link to="Presentation-Instructions">Presentation Instructions</Link>
-                                            </li>
-
-                                            <li>
-                                               <Link to="Important-Dates">Important Dates</Link>
-                                            </li>
-
-                                        </ul>
-                                    </div>
+                            <div className="col-md-3 sidebar right-sidebar"> 
+                                <div className="widget widget-categories">
+                                    <h4 className="accent-color">Related Links <span className="head-line"></span></h4>
+                                    <ul>
+                                        <li>
+                                            <Link to="Call-for-contribution">Call for Contributions</Link>
+                                        </li>
+                                        <li>
+                                            <Link to="Guidlines">Submission Guidlines</Link>
+                                        </li>
+                                        <li>
+                                            <Link to="Important-Dates">Important Dates</Link>
+                                        </li>
+                                    </ul>
                                 </div>
+                            </div>
+                            {/* Related Links - end */}
+                            
                         </div>
                     </div>
                     </div>

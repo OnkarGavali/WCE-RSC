@@ -4,12 +4,13 @@ import PageBanner from '../PageBanner';
 
 import {Link} from "react-router-dom";
 
-import TopicsList from '../../../JSON/contributionTopics.json'
-import { MaintenanceBreak } from '../MaintenanceBreak';
+import TopicsList from '../../../JSON/Authors/contributionTopics.json'
+import MaintenanceBreak from '../MaintenanceBreak';
+
 
 function CallForContriBution() {
     const [allData, setAllData] = useState([]);
-    const [title, setTitle] = useState("Call For Paper");//by Desault
+    const [title, setTitle] = useState("Call For Paper");//by Default
     const [maintenanceBreakMessage, setMaintenanceBreakMessage] = useState(null);
     const [toShow, setToShow] = useState(true);
     const [titleParagraph, setTitleParagraph] = useState([]);
@@ -72,6 +73,7 @@ function CallForContriBution() {
                                     </React.Fragment>
                                 ) : ( 
                                     <MaintenanceBreak message={maintenanceBreakMessage}/>
+                                    
                                 )
                             }
                             

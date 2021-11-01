@@ -20,14 +20,9 @@ function Dates() {
                     <div className="page-content">
 
                         <div className="col-md-9">
-                            <div>
-                                
-                                <h1 className="accent-color">WCE Research Symposium on Computing - RSC 2022</h1><br />
-                                <p><strong>Organized by WCE ACM Student Chapter <br />Event By Department of Computer Science & Engineering</strong></p>
-                            </div>
                             <h1 className="accent-color">Important Dates</h1>
                             <br />
-                            <Table className="table table-responsive table-condensed table-bordered">
+                            <table className="table table-responsive table-condensed table-bordered">
                                 <thead>
                                     <th>Sr No</th>
                                     <th>Important Dates</th>
@@ -42,7 +37,7 @@ function Dates() {
                                         </tr>)
                                     }
                                 </tbody>
-                            </Table>
+                            </table>
                         </div>
 
                         {/* Related Links - start */}
@@ -55,7 +50,7 @@ function Dates() {
                                         <Link to="Call-for-contribution">Call for Contributions</Link>
                                     </li>
                                     <li>
-                                        <Link to="Presentation-Instructions">Presentation Instructions</Link>
+                                        <Link to="Guidlines">Submission Guidlines</Link>
                                     </li>
                                     <li>
                                         <Link to="Paper-Submission">Paper Submission</Link>
