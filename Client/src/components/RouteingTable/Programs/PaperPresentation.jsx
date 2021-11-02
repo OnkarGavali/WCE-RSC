@@ -9,8 +9,9 @@ function PaperPresentation() {
     return (
         <div>
             {/* PageBanner - start */}
-            {/* PageBanner - end */}
             <PageBanner name="Paper Presentations" head="Programs" subhead="Paper Presentations" info="Feel Free To Get In Touch" />
+            {/* PageBanner - end */}
+            
             <div className="contenti">
                 <div className="container">
                     <div className="page-content">

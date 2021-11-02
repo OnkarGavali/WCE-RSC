@@ -34,7 +34,7 @@ function Submission() {
                     <div className="page-content">
                         <div className="col-md-9">  
                             {
-                                 isLoading ? (
+                                isLoading ? (
                                     <div>Loading</div>
                                 ) : (
                                     <>
