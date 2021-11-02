@@ -22,7 +22,7 @@ export const NoticeBoard = ({title,titleMessage,noticeState,noticeStateChange,no
          
             <br />
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <div>
+                <div style={{width:"100%"}}>
                     <label className="accent-color">{headLabel}</label>
                     <input
                         className="email"
