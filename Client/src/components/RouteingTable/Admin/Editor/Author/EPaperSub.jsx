@@ -1,8 +1,16 @@
 
 import React, {useState } from 'react'
 import info from '../../../../../JSON/Authors/paperSubmission.json';
+import { NoticeBoard } from '../../NoticeBoard';
 
 function EPaperSub() {
+    const [displayNotice, setdisplayNotice] = useState(false);
+    const [displayeNoticeHead, setDisplayeNoticeHead] = useState('');
+    const [displayeNoticeContent, setDisplayeNoticeContent] = useState('')
+    const [maintainanceBreak, setMaintainanceBreak] = useState(false);
+    const [maintainanceBreakHead, setMaintainanceBreakHead] = useState('');
+    const [maintainanceBreakContent, setMaintainanceBreakContent] = useState('');
+
     const [state, setState] = useState({
        
         para: info.data.paragraph,
@@ -61,7 +69,8 @@ function EPaperSub() {
                                     </div>
                                 </div>
                                 
-
+                                <NoticeBoard title={'Display Notice'} titleMessage={'Display Notice is : '} noticeState={displayNotice} noticeStateChange={setdisplayNotice} noticeHead={displayeNoticeHead} noticeHeadChange={setDisplayeNoticeHead} noticeContent={displayeNoticeContent} noticeContentChange={setDisplayeNoticeContent} headLabel={'Notice Heading'} contentLabel={'Notice Content'} />
+                                <NoticeBoard title={'Maintainance Break'} titleMessage={'Maintainance Break is : '} noticeState={maintainanceBreak} noticeStateChange={setMaintainanceBreak} noticeHead={maintainanceBreakHead} noticeHeadChange={setMaintainanceBreakHead} noticeContent={maintainanceBreakContent} noticeContentChange={setMaintainanceBreakContent} headLabel={'Maintainance Break Heading'} contentLabel={'Maintainance Break Message Content'} />
                                 <div  style={{ textAlign: 'right' }}>
                                 <button type="submit" id="submit" className="btn-system btn-large">Update Content</button>
                                 </div>
