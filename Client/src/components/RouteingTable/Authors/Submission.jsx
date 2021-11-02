@@ -15,7 +15,7 @@ function Submission() {
 
     useEffect(() => {
         setAllData(peperSubmission);
-         if(allData.maintenanceBreakState){
+        if(allData.maintenanceBreakState){
             setToShow(false);
         }else{
             setToShow(true);

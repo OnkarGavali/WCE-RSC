@@ -9,19 +9,27 @@ import {
 
 function Dates() {
 
-    const [isLoading, setIsLoading] = useState(true);
-
+   
     const [allData, setAllData] = useState([]);
+    const [maintenanceBreakMessageStatus, setMaintenanceBreakMessageStatus] = useState(false);
+    const [displayNoticeStatus, setDisplayNoticeStatus] = useState(false);
+    const [toShow, setToShow] = useState(true);
+    const [isLoading, setIsLoading] = useState(true);
     
     
 
     useEffect(() => {
         //ap call
-        setAllData(dates)
+        setAllData(dates);
+        if(allData.maintenanceBreakState){
+            setToShow(false);
+        }else{
+            setToShow(true);
+        }
         setIsLoading(false)
         
         
-    }, [])
+    }, [allData])
     return (
         <div>
             {/* PageBanner - start */}
@@ -49,11 +57,15 @@ function Dates() {
                                         </thead>
                                         <tbody>
                                             {
-                                                allData.map(date => <tr key={date.id}>
-                                                    <td>{date.id} </td>
-                                                    <td>{date.impDate}</td>
-                                                    <td>{date.details}</td>
-                                                </tr>)
+                                                allData.data.dates ?
+                                                (
+                                                    allData.data.dates.map(date => <tr key={date.id}>
+                                                            <td>{date.id} </td>
+                                                            <td>{date.impDate}</td>
+                                                            <td>{date.details}</td>
+                                                        </tr>)
+                                                ) : null
+                                                    
                                             }
                                         </tbody>
                                     </table>
