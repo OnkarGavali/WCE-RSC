@@ -1,13 +1,31 @@
-import React, { Components, useState } from 'react';
-import Table from 'react-bootstrap/Table';
+import React, { useEffect, useState } from 'react';
+
 
 import PageBanner from '../PageBanner';
 
-
+import regitrationJSON from '../../../JSON/Programs/registration.json'
 
 
 
 function Register() {
+
+  const [allData, setAllData] = useState([]);
+  const [maintenanceBreakMessageStatus, setMaintenanceBreakMessageStatus] = useState(false);
+  const [displayNoticeStatus, setDisplayNoticeStatus] = useState(false);
+  const [toShow, setToShow] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+      setAllData(regitrationJSON);
+      if(allData.maintenanceBreakState){
+          setToShow(false);
+      }else{
+          setToShow(true);
+      }
+      setIsLoading(false)
+  }, [allData])
+
+
   return (
     <div>
       {/* PageBanner - start */}
@@ -17,95 +35,102 @@ function Register() {
       <div className="contenti">
         <div className="container">
           <div className="page-content">
-            <h3 className="classic-title"><span>Note</span></h3>
-            <ul style={{ listStyleType: 'disc', marginLeft: '3%' }}>
-              <li>  On account of ongoing Pandemic situation (COVID-19), the symposium will be organized via Virtual Mode (Online).</li>
-              <li>  Publication of the paper in conference proceedings, Book of Abstracts, Participation in all technical sessions, for two days of the symposium and Certificate of Speaker/Attendance</li>
-              <li>  Each author registration will cover only one paper.</li>
-              <li>  List of selected papers will be published on the symposium website.</li>
-            </ul>
+            {
+              isLoading ? (
+                <div>Loading</div>
+              ) : (
+                <>
+                  <h3 className="classic-title"><span>Note</span></h3>
+                  {
+                      <p style={{whiteSpace:'pre-line'}}>
+                        {
+                          allData.data.note
+                        }
+                      </p>
+                  }
 
-            <h3 className="classic-title"><span>Registration Fee Details</span></h3>
+                  <h3 className="classic-title"><span>Registration Fee Details</span></h3>
+                  <table className="table table-striped table-responsive table-condensed ">
+                    <thead>
+                      <th>Registration Type</th>
+                      <th className="text-center">Registeration</th>
+                      <th className="text-center">Late Registeration</th>
+                    </thead>
+                    <tbody>
+                     {
+                       allData.data.regitrationFees ? (
+                        allData.data.regitrationFees.map((tableData)=><tr key={tableData.index}>
+                            <td>{tableData.type}</td>
+                            <td className="text-center">{tableData.fees}</td>
+                            <td className="text-center">{tableData.late}</td>
+                          </tr>
+                         
+                       )
+                       ) : null
+                       
+                     }
+                    </tbody>
+                  </table>
+                
+                  <h3 className="classic-title"><span>Upload Fee Waiver Details</span></h3>
+                  <p>Upload your fee waiver application to the given drive folders. <sub><a href="/asset/2021_Fee_waiver.docx"> (Fee Waiver Form Template) </a></sub></p>
+                  
+                  
+                   
+                  <ul>
+                    {
+                      allData.data.feeWaiver ? (
+                        allData.data.feeWaiver.map((link)=><li key={link.index}><a href={`${link.link}` } target='_blank'> {link.text}</a></li>)
+                      ) : null
+                    }
+                    {
+                      allData.data.feeWaiverNotice ? (<sub style={{ color: 'red' }}>{allData.data.feeWaiverNotice}</sub>) : null
+                    }
+                  </ul>
+                  
+                    
+                  <br/>
+                  <h3 className="classic-title"><span>Bank Account</span></h3>
+                  <p>Payment of appropriate registration fee can be initiated in favour of (Bank Account Details):</p>
+                  <table className="table table-light table-bordered table-striped table-responsive table-condensed">
+                    <tbody>
+                      <tr>
+                        <td>Account Number:</td>
+                        <td>{allData.data.bankDetails.accountNo}</td>
+                      </tr>
+                      <tr>
+                        <td>Account Name:</td>
+                        <td>{allData.data.bankDetails.accountName}</td>
+                      </tr>
+                      <tr>
+                        <td>Name of Bank: </td>
+                        <td>{allData.data.bankDetails.nameOfBank}</td>
+                      </tr>
+                      <tr>
+                        <td>IFSC Code:</td>
+                        <td>{allData.data.bankDetails.IFSCCode}</td>
+                      </tr>
+                      <tr>
+                        <td>MICR Code:</td>
+                        <td>{allData.data.bankDetails.MICRCode}</td>
+                      </tr>
+                      <tr>
+                        <td>Branch Code:</td>
+                        <td>{allData.data.bankDetails.branchCode}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                  <div style={{ textAlign: 'center' }}>
+                    <form action={`${allData.data.regitrationFormLink}`}>
+                      <button className="btn-large btn-system"  type="submit">Register Now</button>
+                    </form>
+                  </div>
+                </>
+              )
+
+            }
             
-            <table className="table table-striped">
-              <thead>
-                <th>Registration Type</th>
-                <th className="text-center">Early Bird Registeration</th>
-                <th className="text-center">Late Registeration</th>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Academia/Students</td>
-                  <td className="text-center">INR 4000</td>
-                  <td className="text-center">INR 4500</td>
-                </tr>
-                <tr>
-                  <td>Industry Personnel</td>
-                  <td className="text-center">INR 5000</td>
-                  <td className="text-center">INR 5500</td>
-                </tr>
-                <tr>
-                  <td>Attendee</td>
-                  <td colspan="2" className="text-center">INR 1000</td>
-                </tr>
-                <tr>
-                  <td>Co-Author</td>
-                  <td colspan="2" className="text-center">INR 1000</td>
-                </tr>
-                <tr>
-                  <td>Innovative Project Showcasing</td>
-                  <td colspan="2" className="text-center">INR 300</td>
-                </tr>
-              </tbody>
-            </table>
-            <h5>{/*<sup>*</sup>50% fee would be waived for registered IET members only in all categories */} </h5>
-
-            <div style={{ margin: '0% 1%' }}>
-              <h5>Upload your fee waiver application to the given drive folders. <sub><a href="asset/2021_Fee_waiver.docx"> (Fee Waiver Form Template) </a></sub></h5>
-              <ul>
-                <li><a href="https://drive.google.com/drive/folders/1rTO_0CU67I-wE28mjeYXkCAhUWSjEkj3?usp=sharing"> Google Drive folder for UG</a></li>
-                <li><a href="https://drive.google.com/drive/folders/1WNPTAToUZlRVjNamS_4SOEPJYBC0LVNx?usp=sharing"> Google Drive folder for M.Tech</a></li>
-                <li><a href="https://drive.google.com/drive/folders/1rTO_0CU67I-wE28mjeYXkCAhUWSjEkj3?usp=sharing"> Google Drive folder for P.H.D.</a></li>
-                <sub style={{ color: 'red' }}>Note : Prefer your 'walchandsangli' domain email id for the links. Mention paper id in the doc name.</sub>
-              </ul>
-            </div>
-              
-            Payment of appropriate registration fee can be initiated in favour of (Bank Account Details):
-              
-            <table className="table table-light">
-              <tbody>
-                <tr>
-                  <td>Account Number:</td>
-                  <td>150710200003900</td>
-                </tr>
-                <tr>
-                  <td>Account Name:</td>
-                  <td>Director, Walchand College of Engineering Vishrambag, Sangli - 416415</td>
-                </tr>
-                <tr>
-                  <td>Name of Bank: </td>
-                  <td>Bank of India, Vishrambag, Sangli</td>
-                </tr>
-                <tr>
-                  <td>IFSC Code:</td>
-                  <td> BKID0001507 </td>
-                </tr>
-                <tr>
-                  <td>MICR Code:</td>
-                  <td>416013154</td>
-                </tr>
-                <tr>
-                  <td>Branch Code:</td>
-                  <td>BKID001507</td>
-                </tr>
-              </tbody>
-            </table>
-
-            <div style={{ textAlign: 'center' }}>
-              <form action="https://docs.google.com/forms/d/e/1FAIpQLSeVXgC5F9Mqi25oWfxFnge_Ei0UgywMgV59Sxlcy_pyJTEy2w/viewform?usp=sf_link">
-                <button className="btn btn-lg btn-system"  type="submit">Register Now</button>
-              </form>
-            </div>
           </div>
         </div>
       </div>
