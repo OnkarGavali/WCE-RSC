@@ -15,6 +15,7 @@ function CallForContriBution() {
     const [toShow, setToShow] = useState(true);
     const [paragraph, setParagraph] = useState("");
     const [list, setList] = useState([])
+    const [isLoading, setIsLoading] = useState(true);
     useEffect(() => {
         //api call
         setAllData(TopicsList);
@@ -22,9 +23,10 @@ function CallForContriBution() {
             setToShow(false);
         }else{
             setToShow(true);
-            setParagraph(allData.data.paragraph);
-            setList(allData.data.topicList);
+            //setParagraph(allData.data.paragraph);
+            //setList(allData.data.topicList);
         }
+        setIsLoading(false)
     }, [allData])
     return (
         <div>
@@ -36,36 +38,45 @@ function CallForContriBution() {
                 <div className="container">
                     <div className="page-content">
                         <div className="col-md-9">
-                            <h2 className="classic-title" id="notifications"><span>Call For Papers</span></h2>
-                            {   
-                                toShow ? (
-                                    <React.Fragment>  
-                                        {
-                                            paragraph ? (
-                                                <p style={{whiteSpace:'pre-line'}}>{paragraph}</p>
-                                            ) : null
-                                        }
-                                        {
-                                            list ? (
-                                                <ul className="icons-list">
-                                                    <strong>
-                                                        {
-                                                            list.map((topic)=>(
-                                                                <li key={topic.id}><i className="fa fa-check-circle"></i> {topic.topicName}</li>
-                                                            ))
-                                                        }
-                                                    </strong>
-                                                </ul>
-                                            ) : null
-                                        }
-                                        
-                                    </React.Fragment>
-                                ) : ( 
-                                    // <MaintenanceBreak message={maintenanceBreakMessage}/>
-                                    null
-                                    
+                            {
+                                isLoading ? (
+                                    <div>Loading</div>
+                                ) : (
+                                    <>
+                                    <h2 className="classic-title" id="notifications"><span>Call For Papers</span></h2>
+                                    {   
+                                        toShow ? (
+                                            <React.Fragment>  
+                                                {
+                                                    allData.data.paragraph ? (
+                                                        <p style={{whiteSpace:'pre-line'}}>{ allData.data.paragraph}</p>
+                                                    ) : null
+                                                }
+                                                {
+                                                    allData.data.topicList ? (
+                                                        <ul className="icons-list">
+                                                            <strong>
+                                                                {
+                                                                    allData.data.topicList.map((topic)=>(
+                                                                        <li key={topic.id}><i className="fa fa-check-circle"></i> {topic.topicName}</li>
+                                                                    ))
+                                                                }
+                                                            </strong>
+                                                        </ul>
+                                                    ) : null
+                                                }
+                                                
+                                            </React.Fragment>
+                                        ) : ( 
+                                            // <MaintenanceBreak message={maintenanceBreakMessage}/>
+                                            null
+                                            
+                                        )
+                                    }
+                                    </>
                                 )
                             }
+                            
                             
 
                         </div>

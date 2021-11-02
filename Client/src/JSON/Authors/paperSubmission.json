@@ -1,0 +1,13 @@
+{
+    "displayNoticeStatus":false,
+    "displayNoticeHeading":"Submissions portal",
+    "displayNoticeContent":"The Submissions portal is yet to open. For further updates stay tuned !.!.! ",
+    "maintenanceBreakStatus":false,
+    "maintenanceBreakHeading":"MB Notice Heading",
+    "maintenanceBreakContent":"The paper submission for possible inclusion in Springer / e-proceedings and Innovative project showcasing have been closed.  The submissions for Innovative Project Showcasing is open till 18 November 2018",
+    "data":{
+        "paragraph":"While submitting your paper through easy chair please mention your category of submission either A, B ,or C in the title section\n\n- Category A: for Paper Submission\n- Category B: for Poster Submission\n- Category C: IPS Submission",
+        "submissionLink":"https://easychair.org/conferences/?conf=rsc2021"
+    }
+
+}
