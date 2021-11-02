@@ -3,7 +3,9 @@ import {
     Link
 } from "react-router-dom";
 import EGuidlines from './Author/EGuidlines';
+import EImpDates from './Author/EImpDates';
 import Ekeynotes from './Keynotes/Ekeynotes';
+import CallFor from './Author/CallFor';
 
 export default function AdminPanel() {
     return (
@@ -47,7 +49,7 @@ export default function AdminPanel() {
                         
                         {/* Main Content - start */}
                         <div className="col-md-9">
-                            <EGuidlines/>
+                            <CallFor/>
                         </div>
                         {/* Main Content - end */}
                         
