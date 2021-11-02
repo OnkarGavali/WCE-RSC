@@ -125,7 +125,7 @@ export default class RoutingTable extends Component {
 
                     {/* Admin - start*/}
                         <Route exact path="/Admin">
-                            <Ekeynotes/>
+                            <Login/>
                         </Route>
                     {/* Admin - end*/}
 

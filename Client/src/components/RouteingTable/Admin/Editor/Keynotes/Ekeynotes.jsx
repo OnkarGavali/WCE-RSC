@@ -1,9 +1,10 @@
 import React, { useState, Fragment } from "react";
 import { nanoid } from "nanoid";
-import PageBanner from "../../../PageBanner";
+
 import "react-toggle/style.css" // for ES6 modules
 import Toggle from 'react-toggle'
 import data from "../../../../../JSON/Keynote.json";
+import { NoticeBoard } from "../../NoticeBoard";
 //import ReadOnlyRow from "./components/ReadOnlyRow";
 //import EditableRow from "./components/EditableRow";
 
@@ -84,7 +85,11 @@ const ReadOnlyRow = ({ contact, handleEditClick, handleDeleteClick }) => {
 const Ekeynotes = () => {
     const [contacts, setContacts] = useState(data.Speakers);
     const [displayNotice, setdisplayNotice] = useState(false);
+    const [displayeNoticeHead, setDisplayeNoticeHead] = useState('');
+    const [displayeNoticeContent, setDisplayeNoticeContent] = useState('')
     const [maintainanceBreak, setMaintainanceBreak] = useState(false);
+    const [maintainanceBreakHead, setMaintainanceBreakHead] = useState('');
+    const [maintainanceBreakContent, setMaintainanceBreakContent] = useState('');
 
     const [addFormData, setAddFormData] = useState({
         name: " ",
@@ -194,13 +199,7 @@ const Ekeynotes = () => {
 
     return (
         <div>
-            <PageBanner name="Keynote Speakers" head="Admin Panel" />
-
-            <div className="contenti">
-                <div className="container">
-                    <div className="page-content">
-
-                        <div className="col-md-9">
+         
                             <h2 className="classic-title"><span>Edit Keynote Speakers </span></h2>
                             <div className="app-container">
                                 <form onSubmit={handleEditFormSubmit}>
@@ -310,7 +309,7 @@ const Ekeynotes = () => {
                                     </div>
 
                                 </form>
-
+                                 <NoticeBoard title={'Maintainance Break'} titleMessage={'Maintainance break is : '} noticeState ={maintainanceBreak} noticeStateChange={setMaintainanceBreak} noticeHead={maintainanceBreakHead} noticeHeadChange={setMaintainanceBreakHead} noticeContent={maintainanceBreakContent} noticeContentChange={setMaintainanceBreakContent} headLabel={'Maintainance Break Heading'} contentLabel={'Maintainance Break Message Content'} />           
                                 <h2 className="classic-title"><span>Maintainance Break </span></h2>
 
 
@@ -366,10 +365,7 @@ const Ekeynotes = () => {
 
 
                     </div>
-                </div>
-            </div>
-        </div>
-        </div >
+         
 
     );
 };

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, useState } from 'react'
 import {
     BrowserRouter as Router,
     Switch,
@@ -6,6 +6,7 @@ import {
     Link
 } from "react-router-dom";
 import PageBanner from '../PageBanner';
+import AdminPanel from './Editor/AdminPanel';
 
 
 class Login extends Component {
@@ -21,19 +22,20 @@ class Login extends Component {
 
         this.state = {
             username: undefined,
-            email: undefined,
             password: undefined,
             signUp: {
                 success: undefined,
                 message: undefined
             },
             logged: false,
-            users: undefined,
+           
+            loginCredential:"",
             error: undefined
         }
     }
     
     handleSubmit(e) {
+      
         e.preventDefault();
         let dataToSend = {
             Username: this.state.email,
@@ -61,6 +63,8 @@ class Login extends Component {
 
         e.target.reset()
     }
+   
+
 
     handleEmailChange(e) {
         this.setState({
@@ -77,47 +81,61 @@ class Login extends Component {
 
 
 
-
     render() {
         return (
             <div>
-                <PageBanner name="Login" head='Admin' />
-                <div id="content">
-                    <div className="container">
-                        <div className="page-content">
-                            <div className="col-md-5">
 
-                                <br />
-                                <h4 className="classic-title"><span>Login for Admin Panel</span></h4>
-
-
-                                <form id='login' accept-charset='UTF-8' onSubmit={this.handleSubmit}>
-                                    <input type='hidden' name='submitted' id='submitted' value='1' />
-
-                                    <div className="form-group">
-                                        <div className="controls">
-                                            <input type="text" placeholder="Enter Username" name="Username" id="email" className="email"
-                                                required="required" onChange={this.handleEmailChange} />
-                                        </div>
-                                    </div>
-                                    <div className="form-group">
-                                        <div className="controls">
-                                            <input type="password" className="email" placeholder="Password" name="password" id="password"
-                                                required="required" onChange={this.handlePasswordChange} />
-                                        </div>
-                                    </div>
-
-                                    <button type="submit" id="submit" className="btn-system btn-large">Login</button>
-                                    <br />
-                                    <br />
-                                </form>
-
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+                {
+                     this.state.logged ? (
+                         <AdminPanel/>
+                     ):(
+                         
+                        <div>
+                        <PageBanner name="Login" head='Admin' />
+                     <div id="content">
+                         <div className="container">
+                             <div className="page-content">
+                                 <div className="col-md-5">
+     
+                                     <br />
+     
+     
+     
+                                     <h4 className="classic-title"><span>Login for Admin Panel</span></h4>
+     
+     
+                                     <form id='login' accept-charset='UTF-8' onSubmit={this.handleSubmit}>
+                                         <input type='hidden' name='submitted' id='submitted' value='1' />
+     
+                                         <div className="form-group">
+                                             <div className="controls">
+                                                 <input type="text" placeholder="Enter Username" name="Username" id="email" className="email"
+                                                     required="required" onChange={this.handleEmailChange} />
+                                             </div>
+                                         </div>
+                                         <div className="form-group">
+                                             <div className="controls">
+                                                 <input type="password" className="email" placeholder="Password" name="password" id="password"
+                                                     required="required" onChange={this.handlePasswordChange} />
+                                             </div>
+                                         </div>
+     
+                                         <button type="submit" id="submit" className="btn-system btn-large">Login</button>
+                                         <br />
+                                         <br />
+                                     </form>
+                                    
+     
+     
+     
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                     </div>
+     )  
+                }
+               
             </div>
         );
     }

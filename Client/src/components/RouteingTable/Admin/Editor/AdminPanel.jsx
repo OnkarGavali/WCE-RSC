@@ -2,6 +2,7 @@ import React from 'react'
 import {
     Link
 } from "react-router-dom";
+import Ekeynotes from './Keynotes/Ekeynotes';
 
 export default function AdminPanel() {
     return (
@@ -45,7 +46,7 @@ export default function AdminPanel() {
                         
                         {/* Main Content - start */}
                         <div className="col-md-9">
-                            
+                            <Ekeynotes/>
                         </div>
                         {/* Main Content - end */}
                         
