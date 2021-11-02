@@ -59,12 +59,6 @@ function EHome() {
     return (
         <div>
 
-            <PageBanner name="Home" head='Admin Panel' />
-            <div id="content">
-                <div className="container">
-                    <div className="page-content">
-                        <div className="col-md-6">
-
                             <br />
                             <h2 className="classic-title"><span>Edit Home Page </span></h2>
 
@@ -109,19 +103,16 @@ function EHome() {
                                     </div>
                                 </div>
 
-
-                                <button type="submit" id="submit" className="btn-system btn-large">Save</button>
+                                <div  style={{ textAlign: 'right' }}>
+                                <button type="submit" id="submit" className="btn-system btn-large">Update Content</button>
+                                </div>
                                 <br />
                                 <br />
                             </form>
 
 
                         </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
+        
     );
 
 }
