@@ -1,5 +1,4 @@
-import React, { Components, useState } from 'react';
-import About from './About';
+import React from 'react';
 
 
 
