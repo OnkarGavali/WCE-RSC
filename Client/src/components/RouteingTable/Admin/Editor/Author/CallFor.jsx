@@ -27,8 +27,8 @@ const EditableRow = ({
 
 
             <td>
-                <button type="submit" class="btn btn-success" >Save</button>
-                <button type="button" onClick={handleCancelClick} style={{ marginLeft: '4%' }} class="btn btn-secondary" >
+                <button type="submit" className="btn btn-success" >Save</button>
+                <button type="button" onClick={handleCancelClick} style={{ marginLeft: '4%' }} className="btn btn-secondary" >
                     Cancel
                 </button>
             </td>
@@ -44,14 +44,14 @@ const ReadOnlyRow = ({ contact, handleEditClick, handleDeleteClick }) => {
 
             <td>
                 <button
-                    class="btn btn-primary"
+                    className="btn btn-primary"
                     type="button"
                     onClick={(event) => handleEditClick(event, contact)}
                 >
                     Edit
                 </button>
                 <button
-                    class="btn btn-secondary"
+                    className="btn btn-secondary"
                     type="button" onClick={() => handleDeleteClick(contact.id)} style={{ marginLeft: '4%' }}>
                     Delete
                 </button>
@@ -204,7 +204,7 @@ const CallFor = () => {
                         <div className="col-md-9">
                             <h2 className="classic-title"><span>Edit Contribution Info  </span></h2>
 
-                            <form id='login' acceptCharset='UTF-8' >
+                            <form  acceptCharset='UTF-8' >
                                 <input type='hidden' name='submitted' id='submitted' value='1' />
 
                                 <div className="form-group">
@@ -217,7 +217,7 @@ const CallFor = () => {
                             </form>
 
                             <h2 className="classic-title"><span>Edit Contribution Topics </span></h2>
-                            <div className="container">
+                            <div>
 
                                 <form onSubmit={handleEditFormSubmit}>
                                     <table className="table table-responsive table-condensed table-bordered">
@@ -264,16 +264,16 @@ const CallFor = () => {
                                         />
                                     </div>
                                     <div className=" " style={{ marginLeft: '80%' }}>
-                                        <button type="submit" class="btn btn-primary">Add</button>
+                                        <button type="submit" className="btn btn-primary">Add</button>
                                     </div>
 
                                 </form>
                                 <br />
-                                <NoticeBoard title={'Display Notice'} titleMessage={'Notice is : '} noticeState ={displayNotice} noticeStateChange={setdisplayNotice} noticeHead={displayeNoticeHead} noticeHeadChange={setDisplayeNoticeHead} noticeContent={displayeNoticeContent} noticeContentChange={setDisplayeNoticeContent} headLabel={'Notice Heading'} contentLabel={'Notice Content'} />
-                                <NoticeBoard title={'Maintainance Break'} titleMessage={'Maintainance break is : '} noticeState ={maintainanceBreak} noticeStateChange={setMaintainanceBreak} noticeHead={maintainanceBreakHead} noticeHeadChange={setMaintainanceBreakHead} noticeContent={maintainanceBreakContent} noticeContentChange={setMaintainanceBreakContent} headLabel={'Maintainance Break Heading'} contentLabel={'Maintainance Break Message Content'} />           
+                                <NoticeBoard title={'Display Notice'} titleMessage={'Display Notice is : '} noticeState ={displayNotice} noticeStateChange={setdisplayNotice} noticeHead={displayeNoticeHead} noticeHeadChange={setDisplayeNoticeHead} noticeContent={displayeNoticeContent} noticeContentChange={setDisplayeNoticeContent} headLabel={'Notice Heading'} contentLabel={'Notice Content'} />
+                                <NoticeBoard title={'Maintainance Break'} titleMessage={'Maintainance Break is : '} noticeState ={maintainanceBreak} noticeStateChange={setMaintainanceBreak} noticeHead={maintainanceBreakHead} noticeHeadChange={setMaintainanceBreakHead} noticeContent={maintainanceBreakContent} noticeContentChange={setMaintainanceBreakContent} headLabel={'Maintainance Break Heading'} contentLabel={'Maintainance Break Message Content'} />           
                                
                                 <br />
-                                <div className=" " style={{ textAlign: 'center' }}>
+                                <div  style={{ textAlign: 'right' }}>
                                     <button type="submit" onClick={handleSubmit} className="btn btn-lg btn-system" style={{ marginTop: '10px' }}>Update Content</button>
                                 </div>
                             </div>

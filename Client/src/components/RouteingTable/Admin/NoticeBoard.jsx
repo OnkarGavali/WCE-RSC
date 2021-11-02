@@ -8,7 +8,7 @@ export const NoticeBoard = ({title,titleMessage,noticeState,noticeStateChange,no
            
 
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-            <span >{titleMessage} {noticeState ? "Yes" : "No"} </span>
+            <span >{titleMessage} {noticeState ? "ON" : "OFF"} </span>
             <Toggle
                        
                         defaultChecked={noticeState}
