@@ -86,7 +86,7 @@ function ImpDates() {
                             </div>
                         </div>
                         <br/>
-                        <Notifications/>
+                     
                         <br/>
                         <br/>
                         <SponsorsOld/>

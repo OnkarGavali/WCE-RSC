@@ -1,4 +1,5 @@
 import React from 'react';
+import Notifications from './Notifications';
 
 
 function HomeBody() {
@@ -31,7 +32,7 @@ function HomeBody() {
                     The symposium will be accompanied by prominent experts who will deliver the keynote addresses and will 
                     actively participate in critical discussions at the symposium. The selected papers will be forwarded for 
                     its publication in Springer's Book series. (Under Process)</p><br />
-           
+            <Notifications/>
             </div>
         </div>
     );
