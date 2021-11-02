@@ -1,23 +1,6 @@
 
 import React, {useState } from 'react'
 
-import PageBanner from '../../../PageBanner';
-
-
-
-
-
-
-
-
-
-function handlePasswordChange() {
-    this.setState({
-        //password: e.target.value
-    });
-}
-
-
 
 function EHome() {
     const [state, setState] = useState({
@@ -59,7 +42,7 @@ function EHome() {
     return (
         <div>
 
-                            <br />
+                            
                             <h2 className="classic-title"><span>Edit Home Page </span></h2>
 
 

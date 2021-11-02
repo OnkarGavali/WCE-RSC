@@ -7,6 +7,9 @@ import EImpDates from './Author/EImpDates';
 import Ekeynotes from './Keynotes/Ekeynotes';
 import CallFor from './Author/CallFor';
 import EHome from './Home/EHome';
+import EPaperSub from './Author/EPaperSub';
+
+
 export default function AdminPanel() {
     return (
         <div>
@@ -49,7 +52,7 @@ export default function AdminPanel() {
                         
                         {/* Main Content - start */}
                         <div className="col-md-9">
-                            <EHome/>
+                            <EPaperSub/>
                         </div>
                         {/* Main Content - end */}
                         
