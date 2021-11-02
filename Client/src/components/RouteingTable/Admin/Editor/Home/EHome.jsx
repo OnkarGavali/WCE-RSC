@@ -69,7 +69,7 @@ function EHome() {
                             <h2 className="classic-title"><span>Edit Home Page </span></h2>
 
 
-                            <form id='login' accept-charset='UTF-8' onSubmit={handleSubmit}>
+                            <form id='login' acceptCharset='UTF-8' onSubmit={handleSubmit}>
                                 <input type='hidden' name='submitted' id='submitted' value='1' />
 
                                 <div className="form-group">

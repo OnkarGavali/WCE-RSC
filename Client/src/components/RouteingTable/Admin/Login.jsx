@@ -1,17 +1,9 @@
-import React, { Component, useState } from 'react'
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link
-} from "react-router-dom";
+import React, { Component } from 'react'
 import PageBanner from '../PageBanner';
 import AdminPanel from './Editor/AdminPanel';
 
 
 class Login extends Component {
-
-
 
     constructor() {
         super();
@@ -29,7 +21,7 @@ class Login extends Component {
             },
             logged: false,
            
-            loginCredential:"",
+            user:null,
             error: undefined
         }
     }
@@ -56,8 +48,10 @@ class Login extends Component {
                     localStorage.setItem('x-access-token', responseJson.token);
                     this.setState({
                         logged: true,
-                        error: undefined
+                        error: undefined,
+                        user: responseJson.user
                     })
+                    
                   
             }).catch(err => this.setState({ error: err }));
 
@@ -104,7 +98,7 @@ class Login extends Component {
                                      <h4 className="classic-title"><span>Login for Admin Panel</span></h4>
      
      
-                                     <form id='login' accept-charset='UTF-8' onSubmit={this.handleSubmit}>
+                                     <form id='login' acceptCharset='UTF-8' onSubmit={this.handleSubmit}>
                                          <input type='hidden' name='submitted' id='submitted' value='1' />
      
                                          <div className="form-group">
