@@ -20,12 +20,10 @@ function CallForContriBution() {
         setAllData(TopicsList);
         if(allData.maintenanceBreakState){
             setToShow(false);
-            
-           
         }else{
             setToShow(true);
-            setParagraph(allData.paragraph);
-            setList(allData.topicList);
+            setParagraph(allData.data.paragraph);
+            setList(allData.data.topicList);
         }
     }, [allData])
     return (
