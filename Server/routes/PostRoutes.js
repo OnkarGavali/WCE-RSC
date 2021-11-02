@@ -5,6 +5,8 @@ const verifyJWT = require('../middleware/common');
 const Schedule = require('../models/Important_Dates')
 const keyNotes = require('../models/keyNotes');
 const paragraph = require('../models/paragraphs');
+const organization = require('../models/organization');
+const advisory = require('../models/advisory');
 
 
 router.post('/schedule',verifyJWT,(req,res) => {
@@ -54,4 +56,27 @@ router.post('/paragraphs/:name',verifyJWT,async (req,res) => {
     
 })
 
+router.post('/organization',async(req,res) => {
+    try{
+        console.log(req.body);
+        const data = new organization(req.body);
+        await data.save();
+        res.status(200).json({success:true, data });
+    }
+    catch(err){
+        console.log(err);
+    }
+})
+
+router.post('/advisory',async(req,res) => {
+    try{
+        console.log(req.body);
+        const data = new advisory(req.body);
+        await data.save();
+        res.status(200).json({success:true, data });
+    }
+    catch(err){
+        console.log(err);
+    }
+})
 module.exports = router;
