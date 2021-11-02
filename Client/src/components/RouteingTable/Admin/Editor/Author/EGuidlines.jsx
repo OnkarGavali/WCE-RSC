@@ -1,7 +1,8 @@
 import React, { useState, Fragment } from "react";
 import { nanoid } from "nanoid";
 import PageBanner from "../../../PageBanner";
-import data from "../../../../../JSON/adv_com.json";
+import info from "../../../../../JSON/Authors/guidelines.json";
+import { NoticeBoard } from "../../NoticeBoard";
 //import ReadOnlyRow from "./components/ReadOnlyRow";
 //import EditableRow from "./components/EditableRow";
 
@@ -17,17 +18,17 @@ const EditableRow = ({
                     className="email"
                     type="text"
                     required="required"
-                    placeholder="Enter Name"
-                    name="name"
-                    value={editFormData.name}
+                    placeholder="Enter Topic"
+                    name="listItem"
+                    value={editFormData.listItem}
                     onChange={handleEditFormChange}
                 ></input>
             </td>
 
 
             <td>
-                <button type="submit" class="btn btn-success" >Save</button>
-                <button type="button" onClick={handleCancelClick} style={{marginLeft:'4%'}}  class="btn btn-secondary" >
+                <button type="submit" className="btn btn-success" >Save</button>
+                <button type="button" onClick={handleCancelClick} style={{ marginTop: '7%' }} className="btn btn-secondary" >
                     Cancel
                 </button>
             </td>
@@ -38,20 +39,20 @@ const EditableRow = ({
 const ReadOnlyRow = ({ contact, handleEditClick, handleDeleteClick }) => {
     return (
         <tr>
-            <td>{contact.name}</td>
+            <td>{contact.listItem}</td>
 
 
             <td>
                 <button
-                   class="btn btn-primary"
+                    className="btn btn-primary"
                     type="button"
                     onClick={(event) => handleEditClick(event, contact)}
                 >
                     Edit
                 </button>
-                <button 
-                class="btn btn-secondary"
-                type="button" onClick={() => handleDeleteClick(contact.id)} style={{marginLeft:'4%'}}>
+                <button
+                    className="btn btn-secondary"
+                    type="button" onClick={() => handleDeleteClick(contact.id)} style={{ marginTop: '7%' }}>
                     Delete
                 </button>
             </td>
@@ -60,17 +61,28 @@ const ReadOnlyRow = ({ contact, handleEditClick, handleDeleteClick }) => {
 };
 
 
-const EAdvCom = () => {
-    const [contacts, setContacts] = useState(data);
+const EGuidlines = () => {
+    const [contacts, setContacts] = useState(info.data.paperSubGuidelineList);
+    const [state, setState] = useState({
+        publicationInfo: info.data.publicationInfo,
+        publicationNote:info.data.noteInfo
+    });
+    const [displayNotice, setdisplayNotice] = useState(false);
+    const [displayeNoticeHead, setDisplayeNoticeHead] = useState('');
+    const [displayeNoticeContent, setDisplayeNoticeContent] = useState('')
+    const [maintainanceBreak, setMaintainanceBreak] = useState(false);
+    const [maintainanceBreakHead, setMaintainanceBreakHead] = useState('');
+    const [maintainanceBreakContent, setMaintainanceBreakContent] = useState('');
+
 
     const [addFormData, setAddFormData] = useState({
-        name: "",
+        listItem: "",
 
 
     });
 
     const [editFormData, setEditFormData] = useState({
-        name: "",
+        listItem: "",
 
 
     });
@@ -106,7 +118,7 @@ const EAdvCom = () => {
 
         const newContact = {
             id: nanoid(),
-            name: addFormData.name,
+            listItem: addFormData.listItem,
 
 
         };
@@ -114,13 +126,21 @@ const EAdvCom = () => {
         const newContacts = [...contacts, newContact];
         setContacts(newContacts);
     };
+    const handleChange = evt => {
+        const name = evt.target.name;
+        const value = evt.target.value;
+        setState({
+            ...state,
+            [name]: value
+        })
+    }
 
     const handleEditFormSubmit = (event) => {
         event.preventDefault();
 
         const editedContact = {
             id: editContactId,
-            name: editFormData.name,
+            listItem: editFormData.listItem,
 
 
         };
@@ -140,8 +160,8 @@ const EAdvCom = () => {
         setEditContactId(contact.id);
 
         const formValues = {
-            name: contact.name,
-         
+            listItem: contact.listItem,
+
 
         };
 
@@ -149,7 +169,15 @@ const EAdvCom = () => {
     };
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(contacts);
+
+        let dataToSend = {
+            paperSubGuidelineList: contacts,
+            publicationInfo: state.publicationInfo,
+            noteInfo: state.publicationNote
+          
+
+        };
+        console.log(dataToSend);
 
     }
 
@@ -169,20 +197,18 @@ const EAdvCom = () => {
 
     return (
         <div>
-            <PageBanner name="Advisory Committee" head="Admin Panel" />
+           
+            
 
-            <div className="contenti">
-                <div className="container">
-                    <div className="page-content">
 
-                        <div className="col-md-9">
-                        <h2 className="classic-title"><span>Edit Advisory Committee </span></h2>
-                            <div className="container">
+                            <h2 className="classic-title"><span>Edit Submission Guidlines </span></h2>
+                            <div>
+
                                 <form onSubmit={handleEditFormSubmit}>
                                     <table className="table table-responsive table-condensed table-bordered">
                                         <thead>
                                             <tr>
-                                                <th>Name</th>
+                                                <th>Guidlines</th>
                                                 <th>Actions</th>
                                             </tr>
                                         </thead>
@@ -208,38 +234,67 @@ const EAdvCom = () => {
                                     </table>
                                 </form>
                                 <br />
-                                <h2>Add a New Entry</h2>
+                                <h2 className="classic-title"><span>Add New Entry </span></h2>
                                 <br />
                                 <form onSubmit={handleAddFormSubmit}>
-                                    <div className="col-md-5">
-                                        <input
+                                    <div className="col-md-9">
+                                        <textarea
                                             className="email"
-                                            style={{ maxWidth: '100%' }}
+                                            style={{ width: '100%' }}
                                             type="text"
-                                            name="name"
+                                            rows="3"
+                                            name="listItem"
                                             required="required"
-                                            placeholder="Enter a name..."
+                                            placeholder="Enter a submission guidline"
                                             onChange={handleAddFormChange}
                                         />
                                     </div>
-                                    <div className=" " style={{marginLeft:'80%' }}>
-                                        <button type="submit"  class="btn btn-primary">Add</button>
+                                    <div className=" " style={{ marginLeft: '80%' }}>
+                                        <button type="submit" className="btn btn-primary">Add</button>
                                     </div>
 
                                 </form>
+                              
+                                
+                                <h2 className="classic-title" style={{marginTop:'10%'}}><span>Edit Publication Info  </span></h2>
+
+                                <form acceptCharset='UTF-8' >
+                                    <input type='hidden' name='submitted' id='submitted' value='1' />
+
+                                    <div className="form-group">
+                                        <div className="controls">
+
+                                            <textarea type="text" value={state.publicationInfo} rows="5" name="publicationInfo" className="email"
+                                                required="required" onChange={handleChange} style={{}} />
+                                        </div>
+                                    </div>
+                                </form>
+                                <h2 className="classic-title"style={{marginTop:'5%'}}><span>Edit Note  </span></h2>
+
+                                <form acceptCharset='UTF-8' >
+                                    <input type='hidden' name='submitted' id='submitted' value='1' />
+
+                                    <div className="form-group">
+                                        <div className="controls">
+
+                                            <textarea type="text" value={state.publicationNote} rows="3" name="publicationNote" className="email"
+                                                required="required" onChange={handleChange} style={{}} />
+                                        </div>
+                                    </div>
+                                </form>
                                 <br />
-                                <br/>
-                                <div className=" " style={{textAlign:'center'}}>
-                                <button type="submit" onClick={handleSubmit} className="btn btn-lg btn-system"  style={{marginTop:'10px'}}>Save</button>
+                                <NoticeBoard title={'Display Notice'} titleMessage={'Display Notice is : '} noticeState={displayNotice} noticeStateChange={setdisplayNotice} noticeHead={displayeNoticeHead} noticeHeadChange={setDisplayeNoticeHead} noticeContent={displayeNoticeContent} noticeContentChange={setDisplayeNoticeContent} headLabel={'Notice Heading'} contentLabel={'Notice Content'} />
+                                <NoticeBoard title={'Maintainance Break'} titleMessage={'Maintainance Break is : '} noticeState={maintainanceBreak} noticeStateChange={setMaintainanceBreak} noticeHead={maintainanceBreakHead} noticeHeadChange={setMaintainanceBreakHead} noticeContent={maintainanceBreakContent} noticeContentChange={setMaintainanceBreakContent} headLabel={'Maintainance Break Heading'} contentLabel={'Maintainance Break Message Content'} />
+
+                                <br />
+                                <div style={{ textAlign: 'right' }}>
+                                    <button type="submit" onClick={handleSubmit} className="btn btn-lg btn-system" style={{ marginTop: '10px' }}>Update Content</button>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div >
+          
 
     );
 };
 
-export default EAdvCom;
+export default EGuidlines;

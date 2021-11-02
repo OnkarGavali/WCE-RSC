@@ -28,6 +28,7 @@ import EAdvCom from './RouteingTable/Admin/Editor/Committe/EAdvCom'
 import AdminPanel from './RouteingTable/Admin/Editor/AdminPanel'
 import EOrgCom from './RouteingTable/Admin/Editor/Committe/EOrgCom'
 import EAbout from './RouteingTable/Admin/Editor/EAbout'
+import EGuidlines from './RouteingTable/Admin/Editor/Author/EGuidlines'
 
 export default class RoutingTable extends Component {
     render() {
@@ -131,7 +132,7 @@ export default class RoutingTable extends Component {
                         </Route>
                     {/* Admin - end*/}
                     <Route exact path="/Test">
-                            <CallFor/>
+                            <EGuidlines/>
                         </Route>
 
                     {/* Tmp AdminPanel - start*/}
