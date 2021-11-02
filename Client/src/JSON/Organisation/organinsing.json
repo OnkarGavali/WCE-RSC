@@ -61,48 +61,48 @@
             "role": "Local Organizing Committee",
             "persons":[
                 {
-                    "Name": "Dr. D B Kulkarni",
-                    "Designation": "Department of Information Technology, WCE"
+                    "name": "Dr. D B Kulkarni",
+                    "designation": "Department of Information Technology, WCE"
                 },
                 {
-                    "Name": "Dr. B F Momin",
-                    "Designation": "Department of Computer Science and Engineering, WCE"
+                    "name": "Dr. B F Momin",
+                    "designation": "Department of Computer Science and Engineering, WCE"
                 },
                 {
-                    "Name": "Dr. S P Sonavane",
-                    "Designation": "Department of Information Technology, WCE"
+                    "name": "Dr. S P Sonavane",
+                    "designation": "Department of Information Technology, WCE"
                 },
                 {
-                    "Name": "Mr. A R Surve",
-                    "Designation": "Department of Computer Science and Engineering, WCE"
+                    "name": "Mr. A R Surve",
+                    "designation": "Department of Computer Science and Engineering, WCE"
                 },
                 {
-                    "Name": "Dr. R.R. Rathod",
-                    "Designation": "Department of Information Technology, WCE"
+                    "name": "Dr. R.R. Rathod",
+                    "designation": "Department of Information Technology, WCE"
                 },
                 {
-                    "Name": "Dr. N L Gavankar",
-                    "Designation": "Department of Computer Science and Engineering, WCE"
+                    "name": "Dr. N L Gavankar",
+                    "designation": "Department of Computer Science and Engineering, WCE"
                 },
                 {
-                    "Name": "Mr. U.B. Chavan",
-                    "Designation": "Department of Information Technology, WCE"
+                    "name": "Mr. U.B. Chavan",
+                    "designation": "Department of Information Technology, WCE"
                 },
                 {
-                    "Name": "Mrs. B.S. Shetty",
-                    "Designation": "Department of Computer Science and Engineering, WCE"
+                    "name": "Mrs. B.S. Shetty",
+                    "designation": "Department of Computer Science and Engineering, WCE"
                 },
                 {
-                    "Name": "Dr. P K Kharat",
-                    "Designation": "Department of Information Technology, WCE"
+                    "name": "Dr. P K Kharat",
+                    "designation": "Department of Information Technology, WCE"
                 },
                 {
-                    "Name": "Mr. M K Chavan",
-                    "Designation": "Department of Computer Science and Engineering, WCE"
+                    "name": "Mr. M K Chavan",
+                    "designation": "Department of Computer Science and Engineering, WCE"
                 },
                 {
-                    "Name": "Mr. N.B. Narnaware",
-                    "Designation": "Department of Information Technology, WCE"
+                    "name": "Mr. N.B. Narnaware",
+                    "designation": "Department of Information Technology, WCE"
                 }
             ]
         }

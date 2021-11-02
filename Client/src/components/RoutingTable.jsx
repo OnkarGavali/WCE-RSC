@@ -26,6 +26,8 @@ import EHome from './RouteingTable/Admin/Editor/Home/EHome'
 import Ekeynotes from './RouteingTable/Admin/Editor/Keynotes/Ekeynotes'
 import EAdvCom from './RouteingTable/Admin/Editor/Committe/EAdvCom'
 import AdminPanel from './RouteingTable/Admin/Editor/AdminPanel'
+import EOrgCom from './RouteingTable/Admin/Editor/Committe/EOrgCom'
+import EAbout from './RouteingTable/Admin/Editor/EAbout'
 
 export default class RoutingTable extends Component {
     render() {
@@ -128,6 +130,9 @@ export default class RoutingTable extends Component {
                             <Login/>
                         </Route>
                     {/* Admin - end*/}
+                    <Route exact path="/Test">
+                            <EAbout/>
+                        </Route>
 
                     {/* Tmp AdminPanel - start*/}
                         <Route exact path="/AdminPanel">

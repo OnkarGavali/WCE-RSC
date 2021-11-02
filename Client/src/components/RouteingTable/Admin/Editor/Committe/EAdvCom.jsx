@@ -60,7 +60,7 @@ const ReadOnlyRow = ({ contact, handleEditClick, handleDeleteClick }) => {
 };
 
 
-const App = () => {
+const EAdvCom = () => {
     const [contacts, setContacts] = useState(data);
 
     const [addFormData, setAddFormData] = useState({
@@ -177,7 +177,7 @@ const App = () => {
 
                         <div className="col-md-9">
                         <h2 className="classic-title"><span>Edit Advisory Committee </span></h2>
-                            <div className="app-container">
+                            <div className="container">
                                 <form onSubmit={handleEditFormSubmit}>
                                     <table className="table table-responsive table-condensed table-bordered">
                                         <thead>
@@ -242,4 +242,4 @@ const App = () => {
     );
 };
 
-export default App;
+export default EAdvCom;
