@@ -4,11 +4,11 @@ import {
 } from "react-router-dom";
 import EGuidlines from './Author/EGuidlines';
 import EImpDates from './Author/EImpDates';
-import Ekeynotes from './Keynotes/Ekeynotes';
+import Ekeynotes from './Programs/Ekeynotes';
 import CallFor from './Author/CallFor';
 import EHome from './Home/EHome';
 import EPaperSub from './Author/EPaperSub';
-
+import EPosterPre from './Programs/EPosterPre';
 
 export default function AdminPanel() {
     return (
@@ -52,7 +52,7 @@ export default function AdminPanel() {
                         
                         {/* Main Content - start */}
                         <div className="col-md-9">
-                            <EPaperSub/>
+                            <EPosterPre/>
                         </div>
                         {/* Main Content - end */}
                         
