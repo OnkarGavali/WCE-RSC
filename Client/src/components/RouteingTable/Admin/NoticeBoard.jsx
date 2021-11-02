@@ -43,7 +43,7 @@ export const NoticeBoard = ({title,titleMessage,noticeState,noticeStateChange,no
                         className="email"
                         style={{ width: '100%' }}
                         type="text"
-                        row="3"
+                        rows="3"
                         name="noticecontent"
                       
                         placeholder="Enter Notice Content"
