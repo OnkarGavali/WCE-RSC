@@ -97,10 +97,10 @@ function EAbout() {
                                     </div>
                                 </div>
 
-
-                                <button type="submit" id="submit" className="btn-system btn-large">Save</button>
-                                <br />
-                                <br />
+                                <div style={{ textAlign: 'right' }}>
+                                <button type="submit" id="submit" className="btn-system btn-large">Update Content</button>
+                                </div>
+                                
                             </form>
 
 
