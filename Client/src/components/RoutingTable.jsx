@@ -131,7 +131,7 @@ export default class RoutingTable extends Component {
                         </Route>
                     {/* Admin - end*/}
                     <Route exact path="/Test">
-                            <EAbout/>
+                            <CallFor/>
                         </Route>
 
                     {/* Tmp AdminPanel - start*/}

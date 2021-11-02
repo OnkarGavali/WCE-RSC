@@ -1,136 +1,289 @@
-import React, { useState,useEffect } from 'react';
-import Container from '@material-ui/core/Container';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import RemoveIcon from '@material-ui/icons/Remove';
-import AddIcon from '@material-ui/icons/Add';
-import Icon from '@material-ui/core/Icon';
-import FormControl from '@material-ui/core/FormControl';
-import PageBanner from '../../../PageBanner';
-import { v4 as uuidv4 } from 'uuid';
-import TopicsList from '../../../../../JSON/contributionTopics.json';
+import React, { useState, Fragment } from "react";
+import { nanoid } from "nanoid";
+import PageBanner from "../../../PageBanner";
+import info from "../../../../../JSON/Authors/contributionTopics.json";
+import { NoticeBoard } from "../../NoticeBoard";
+//import ReadOnlyRow from "./components/ReadOnlyRow";
+//import EditableRow from "./components/EditableRow";
+
+const EditableRow = ({
+    editFormData,
+    handleEditFormChange,
+    handleCancelClick,
+}) => {
+    return (
+        <tr>
+            <td>
+                <input
+                    className="email"
+                    type="text"
+                    required="required"
+                    placeholder="Enter Topic"
+                    name="topicName"
+                    value={editFormData.topicName}
+                    onChange={handleEditFormChange}
+                ></input>
+            </td>
 
 
-
-import { makeStyles } from '@material-ui/core/styles';
-
-const useStyles = makeStyles((theme) => ({
-    root: {
-        '& .MuiTextField-root': {
-            margin: theme.spacing(1),
-        },
-    },
-    button: {
-        margin: theme.spacing(1),
-    }
-}))
-
-function CallFor() {
-    const classes = useStyles()
-    const [topicList, setTopicList] = useState([{ id: uuidv4(), TopicName: ' '
-}]);
-    useEffect(() => {
-        //api call
-        setTopicList(TopicsList.TopicList);
-    }
+            <td>
+                <button type="submit" class="btn btn-success" >Save</button>
+                <button type="button" onClick={handleCancelClick} style={{ marginLeft: '4%' }} class="btn btn-secondary" >
+                    Cancel
+                </button>
+            </td>
+        </tr>
     );
-    const [inputFields, setInputFields] = useState([
-        { id: uuidv4(), TopicName: ' '
-         },
-    ]);
+};
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log("InputFields", topicList);
+const ReadOnlyRow = ({ contact, handleEditClick, handleDeleteClick }) => {
+    return (
+        <tr>
+            <td>{contact.topicName}</td>
+
+
+            <td>
+                <button
+                    class="btn btn-primary"
+                    type="button"
+                    onClick={(event) => handleEditClick(event, contact)}
+                >
+                    Edit
+                </button>
+                <button
+                    class="btn btn-secondary"
+                    type="button" onClick={() => handleDeleteClick(contact.id)} style={{ marginLeft: '4%' }}>
+                    Delete
+                </button>
+            </td>
+        </tr>
+    );
+};
+
+
+const CallFor = () => {
+    const [contacts, setContacts] = useState(info.data.topicList);
+    const [state, setState] = useState({
+        topicInfo:info.data.paragraph
+
+    });
+    const [displayNotice, setdisplayNotice] = useState(false);
+    const [displayeNoticeHead, setDisplayeNoticeHead] = useState('');
+    const [displayeNoticeContent, setDisplayeNoticeContent] = useState('')
+    const [maintainanceBreak, setMaintainanceBreak] = useState(false);
+    const [maintainanceBreakHead, setMaintainanceBreakHead] = useState('');
+    const [maintainanceBreakContent, setMaintainanceBreakContent] = useState('');
+
+
+    const [addFormData, setAddFormData] = useState({
+        topicName: "",
+
+
+    });
+
+    const [editFormData, setEditFormData] = useState({
+        topicName: "",
+
+
+    });
+
+    const [editContactId, setEditContactId] = useState(null);
+
+    const handleAddFormChange = (event) => {
+        event.preventDefault();
+
+        const fieldName = event.target.getAttribute("name");
+        const fieldValue = event.target.value;
+
+        const newFormData = { ...addFormData };
+        newFormData[fieldName] = fieldValue;
+
+        setAddFormData(newFormData);
     };
 
+    const handleEditFormChange = (event) => {
+        event.preventDefault();
 
-    const handleChangeInput = (id, event) => {
-        const newTopicsList = topicList.map(i => {
-            if (id === i.id) {
-                i[event.target.name] = event.target.value
-            }
-            return i;
+        const fieldName = event.target.getAttribute("name");
+        const fieldValue = event.target.value;
+
+        const newFormData = { ...editFormData };
+        newFormData[fieldName] = fieldValue;
+
+        setEditFormData(newFormData);
+    };
+
+    const handleAddFormSubmit = (event) => {
+        event.preventDefault();
+
+        const newContact = {
+            id: nanoid(),
+            topicName: addFormData.topicName,
+
+
+        };
+
+        const newContacts = [...contacts, newContact];
+        setContacts(newContacts);
+    };
+    const handleChange = evt => {
+        const name = evt.target.name;
+        const value = evt.target.value;
+        setState({
+            ...state,
+            [name]: value
         })
-
-        setTopicList(newTopicsList);
     }
 
-    const handleAddFields = () => {
-        setTopicList([...topicList, { id: uuidv4(), TopicName: ' ' }])
+    const handleEditFormSubmit = (event) => {
+        event.preventDefault();
+
+        const editedContact = {
+            id: editContactId,
+            topicName: editFormData.topicName,
+
+
+        };
+
+        const newContacts = [...contacts];
+
+        const index = contacts.findIndex((contact) => contact.id === editContactId);
+
+        newContacts[index] = editedContact;
+
+        setContacts(newContacts);
+        setEditContactId(null);
+    };
+
+    const handleEditClick = (event, contact) => {
+        event.preventDefault();
+        setEditContactId(contact.id);
+
+        const formValues = {
+            topicName: contact.topicName,
+
+
+        };
+
+        setEditFormData(formValues);
+    };
+    const handleSubmit = (e) => {
+        e.preventDefault();
+       
+        let dataToSend = {
+            paragraph:state.topicInfo,
+            topicList:contacts
+
+        };
+        console.log(dataToSend);
+
     }
 
-    const handleRemoveFields = id => {
-        const values = [...topicList];
-        values.splice(values.findIndex(value => value.id === id), 1);
-        setTopicList(values);
-    }
+    const handleCancelClick = () => {
+        setEditContactId(null);
+    };
 
+    const handleDeleteClick = (contactId) => {
+        const newContacts = [...contacts];
 
+        const index = contacts.findIndex((contact) => contact.id === contactId);
+
+        newContacts.splice(index, 1);
+
+        setContacts(newContacts);
+    };
 
     return (
         <div>
-            <PageBanner name="Call For Contribution" head='Admin Panel' />
-            <div id="content">
+            <PageBanner name="Contribution Topics" head="Admin Panel" />
+
+            <div className="contenti">
                 <div className="container">
                     <div className="page-content">
-                        <div className="col-md-6">
 
-                            <br />
-                            <h2 className="classic-title"><span>Edit Call For Contribution</span></h2>
-                            <h3>Call for Contribution Info Para</h3>
-                            <br/>
-                            
-                            <h3>Topics for Contribution</h3>
-                            <br/>
-                            <form className={classes.root} onSubmit={handleSubmit}>
-                                {topicList.map(topic => (
-                                    <div key={topic.id}>
-                                        <FormControl    >
-                                            <input
-                                                className="email"
-                                                name="TopicName"
-                                                placeholder="Topic Name"
-                                                value={topic.topicName}    
-                                                variant="filled"
-                                                style={{ width: '400px' }}
+                        <div className="col-md-9">
+                            <h2 className="classic-title"><span>Edit Contribution Info  </span></h2>
 
-                                                
-                                                onChange={event => handleChangeInput(topic.id, event)}
-                                            />
-                                        </FormControl>
+                            <form id='login' acceptCharset='UTF-8' >
+                                <input type='hidden' name='submitted' id='submitted' value='1' />
 
-                                        <IconButton disabled={topicList.length === 1} onClick={() => handleRemoveFields(topic.id)}>
-                                            <RemoveIcon />
-                                        </IconButton>
-                                        <IconButton
-                                            onClick={handleAddFields}
-                                        >
-                                            <AddIcon />
-                                        </IconButton>
+                                <div className="form-group">
+                                    <div className="controls">
+                                       
+                                        <textarea type="text" value={state.topicInfo} rows="7" name="topicInfo" className="email"
+                                            required="required" onChange={handleChange} style={{}} />
                                     </div>
-                                ))}
-                                <button
-                                    className="btn-system btn-large"
-
-                                    variant="contained"
-                                    color="primary"
-                                    type="submit"
-                                    endIcon={<Icon>send</Icon>}
-                                    onClick={handleSubmit}
-                                >Save</button>
+                                </div>
                             </form>
-                            <br />
-                            <br />
+
+                            <h2 className="classic-title"><span>Edit Contribution Topics </span></h2>
+                            <div className="container">
+
+                                <form onSubmit={handleEditFormSubmit}>
+                                    <table className="table table-responsive table-condensed table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Topic Name </th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {contacts.map((contact) => (
+                                                <Fragment>
+                                                    {editContactId === contact.id ? (
+                                                        <EditableRow
+                                                            editFormData={editFormData}
+                                                            handleEditFormChange={handleEditFormChange}
+                                                            handleCancelClick={handleCancelClick}
+                                                        />
+                                                    ) : (
+                                                        <ReadOnlyRow
+                                                            contact={contact}
+                                                            handleEditClick={handleEditClick}
+                                                            handleDeleteClick={handleDeleteClick}
+                                                        />
+                                                    )}
+                                                </Fragment>
+                                            ))}
+                                        </tbody>
+                                    </table>
+                                </form>
+                                <br />
+                                <h2 className="classic-title"><span>Add New Entry </span></h2>
+                                <br />
+                                <form onSubmit={handleAddFormSubmit}>
+                                    <div className="col-md-5">
+                                        <input
+                                            className="email"
+                                            style={{ maxWidth: '100%' }}
+                                            type="text"
+                                            name="topicName"
+                                            required="required"
+                                            placeholder="Enter a topic name"
+                                            onChange={handleAddFormChange}
+                                        />
+                                    </div>
+                                    <div className=" " style={{ marginLeft: '80%' }}>
+                                        <button type="submit" class="btn btn-primary">Add</button>
+                                    </div>
+
+                                </form>
+                                <br />
+                                <NoticeBoard title={'Display Notice'} titleMessage={'Notice is : '} noticeState ={displayNotice} noticeStateChange={setdisplayNotice} noticeHead={displayeNoticeHead} noticeHeadChange={setDisplayeNoticeHead} noticeContent={displayeNoticeContent} noticeContentChange={setDisplayeNoticeContent} headLabel={'Notice Heading'} contentLabel={'Notice Content'} />
+                                <NoticeBoard title={'Maintainance Break'} titleMessage={'Maintainance break is : '} noticeState ={maintainanceBreak} noticeStateChange={setMaintainanceBreak} noticeHead={maintainanceBreakHead} noticeHeadChange={setMaintainanceBreakHead} noticeContent={maintainanceBreakContent} noticeContentChange={setMaintainanceBreakContent} headLabel={'Maintainance Break Heading'} contentLabel={'Maintainance Break Message Content'} />           
+                               
+                                <br />
+                                <div className=" " style={{ textAlign: 'center' }}>
+                                    <button type="submit" onClick={handleSubmit} className="btn btn-lg btn-system" style={{ marginTop: '10px' }}>Update Content</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
-
                 </div>
             </div>
-        </div>
+        </div >
 
     );
-}
+};
 
 export default CallFor;
