@@ -10,30 +10,21 @@ import MaintenanceBreak from '../MaintenanceBreak';
 
 function CallForContriBution() {
     const [allData, setAllData] = useState([]);
-    const [title, setTitle] = useState("Call For Paper");//by Default
-    const [maintenanceBreakMessage, setMaintenanceBreakMessage] = useState(null);
+   
+   
     const [toShow, setToShow] = useState(true);
-    const [titleParagraph, setTitleParagraph] = useState([]);
+    const [paragraph, setParagraph] = useState("");
     const [list, setList] = useState([])
     useEffect(() => {
         //api call
         setAllData(TopicsList);
-        if(allData.title){
-            setTitle(allData.title);
-            console.log(title);
-            console.log('aa');
-        }
         if(allData.maintenanceBreakState){
             setToShow(false);
-            if(allData.maintenanceBreakMessage){
-                setMaintenanceBreakMessage(allData.maintenanceBreakMessage);
-            }else{
-                setMaintenanceBreakMessage(null);
-            }
+            
            
         }else{
             setToShow(true);
-            setTitleParagraph(allData.titleParagraph);
+            setParagraph(allData.paragraph);
             setList(allData.topicList);
         }
     }, [allData])
@@ -47,13 +38,13 @@ function CallForContriBution() {
                 <div className="container">
                     <div className="page-content">
                         <div className="col-md-9">
-                            <h2 className="classic-title" id="notifications"><span>{title}</span></h2>
+                            <h2 className="classic-title" id="notifications"><span>Call For Papers</span></h2>
                             {   
                                 toShow ? (
                                     <React.Fragment>  
                                         {
-                                            titleParagraph ? (
-                                                titleParagraph.map((para) =><p key={para.id}>{para.p}</p>)
+                                            paragraph ? (
+                                                <p style={{whiteSpace:'pre-line'}}>{paragraph}</p>
                                             ) : null
                                         }
                                         {
@@ -62,7 +53,7 @@ function CallForContriBution() {
                                                     <strong>
                                                         {
                                                             list.map((topic)=>(
-                                                                <li key={topic.id}><i className="fa fa-check-circle"></i>{topic.topicName}</li>
+                                                                <li key={topic.id}><i className="fa fa-check-circle"></i> {topic.topicName}</li>
                                                             ))
                                                         }
                                                     </strong>
@@ -72,7 +63,8 @@ function CallForContriBution() {
                                         
                                     </React.Fragment>
                                 ) : ( 
-                                    <MaintenanceBreak message={maintenanceBreakMessage}/>
+                                    // <MaintenanceBreak message={maintenanceBreakMessage}/>
+                                    null
                                     
                                 )
                             }

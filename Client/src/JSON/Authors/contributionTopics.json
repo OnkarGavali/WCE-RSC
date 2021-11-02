@@ -1,29 +1,16 @@
 {
-        "title":"Call For Papers",
         
-        "maintenanceBreakState": false,
-        "maintenanceBreakMessage": "Content will update soon...",
-
         "displayNoticeStatus":false,
         "displayNoticeHeading":"Display Notice Heading",
         "displayNoticeContent":"Display Notice Content",
         "maintenanceBreakStatus":false,
         "maintenanceBreakHeading":"MB Notice Heading",
         "maintenanceBreakContent":"MB Notice Heading",
-        "titleParagraph":[
-            {
-                "id":0,
-                "p":"The WCE Research Symposium on Computing - RSC 2022 welcomes research paper submissions from faculty, doctoral students, research scholars and industry experts who are actively working in the area of Computer Science and Engineering and allied branches. The selected papers will be forwarded for its publication in Springer book series (in process)"
-            },
-            {
-                "id":1,
-                "p":"Topics covered include, but are not limited to:"
-            }
-        ],
+        "paragraph":"The WCE Research Symposium on Computing - RSC 2022 welcomes research paper submissions from faculty, doctoral students, research scholars and industry experts who are actively working in the area of Computer Science and Engineering and allied branches.The selected papers will be forwarded for its publication in Springer book series (in process).\n\nTopics covered include, but are not limited to:",
         "topicList":[
             {
                 "id": 0,
-                "topicName": " Al, Big Data Analytics & Machine Learning"
+                "topicName": "Al, Big Data Analytics & Machine Learning"
             },
         
             {
