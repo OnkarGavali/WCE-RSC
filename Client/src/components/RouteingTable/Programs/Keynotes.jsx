@@ -49,28 +49,35 @@ function Keynotes() {
                 <div className="container">
                     <div className="page-content">
                         <div className="col-md-9">
-                            <table className="table table-responsive table-condensed table-bordered">
-                                <thead className='thead-dark'>
-                                    <th>Sr No</th>
-                                    <th>Name</th>
-                                    <th>Designation</th>
-                                </thead>
-                                <tbody>
-                                    {
-                                        // allData.data.Speakers.map(obj => <tr key={obj._id}>
-                                        //     <td>{obj.Sr_No}</td>
-                                        //     <td>{obj.Name}</td>
-                                        //     <td>{obj.Designation}</td>
-                                        // </tr>)
+                            {
+                                isLoading ? (
+                                    <div>Loading</div>
+                                ) : (
+                                     <table className="table table-responsive table-condensed table-bordered">
+                                        <thead className='thead-dark'>
+                                            <th>Sr No</th>
+                                            <th>Name</th>
+                                            <th>Designation</th>
+                                        </thead>
+                                        <tbody>
+                                            {
+                                                // allData.data.Speakers.map(obj => <tr key={obj._id}>
+                                                //     <td>{obj.Sr_No}</td>
+                                                //     <td>{obj.Name}</td>
+                                                //     <td>{obj.Designation}</td>
+                                                // </tr>)
 
-                                        allData.data.Speakers && allData.data.Speakers.map(obj => <tr key={obj.id}>
-                                            <td>{obj.id}</td>
-                                            <td>{obj.name}</td>
-                                            <td>{obj.designation}</td>
-                                        </tr>)
-                                    }
-                                </tbody>
-                            </table>
+                                                allData.data.Speakers && allData.data.Speakers.map(obj => <tr key={obj.id}>
+                                                    <td>{obj.id}</td>
+                                                    <td>{obj.name}</td>
+                                                    <td>{obj.designation}</td>
+                                                </tr>)
+                                            }
+                                        </tbody>
+                                    </table>
+                                )
+                            }
+                           
                         </div>
 
                         {/* Related Links - start */}
