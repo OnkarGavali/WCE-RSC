@@ -1,5 +1,5 @@
 import React from 'react';
-
+import info from '../../../JSON/Home/Notification.json'
 
 function Notifications() {
 
@@ -10,10 +10,23 @@ function Notifications() {
 
                  <div className="tab-content" >
                  <h3 className="classic-title" id="notifications"><span>Notifications</span></h3>
+
+                 <ul>
+                <strong>
+                    {
+                     info.data? (
+                        info.data.map((link)=>
+                        link.new === 'true' ?  (<div><a href="#" className="badge badge-primary">New</a> <li key={link.id}><a href={`${link.link}` } target='_blank'> {link.text}</a></li></div> ): (<li key={link.id}><a href={`${link.link}` } target='_blank'> {link.text}</a></li>)
+                        )
+                      ) : null
+                    }
+                </strong>
+                </ul>
                    
 
 
-                    
+                    {
+                    /*
                     <div style={{ onmouseover}} behavior="scroll" direction="up" scrollamount="2" height="100%" vspace="10%"  onmouseout=''>
 
                         
@@ -52,6 +65,7 @@ function Notifications() {
                         <strong>Fourth National Research Symposium <a href="asset/RSC 2019 Proceeding.pdf">RSC-2019</a></strong><br />
                         
                     </div>
+                    */}
                     
                 </div>
                 </div>
