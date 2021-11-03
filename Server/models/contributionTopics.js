@@ -1,11 +1,11 @@
 const mongoose = require('mongoose')
 
-const SpeakersSchema = new mongoose.Schema({
-    name:{type:String},
-    designation:{type:String}
-})
+const topicSchema = new mongoose.Schema({
+    id:{type:Number},
+    topicName:{type:String}
+})    
 
-const keyNotesSchema = new mongoose.Schema({
+const contributionTopicsSchema = new mongoose.Schema({
     displayNoticeStatus:{type:Boolean},
     displayNoticeHeading:{type:String},
     displayNoticeContent:{type:String},
@@ -13,8 +13,11 @@ const keyNotesSchema = new mongoose.Schema({
     maintenanceBreakHeading:{type:String},
     maintenanceBreakContent:{type:String},
     data:{
-        Speakers:[SpeakersSchema]
+        paragraph:{type:String},
+        topicList:[topicSchema]
     }
 })
 
-module.exports = mongoose.model('keyNote',keyNotesSchema)
+
+
+module.exports = mongoose.model('contributionTopics',contributionTopicsSchema)

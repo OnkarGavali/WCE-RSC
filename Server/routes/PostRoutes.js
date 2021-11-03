@@ -7,6 +7,8 @@ const keyNotes = require('../models/keyNotes');
 const paragraph = require('../models/paragraphs');
 const organization = require('../models/organization');
 const advisory = require('../models/advisory');
+const contributionTopics = require('../models/contributionTopics');
+const dates = require('../models/date');
 
 
 router.post('/schedule',verifyJWT,(req,res) => {
@@ -74,4 +76,29 @@ router.post('/advisory',async(req,res) => {
         console.log(err);
     }
 })
+
+router.post('/contributionTopics',async (req,res) => {
+    try{
+        console.log(req.body);
+        const data = new contributionTopics(req.body);
+        await data.save();
+        res.status(200).json({success:true, data });
+    }
+    catch(err){
+        console.log(err);
+    }
+})
+
+router.post('/dates',async (req,res) => {
+    try{
+        console.log(req.body);
+        const data = new dates(req.body);
+        await data.save();
+        res.status(200).json({success:true, data });
+    }
+    catch(err){
+        console.log(err);
+    }
+})
+
 module.exports = router;

@@ -6,6 +6,8 @@ const keyNotes = require('../models/keyNotes');
 const paragraph = require('../models/paragraphs');
 const organization = require('../models/organization');
 const advisory = require('../models/advisory');
+const contributionTopics = require('../models/contributionTopics');
+const dates = require('../models/date');
 
 router.get('/Paragraphs/:name',async (req,res) => {
     const para = await paragraph.findOne({id:1});
@@ -33,4 +35,13 @@ router.get('/advisory',async (req,res) => {
     res.send(data);
 })
 
+router.get('/contributionTopics',async (req,res) => {
+    const data = await contributionTopics.find({});
+    res.send(data);
+})
+
+router.get('/dates',async (req,res) => {
+    const data = await dates.find({});
+    res.send(data);
+})
 module.exports = router;
