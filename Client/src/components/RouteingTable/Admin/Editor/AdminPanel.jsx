@@ -9,6 +9,7 @@ import EPaperSub from './Author/EPaperSub';
 import EPosterPre from './Programs/EPosterPre';
 import { SwitchComponents } from './SwitchComponents';
 import { Link } from 'react-router-dom';
+import ERegister from './Programs/ERegister';
 
 export default function AdminPanel({isLoggedIn, handleLogout}) {
 
@@ -56,16 +57,25 @@ export default function AdminPanel({isLoggedIn, handleLogout}) {
                                     <li>
                                         <a onClick={()=>setActiveComponent("submissionGuidelines")}>E guidlines</a>
                                     </li>
+                                     <li>
+                                        <a onClick={()=>setActiveComponent("impoetatntDates")}>Important Dates</a>
+                                    </li>
+                                     <li>
+                                        <a onClick={()=>setActiveComponent("paperSubmission")}>Paper Submission</a>
+                                    </li>
                                 </ul>
                             </div>
                             <div className="widget widget-categories">
-                                <h4 className='accent-color'>Related Links <span className="head-line"></span></h4>
+                                <h4 className='accent-color'>Programs<span className="head-line"></span></h4>
                                 <ul>
                                     <li>
-                                        <a onClick={()=>setActiveComponent("callForContribution")}>CAll</a>
+                                        <a onClick={()=>setActiveComponent("keynotes")}>Keynotes</a>
                                     </li>
                                     <li>
-                                        <a onClick={()=>setActiveComponent("submissionGuidelines")}>E guidlines</a>
+                                        <a onClick={()=>setActiveComponent("posterPresentation")}>Poster Presentation</a>
+                                    </li>
+                                    <li>
+                                        <a onClick={()=>setActiveComponent("registration")}>Resgitration</a>
                                     </li>
                                 </ul>
                             </div>
@@ -85,8 +95,15 @@ export default function AdminPanel({isLoggedIn, handleLogout}) {
 
                                     <CallFor name="callForContribution"/>
                                     <EGuidlines name="submissionGuidelines"/>
+                                    <EImpDates name='impoetatntDates'/>
+                                    <EPaperSub name='paperSubmission'/>
 
                                 {/* Authors end */}
+                                {/* programs start */}
+                                    <Ekeynotes name='keynotes'/>
+                                    <EPosterPre name='posterPresentation'/>
+                                    <ERegister name="registration"/>
+                                {/* programs end */}
 
                                 
                             </SwitchComponents>
