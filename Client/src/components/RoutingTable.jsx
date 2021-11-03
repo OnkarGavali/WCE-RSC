@@ -31,6 +31,7 @@ import EAbout from './RouteingTable/Admin/Editor/EAbout'
 import EGuidlines from './RouteingTable/Admin/Editor/Author/EGuidlines'
 import EImpDates from './RouteingTable/Admin/Editor/Author/EImpDates'
 import ERegister from './RouteingTable/Admin/Editor/Programs/ERegister'
+import ENotification from './RouteingTable/Admin/Editor/Home/ENotification'
 
 
 export default class RoutingTable extends Component {
@@ -135,7 +136,7 @@ export default class RoutingTable extends Component {
                         </Route>
                     {/* Admin - end*/}
                     <Route exact path="/Test">
-                            <ERegister/>
+                            <ENotification/>
                         </Route>
 
                     {/* Tmp AdminPanel - start*/}
