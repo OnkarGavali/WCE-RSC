@@ -87,6 +87,7 @@ const EAdvCom = () => {
     const [advisoryList, setAdvisoryList] = useState([]);
 
     const [finalData, setFinalData] = useState();
+    const [finalMessage, setFinalMessage] = useState("");
 
     // const format = {
     //     "displayNoticeStatus":false,
@@ -140,7 +141,7 @@ const EAdvCom = () => {
             setMaintainanceBreakHead(allData.maintainanceBreakHeading)
             setMaintainanceBreakContent(allData.maintainanceBreakContent)
             console.log('end of if')
-            console.log(advisoryList)
+            console.log(allData)
         }
     
     }, [allData])
@@ -158,6 +159,7 @@ const EAdvCom = () => {
         if(finalData){
             console.log('useE')
             console.log(finalData)
+            uploadContent()
         }
     }, [finalData])
    
@@ -289,7 +291,13 @@ const EAdvCom = () => {
 
 
     const uploadContent = () => {
-
+        const headers = { 
+            'x-access-token': localStorage.getItem("x-access-token")
+        };
+        axios.put('http://localhost:5000/put/advisory/61801c803668749496043b57', finalData, { headers })
+            .then(response => console.log(response));
+        //console.log('aaaa')
+        //console.log(finalMessage)
     }
     
     return (
