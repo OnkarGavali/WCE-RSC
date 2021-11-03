@@ -23,9 +23,12 @@ import Guidlines from './RouteingTable/Authors/Guidlines'
 import Login from './RouteingTable/Admin/Login'
 import CallFor from './RouteingTable/Admin/Editor/Author/CallFor'
 import EHome from './RouteingTable/Admin/Editor/Home/EHome'
-import Ekeynotes from './RouteingTable/Admin/Editor/Keynotes/Ekeynotes'
+import Ekeynotes from './RouteingTable/Admin/Editor/Programs/Ekeynotes'
 import EAdvCom from './RouteingTable/Admin/Editor/Committe/EAdvCom'
 import AdminPanel from './RouteingTable/Admin/Editor/AdminPanel'
+import EOrgCom from './RouteingTable/Admin/Editor/Committe/EOrgCom'
+import EAbout from './RouteingTable/Admin/Editor/EAbout'
+import EGuidlines from './RouteingTable/Admin/Editor/Author/EGuidlines'
 
 export default class RoutingTable extends Component {
     render() {
@@ -128,6 +131,9 @@ export default class RoutingTable extends Component {
                             <Login/>
                         </Route>
                     {/* Admin - end*/}
+                    <Route exact path="/Test">
+                            <EGuidlines/>
+                        </Route>
 
                     {/* Tmp AdminPanel - start*/}
                         <Route exact path="/AdminPanel">

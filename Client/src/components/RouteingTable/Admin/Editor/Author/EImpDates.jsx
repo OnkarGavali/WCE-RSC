@@ -1,7 +1,9 @@
 import React, { useState, Fragment } from "react";
 import { nanoid } from "nanoid";
-import PageBanner from "../../../PageBanner";
-import info from "../../../../../JSON/Authors/contributionTopics.json";
+
+import "react-toggle/style.css" // for ES6 modules
+import Toggle from 'react-toggle'
+import info from "../../../../../JSON/Authors/date.json";
 import { NoticeBoard } from "../../NoticeBoard";
 //import ReadOnlyRow from "./components/ReadOnlyRow";
 //import EditableRow from "./components/EditableRow";
@@ -12,46 +14,65 @@ const EditableRow = ({
     handleCancelClick,
 }) => {
     return (
+
         <tr>
+
             <td>
+
                 <input
                     className="email"
                     type="text"
                     required="required"
-                    placeholder="Enter Topic"
-                    name="topicName"
-                    value={editFormData.topicName}
+                    placeholder="Enter Date"
+                    name="impDate"
+                    style={{ width: '80%' }}
+                    value={editFormData.impDate}
                     onChange={handleEditFormChange}
                 ></input>
+            </td>
+            <td>
+
+                <input
+                    className="email"
+                    type="text"
+                    required="required"
+                    placeholder="Enter Details"
+                    name="details"
+                    style={{ width: '80%' }}
+                    value={editFormData.details}
+                    onChange={handleEditFormChange}
+                ></input>
+
             </td>
 
 
             <td>
-                <button type="submit" className="btn btn-success" >Save</button>
-                <button type="button" onClick={handleCancelClick} style={{ marginLeft: '4%' }} className="btn btn-secondary" >
+                <button type="submit" class="btn btn-success" >Save</button>
+                <button type="button" onClick={handleCancelClick} style={{ marginLeft: '4%' }} class="btn btn-secondary" >
                     Cancel
                 </button>
             </td>
         </tr>
+
     );
 };
 
 const ReadOnlyRow = ({ contact, handleEditClick, handleDeleteClick }) => {
     return (
         <tr>
-            <td>{contact.topicName}</td>
-
+            <td>{contact.impDate}</td>
+            <td>{contact.details}</td>
 
             <td>
                 <button
-                    className="btn btn-primary"
+                    class="btn btn-primary"
                     type="button"
                     onClick={(event) => handleEditClick(event, contact)}
                 >
                     Edit
                 </button>
                 <button
-                    className="btn btn-secondary"
+                    class="btn btn-secondary"
                     type="button" onClick={() => handleDeleteClick(contact.id)} style={{ marginLeft: '4%' }}>
                     Delete
                 </button>
@@ -61,12 +82,8 @@ const ReadOnlyRow = ({ contact, handleEditClick, handleDeleteClick }) => {
 };
 
 
-const CallFor = () => {
-    const [contacts, setContacts] = useState(info.data.topicList);
-    const [state, setState] = useState({
-        topicInfo:info.data.paragraph
-
-    });
+const EImpDates = () => {
+    const [contacts, setContacts] = useState(info.data.dates);
     const [displayNotice, setdisplayNotice] = useState(false);
     const [displayeNoticeHead, setDisplayeNoticeHead] = useState('');
     const [displayeNoticeContent, setDisplayeNoticeContent] = useState('')
@@ -74,15 +91,16 @@ const CallFor = () => {
     const [maintainanceBreakHead, setMaintainanceBreakHead] = useState('');
     const [maintainanceBreakContent, setMaintainanceBreakContent] = useState('');
 
-
     const [addFormData, setAddFormData] = useState({
-        topicName: "",
+        impDate: " ",
+        details: " "
 
 
     });
 
     const [editFormData, setEditFormData] = useState({
-        topicName: "",
+        impDate: " ",
+        details: " "
 
 
     });
@@ -118,29 +136,22 @@ const CallFor = () => {
 
         const newContact = {
             id: nanoid(),
-            topicName: addFormData.topicName,
-
+            impDate: addFormData.impDate,
+            details: addFormData.details
 
         };
 
         const newContacts = [...contacts, newContact];
         setContacts(newContacts);
     };
-    const handleChange = evt => {
-        const name = evt.target.name;
-        const value = evt.target.value;
-        setState({
-            ...state,
-            [name]: value
-        })
-    }
 
     const handleEditFormSubmit = (event) => {
         event.preventDefault();
 
         const editedContact = {
             id: editContactId,
-            topicName: editFormData.topicName,
+            impDate: editFormData.impDate,
+            details: editFormData.details
 
 
         };
@@ -160,22 +171,18 @@ const CallFor = () => {
         setEditContactId(contact.id);
 
         const formValues = {
-            topicName: contact.topicName,
-
-
+            impDate: contact.impDate,
+            details: contact.details
         };
 
         setEditFormData(formValues);
     };
     const handleSubmit = (e) => {
         e.preventDefault();
-       
-        let dataToSend = {
-            paragraph:state.topicInfo,
-            topicList:contacts
-
-        };
-        console.log(dataToSend);
+        let datatoSend = {
+            dates:contacts
+        }
+        console.log(datatoSend);
 
     }
 
@@ -195,31 +202,15 @@ const CallFor = () => {
 
     return (
         <div>
-          
-
-            
-                            <h2 className="classic-title"><span>Edit Contribution Info  </span></h2>
-
-                            <form  acceptCharset='UTF-8' >
-                                <input type='hidden' name='submitted' id='submitted' value='1' />
-
-                                <div className="form-group">
-                                    <div className="controls">
-                                       
-                                        <textarea type="text" value={state.topicInfo} rows="7" name="topicInfo" className="email"
-                                            required="required" onChange={handleChange} style={{}} />
-                                    </div>
-                                </div>
-                            </form>
-
-                            <h2 className="classic-title"><span>Edit Contribution Topics </span></h2>
-                            <div>
-
+         
+                            <h2 className="classic-title"><span>Edit Important Dates </span></h2>
+                            <div className="app-container">
                                 <form onSubmit={handleEditFormSubmit}>
                                     <table className="table table-responsive table-condensed table-bordered">
                                         <thead>
                                             <tr>
-                                                <th>Topic Name </th>
+                                                <th>Date</th>
+                                                <th>Details</th>
                                                 <th>Actions</th>
                                             </tr>
                                         </thead>
@@ -245,38 +236,54 @@ const CallFor = () => {
                                     </table>
                                 </form>
                                 <br />
-                                <h2 className="classic-title"><span>Add New Entry </span></h2>
+                                <h2 className="classic-title"><span>Add a New Entry </span></h2>
                                 <br />
-                                <form onSubmit={handleAddFormSubmit}>
-                                    <div className="col-md-5">
+                                <form onSubmit={handleAddFormSubmit} style={{ display: 'flex', justifyContent: 'space-between' }}>
+                                    <div className="col-md-4">
                                         <input
                                             className="email"
                                             style={{ maxWidth: '100%' }}
                                             type="text"
-                                            name="topicName"
+                                            name="impDate"
                                             required="required"
-                                            placeholder="Enter a topic name"
+                                            placeholder="Enter a Date"
                                             onChange={handleAddFormChange}
                                         />
                                     </div>
-                                    <div className=" " style={{ marginLeft: '80%' }}>
-                                        <button type="submit" className="btn btn-primary">Add</button>
+                                    <div className="col-md-4">
+                                        <input
+                                            className="email"
+                                            style={{ maxWidth: '100%' }}
+                                            type="text"
+                                            name="details"
+                                            required="required"
+                                            placeholder="Enter Details"
+                                            onChange={handleAddFormChange}
+                                        />
+                                    </div>
+                                    <div className=" " style={{}}>
+                                        <button type="submit" class="btn btn-primary">Add</button>
                                     </div>
 
                                 </form>
-                                <br />
-                                <NoticeBoard title={'Display Notice'} titleMessage={'Display Notice is : '} noticeState ={displayNotice} noticeStateChange={setdisplayNotice} noticeHead={displayeNoticeHead} noticeHeadChange={setDisplayeNoticeHead} noticeContent={displayeNoticeContent} noticeContentChange={setDisplayeNoticeContent} headLabel={'Notice Heading'} contentLabel={'Notice Content'} />
-                                <NoticeBoard title={'Maintainance Break'} titleMessage={'Maintainance Break is : '} noticeState ={maintainanceBreak} noticeStateChange={setMaintainanceBreak} noticeHead={maintainanceBreakHead} noticeHeadChange={setMaintainanceBreakHead} noticeContent={maintainanceBreakContent} noticeContentChange={setMaintainanceBreakContent} headLabel={'Maintainance Break Heading'} contentLabel={'Maintainance Break Message Content'} />           
+
+                                <div className="hr5" style={{ marginTop: '20px', marginBottom: '20px' }}></div>
+                                <NoticeBoard title={'Display Notice'} titleMessage={'Notice is : '} noticeState ={displayNotice} noticeStateChange={setdisplayNotice} noticeHead={displayeNoticeHead} noticeHeadChange={setDisplayeNoticeHead} noticeContent={displayeNoticeContent} noticeContentChange={setDisplayeNoticeContent} headLabel={'Notice Heading'} contentLabel={'Notice Content'} />
+                                <NoticeBoard title={'Maintainance Break'} titleMessage={'Maintainance break is : '} noticeState ={maintainanceBreak} noticeStateChange={setMaintainanceBreak} noticeHead={maintainanceBreakHead} noticeHeadChange={setMaintainanceBreakHead} noticeContent={maintainanceBreakContent} noticeContentChange={setMaintainanceBreakContent} headLabel={'Maintainance Break Heading'} contentLabel={'Maintainance Break Message Content'} />           
                                
-                                <br />
-                                <div  style={{ textAlign: 'right' }}>
-                                    <button type="submit" onClick={handleSubmit} className="btn btn-lg btn-system" style={{ marginTop: '10px' }}>Update Content</button>
-                                </div>
+                                
+                            
+                            <div className="hr5" style={{ marginTop: '20px', marginBottom: '20px' }}></div>
+                            <div className=" " style={{ textAlign: 'right' }}>
+                                <button type="submit" onClick={handleSubmit} className="btn btn-lg btn-system" style={{ marginTop: '10px' }}>Update Content</button>
                             </div>
                         </div>
-            
+
+
+                    </div>
+         
 
     );
 };
 
-export default CallFor;
+export default EImpDates;

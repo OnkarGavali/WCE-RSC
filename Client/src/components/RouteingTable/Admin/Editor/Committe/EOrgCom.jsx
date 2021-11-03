@@ -1,8 +1,7 @@
 import React, { useState, Fragment } from "react";
 import { nanoid } from "nanoid";
 import PageBanner from "../../../PageBanner";
-import info from "../../../../../JSON/Authors/contributionTopics.json";
-import { NoticeBoard } from "../../NoticeBoard";
+import data from "../../../../../JSON/Organisation/organinsing.json";
 //import ReadOnlyRow from "./components/ReadOnlyRow";
 //import EditableRow from "./components/EditableRow";
 
@@ -18,17 +17,17 @@ const EditableRow = ({
                     className="email"
                     type="text"
                     required="required"
-                    placeholder="Enter Topic"
-                    name="topicName"
-                    value={editFormData.topicName}
+                    placeholder="Enter Name"
+                    name="name"
+                    value={editFormData.name}
                     onChange={handleEditFormChange}
                 ></input>
             </td>
 
 
             <td>
-                <button type="submit" className="btn btn-success" >Save</button>
-                <button type="button" onClick={handleCancelClick} style={{ marginLeft: '4%' }} className="btn btn-secondary" >
+                <button type="submit" class="btn btn-success" >Save</button>
+                <button type="button" onClick={handleCancelClick} style={{ marginLeft: '4%' }} class="btn btn-secondary" >
                     Cancel
                 </button>
             </td>
@@ -39,19 +38,25 @@ const EditableRow = ({
 const ReadOnlyRow = ({ contact, handleEditClick, handleDeleteClick }) => {
     return (
         <tr>
-            <td>{contact.topicName}</td>
+            <td>{contact.role}</td>
+            {
+             contact.persons.map((person)=>{
+                 <td>{person.name} </td>
+             })
+                
+            } 
 
 
             <td>
                 <button
-                    className="btn btn-primary"
+                    class="btn btn-primary"
                     type="button"
                     onClick={(event) => handleEditClick(event, contact)}
                 >
                     Edit
                 </button>
                 <button
-                    className="btn btn-secondary"
+                    class="btn btn-secondary"
                     type="button" onClick={() => handleDeleteClick(contact.id)} style={{ marginLeft: '4%' }}>
                     Delete
                 </button>
@@ -61,28 +66,19 @@ const ReadOnlyRow = ({ contact, handleEditClick, handleDeleteClick }) => {
 };
 
 
-const CallFor = () => {
-    const [contacts, setContacts] = useState(info.data.topicList);
-    const [state, setState] = useState({
-        topicInfo:info.data.paragraph
+const EOrgCom = () => {
+    const [option, setOption] = useState(0);
 
-    });
-    const [displayNotice, setdisplayNotice] = useState(false);
-    const [displayeNoticeHead, setDisplayeNoticeHead] = useState('');
-    const [displayeNoticeContent, setDisplayeNoticeContent] = useState('')
-    const [maintainanceBreak, setMaintainanceBreak] = useState(false);
-    const [maintainanceBreakHead, setMaintainanceBreakHead] = useState('');
-    const [maintainanceBreakContent, setMaintainanceBreakContent] = useState('');
-
+    const [contacts, setContacts] = useState(data.organsingList);
 
     const [addFormData, setAddFormData] = useState({
-        topicName: "",
+        name: "",
 
 
     });
 
     const [editFormData, setEditFormData] = useState({
-        topicName: "",
+        name: "",
 
 
     });
@@ -118,7 +114,7 @@ const CallFor = () => {
 
         const newContact = {
             id: nanoid(),
-            topicName: addFormData.topicName,
+            name: addFormData.name,
 
 
         };
@@ -126,21 +122,13 @@ const CallFor = () => {
         const newContacts = [...contacts, newContact];
         setContacts(newContacts);
     };
-    const handleChange = evt => {
-        const name = evt.target.name;
-        const value = evt.target.value;
-        setState({
-            ...state,
-            [name]: value
-        })
-    }
 
     const handleEditFormSubmit = (event) => {
         event.preventDefault();
 
         const editedContact = {
             id: editContactId,
-            topicName: editFormData.topicName,
+            name: editFormData.name,
 
 
         };
@@ -160,8 +148,8 @@ const CallFor = () => {
         setEditContactId(contact.id);
 
         const formValues = {
-            topicName: contact.topicName,
-
+            name: contact.name,
+            address: contact.address,
 
         };
 
@@ -169,13 +157,7 @@ const CallFor = () => {
     };
     const handleSubmit = (e) => {
         e.preventDefault();
-       
-        let dataToSend = {
-            paragraph:state.topicInfo,
-            topicList:contacts
-
-        };
-        console.log(dataToSend);
+        console.log(contacts);
 
     }
 
@@ -195,36 +177,38 @@ const CallFor = () => {
 
     return (
         <div>
-          
+            <PageBanner name="Organising Committee" head="Admin Panel" />
 
-            
-                            <h2 className="classic-title"><span>Edit Contribution Info  </span></h2>
+            <div className="contenti">
+                <div className="container">
+                    <div className="page-content">
 
-                            <form  acceptCharset='UTF-8' >
-                                <input type='hidden' name='submitted' id='submitted' value='1' />
-
-                                <div className="form-group">
-                                    <div className="controls">
-                                       
-                                        <textarea type="text" value={state.topicInfo} rows="7" name="topicInfo" className="email"
-                                            required="required" onChange={handleChange} style={{}} />
-                                    </div>
-                                </div>
-                            </form>
-
-                            <h2 className="classic-title"><span>Edit Contribution Topics </span></h2>
+                        <div className="col-md-9">
                             <div>
+                                <h2>Select Role</h2>
+                                {/* <button onClick={() =>
+                                    setContacts(data.organsingList[option].persons)}>Symposium Patron</button>
+                                <button onClick={() =>
+                                    setContacts(data.organsingList[option+1].persons)}>Convener</button>
+                                <button onClick={() =>
+                                    setContacts(data.organsingList[option+2].persons)}>IET</button>
+                                <button onClick={() =>
+                                    setContacts(data.organsingList[option+3].persons)}>Local Committe</button> */}
+                                    
+                            </div>
 
+                            <h2 className="classic-title"><span>Edit Organising Committee </span></h2>
+                            <div className="EOrgCom-container">
                                 <form onSubmit={handleEditFormSubmit}>
                                     <table className="table table-responsive table-condensed table-bordered">
                                         <thead>
                                             <tr>
-                                                <th>Topic Name </th>
+                                                <th>Name</th>
                                                 <th>Actions</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {contacts.map((contact) => (
+                                            {contacts && contacts.map((contact) => (
                                                 <Fragment>
                                                     {editContactId === contact.id ? (
                                                         <EditableRow
@@ -245,7 +229,7 @@ const CallFor = () => {
                                     </table>
                                 </form>
                                 <br />
-                                <h2 className="classic-title"><span>Add New Entry </span></h2>
+                                <h2>Add a New Entry</h2>
                                 <br />
                                 <form onSubmit={handleAddFormSubmit}>
                                     <div className="col-md-5">
@@ -253,30 +237,30 @@ const CallFor = () => {
                                             className="email"
                                             style={{ maxWidth: '100%' }}
                                             type="text"
-                                            name="topicName"
+                                            name="name"
                                             required="required"
-                                            placeholder="Enter a topic name"
+                                            placeholder="Enter a name..."
                                             onChange={handleAddFormChange}
                                         />
                                     </div>
                                     <div className=" " style={{ marginLeft: '80%' }}>
-                                        <button type="submit" className="btn btn-primary">Add</button>
+                                        <button type="submit" class="btn btn-primary">Add</button>
                                     </div>
 
                                 </form>
                                 <br />
-                                <NoticeBoard title={'Display Notice'} titleMessage={'Display Notice is : '} noticeState ={displayNotice} noticeStateChange={setdisplayNotice} noticeHead={displayeNoticeHead} noticeHeadChange={setDisplayeNoticeHead} noticeContent={displayeNoticeContent} noticeContentChange={setDisplayeNoticeContent} headLabel={'Notice Heading'} contentLabel={'Notice Content'} />
-                                <NoticeBoard title={'Maintainance Break'} titleMessage={'Maintainance Break is : '} noticeState ={maintainanceBreak} noticeStateChange={setMaintainanceBreak} noticeHead={maintainanceBreakHead} noticeHeadChange={setMaintainanceBreakHead} noticeContent={maintainanceBreakContent} noticeContentChange={setMaintainanceBreakContent} headLabel={'Maintainance Break Heading'} contentLabel={'Maintainance Break Message Content'} />           
-                               
                                 <br />
-                                <div  style={{ textAlign: 'right' }}>
-                                    <button type="submit" onClick={handleSubmit} className="btn btn-lg btn-system" style={{ marginTop: '10px' }}>Update Content</button>
+                                <div className=" " style={{ textAlign: 'center' }}>
+                                    <button type="submit" onClick={handleSubmit} className="btn btn-lg btn-system" style={{ marginTop: '10px' }}>Save</button>
                                 </div>
                             </div>
                         </div>
-            
+                    </div>
+                </div>
+            </div>
+        </div >
 
     );
 };
 
-export default CallFor;
+export default EOrgCom;

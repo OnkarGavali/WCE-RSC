@@ -4,56 +4,36 @@ import {
     Link
 } from "react-router-dom";
 import displayNotice from '../DisplayNotice'
-import guidelines from '../../../JSON/Authors/guidelines'
+import guidelines from '../../../JSON/Authors/guidelines.json'
 import MaintenanceBreak from '../MaintenanceBreak';
 
 function Guidlines() {
 
-    const [allData, setAllData] = useState({});
-    const [titleOne, setTitleOne] = useState("Paper Submission Guidlines");//by Default
-    const [titleTwo, setTitleTwo] = useState("Publication");//by Default
-    const [titleThree, setTitleThree] = useState("Note");//by Default
+    const [allData, setAllData] = useState([]);
     const [maintenanceBreakMessage, setMaintenanceBreakMessage] = useState(null);
     const [displayNotice, setDisplayNotice] = useState(null);
-    const [peperSubList, setPeperSubList] = useState(null);
+    const [peperSubList, setPeperSubList] = useState([]);
     const [toShow, setToShow] = useState(true);
+    const [isLoading, setIsLoading] = useState(true);
 
     
 
 
     useEffect(() => {
         //api call
-        console.log('a');
-        setAllData({...guidelines})
-
-        console.log('useEff guidelines:')
-        console.log(guidelines)
-
-
-        console.log('useEff all data')
-        console.log(allData)
-
-
-        if(allData){
-            console.log("all data is empty")
-        }
-        //set all titles
-        // if(allData.title){
-        //     setTitleOne(allData.title)
-        //     console.log(titleOne)
-        // }
-
-
-        if(false){
-            setToShow(false);
-
-        } else {
-             setToShow(true);
-             //setPeperSubList(allData.paperSubGuidelineList)
-             //console.log(peperSubList)
-        }
         
-    }, [])
+        setAllData(guidelines)
+        if(allData.maintenanceBreakState){
+            setToShow(false);
+        }else{
+            setToShow(true);
+            //setPeperSubList(guidelines.data.paperSubGuidelineList);
+        }
+        setIsLoading(false)
+
+       
+        
+    }, [allData])
 
 
     return (
@@ -61,42 +41,53 @@ function Guidlines() {
             {/* PageBanner - start */}
             <PageBanner name="Submission Guidlines" head="Author" subhead="Submission Guidlines" info="Feel Free To Get In Touch" />
             {/* PageBanner - end */}
-            {console.log("render")}
-            {console.log(allData)}
+            
+
             <div className="contenti">
                 <div className="container">
                     <div className="page-content">
                         <div className="col-md-9">
                             {/*<!-- <h4>A research student who wants to submit a paper for the WCE Research Symposium on Computing should prepare:</h4> -->*/}
-                            {
-                                Object.keys(allData).length !== 0 && <>
                             
-                            <h3 className="classic-title" id="notifications"><span>Paper Submission Guidlines</span></h3>
-
-                            { 
-                                toShow ? (
-                                    <React.Fragment>
-                                        <ul style={{ listStyleType: 'disc', marginLeft: '3%' }}>
-                                            {
-                                               
-                                                allData.paperSubGuidelineList.map((item)=><li key={item.id}>{item.listItem}</li>)
-                                               
-                                            }
-                                        </ul>
-                                        <div className="hr5" style={{marginTop:'30px',marginBottom:'30px'}}></div>
-
-                                        <h3 className="classic-title" id="notifications"><span>{titleTwo}</span></h3>
-                                        {/* <p>{allData.publicationInfo}
-                                        </p> */}
-
-                                    </React.Fragment>
+                            {
+                                isLoading ? (
+                                    <div>Loading</div>
                                 ) : (
-                                    <MaintenanceBreak heading={allData.maintenanceBreakHeading} message={allData.maintenanceBreakContent}/>
-                                    
+                                    <>
+                                    <h3 className="classic-title" id="notifications"><span>Paper Submission Guidlines</span></h3>
+                                    { 
+                                        toShow ? (
+                                            <React.Fragment>
+                                                <ul style={{ listStyleType: 'disc', marginLeft: '3%' }}>
+                                                    {
+                                                        allData.data.paperSubGuidelineList ? (
+                                                                allData.data.paperSubGuidelineList.map((item)=><li key={item.id}>{item.listItem}</li>)
+                                                            ) : null                                                       
+                                                    }
+                                                </ul>
+
+                                                <div className="hr5" style={{marginTop:'30px',marginBottom:'30px'}}></div>
+
+                                                <h3 className="classic-title" id="notifications"><span>Publication</span></h3>
+                                                <p style={{whiteSpace:'pre-line'}}>{allData.data.publicationInfo }</p>
+
+                                                <div className="hr5" style={{marginTop:'30px',marginBottom:'30px'}}></div>
+
+                                                <h3 className="classic-title" id="notifications"><span>Note</span></h3>
+                                                <p style={{whiteSpace:'pre-line'}}>{allData.data.noteInfo}</p>
+
+                                            </React.Fragment>
+                                        ) : (
+                                            // <MaintenanceBreak heading={allData.maintenanceBreakHeading} message={allData.maintenanceBreakContent}/>
+                                            null
+                                            
+                                        )
+                                    }
+                                        </>
                                 )
                             }
-                            </>
-                        }
+                           
+                      
 
                             
 
@@ -104,10 +95,7 @@ function Guidlines() {
 
                             
                           
-                            <div className="hr5" style={{marginTop:'30px',marginBottom:'30px'}}></div>
-
-                            <h3 className="classic-title" id="notifications"><span>Note</span></h3>
-                            <p>All the three documents must be written in English.</p>
+                            
                         </div>
 
                         {/* Related Links - start */}

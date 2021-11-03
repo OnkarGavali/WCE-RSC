@@ -12,7 +12,7 @@ const EditableRow = ({
     editFormData,
     handleEditFormChange,
     handleCancelClick,
-}) => {
+}) => { 
     return (
 
         <tr>
@@ -265,96 +265,9 @@ const Ekeynotes = () => {
                                 </form>
 
                                 <div className="hr5" style={{ marginTop: '20px', marginBottom: '20px' }}></div>
-                                <h2 className="classic-title"><span>Display Notice </span></h2>
-
-
-
-                                <span >Toggel Page to be displayed : {displayNotice ? "Yes" : "No"} </span>
-                                <br />
-                                <br />
-                                <form onSubmit={handleAddFormSubmit} style={{ display: 'flex', justifyContent: 'space-between' }}>
-                                    <div className="col-md-4">
-                                        <input
-                                            className="email"
-                                            style={{ maxWidth: '100%' }}
-                                            type="text"
-                                            name="noticehead"
-                                            required="required"
-                                            placeholder="Enter a Notice Heading"
-                                            onChange={handleAddFormChange}
-                                        />
-                                    </div>
-                                    <div className="col-md-4">
-                                        <textarea
-                                            className="email"
-                                            style={{ maxWidth: '100%' }}
-                                            type="text"
-                                            row="3"
-                                            name="noticecontent"
-                                            required="required"
-                                            placeholder="Enter Notice Content"
-                                            onChange={handleAddFormChange}
-                                        />
-                                    </div>
-                                    <div className=" " style={{ display: 'flex', justifyContent: 'space-between' }}>
-                                        <Toggle
-                                            id='dn'
-                                            defaultChecked={displayNotice}
-                                            aria-labelledby='biscuit-label'
-
-                                            onChange={() => {
-                                                setdisplayNotice(!displayNotice)
-                                            }} />
-                                        <button type="submit" class="btn btn-primary">Save</button>
-                                    </div>
-
-                                </form>
-                                 <NoticeBoard title={'Maintainance Break'} titleMessage={'Maintainance break is : '} noticeState ={maintainanceBreak} noticeStateChange={setMaintainanceBreak} noticeHead={maintainanceBreakHead} noticeHeadChange={setMaintainanceBreakHead} noticeContent={maintainanceBreakContent} noticeContentChange={setMaintainanceBreakContent} headLabel={'Maintainance Break Heading'} contentLabel={'Maintainance Break Message Content'} />           
-                                <h2 className="classic-title"><span>Maintainance Break </span></h2>
-
-
-
-                                <span >Toggel Page to be displayed : {maintainanceBreak ? "Yes" : "No"} </span>
-                                <br />
-                                <br />
-                                <form onSubmit={handleAddFormSubmit} style={{ display: 'flex', justifyContent: 'space-between' }}>
-                                    <div className="col-md-4">
-                                        <input
-                                            className="email"
-                                            style={{ maxWidth: '100%' }}
-                                            type="text"
-                                            name="noticehead"
-                                            required="required"
-                                            placeholder="Enter a Notice Heading"
-                                            onChange={handleAddFormChange}
-                                        />
-                                    </div>
-                                    <div className="col-md-4">
-                                        <textarea
-                                            className="email"
-                                            style={{ maxWidth: '100%' }}
-                                            type="text"
-                                            row="3"
-                                            name="noticecontent"
-                                            required="required"
-                                            placeholder="Enter Notice Content"
-                                            onChange={handleAddFormChange}
-                                        />
-                                    </div>
-                                    <div className=" " style={{ display: 'flex', justifyContent: 'space-between' }}>
-                                        <Toggle
-                                            id='dn'
-                                            defaultChecked={maintainanceBreak}
-                                            aria-labelledby='biscuit-label'
-
-                                            onChange={() => {
-                                                setMaintainanceBreak(!maintainanceBreak)
-                                            }} />
-                                        <button type="submit" class="btn btn-primary">Save</button>
-                                    </div>
-
-                                </form>
-                                <div className="hr5" style={{ marginTop: '20px', marginBottom: '20px' }}></div>
+                                <NoticeBoard title={'Display Notice'} titleMessage={'Notice is : '} noticeState ={displayNotice} noticeStateChange={setdisplayNotice} noticeHead={displayeNoticeHead} noticeHeadChange={setDisplayeNoticeHead} noticeContent={displayeNoticeContent} noticeContentChange={setDisplayeNoticeContent} headLabel={'Notice Heading'} contentLabel={'Notice Content'} />
+                                <NoticeBoard title={'Maintainance Break'} titleMessage={'Maintainance break is : '} noticeState ={maintainanceBreak} noticeStateChange={setMaintainanceBreak} noticeHead={maintainanceBreakHead} noticeHeadChange={setMaintainanceBreakHead} noticeContent={maintainanceBreakContent} noticeContentChange={setMaintainanceBreakContent} headLabel={'Maintainance Break Heading'} contentLabel={'Maintainance Break Message Content'} />           
+                               
                                 
                             
                             <div className="hr5" style={{ marginTop: '20px', marginBottom: '20px' }}></div>

@@ -8,7 +8,7 @@ export const NoticeBoard = ({title,titleMessage,noticeState,noticeStateChange,no
            
 
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-            <span >{titleMessage} {noticeState ? "Yes" : "No"} </span>
+            <span >{titleMessage} {noticeState ? "ON" : "OFF"} </span>
             <Toggle
                        
                         defaultChecked={noticeState}
@@ -22,7 +22,7 @@ export const NoticeBoard = ({title,titleMessage,noticeState,noticeStateChange,no
          
             <br />
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <div>
+                <div style={{width:"100%"}}>
                     <label className="accent-color">{headLabel}</label>
                     <input
                         className="email"
@@ -43,7 +43,7 @@ export const NoticeBoard = ({title,titleMessage,noticeState,noticeStateChange,no
                         className="email"
                         style={{ width: '100%' }}
                         type="text"
-                        row="3"
+                        rows="3"
                         name="noticecontent"
                       
                         placeholder="Enter Notice Content"
