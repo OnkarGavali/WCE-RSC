@@ -1,11 +1,12 @@
-import React, { Components, useState } from 'react';
+import React, {  useState } from 'react';
 
 import {
   Link,
-  NavLink
+  NavLink,
+  withRouter
 } from "react-router-dom";
 
-function Navbar(props) {
+function Navbar({history}) {
 
   const [dropdownOpen, setDropdownOpen] = useState(false);
   function toggle() {
@@ -15,6 +16,7 @@ function Navbar(props) {
   
   return (
     <div>
+      {console.log(history)}
       <div className="navbar navbar-default navbar-top" style={{ marginTop: '4%' }}>
         <div className="container">
           <div className="navbar-header">
@@ -44,22 +46,22 @@ function Navbar(props) {
                 </NavLink>
                 <ul className="dropdown">
                   <li>
-                    <Link to="/authors/call-for-contribution">
+                    <Link exact to="/authors/call-for-contribution">
                       Call for Contributions <span style={{marginLeft:"10px"}}><i className="fa fa-bullhorn"></i></span>
                     </Link>
                   </li>
                   <li>
-                    <Link to="/authors/Guidlines">
+                    <Link exact to="/authors/Guidlines">
                       Submission Guidlines<span style={{marginLeft:"10px"}}><i className="fa fa-info-circle"></i></span>
                     </Link>
                   </li>
                   <li>
-                    <Link to="/authors/Paper-Submission">
+                    <Link exact to="/authors/Paper-Submission">
                       Paper Submission <span style={{marginLeft:"10px"}}><i className="fa fa-upload"></i></span>
                     </Link>
                   </li>
                   <li>
-                    <Link to="/authors/Important-Dates">
+                    <Link exact to="/authors/Important-Dates">
                       Important Dates<span style={{marginLeft:"10px"}}><i className="fa fa-calendar"></i></span>
                     </Link>
                   </li>
@@ -73,37 +75,37 @@ function Navbar(props) {
 
               {/* Programs - start */}
               <li className="drop">
-                <NavLink to="/Programs" activeClassName='active'>
+                <NavLink to="/Programs" activeClassName='active' >
                   <span style={{marginRight:"10px"}}><i className="fa fa-calendar"></i></span>Programs
                 </NavLink>
                 <ul className="dropdown">
                   <li>
-                    <Link to="/programs/Keynotes">
+                    <Link exact to="/programs/Keynotes">
                       Keynotes & Awards Presentation<span style={{marginLeft:"10px"}}><i className="fa fa-microphone"></i></span>
                     </Link>
                   </li>
                   <li>
-                    <Link to="/programs/Paper-Presentation">
+                    <Link exact to="/programs/Paper-Presentation">
                       Paper Presentation<span style={{marginLeft:"10px"}}><i className="fa fa-file"></i></span>
                     </Link>
                   </li>
                   <li>
-                    <Link to="/programs/Poster-Presentation">
+                    <Link exact to="/programs/Poster-Presentation">
                       Poster Presentation<span style={{marginLeft:"10px"}}><i className="fa fa-image"></i></span>
                     </Link>
                   </li>
                    <li>
-                    <Link to="/programs/IPS">
+                    <Link exact to="/programs/IPS">
                       Innovative Project Showcase<span style={{marginLeft:"10px"}}><i className="fa fa-file"></i></span>
                     </Link>
                   </li>
                   <li>
-                    <Link to="/programs/Schedule">
+                    <Link exact to="/programs/Schedule">
                       Event Schedule<span style={{marginLeft:"10px"}}><i className="fa fa-calendar"></i></span>
                     </Link>
                   </li>
                   <li>
-                    <Link to="/programs/Register">
+                    <Link exact to="/programs/Register">
                       Event Registration<span style={{marginLeft:"10px"}}><i className="fa fa-edit"></i></span>
                     </Link>
                   </li>
@@ -119,12 +121,12 @@ function Navbar(props) {
                 </NavLink>
                 <ul className="dropdown">
                   <li>
-                    <Link to="/organisation/org_committee">
+                    <Link exact to="/organisation/org_committee">
                       Organising Committee<span style={{marginLeft:"10px"}}><i className="fa fa-group"></i></span>
                     </Link>
                   </li>
                   <li>
-                    <Link to="/organisation/adv_committee">
+                    <Link exact to="/organisation/adv_committee">
                       Advisory Committee<span style={{marginLeft:"10px"}}><i className="fa fa-group"></i></span>
                     </Link>
                   </li>
@@ -139,17 +141,17 @@ function Navbar(props) {
                 </NavLink>
                 <ul className="dropdown">
                   <li>
-                    <Link to="/localInfo/venue">
+                    <Link exact to="/localInfo/venue">
                       Conference Venue<span style={{marginLeft:"10px"}}><i className="fa fa-location-arrow"></i></span>
                     </Link>
                   </li>
                   <li>
-                    <Link to="/localInfo/location">
+                    <Link exact to="/localInfo/location">
                       Conference Location<span style={{marginLeft:"10px"}}><i className="fa fa-map-marker"></i></span>
                     </Link>
                   </li>
                   <li>
-                    <Link to="/localInfo/accessing">
+                    <Link exact to="/localInfo/accessing">
                       Accessing Sangli<span style={{marginLeft:"10px"}}><i className="fa fa-plane"></i></span>
                     </Link>
                   </li>
@@ -202,4 +204,4 @@ function Navbar(props) {
   );
 }
 
-export default Navbar;
+export default withRouter(Navbar);

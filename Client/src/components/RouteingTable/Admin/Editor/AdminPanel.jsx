@@ -10,7 +10,7 @@ import EPosterPre from './Programs/EPosterPre';
 import { SwitchComponents } from './SwitchComponents';
 import { Link } from 'react-router-dom';
 
-export default function AdminPanel() {
+export default function AdminPanel({isLoggedIn, handleLogout}) {
 
 
     const [activeComponent, setActiveComponent] = useState("callForContribution")
@@ -18,6 +18,8 @@ export default function AdminPanel() {
     return (
         <div>
             {/* PageBanner - start */}
+            {console.log(isLoggedIn)}
+            {console.log(handleLogout)}
             <div className="page-banner" style={{"padding" :'40px 0', 'background': 'url(/images/slide-02-bg.jpg) center #f9f9f9'}}>
                 <div className="container">
                     <div className="row">
@@ -26,7 +28,12 @@ export default function AdminPanel() {
                         </div> 
                         <div className="col-md-6">  
                             <ul className="breadcrumbs">
-                                <li><a href="#" className="btn-system btn-large btn-gray"><i className="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
+                                <li><button 
+                                onClick={()=>{
+                                    localStorage.clear();
+                                    handleLogout()
+                                
+                                }} className="btn-system btn-large btn-gray"><i className="fa fa-sign-out" aria-hidden="true"></i>Logout</button></li>
                             </ul>
                         </div>
                     </div>
