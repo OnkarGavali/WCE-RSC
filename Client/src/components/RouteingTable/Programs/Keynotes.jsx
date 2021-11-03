@@ -10,36 +10,63 @@ function Keynotes() {
 
     const [allData, setAllData] = useState([]);
     const [maintenanceBreakMessageStatus, setMaintenanceBreakMessageStatus] = useState(false);
+    const [maintenanceBreakMessageHead, setMaintenanceBreakMessageHead] = useState("");
+    const [maintenanceBreakMessageContent, setMaintenanceBreakMessageContent] = useState("");
     const [displayNoticeStatus, setDisplayNoticeStatus] = useState(false);
     const [toShow, setToShow] = useState(true);
     const [isLoading, setIsLoading] = useState(true);
 
     const [presentations, setPresentations] = useState([]);
 
-    // useEffect(() => {
-    //     const getData = async () => {
-    //         await axios.get(
-    //             "http://localhost:5000/get/keyNotes"
-    //         ).then((response)=>{
-    //             setPresentations(response.data);
-    //         }).catch((e)=>{
-    //          /* HANDLE THE ERROR (e) */
-    //          console.log(e);
-    //         });
-            
-    //     };
-    //     getData();
-    // },[])
-
     useEffect(() => {
-        setAllData(Key);
-        if(allData.maintenanceBreakState){
-            setToShow(false);
-        }else{
-            setToShow(true);
-        }
-        setIsLoading(false)
-    }, [allData])
+        const getData = async () => {
+            await axios.get(
+                "http://localhost:5000/get/keyNotes"
+            ).then((response)=>{
+                if(response.data){
+                    setAllData(response);
+                    if(allData.maintenanceBreakState){
+                        setToShow(false);
+                        setIsLoading(false);
+                        
+                    } else {
+                        setToShow(true);
+                        console.log(allData)
+                        setIsLoading(false);
+                    }
+                } else {
+                    setMaintenanceBreakMessageStatus(true);
+                    setMaintenanceBreakMessageHead("Problem in Fetching data")
+                    setMaintenanceBreakMessageContent("Please Contact admin for details")
+                    setIsLoading(false);
+
+                }
+               setIsLoading(false);
+                
+                
+            }).catch((e)=>{
+             /* HANDLE THE ERROR (e) */
+                console.log(e);
+                setMaintenanceBreakMessageStatus(true);
+                setMaintenanceBreakMessageHead("Problem in Fetching data")
+                setMaintenanceBreakMessageContent("Please Contact admin for details")
+                setIsLoading(false);
+            });
+            
+        };
+        getData();
+    },[])
+
+    // useEffect(() => {
+    //     setAllData(Key);
+    //     if(allData.maintenanceBreakState){
+    //         setToShow(false);
+    //     }else{
+    //         setToShow(true);
+    //     }
+    //     setIsLoading(false)
+    // }, [allData])
+    
     return (
         <div>
             {/* PageBanner - start */}
@@ -61,17 +88,21 @@ function Keynotes() {
                                         </thead>
                                         <tbody>
                                             {
-                                                // allData.data.Speakers.map(obj => <tr key={obj._id}>
-                                                //     <td>{obj.Sr_No}</td>
-                                                //     <td>{obj.Name}</td>
-                                                //     <td>{obj.Designation}</td>
-                                                // </tr>)
+                                                allData ? (
+                                                    // allData.Speakers.map(obj => <tr key={obj._id}>
+                                                    //     <td>{obj.index}</td>
+                                                    //     <td>{obj.name}</td>
+                                                    //     <td>{obj.designation}</td>
+                                                    // </tr>)
+                                                    null
+                                                ) : null
 
-                                                allData.data.Speakers && allData.data.Speakers.map(obj => <tr key={obj.id}>
-                                                    <td>{obj.id}</td>
-                                                    <td>{obj.name}</td>
-                                                    <td>{obj.designation}</td>
-                                                </tr>)
+
+                                                // allData.data.Speakers && allData.data.Speakers.map(obj => <tr key={obj.id}>
+                                                //     <td>{obj.id}</td>
+                                                //     <td>{obj.name}</td>
+                                                //     <td>{obj.designation}</td>
+                                                // </tr>)
                                             }
                                         </tbody>
                                     </table>

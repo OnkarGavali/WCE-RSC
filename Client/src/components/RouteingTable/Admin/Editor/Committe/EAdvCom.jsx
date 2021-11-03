@@ -1,7 +1,7 @@
-import React, { useState, Fragment } from "react";
+import React, { useState, Fragment, useEffect } from "react";
 import { nanoid } from "nanoid";
-import PageBanner from "../../../PageBanner";
-import data from "../../../../../JSON/adv_com.json";
+import { NoticeBoard } from "../../NoticeBoard";
+import axios from "axios";
 //import ReadOnlyRow from "./components/ReadOnlyRow";
 //import EditableRow from "./components/EditableRow";
 
@@ -51,7 +51,7 @@ const ReadOnlyRow = ({ contact, handleEditClick, handleDeleteClick }) => {
                 </button>
                 <button 
                 class="btn btn-secondary"
-                type="button" onClick={() => handleDeleteClick(contact.id)} style={{marginLeft:'4%'}}>
+                type="button" onClick={() => handleDeleteClick(contact._id)} style={{marginLeft:'4%'}}>
                     Delete
                 </button>
             </td>
@@ -61,7 +61,106 @@ const ReadOnlyRow = ({ contact, handleEditClick, handleDeleteClick }) => {
 
 
 const EAdvCom = () => {
-    const [contacts, setContacts] = useState(data);
+
+
+    const format = {
+        "displayNoticeStatus":false,
+        "displayNoticeHeading":"",
+        "displayNoticeContent":"",
+        "maintenanceBreakStatus":false,
+        "maintenanceBreakHeading":"",
+        "maintenanceBreakContent":"",
+        "advisoryList":[
+            
+        ]
+    }
+
+    const [allData, setAllData] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+
+    const [displayNotice, setDisplayNotice] = useState(false);
+    const [displayeNoticeHead, setDisplayeNoticeHead] = useState('');
+    const [displayeNoticeContent, setDisplayeNoticeContent] = useState('')
+    const [maintainanceBreak, setMaintainanceBreak] = useState(false);
+    const [maintainanceBreakHead, setMaintainanceBreakHead] = useState('');
+    const [maintainanceBreakContent, setMaintainanceBreakContent] = useState('');
+    const [advisoryList, setAdvisoryList] = useState([]);
+
+    const [finalData, setFinalData] = useState();
+
+    // const format = {
+    //     "displayNoticeStatus":false,
+    //     "displayNoticeHeading":"",
+    //     "displayNoticeContent":"",
+    //     "maintenanceBreakStatus":false,
+    //     "maintenanceBreakHeading":"",
+    //     "maintenanceBreakContent":"",
+    //     "advisoryList":[
+    //         {
+    //             "name": ""
+    //         }
+    //     ]
+    // }
+
+    
+
+
+    useEffect(() => {
+        const getData = async () => {
+            await axios.get(
+                "http://localhost:5000/get/advisory"
+            ).then((response)=>{
+                if(response.data[0]){
+                    setAllData(response.data[0]);
+                    
+                }
+               setIsLoading(false);
+                
+            }).catch((e)=>{
+             /* HANDLE THE ERROR (e) */
+                console.log(e);
+                
+                setIsLoading(false);
+            });
+            
+        };
+        getData();
+        setIsLoading(false);
+        console.log('end of use Effect')
+        console.log(advisoryList)
+    },[])
+
+    useEffect(() => {
+        if(!isLoading){
+            setAdvisoryList(allData.advisoryList)
+            setDisplayNotice(allData.displayNoticeStatus)
+            setDisplayeNoticeHead(allData.displayNoticeHeading)
+            setDisplayeNoticeContent(allData.displayNoticeContent)
+            setMaintainanceBreak(allData.maintainanceBreakStatus)
+            setMaintainanceBreakHead(allData.maintainanceBreakHeading)
+            setMaintainanceBreakContent(allData.maintainanceBreakContent)
+            console.log('end of if')
+            console.log(advisoryList)
+        }
+    
+    }, [allData])
+
+    useEffect(() => {
+        if(advisoryList){
+            console.log("hu")
+            console.log(advisoryList)
+        }
+        
+    }, [advisoryList])
+
+
+    useEffect(() => {
+        if(finalData){
+            console.log('useE')
+            console.log(finalData)
+        }
+    }, [finalData])
+   
 
     const [addFormData, setAddFormData] = useState({
         name: "",
@@ -111,8 +210,8 @@ const EAdvCom = () => {
 
         };
 
-        const newContacts = [...contacts, newContact];
-        setContacts(newContacts);
+        const newContacts = [...advisoryList, newContact];
+        setAdvisoryList(newContacts);
     };
 
     const handleEditFormSubmit = (event) => {
@@ -125,19 +224,19 @@ const EAdvCom = () => {
 
         };
 
-        const newContacts = [...contacts];
+        const newContacts = [...advisoryList];
 
-        const index = contacts.findIndex((contact) => contact.id === editContactId);
+        const index = advisoryList.findIndex((contact) => contact._id === editContactId);
 
         newContacts[index] = editedContact;
 
-        setContacts(newContacts);
+        setAdvisoryList(newContacts);
         setEditContactId(null);
     };
 
     const handleEditClick = (event, contact) => {
         event.preventDefault();
-        setEditContactId(contact.id);
+        setEditContactId(contact._id);
 
         const formValues = {
             name: contact.name,
@@ -149,7 +248,8 @@ const EAdvCom = () => {
     };
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(contacts);
+        endFormater()
+        console.log(advisoryList);
 
     }
 
@@ -158,85 +258,117 @@ const EAdvCom = () => {
     };
 
     const handleDeleteClick = (contactId) => {
-        const newContacts = [...contacts];
+        const newContacts = [...advisoryList];
 
-        const index = contacts.findIndex((contact) => contact.id === contactId);
+        const index = advisoryList.findIndex((contact) => contact._id === contactId);
 
         newContacts.splice(index, 1);
 
-        setContacts(newContacts);
+        setAdvisoryList(newContacts);
     };
 
+    const endFormater = () => {
+        const advlist = []
+        advisoryList.map((li)=>(
+            advlist.push({"name":li.name})
+        ))
+        const final = {
+            "displayNoticeStatus":displayNotice,
+            "displayNoticeHeading":displayeNoticeHead,
+            "displayNoticeContent":displayeNoticeContent,
+            "maintenanceBreakStatus":maintainanceBreak,
+            "maintenanceBreakHeading":maintainanceBreakHead,
+            "maintenanceBreakContent":maintainanceBreakContent,
+            "advisoryList":advlist
+        }
+        setFinalData(final)
+        // console.log('Final data')
+        // console.log(finalData)
+    }
+
+
+
+    const uploadContent = () => {
+
+    }
+    
     return (
         <div>
-            <PageBanner name="Advisory Committee" head="Admin Panel" />
-
-            <div className="contenti">
-                <div className="container">
-                    <div className="page-content">
-
-                        <div className="col-md-9">
-                        <h2 className="classic-title"><span>Edit Advisory Committee </span></h2>
-                            <div className="container">
-                                <form onSubmit={handleEditFormSubmit}>
-                                    <table className="table table-responsive table-condensed table-bordered">
-                                        <thead>
-                                            <tr>
-                                                <th>Name</th>
-                                                <th>Actions</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            {contacts.map((contact) => (
-                                                <Fragment>
-                                                    {editContactId === contact.id ? (
-                                                        <EditableRow
-                                                            editFormData={editFormData}
-                                                            handleEditFormChange={handleEditFormChange}
-                                                            handleCancelClick={handleCancelClick}
-                                                        />
-                                                    ) : (
-                                                        <ReadOnlyRow
-                                                            contact={contact}
-                                                            handleEditClick={handleEditClick}
-                                                            handleDeleteClick={handleDeleteClick}
-                                                        />
-                                                    )}
-                                                </Fragment>
-                                            ))}
-                                        </tbody>
-                                    </table>
-                                </form>
-                                <br />
-                                <h2>Add a New Entry</h2>
-                                <br />
-                                <form onSubmit={handleAddFormSubmit}>
-                                    <div className="col-md-5">
-                                        <input
-                                            className="email"
-                                            style={{ maxWidth: '100%' }}
-                                            type="text"
-                                            name="name"
-                                            required="required"
-                                            placeholder="Enter a name..."
-                                            onChange={handleAddFormChange}
-                                        />
-                                    </div>
-                                    <div className=" " style={{marginLeft:'80%' }}>
-                                        <button type="submit"  class="btn btn-primary">Add</button>
-                                    </div>
-
-                                </form>
-                                <br />
-                                <br/>
-                                <div className=" " style={{textAlign:'center'}}>
-                                <button type="submit" onClick={handleSubmit} className="btn btn-lg btn-system"  style={{marginTop:'10px'}}>Save</button>
+            {
+                isLoading ? (
+                   <div>Loading...</div>
+                ) : (
+                    <div className="col-md-9">
+                    <h2 className="classic-title"><span>Edit Advisory Committee </span></h2>
+                        <div >
+                            <form onSubmit={handleEditFormSubmit}>
+                                <table className="table table-responsive table-condensed table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        { 
+                                            advisoryList ? (
+                                                advisoryList.map((contact) => (
+                                                    <Fragment>
+                                                        {editContactId === contact._id ? (
+                                                            <EditableRow
+                                                                editFormData={editFormData}
+                                                                handleEditFormChange={handleEditFormChange}
+                                                                handleCancelClick={handleCancelClick}
+                                                            />
+                                                        ) : (
+                                                            <ReadOnlyRow
+                                                                contact={contact}
+                                                                handleEditClick={handleEditClick}
+                                                                handleDeleteClick={handleDeleteClick}
+                                                            />
+                                                        )}
+                                                    </Fragment>
+                                                ))
+                                            ) : null
+                                        }
+                                    </tbody>
+                                </table>
+                            </form>
+                            <br />
+                            <h2>Add a New Entry</h2>
+                            <br />
+                            <form onSubmit={handleAddFormSubmit}>
+                                <div className="col-md-5">
+                                    <input
+                                        className="email"
+                                        style={{ maxWidth: '100%' }}
+                                        type="text"
+                                        name="name"
+                                        required="required"
+                                        placeholder="Enter a name..."
+                                        onChange={handleAddFormChange}
+                                    />
                                 </div>
+                                <div className=" " style={{marginLeft:'80%' }}>
+                                    <button type="submit"  className="btn btn-primary">Add</button>
+                                </div>
+
+                            </form>
+
+                            <div className="hr5" style={{ marginTop: '20px', marginBottom: '20px' }}></div>
+                            <NoticeBoard title={'Display Notice'} titleMessage={'Notice is : '} noticeState ={displayNotice} noticeStateChange={setDisplayNotice} noticeHead={displayeNoticeHead} noticeHeadChange={setDisplayeNoticeHead} noticeContent={displayeNoticeContent} noticeContentChange={setDisplayeNoticeContent} headLabel={'Notice Heading'} contentLabel={'Notice Content'} />
+                            <NoticeBoard title={'Maintainance Break'} titleMessage={'Maintainance break is : '} noticeState ={maintainanceBreak} noticeStateChange={setMaintainanceBreak} noticeHead={maintainanceBreakHead} noticeHeadChange={setMaintainanceBreakHead} noticeContent={maintainanceBreakContent} noticeContentChange={setMaintainanceBreakContent} headLabel={'Maintainance Break Heading'} contentLabel={'Maintainance Break Message Content'} />           
+                                    
+                            <br />
+                            <br/>
+                            <div className=" " style={{textAlign:'right'}}>
+                            <button type="submit" onClick={handleSubmit} className="btn btn-lg btn-system"  style={{marginTop:'10px'}}>Update Content</button>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
+                )
+            }
+            
         </div >
 
     );

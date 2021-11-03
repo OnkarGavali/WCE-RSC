@@ -8,8 +8,8 @@ import EHome from './Home/EHome';
 import EPaperSub from './Author/EPaperSub';
 import EPosterPre from './Programs/EPosterPre';
 import { SwitchComponents } from './SwitchComponents';
-import { Link } from 'react-router-dom';
 import ERegister from './Programs/ERegister';
+import EAdvCom from './Committe/EAdvCom'
 
 export default function AdminPanel({isLoggedIn, handleLogout}) {
 
@@ -19,8 +19,6 @@ export default function AdminPanel({isLoggedIn, handleLogout}) {
     return (
         <div>
             {/* PageBanner - start */}
-            {console.log(isLoggedIn)}
-            {console.log(handleLogout)}
             <div className="page-banner" style={{"padding" :'40px 0', 'background': 'url(/images/slide-02-bg.jpg) center #f9f9f9'}}>
                 <div className="container">
                     <div className="row">
@@ -79,6 +77,15 @@ export default function AdminPanel({isLoggedIn, handleLogout}) {
                                     </li>
                                 </ul>
                             </div>
+                            <div className="widget widget-categories">
+                                <h4 className='accent-color'>Organisation<span className="head-line"></span></h4>
+                                <ul>
+                                    <li>
+                                        <a onClick={()=>setActiveComponent("advisoryCommitte")}>Advisory Committe</a>
+                                    </li>
+                                    
+                                </ul>
+                            </div>
                         </div>
 
                         
@@ -104,6 +111,10 @@ export default function AdminPanel({isLoggedIn, handleLogout}) {
                                     <EPosterPre name='posterPresentation'/>
                                     <ERegister name="registration"/>
                                 {/* programs end */}
+                                {/* programs start */}
+                                   <EAdvCom name='advisoryCommitte'/>
+                                {/* programs end */}
+
 
                                 
                             </SwitchComponents>
