@@ -9,26 +9,31 @@
         "note":"On account of ongoing Pandemic situation (COVID-19), the symposium will be organized via Virtual Mode (Online).\n\nPublication of the paper in conference proceedings, Book of Abstracts, Participation in all technical sessions, for two days of the symposium and Certificate of Speaker/Attendance\n\nEach author registration will cover only one paper.\n\nList of selected papers will be published on the symposium website.",
         "regitrationFees":[
             {
+                "id":1,
                 "type":"Academia/Students",
                 "fees":"INR 4000",
                 "late":"INR 4500"
             },
             {
+                "id":2,
                 "type":"Industry Personnel",
                 "fees":"INR 5000",
                 "late":"INR 5500"
             },
             {
+                "id":3,
                 "type":"Attendee",
                 "fees":"INR 1000",
                 "late":""
             },
             {
+                "id":4,
                 "type":"Co-Author",
                 "fees":"INR 1000",
                 "late":""
             },
             {
+                "id":5,
                 "type":"Innovative Project Showcasing",
                 "fees":"INR 300",
                 "late":""
