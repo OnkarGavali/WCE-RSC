@@ -137,9 +137,10 @@ const EAdvCom = () => {
             setDisplayNotice(allData.displayNoticeStatus)
             setDisplayeNoticeHead(allData.displayNoticeHeading)
             setDisplayeNoticeContent(allData.displayNoticeContent)
-            setMaintainanceBreak(allData.maintainanceBreakStatus)
-            setMaintainanceBreakHead(allData.maintainanceBreakHeading)
-            setMaintainanceBreakContent(allData.maintainanceBreakContent)
+            
+            setMaintainanceBreak(allData.maintenanceBreakStatus)
+            setMaintainanceBreakHead(allData.maintenanceBreakHeading)
+            setMaintainanceBreakContent(allData.maintenanceBreakContent)
             console.log('end of if')
             console.log(allData)
         }
@@ -162,6 +163,17 @@ const EAdvCom = () => {
             uploadContent()
         }
     }, [finalData])
+
+    useEffect(() => {
+        
+    }, [displayNotice,displayeNoticeHead,displayeNoticeContent])
+    
+    useEffect(() => {
+        //  console.log('mB')
+        // console.log(maintainanceBreak)
+        // console.log(maintainanceBreakHead)
+        // console.log(maintainanceBreakContent)
+    }, [maintainanceBreak,maintainanceBreakHead,maintainanceBreakContent])
    
 
     const [addFormData, setAddFormData] = useState({
@@ -321,18 +333,20 @@ const EAdvCom = () => {
                                         { 
                                             advisoryList ? (
                                                 advisoryList.map((contact) => (
-                                                    <Fragment>
+                                                    <Fragment  key={contact._id}>
                                                         {editContactId === contact._id ? (
                                                             <EditableRow
                                                                 editFormData={editFormData}
                                                                 handleEditFormChange={handleEditFormChange}
                                                                 handleCancelClick={handleCancelClick}
+                                                                key={contact._id}
                                                             />
                                                         ) : (
                                                             <ReadOnlyRow
                                                                 contact={contact}
                                                                 handleEditClick={handleEditClick}
                                                                 handleDeleteClick={handleDeleteClick}
+                                                                key={contact._id}
                                                             />
                                                         )}
                                                     </Fragment>
@@ -364,8 +378,8 @@ const EAdvCom = () => {
                             </form>
 
                             <div className="hr5" style={{ marginTop: '20px', marginBottom: '20px' }}></div>
-                            <NoticeBoard title={'Display Notice'} titleMessage={'Notice is : '} noticeState ={displayNotice} noticeStateChange={setDisplayNotice} noticeHead={displayeNoticeHead} noticeHeadChange={setDisplayeNoticeHead} noticeContent={displayeNoticeContent} noticeContentChange={setDisplayeNoticeContent} headLabel={'Notice Heading'} contentLabel={'Notice Content'} />
-                            <NoticeBoard title={'Maintainance Break'} titleMessage={'Maintainance break is : '} noticeState ={maintainanceBreak} noticeStateChange={setMaintainanceBreak} noticeHead={maintainanceBreakHead} noticeHeadChange={setMaintainanceBreakHead} noticeContent={maintainanceBreakContent} noticeContentChange={setMaintainanceBreakContent} headLabel={'Maintainance Break Heading'} contentLabel={'Maintainance Break Message Content'} />           
+                            <NoticeBoard title={'Display Notice'} titleMessage={'Notice is : '} noticeState={displayNotice} noticeStateChange={setDisplayNotice} noticeHead={displayeNoticeHead} noticeHeadChange={setDisplayeNoticeHead} noticeContent={displayeNoticeContent} noticeContentChange={setDisplayeNoticeContent} headLabel={'Notice Heading'} contentLabel={'Notice Content'} />
+                            <NoticeBoard title={'Maintainance Break'} titleMessage={'Maintainance break is : '} noticeState={maintainanceBreak} noticeStateChange={setMaintainanceBreak} noticeHead={maintainanceBreakHead} noticeHeadChange={setMaintainanceBreakHead} noticeContent={maintainanceBreakContent} noticeContentChange={setMaintainanceBreakContent} headLabel={'Maintainance Break Heading'} contentLabel={'Maintainance Break Message Content'} />           
                                     
                             <br />
                             <br/>

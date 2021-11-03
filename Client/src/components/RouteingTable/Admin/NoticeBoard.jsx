@@ -2,6 +2,8 @@ import React from 'react'
 import Toggle from 'react-toggle'
 
 export const NoticeBoard = ({title,titleMessage,noticeState,noticeStateChange,noticeHead,noticeHeadChange,noticeContent,noticeContentChange,headLabel,contentLabel}) => {
+    
+    
     return (
         <div style={{width:'100%'}}>
             <h2 className="classic-title"><span>{title}</span></h2>
@@ -10,13 +12,10 @@ export const NoticeBoard = ({title,titleMessage,noticeState,noticeStateChange,no
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
             <span >{titleMessage} {noticeState ? "ON" : "OFF"} </span>
             <Toggle
-                       
-                        defaultChecked={noticeState}
-                        
-
-                        onChange={() => {
-                            noticeStateChange(!noticeState)
-                        }} 
+                checked={noticeState}
+                onChange={() => {
+                    noticeStateChange(!noticeState)
+                }} 
             />
             </div>
          

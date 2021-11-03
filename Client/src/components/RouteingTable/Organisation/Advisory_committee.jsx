@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import {Link} from "react-router-dom";
 import PageBanner from '../PageBanner';
-import adv from '../../../JSON/adv_com.json';
 import axios from 'axios';
+import MaintenanceBreak from '../MaintenanceBreak';
+import { DisplayNotice } from '../DisplayNotice';
 
 
 
@@ -17,7 +18,11 @@ function Adv_Committee() {
     const [maintenanceBreakMessageHead, setMaintenanceBreakMessageHead] = useState("");
     const [maintenanceBreakMessageContent, setMaintenanceBreakMessageContent] = useState("");
     const [displayNoticeStatus, setDisplayNoticeStatus] = useState(false);
+    const [displayNoticeHead, setDisplayNoticeHead] = useState("");
+    const [displayNoticeContent, setDisplayNoticeContent] = useState("");
     const [toShow, setToShow] = useState(true);
+
+
     const [isLoading, setIsLoading] = useState(true);
 
 
@@ -28,38 +33,62 @@ function Adv_Committee() {
                 "http://localhost:5000/get/advisory"
             ).then((response)=>{
                 if(response.data){
-                    setAllData(response.data[0]);
-                    if(allData.maintenanceBreakState){
-                        setToShow(false);
-                        setIsLoading(false);
-                        
-                    } else {
-                        setToShow(true);
-                        console.log(allData)
-                        setIsLoading(false);
-
-                    }
+                    setAllData(response.data[0]); 
+                    console.log(response)
                 } else {
                     setMaintenanceBreakMessageStatus(true);
                     setMaintenanceBreakMessageHead("Problem in Fetching data")
                     setMaintenanceBreakMessageContent("Please Contact admin for details")
-                    setIsLoading(false);
                 }
-               setIsLoading(false);
-                
             }).catch((e)=>{
              /* HANDLE THE ERROR (e) */
                 console.log(e);
                 setMaintenanceBreakMessageStatus(true);
                 setMaintenanceBreakMessageHead("Problem in Fetching data")
                 setMaintenanceBreakMessageContent("Please Contact admin for details")
-                setIsLoading(false);
+                
             });
             
         };
         getData();
+        setIsLoading(false);
+        console.log("end of api")
+        console.log(allData)
     },[])
 
+    useEffect(() => {
+        if(!isLoading){
+            if(allData.maintenanceBreakStatus){
+                setToShow(false); 
+                setMaintenanceBreakMessageStatus(allData.maintenanceBreakStatus) 
+                setMaintenanceBreakMessageHead(allData.maintenanceBreakHeading)
+                setMaintenanceBreakMessageContent(allData.maintenanceBreakContent) 
+            } else {
+                setToShow(true);
+                if(allData.displayNoticeStatus){
+                    setDisplayNoticeStatus(allData.displayNoticeStatus)
+                    setDisplayNoticeHead(allData.displayNoticeHeading)
+                    setDisplayNoticeContent(allData.displayNoticeContent)
+                }
+                console.log(allData)
+            }
+        }
+        console.log("all data use Effect")
+        console.log(isLoading)
+    }, [allData])
+
+    useEffect(() => {
+        if(maintenanceBreakMessageStatus){
+            if(!maintenanceBreakMessageHead){ 
+                setMaintenanceBreakMessageHead("hi")
+            }
+            if(!maintenanceBreakMessageContent){
+                setMaintenanceBreakMessageContent("hihi")
+            }
+        }
+    }, [maintenanceBreakMessageContent,maintenanceBreakMessageHead,maintenanceBreakMessageStatus])
+
+    
 
     return (
         <div>
@@ -79,27 +108,37 @@ function Adv_Committee() {
                                     <div>Loading</div>
                                 ) : (
                                     <>
-                                        <h1 className="accent-color">Advisory Committee</h1>
-                                        <br />
-                                        <table className="table table-responsive table-condensed table-bordered">
-                                            <thead>
-                                                <th>Name</th>
-                                            </thead>
-                                            <tbody>
-                                                {/* {
-                                                    adv.map(Entry => <tr key={adv.id}>
-                                                        <td>{Entry.name}</td>
-                                                    </tr>)
-                                                } */}
-                                                {
-                                                    allData ? (
-                                                        allData.advisoryList.map(Entry => <tr key={Entry._id}>
-                                                            <td>{Entry.name}</td>
-                                                        </tr>)
-                                                    ) : null
-                                                }
-                                            </tbody>
-                                        </table>
+                                        {
+                                            toShow ? (
+                                                <>
+                                                    <h1 className="accent-color">Advisory Committee</h1>
+                                                    {
+                                                        displayNoticeStatus ? (
+                                                            <DisplayNotice heading={displayNoticeHead} message={displayNoticeContent} />
+                                                        ) : null
+                                                    }
+                                                    <br />
+                                                    <table className="table table-responsive table-condensed table-bordered">
+                                                        <thead>
+                                                            <th>Name</th>
+                                                        </thead>
+                                                        <tbody>
+                                                            
+                                                            {
+                                                                allData.advisoryList ? (
+                                                                    allData.advisoryList.map(Entry => <tr key={Entry._id}>
+                                                                        <td>{Entry.name}</td>
+                                                                    </tr>)
+                                                                ) : null
+                                                            }
+                                                        </tbody>
+                                                    </table>
+                                                </>
+                                            ) : (
+                                                <MaintenanceBreak heading={maintenanceBreakMessageHead} message={maintenanceBreakMessageContent}/>
+                                            )
+                                        }
+                                        
                                     </>
                                 )
                             }
