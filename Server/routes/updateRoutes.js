@@ -2,8 +2,10 @@ const express = require('express')
 const router = express.Router()
 const verifyJWT = require('../middleware/common');
 const mongoose = require("mongoose");
+
 const organization = require("../models/organization");
 const advisory = require("../models/advisory");
+const keyNotes = require("../models/keyNotes")
 
 router.put('/organization/:id',async(req,res) => {
     const id = mongoose.Types.ObjectId(req.params.id);
@@ -22,5 +24,13 @@ router.put('/advisory/:id',async(req,res) => {
     // let doc = organization.findOneAndUpdate({_id:id},req.body,{new:true});
     res.send("Data of Advisory Updated");
 });
+
+router.put('/keynotes/:id',async(req,res) => {
+    const id = mongoose.Types.ObjectId(req.params.id);
+    console.log(req.body);
+    let doc = await keyNotes.findOne({ _id: id });
+    await keyNotes.updateOne({_id:id},req.body );
+    res.send("Data of keyNotes Updated");
+})
 
 module.exports = router;

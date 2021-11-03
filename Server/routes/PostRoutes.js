@@ -22,13 +22,8 @@ router.post('/schedule',verifyJWT,(req,res) => {
     })
 })
 
-router.post('/keyNote',verifyJWT,(req,res) => {
-    const {Sr_No,Name,Designation} = req.body;
-    const newSchedule = new keyNotes({
-        Sr_No,
-        Name,
-        Designation
-    });
+router.post('/keyNote',(req,res) => {
+    const newSchedule = new keyNotes(req.body);
     newSchedule.save().then(() => {
         console.log('New keyNote saved');
         res.json({msg:"keyNote saved successfully"});
