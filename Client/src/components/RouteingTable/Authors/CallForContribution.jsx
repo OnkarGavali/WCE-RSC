@@ -6,28 +6,86 @@ import {Link} from "react-router-dom";
 
 import TopicsList from '../../../JSON/Authors/contributionTopics.json'
 import MaintenanceBreak from '../MaintenanceBreak';
+import axios from 'axios';
 
 
 function CallForContriBution() {
+
+    //data from api
     const [allData, setAllData] = useState([]);
-   
-   
-    const [toShow, setToShow] = useState(true);
+    const [maintenanceBreakMessageStatus, setMaintenanceBreakMessageStatus] = useState(false);
+    const [maintenanceBreakMessageHead, setMaintenanceBreakMessageHead] = useState("");
+    const [maintenanceBreakMessageContent, setMaintenanceBreakMessageContent] = useState("");
+    const [displayNoticeStatus, setDisplayNoticeStatus] = useState(false);
+    const [displayNoticeHead, setDisplayNoticeHead] = useState("");
+    const [displayNoticeContent, setDisplayNoticeContent] = useState("");
+
+    
     const [paragraph, setParagraph] = useState("");
     const [list, setList] = useState([])
+
+    const [toShow, setToShow] = useState(true);
     const [isLoading, setIsLoading] = useState(true);
+
+
+     useEffect(() => {
+        const getData = async () => {
+            await axios.get(
+                "http://localhost:5000/get/contributionTopics"
+            ).then((response)=>{
+                if(response.data[0]){
+                    setAllData(response.data[0]); 
+                    console.log(response)
+                } else {
+                    setMaintenanceBreakMessageStatus(true);
+                    setMaintenanceBreakMessageHead("Problem in Fetching data")
+                    setMaintenanceBreakMessageContent("Please Contact admin for details")
+                }
+                console.log(response)
+            }).catch((e)=>{
+             /* HANDLE THE ERROR (e) */
+                console.log(e);
+                setMaintenanceBreakMessageStatus(true);
+                setMaintenanceBreakMessageHead("Problem in Fetching data")
+                setMaintenanceBreakMessageContent("Please Contact admin for details")
+            });
+            setIsLoading(false);
+           
+        };
+        getData();
+        setIsLoading(false);
+    },[])
+
     useEffect(() => {
-        //api call
-        setAllData(TopicsList);
-        if(allData.maintenanceBreakState){
-            setToShow(false);
-        }else{
-            setToShow(true);
-            //setParagraph(allData.data.paragraph);
-            //setList(allData.data.topicList);
+        if(!isLoading){
+            if(allData.maintenanceBreakStatus){
+                setToShow(false);
+                setMaintenanceBreakMessageStatus(allData.maintenanceBreakStatus) 
+                setMaintenanceBreakMessageHead(allData.maintenanceBreakHeading)
+                setMaintenanceBreakMessageContent(allData.maintenanceBreakContent) 
+            } else {
+                setToShow(true);
+                if(allData.displayNoticeStatus){
+                    setDisplayNoticeStatus(allData.displayNoticeStatus)
+                    setDisplayNoticeHead(allData.displayNoticeHeading)
+                    setDisplayNoticeContent(allData.displayNoticeContent)
+                }
+                // setParagraph(allData.data.paragraph)
+                // setList(allData.data.topicList)
+                console.log(allData)
+            }
         }
-        setIsLoading(false)
     }, [allData])
+
+
+    
+    useEffect(() => {
+        if(list && paragraph){
+            console.log(paragraph)
+            console.log(list)
+        }
+    }, [list,paragraph])
+    
     return (
         <div>
             {/* PageBanner - start */}
@@ -48,12 +106,12 @@ function CallForContriBution() {
                                         toShow ? (
                                             <React.Fragment>  
                                                 {
-                                                    allData.data.paragraph ? (
+                                                    allData.data ? (
                                                         <p style={{whiteSpace:'pre-line'}}>{ allData.data.paragraph}</p>
                                                     ) : null
                                                 }
                                                 {
-                                                    allData.data.topicList ? (
+                                                    allData.data ? (
                                                         <ul className="icons-list">
                                                             <strong>
                                                                 {
@@ -68,8 +126,7 @@ function CallForContriBution() {
                                                 
                                             </React.Fragment>
                                         ) : ( 
-                                            // <MaintenanceBreak message={maintenanceBreakMessage}/>
-                                            null
+                                            <MaintenanceBreak heaading={maintenanceBreakMessageHead} message={maintenanceBreakMessageContent} />
                                             
                                         )
                                     }

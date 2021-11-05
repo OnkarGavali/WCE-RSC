@@ -48,8 +48,8 @@ const EditableRow = ({
 
 
             <td>
-                <button type="submit" class="btn btn-success" >Save</button>
-                <button type="button" onClick={handleCancelClick} style={{ marginTop: '4%' }} class="btn btn-secondary" >
+                <button type="submit" className="btn btn-success" >Save</button>
+                <button type="button" onClick={handleCancelClick} style={{ marginTop: '4%' }} className="btn btn-secondary" >
                     Cancel
                 </button>
             </td>
@@ -66,15 +66,15 @@ const ReadOnlyRow = ({ contact, handleEditClick, handleDeleteClick }) => {
 
             <td>
                 <button
-                    class="btn btn-primary"
+                    className="btn btn-primary"
                     type="button"
                     onClick={(event) => handleEditClick(event, contact)}
                 >
                     Edit
                 </button>
                 <button
-                    class="btn btn-secondary"
-                    type="button" onClick={() => handleDeleteClick(contact.id)} style={{ marginTop: '4%' }}>
+                    className="btn btn-secondary"
+                    type="button" onClick={() => handleDeleteClick(contact._id)} style={{ marginTop: '4%' }}>
                     Delete
                 </button>
             </td>
@@ -107,14 +107,11 @@ const Ekeynotes = () => {
             ).then((response)=>{
                 if(response.data[0]){
                     setAllData(response.data[0]);
-                    
                 }
                setIsLoading(false);
-                
             }).catch((e)=>{
              /* HANDLE THE ERROR (e) */
                 console.log(e);
-                
                 setIsLoading(false);
             });
             
@@ -122,7 +119,6 @@ const Ekeynotes = () => {
         getData();
         setIsLoading(false);
         console.log('end of use Effect')
-        
     },[])
 
     useEffect(() => {
@@ -225,7 +221,7 @@ const Ekeynotes = () => {
         };
 
         const newContacts = [...speakersList];
-        const index = speakersList.findIndex((contact) => contact.id === editContactId);
+        const index = speakersList.findIndex((contact) => contact._id === editContactId);
         newContacts[index] = editedContact;
         setSpeakersList(newContacts);
         setEditContactId(null);
@@ -233,7 +229,7 @@ const Ekeynotes = () => {
 
     const handleEditClick = (event, contact) => {
         event.preventDefault();
-        setEditContactId(contact.id);
+        setEditContactId(contact._id);
 
         const formValues = {
             name: contact.name,
@@ -253,17 +249,15 @@ const Ekeynotes = () => {
 
     const handleDeleteClick = (contactId) => {
         const newContacts = [...speakersList];
-        const index = speakersList.findIndex((contact) => contact.id === contactId);
+        const index = speakersList.findIndex((contact) => contact._id === contactId);
         newContacts.splice(index, 1);
         setSpeakersList(newContacts);
     };
 
     const endFormater = () => {
         const speakerlist = []
-        let i=1;
         speakersList.map((li)=>{
-            speakerlist.push({"id":i,"name":li.name,"designation":li.designation});
-            i=i+1;
+            speakerlist.push({"name":li.name,"designation":li.designation});
         }
            
         )
@@ -289,7 +283,7 @@ const Ekeynotes = () => {
         const headers = { 
             'x-access-token': localStorage.getItem("x-access-token")
         };
-        axios.put('http://localhost:5000/put/keynotes/618101c1df2c88a06da95a89', finalData, { headers })
+        axios.put('http://localhost:5000/put/keynotes/61828581c970a26fc8e9aa72', finalData, { headers })
             .then(response => console.log(response));
         //console.log('aaaa')
         //console.log(finalMessage)
@@ -311,7 +305,7 @@ const Ekeynotes = () => {
                         <tbody>
                             {speakersList.map((contact) => (
                                 <Fragment>
-                                    {editContactId === contact.id ? (
+                                    {editContactId === contact._id ? (
                                         <EditableRow
                                             editFormData={editFormData}
                                             handleEditFormChange={handleEditFormChange}
@@ -356,14 +350,14 @@ const Ekeynotes = () => {
                         />
                     </div>
                     <div className=" " style={{}}>
-                        <button type="submit" class="btn btn-primary">Add</button>
+                        <button type="submit" className="btn btn-primary">Add</button>
                     </div>
 
                 </form>
 
                 <div className="hr5" style={{ marginTop: '20px', marginBottom: '20px' }}></div>
                 <NoticeBoard title={'Display Notice'} titleMessage={'Notice is : '} noticeState={displayNotice} noticeStateChange={setDisplayNotice} noticeHead={displayeNoticeHead} noticeHeadChange={setDisplayeNoticeHead} noticeContent={displayeNoticeContent} noticeContentChange={setDisplayeNoticeContent} headLabel={'Notice Heading'} contentLabel={'Notice Content'} />
-                            <NoticeBoard title={'Maintainance Break'} titleMessage={'Maintainance break is : '} noticeState={maintainanceBreak} noticeStateChange={setMaintainanceBreak} noticeHead={maintainanceBreakHead} noticeHeadChange={setMaintainanceBreakHead} noticeContent={maintainanceBreakContent} noticeContentChange={setMaintainanceBreakContent} headLabel={'Maintainance Break Heading'} contentLabel={'Maintainance Break Message Content'} />           
+                <NoticeBoard title={'Maintainance Break'} titleMessage={'Maintainance break is : '} noticeState={maintainanceBreak} noticeStateChange={setMaintainanceBreak} noticeHead={maintainanceBreakHead} noticeHeadChange={setMaintainanceBreakHead} noticeContent={maintainanceBreakContent} noticeContentChange={setMaintainanceBreakContent} headLabel={'Maintainance Break Heading'} contentLabel={'Maintainance Break Message Content'} />           
                 <div className="hr5" style={{ marginTop: '20px', marginBottom: '20px' }}></div>
                 <div className=" " style={{ textAlign: 'right' }}>
                     <button type="submit" onClick={handleSubmit} className="btn btn-lg btn-system" style={{ marginTop: '10px' }}>Update Content</button>

@@ -20,6 +20,7 @@ function Keynotes() {
     const [toShow, setToShow] = useState(true);
     const [isLoading, setIsLoading] = useState(true);
 
+    var srNoCounter = 1;
     const [presentations, setPresentations] = useState([]);
 
     useEffect(() => {
@@ -67,7 +68,6 @@ function Keynotes() {
         }
     }, [allData])
 
-
     // useEffect(() => {
     //     setAllData(Key);
     //     if(allData.maintenanceBreakState){
@@ -78,6 +78,8 @@ function Keynotes() {
     //     setIsLoading(false)
     // }, [allData])
     
+    
+
     return (
         <div>
             {/* PageBanner - start */}
@@ -111,7 +113,7 @@ function Keynotes() {
                                                             {
                                                                 allData.data ? (
                                                                     allData.data.Speakers.map(obj => (<tr key={obj._id}>
-                                                                        <td>{obj.id}</td>
+                                                                        <td>{srNoCounter++}</td>
                                                                         <td>{obj.name}</td>
                                                                         <td>{obj.designation}</td>
                                                                     </tr>)

@@ -1,8 +1,8 @@
-import React, { useState, Fragment } from "react";
+import React, { useState, Fragment, useEffect } from "react";
 import { nanoid } from "nanoid";
-import PageBanner from "../../../PageBanner";
 import info from "../../../../../JSON/Authors/contributionTopics.json";
 import { NoticeBoard } from "../../NoticeBoard";
+import axios from "axios";
 //import ReadOnlyRow from "./components/ReadOnlyRow";
 //import EditableRow from "./components/EditableRow";
 
@@ -52,7 +52,7 @@ const ReadOnlyRow = ({ contact, handleEditClick, handleDeleteClick }) => {
                 </button>
                 <button
                     className="btn btn-secondary"
-                    type="button" onClick={() => handleDeleteClick(contact.id)} style={{ marginLeft: '4%' }}>
+                    type="button" onClick={() => handleDeleteClick(contact._id)} style={{ marginLeft: '4%' }}>
                     Delete
                 </button>
             </td>
@@ -62,29 +62,99 @@ const ReadOnlyRow = ({ contact, handleEditClick, handleDeleteClick }) => {
 
 
 const CallFor = () => {
-    const [contacts, setContacts] = useState(info.data.topicList);
-    const [state, setState] = useState({
-        topicInfo:info.data.paragraph
+    
 
-    });
-    const [displayNotice, setdisplayNotice] = useState(false);
+    const [allData, setAllData] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const [displayNotice, setDisplayNotice] = useState(false);
     const [displayeNoticeHead, setDisplayeNoticeHead] = useState('');
     const [displayeNoticeContent, setDisplayeNoticeContent] = useState('')
     const [maintainanceBreak, setMaintainanceBreak] = useState(false);
     const [maintainanceBreakHead, setMaintainanceBreakHead] = useState('');
     const [maintainanceBreakContent, setMaintainanceBreakContent] = useState('');
+    const [finalData, setFinalData] = useState();
+    const [finalMessage, setFinalMessage] = useState("");
+    const [list, setList] = useState([]);
+    const [state, setState] = useState({
+        topicInfo:info.data.paragraph
+
+    });
+
+    const [paragraph, setParagraph] = useState("");
+
+
+
+
+    useEffect(() => {
+        const getData = async () => {
+            await axios.get(
+                "http://localhost:5000/get/contributionTopics"
+            ).then((response)=>{
+                if(response.data[0]){
+                    setAllData(response.data[0]);
+                }
+               setIsLoading(false);
+            }).catch((e)=>{
+             /* HANDLE THE ERROR (e) */
+                console.log(e);
+                setIsLoading(false);
+            });
+            
+        };
+        getData();
+        setIsLoading(false);
+        console.log('end of use Effect')
+    },[])
+
+    useEffect(() => {
+        if(!isLoading){
+            setList(allData.data.topicList)
+            setParagraph(allData.data.paragraph)
+            setDisplayNotice(allData.displayNoticeStatus)
+            setDisplayeNoticeHead(allData.displayNoticeHeading)
+            setDisplayeNoticeContent(allData.displayNoticeContent)
+            
+            setMaintainanceBreak(allData.maintenanceBreakStatus)
+            setMaintainanceBreakHead(allData.maintenanceBreakHeading)
+            setMaintainanceBreakContent(allData.maintenanceBreakContent)
+            console.log('end of if')
+            console.log(allData)
+        }
+    
+    }, [allData])
+
+    useEffect(() => {
+        if(list){
+            console.log("useEffect after alldata")
+            console.log(list)
+            console.log(paragraph)
+        }
+    }, [list,paragraph])
+
+
+    useEffect(() => {
+        if(finalData){
+            console.log('useE')
+            console.log(finalData)
+            uploadContent()
+        }
+    }, [finalData])
+
+    useEffect(() => {
+        
+    }, [displayNotice,displayeNoticeHead,displayeNoticeContent])
+    
+    useEffect(() => {
+    }, [maintainanceBreak,maintainanceBreakHead,maintainanceBreakContent])
+
 
 
     const [addFormData, setAddFormData] = useState({
         topicName: "",
-
-
     });
 
     const [editFormData, setEditFormData] = useState({
         topicName: "",
-
-
     });
 
     const [editContactId, setEditContactId] = useState(null);
@@ -117,14 +187,14 @@ const CallFor = () => {
         event.preventDefault();
 
         const newContact = {
-            id: nanoid(),
+            _id: nanoid(),
             topicName: addFormData.topicName,
 
 
         };
-
-        const newContacts = [...contacts, newContact];
-        setContacts(newContacts);
+        setAddFormData({topicName:""})
+        const newContacts = [...list, newContact];
+        setList(newContacts);
     };
     const handleChange = evt => {
         const name = evt.target.name;
@@ -139,25 +209,25 @@ const CallFor = () => {
         event.preventDefault();
 
         const editedContact = {
-            id: editContactId,
+            _id: editContactId,
             topicName: editFormData.topicName,
 
 
         };
 
-        const newContacts = [...contacts];
+        const newContacts = [...list];
 
-        const index = contacts.findIndex((contact) => contact.id === editContactId);
+        const index = list.findIndex((contact) => contact._id === editContactId);
 
         newContacts[index] = editedContact;
 
-        setContacts(newContacts);
+        setList(newContacts);
         setEditContactId(null);
     };
 
     const handleEditClick = (event, contact) => {
         event.preventDefault();
-        setEditContactId(contact.id);
+        setEditContactId(contact._id);
 
         const formValues = {
             topicName: contact.topicName,
@@ -170,12 +240,8 @@ const CallFor = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
        
-        let dataToSend = {
-            paragraph:state.topicInfo,
-            topicList:contacts
-
-        };
-        console.log(dataToSend);
+        endFormater()
+        //console.log(dataToSend);
 
     }
 
@@ -184,98 +250,130 @@ const CallFor = () => {
     };
 
     const handleDeleteClick = (contactId) => {
-        const newContacts = [...contacts];
+        const newContacts = [...list];
 
-        const index = contacts.findIndex((contact) => contact.id === contactId);
+        const index = list.findIndex((contact) => contact._id === contactId);
 
         newContacts.splice(index, 1);
 
-        setContacts(newContacts);
+        setList(newContacts);
     };
+
+
+    const endFormater = () => {
+        const topiclist = []
+        var i=0;
+        list.map((li)=>{
+             topiclist.push({"id":i,"topicName":li.topicName});
+             i=i+1;
+        });
+           
+        
+        const final = {
+            "displayNoticeStatus":displayNotice,
+            "displayNoticeHeading":displayeNoticeHead,
+            "displayNoticeContent":displayeNoticeContent,
+            "maintenanceBreakStatus":maintainanceBreak,
+            "maintenanceBreakHeading":maintainanceBreakHead,
+            "maintenanceBreakContent":maintainanceBreakContent,
+            "data":{
+                "paragraph":paragraph,
+                "topicList":topiclist
+            }
+        }
+        setFinalData(final)
+        console.log('Final data')
+        console.log(finalData)
+    }
+
+
+
+    const uploadContent = () => {
+        const headers = { 
+            'x-access-token': localStorage.getItem("x-access-token")
+        };
+        axios.put('http://localhost:5000/put/contributionTopics/61824d66526d96edd615c586', finalData, { headers })
+            .then(response => console.log(response));
+        //console.log('aaaa')
+        //console.log(finalMessage)
+    }
 
     return (
         <div>
-          
+            <h2 className="classic-title"><span>Edit Contribution Info  </span></h2>
+            <form  acceptCharset='UTF-8' >
+                <input type='hidden' name='submitted' id='submitted' value='1' />
 
-            
-                            <h2 className="classic-title"><span>Edit Contribution Info  </span></h2>
-
-                            <form  acceptCharset='UTF-8' >
-                                <input type='hidden' name='submitted' id='submitted' value='1' />
-
-                                <div className="form-group">
-                                    <div className="controls">
-                                       
-                                        <textarea type="text" value={state.topicInfo} rows="7" name="topicInfo" className="email"
-                                            required="required" onChange={handleChange} style={{}} />
-                                    </div>
-                                </div>
-                            </form>
-
-                            <h2 className="classic-title"><span>Edit Contribution Topics </span></h2>
-                            <div>
-
-                                <form onSubmit={handleEditFormSubmit}>
-                                    <table className="table table-responsive table-condensed table-bordered">
-                                        <thead>
-                                            <tr>
-                                                <th>Topic Name </th>
-                                                <th>Actions</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            {contacts.map((contact) => (
-                                                <Fragment>
-                                                    {editContactId === contact.id ? (
-                                                        <EditableRow
-                                                            editFormData={editFormData}
-                                                            handleEditFormChange={handleEditFormChange}
-                                                            handleCancelClick={handleCancelClick}
-                                                        />
-                                                    ) : (
-                                                        <ReadOnlyRow
-                                                            contact={contact}
-                                                            handleEditClick={handleEditClick}
-                                                            handleDeleteClick={handleDeleteClick}
-                                                        />
-                                                    )}
-                                                </Fragment>
-                                            ))}
-                                        </tbody>
-                                    </table>
-                                </form>
-                                <br />
-                                <h2 className="classic-title"><span>Add New Entry </span></h2>
-                                <br />
-                                <form onSubmit={handleAddFormSubmit}>
-                                    <div className="col-md-5">
-                                        <input
-                                            className="email"
-                                            style={{ maxWidth: '100%' }}
-                                            type="text"
-                                            name="topicName"
-                                            required="required"
-                                            placeholder="Enter a topic name"
-                                            onChange={handleAddFormChange}
+                <div className="form-group">
+                    <div className="controls">
+                        
+                        <textarea type="text" value={paragraph} rows="7" name="topicInfo" className="email"
+                            required="required" onChange={(e)=>{setParagraph(e.target.value)}} style={{}} />
+                    </div>
+                </div>
+            </form>
+            <h2 className="classic-title"><span>Edit Contribution Topics </span></h2>
+            <div>
+                <form onSubmit={handleEditFormSubmit}>
+                    <table className="table table-responsive table-condensed table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Topic Name </th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {list.map((contact) => (
+                                <Fragment key={list._id}>
+                                    {editContactId === contact._id ? (
+                                        <EditableRow
+                                            editFormData={editFormData}
+                                            handleEditFormChange={handleEditFormChange}
+                                            handleCancelClick={handleCancelClick}
                                         />
-                                    </div>
-                                    <div className=" " style={{ marginLeft: '80%' }}>
-                                        <button type="submit" className="btn btn-primary">Add</button>
-                                    </div>
+                                    ) : (
+                                        <ReadOnlyRow
+                                            contact={contact}
+                                            handleEditClick={handleEditClick}
+                                            handleDeleteClick={handleDeleteClick}
+                                        />
+                                    )}
+                                </Fragment>
+                            ))}
+                        </tbody>
+                    </table>
+                </form>
+                <br />
+                <h2 className="classic-title"><span>Add New Entry </span></h2>
+                <br />
+                <form onSubmit={handleAddFormSubmit}>
+                    <div className="col-md-5">
+                        <input
+                            className="email"
+                            style={{ maxWidth: '100%' }}
+                            type="text"
+                            name="topicName"
+                            required="required"
+                            placeholder="Enter a topic name"
+                            value={addFormData.topicName}
+                            onChange={handleAddFormChange}
+                        />
+                    </div>
+                    <div className=" " style={{ marginLeft: '80%' }}>
+                        <button type="submit" className="btn btn-primary">Add</button>
+                    </div>
 
-                                </form>
-                                <br />
-                                <NoticeBoard title={'Display Notice'} titleMessage={'Display Notice is : '} noticeState ={displayNotice} noticeStateChange={setdisplayNotice} noticeHead={displayeNoticeHead} noticeHeadChange={setDisplayeNoticeHead} noticeContent={displayeNoticeContent} noticeContentChange={setDisplayeNoticeContent} headLabel={'Notice Heading'} contentLabel={'Notice Content'} />
-                                <NoticeBoard title={'Maintainance Break'} titleMessage={'Maintainance Break is : '} noticeState ={maintainanceBreak} noticeStateChange={setMaintainanceBreak} noticeHead={maintainanceBreakHead} noticeHeadChange={setMaintainanceBreakHead} noticeContent={maintainanceBreakContent} noticeContentChange={setMaintainanceBreakContent} headLabel={'Maintainance Break Heading'} contentLabel={'Maintainance Break Message Content'} />           
-                               
-                                <br />
-                                <div  style={{ textAlign: 'right' }}>
-                                    <button type="submit" onClick={handleSubmit} className="btn btn-lg btn-system" style={{ marginTop: '10px' }}>Update Content</button>
-                                </div>
-                            </div>
-                        </div>
-            
-
+                </form>
+                <br />
+                <NoticeBoard title={'Display Notice'} titleMessage={'Display Notice is : '} noticeState ={displayNotice} noticeStateChange={setDisplayNotice} noticeHead={displayeNoticeHead} noticeHeadChange={setDisplayeNoticeHead} noticeContent={displayeNoticeContent} noticeContentChange={setDisplayeNoticeContent} headLabel={'Notice Heading'} contentLabel={'Notice Content'} />
+                <div className="hr5" style={{ marginTop: '20px', marginBottom: '20px' }}></div>
+                <NoticeBoard title={'Maintainance Break'} titleMessage={'Maintainance break is : '} noticeState={maintainanceBreak} noticeStateChange={setMaintainanceBreak} noticeHead={maintainanceBreakHead} noticeHeadChange={setMaintainanceBreakHead} noticeContent={maintainanceBreakContent} noticeContentChange={setMaintainanceBreakContent} headLabel={'Maintainance Break Heading'} contentLabel={'Maintainance Break Message Content'} />           
+                <div className="hr5" style={{ marginTop: '20px', marginBottom: '20px' }}></div>
+                <div  style={{ textAlign: 'right' }}>
+                    <button type="submit" onClick={handleSubmit} className="btn btn-lg btn-system" style={{ marginTop: '10px' }}>Update Content</button>
+                </div>
+            </div>
+        </div>
     );
 };
 
