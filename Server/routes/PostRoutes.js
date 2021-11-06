@@ -3,12 +3,13 @@ const router = express.Router()
 const verifyJWT = require('../middleware/common');
 
 const Schedule = require('../models/Important_Dates')
-const keyNotes = require('../models/keyNotes');
+const keyNote = require('../models/keyNotes');
 const paragraph = require('../models/paragraphs');
 const organization = require('../models/organization');
 const advisory = require('../models/advisory');
 const contributionTopics = require('../models/contributionTopics');
 const dates = require('../models/date');
+const registration = require('../models/registration');
 
 
 router.post('/schedule',verifyJWT,(req,res) => {
@@ -24,13 +25,6 @@ router.post('/schedule',verifyJWT,(req,res) => {
     })
 })
 
-router.post('/keyNote',(req,res) => {
-    const newSchedule = new keyNotes(req.body);
-    newSchedule.save().then(() => {
-        console.log('New keyNote saved');
-        res.json({msg:"keyNote saved successfully"});
-    })
-})
 
 router.post('/paragraphs/:name',verifyJWT,async (req,res) => {
     try{
@@ -57,6 +51,18 @@ router.post('/organization',async(req,res) => {
     try{
         console.log(req.body);
         const data = new organization(req.body);
+        await data.save();
+        res.status(200).json({success:true, data });
+    }
+    catch(err){
+        console.log(err);
+    }
+})
+
+router.post('/keynote',async(req,res) => {
+    try{
+        console.log(req.body);
+        const data = new keyNote(req.body);
         await data.save();
         res.status(200).json({success:true, data });
     }
@@ -93,6 +99,18 @@ router.post('/dates',async (req,res) => {
     try{
         console.log(req.body);
         const data = new dates(req.body);
+        await data.save();
+        res.status(200).json({success:true, data });
+    }
+    catch(err){
+        console.log(err);
+    }
+})
+
+router.post('/registration',async (req,res) => {
+    try{
+        console.log(req.body);
+        const data = new registration(req.body);
         await data.save();
         res.status(200).json({success:true, data });
     }

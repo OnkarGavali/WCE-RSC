@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 
 const SpeakersSchema = new mongoose.Schema({
+    id:{type:Number},
     name:{type:String},
     designation:{type:String}
 })

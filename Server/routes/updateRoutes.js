@@ -8,6 +8,7 @@ const advisory = require("../models/advisory");
 const keyNotes = require("../models/keyNotes");
 const contributionTopics = require('../models/contributionTopics');
 const dates = require('../models/date');
+const registration = require('../models/registration');
 
 router.put('/organization/:id',async(req,res) => {
     const id = mongoose.Types.ObjectId(req.params.id);
@@ -49,6 +50,14 @@ router.put('/dates/:id',async(req,res) => {
     let doc = await dates.findOne({ _id: id });
     await dates.updateOne({_id:id},req.body );
     res.send("Data of contributionTopics Updated");
+})
+
+router.put('/registration/:id',async(req,res) => {
+    const id = mongoose.Types.ObjectId(req.params.id);
+    console.log(req.body);
+    let doc = await dates.findOne({ _id: id });
+    await registration.updateOne({_id:id},req.body );
+    res.send("Data of Registration Updated");
 })
 
 module.exports = router;
