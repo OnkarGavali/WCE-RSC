@@ -20,11 +20,6 @@ export const QuickLinks = () => {
               <li>
                 <Link to="/contact">Contact Us </Link>
               </li>
-              {/*
-              <li>
-                <Link to="">Terms of Use</Link>
-              </li>
-              */}
             </ul>
           </div>
         </div>

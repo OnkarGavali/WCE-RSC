@@ -218,12 +218,10 @@ const EAdvCom = () => {
         event.preventDefault();
 
         const newContact = {
-            id: nanoid(),
-            name: addFormData.name,
-
-
+            _id: nanoid(),
+            name: addFormData.name
         };
-
+        setAddFormData({name:""})
         const newContacts = [...advisoryList, newContact];
         setAdvisoryList(newContacts);
     };
@@ -232,10 +230,8 @@ const EAdvCom = () => {
         event.preventDefault();
 
         const editedContact = {
-            id: editContactId,
-            name: editFormData.name,
-
-
+            _id: editContactId,
+            name: editFormData.name
         };
 
         const newContacts = [...advisoryList];
@@ -367,6 +363,7 @@ const EAdvCom = () => {
                                         type="text"
                                         name="name"
                                         required="required"
+                                        value={addFormData.name}
                                         placeholder="Enter a name..."
                                         onChange={handleAddFormChange}
                                     />
