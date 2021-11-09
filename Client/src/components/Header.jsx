@@ -1,26 +1,15 @@
-import React, { Components, useState } from 'react';
+import React from 'react';
 import Navbar from './Navbar';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import {Link} from "react-router-dom";
 
-import Home from './RouteingTable/Home/Home';
 
 function Header() {
-  //rname = "rsc2021@walchandsangli.ac.in";
-
-
-
-
   return (
     <div>
-      
       <div className="top-bar">
         <div className="container">
           <div className="row">
+
             <div className="col-md-9">
 
               <ul className="contact-details">
@@ -35,7 +24,6 @@ function Header() {
             </div>
 
             <div className="col-md-3">
-
               <ul className="social-list" style={{ listStyle: 'none', display: 'block' }}>
                 <li>
                   <a className="facebook itl-tooltip" data-placement="bottom" title="Facebook" href="https://www.facebook.com/wceacm"><i className="fa fa-facebook"></i></a>
@@ -50,39 +38,25 @@ function Header() {
                   <a className="linkdin itl-tooltip" data-placement="bottom" title="Linkedin" href="https://www.linkedin.com/company/wce-acm-student-chapter/mycompany/ "><i className="fa fa-linkedin"></i></a>
                 </li>
               </ul>
-
             </div>
 
           </div>
-
         </div>
-
       </div>
+      
       <div >
         <div className="container">
           <div style={{ marginBottom: '-4%' }} >
-              <a href="index.html">
-            </a>
+              <a href="index.html"></a>
               <h1 style={{paddingTop:'1%'}}> {/* <img src="images/iferp.png" alt="IFERP" style={{ width: '100px', paddingTop: '1%' }} /> */}WCE Research Symposium on Computing - RSC 2022  </h1>
               <small   style={{ paddingLeft: '' , fontSize:'15px' }}> SIXTH RESEARCH SYMPOSIUM ON COMPUTING  </small>
           </div>
-          
-          
-          
         </div>
-        
       </div>
-
-      
 
       <Navbar/>
 
-
-
-
-
     </div>
-
   );
 }
 

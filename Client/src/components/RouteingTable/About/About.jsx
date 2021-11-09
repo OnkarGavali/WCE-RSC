@@ -1,19 +1,8 @@
-import React, { Components, useState } from 'react';
-import Navbar from '../../Navbar';
-import Header from '../../Header';
+import React from 'react';
 import AboutRSC from './AboutRSC';
 import AboutWCE from './AboutWCE';
 import AboutDept from './AboutDept';
 import PageBanner from '../../RouteingTable/PageBanner';
-import bg from '../../../images/patterns/5.png';
-
-
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link
-} from "react-router-dom";
 
 function About() {
     return (

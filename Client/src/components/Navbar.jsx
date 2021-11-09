@@ -1,4 +1,4 @@
-import React, {  useState } from 'react';
+import React from 'react';
 
 import {
   Link,
@@ -7,11 +7,6 @@ import {
 } from "react-router-dom";
 
 function Navbar({history}) {
-
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-  function toggle() {
-    setDropdownOpen(prevState => !prevState);
-  }
 
   
   return (
