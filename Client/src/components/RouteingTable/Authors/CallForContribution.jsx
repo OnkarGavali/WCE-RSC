@@ -7,6 +7,7 @@ import {Link} from "react-router-dom";
 import TopicsList from '../../../JSON/Authors/contributionTopics.json'
 import MaintenanceBreak from '../MaintenanceBreak';
 import axios from 'axios';
+import { DisplayNotice } from '../DisplayNotice';
 
 
 function CallForContriBution() {
@@ -16,6 +17,8 @@ function CallForContriBution() {
     const [maintenanceBreakMessageStatus, setMaintenanceBreakMessageStatus] = useState(false);
     const [maintenanceBreakMessageHead, setMaintenanceBreakMessageHead] = useState("");
     const [maintenanceBreakMessageContent, setMaintenanceBreakMessageContent] = useState("");
+
+    
     const [displayNoticeStatus, setDisplayNoticeStatus] = useState(false);
     const [displayNoticeHead, setDisplayNoticeHead] = useState("");
     const [displayNoticeContent, setDisplayNoticeContent] = useState("");
@@ -28,7 +31,9 @@ function CallForContriBution() {
     const [isLoading, setIsLoading] = useState(true);
 
 
-     useEffect(() => {
+
+
+    useEffect(() => {
         const getData = async () => {
             await axios.get(
                 "http://localhost:5000/get/contributionTopics"
@@ -104,7 +109,12 @@ function CallForContriBution() {
                                     <h2 className="classic-title" id="notifications"><span>Call For Papers</span></h2>
                                     {   
                                         toShow ? (
-                                            <React.Fragment>  
+                                            <React.Fragment> 
+                                                {
+                                                    displayNoticeStatus ? (
+                                                        <DisplayNotice heading={displayNoticeHead} message={displayNoticeContent} />
+                                                    ) : null
+                                                } 
                                                 {
                                                     allData.data ? (
                                                         <p style={{whiteSpace:'pre-line'}}>{ allData.data.paragraph}</p>
@@ -116,7 +126,7 @@ function CallForContriBution() {
                                                             <strong>
                                                                 {
                                                                     allData.data.topicList.map((topic)=>(
-                                                                        <li key={topic.id}><i className="fa fa-check-circle"></i> {topic.topicName}</li>
+                                                                        <li key={topic.id} style={{whiteSpace:'pre-line'}}><i className="fa fa-check-circle"></i> {topic.topicName}</li>
                                                                     ))
                                                                 }
                                                             </strong>
