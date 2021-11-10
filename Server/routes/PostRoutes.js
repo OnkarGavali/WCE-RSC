@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const verifyJWT = require('../middleware/common');
+const multer = require('multer');
 
 const Schedule = require('../models/Important_Dates')
 const keyNote = require('../models/keyNotes');
@@ -10,7 +11,19 @@ const advisory = require('../models/advisory');
 const contributionTopics = require('../models/contributionTopics');
 const dates = require('../models/date');
 const registration = require('../models/registration');
+const image = require('../models/image');
 
+
+const storage = multer.diskStorage({
+    destination:function(req,file,cb){
+        cb(null,'./uploads');
+    },
+    filename:function(req,file,cb){
+        cb(null,new Date().toISOString() + file.originalname);
+    }
+});
+
+const uploads = multer({storage:storage});
 
 router.post('/schedule',verifyJWT,(req,res) => {
     const {Sr_No,Date,Particulars} = req.body;
@@ -117,6 +130,11 @@ router.post('/registration',async (req,res) => {
     catch(err){
         console.log(err);
     }
+})
+
+router.post('/image',uploads.single('sliderImage'),async (req,res) => {
+    console.log(req.file);
+    res.send('Image uploaded');
 })
 
 module.exports = router;
