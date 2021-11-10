@@ -3,7 +3,6 @@ import { GalleryImages } from './GalleryImages';
 
 import galleryImgs from '../../../JSON/gallaryImages.json'
 import PageBanner from '../PageBanner';
-import { G } from './G';
 
 function Gallery ()
 {
@@ -20,9 +19,7 @@ function Gallery ()
         <PageBanner name="Gallery" head="Gallery" />
         <div className="contenti">
           <div className="container">
-            {/* <div className="recent-projects">
-              <h4 className="title"><span>Gallery</span></h4>
-              <div className="projects-carousel touch-carousel">
+           <div className="row">
                 
                   {isImages?
                     (
@@ -39,9 +36,8 @@ function Gallery ()
                     </div>)
                   }
                   
-                </div>
-              </div> */}
-               <G/>
+                
+              </div>
             </div>
           </div>
           
