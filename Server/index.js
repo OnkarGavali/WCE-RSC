@@ -20,6 +20,7 @@ app.use(
 
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use('/uploads',express.static('uploads'));
 
 app.use('/auth',require('./routes/auth.js'));
 app.use('/post',require('./routes/PostRoutes.js'));

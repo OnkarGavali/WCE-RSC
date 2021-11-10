@@ -1,8 +1,9 @@
 const mongoose = require('mongoose')
 
 const imageSchema = new mongoose.Schema({
-    Imagetype:{type:String},
-    image:{type:String}
+    imagetype:{type:String},
+    imageURL:{type:String},
+    filename:{type:String},
 })    
 
 

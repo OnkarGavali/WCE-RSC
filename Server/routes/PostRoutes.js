@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const verifyJWT = require('../middleware/common');
 const multer = require('multer');
+const path = require('path');
 
 const Schedule = require('../models/Important_Dates')
 const keyNote = require('../models/keyNotes');
@@ -14,12 +15,13 @@ const registration = require('../models/registration');
 const image = require('../models/image');
 
 
+
 const storage = multer.diskStorage({
     destination:function(req,file,cb){
         cb(null,'./uploads');
     },
     filename:function(req,file,cb){
-        cb(null,new Date().toISOString() + file.originalname);
+        cb(null,new Date().toISOString().replace(/:/g, '-') + file.originalname);
     }
 });
 
@@ -133,7 +135,13 @@ router.post('/registration',async (req,res) => {
 })
 
 router.post('/image',uploads.single('sliderImage'),async (req,res) => {
-    console.log(req.file);
+    // console.log(req.file);
+    const data = new image({
+        imagetype:req.body.imageType,
+        imageURL:req.file.path,
+        filename:req.file.filename
+    });
+    await data.save();
     res.send('Image uploaded');
 })
 
