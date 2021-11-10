@@ -18,6 +18,7 @@ const image = require('../models/image');
 
 const storage = multer.diskStorage({
     destination:function(req,file,cb){
+        req.file = file;
         cb(null,'./uploads');
     },
     filename:function(req,file,cb){
@@ -135,7 +136,7 @@ router.post('/registration',async (req,res) => {
 })
 
 router.post('/image',uploads.single('sliderImage'),async (req,res) => {
-    // console.log(req.file);
+     console.log(req.file);
     const data = new image({
         imagetype:req.body.imageType,
         imageURL:req.file.path,
