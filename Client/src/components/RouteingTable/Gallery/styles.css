@@ -10,11 +10,16 @@
   height: 200px;
   display: flex;
   justify-content: center;
-  background: #7f9595;
+  /* background: #7f9595; */
 
   /* border-top-left-radius: 10px;
   border-top-right-radius: 10px; */
 }
+
+.img-body:hover {
+  background-color: #e6e6e6;
+}
+
 .card-img-top {
   /* border-top-left-radius: 10px;
   border-top-right-radius: 10px; */
