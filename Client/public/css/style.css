@@ -2771,6 +2771,26 @@ ul.icons-list li i {
   width: 256px;
 }
 
+.team-member.modern .sponsor-photo {
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #fff;
+  margin: 10px;
+}
+
+.team-member.modern .sponsor-photo:hover {
+  border: 1px solid #00afd1;
+}
+
+.team-member.modern .sponsor-photo img {
+  height: 90px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  padding: 10px;
+}
+
+
 .team-member.modern .member-photo {
   position: relative;
   padding: 0px;

@@ -8,13 +8,13 @@ export default class Speakers extends Component {
 
                         {/* <!-- Start Big Heading --> */}
                         <div className="big-title text-center" data-animation="fadeInDown" data-animation-delay="01">
-                            <h1>Our Great <strong>Team</strong></h1>
+                            <h1><strong>Speakers</strong></h1>
                         </div>
                         {/* <!-- End Big Heading -->
 
                         <!-- Some Text --> */}
-                        <p className="text-center">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium <span className="accent-color sh-tooltip" data-placement="right" title="Simple Tooltip">doloremque laudantium</span>, totam rem aperiam, eaque ipsa quae ab illo inventore
-                            <br/>veritatis et quasi <span className="accent-color sh-tooltip" data-placement="bottom" title="Simple Tooltip">architecto</span> beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
+                        <p className="text-center">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium , totam rem aperiam, eaque ipsa quae ab illo inventore
+                            <br/>veritatis et quasi  beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
 
                         
                         
@@ -28,12 +28,12 @@ export default class Speakers extends Component {
                                     {/* <!-- Memebr Photo, Name & Position --> */}
                                     <div className="member-photo">
                                         <img alt="" src="images/users/13.jpg" />
-                                        <div className="member-name">John Doeafasfasfsasf <span>Developer</span>
+                                        <div className="member-name">John Doeafasfasfsasf aa<span>Developer</span>
                                         </div>
                                     </div>
                                     {/* <!-- Memebr Words --> */}
                                     <div className="member-info">
-                                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore fugiat.</p>
+                                        <p style= {{whiteSpace :'pre-line'}}>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore fugiat.</p>
                                     </div>
                                 </div>
                             </div>
@@ -45,12 +45,12 @@ export default class Speakers extends Component {
                                     {/* <!-- Memebr Photo, Name & Position --> */}
                                     <div className="member-photo" >
                                         <img alt="" src="images/users/p1.jpg" />
-                                        <div className="member-name">Name Name <span>Date</span>
+                                        <div className="member-name">Name Name <span>Date a</span>
                                         </div>
                                     </div>
                                     {/* <!-- Memebr Words --> */}
                                     <div className="member-info">
-                                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore fugiat.</p>
+                                        <p style= {{whiteSpace :'pre-line'}}>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore fugiat.</p>
                                     </div>
                                     {/* <!-- Start Progress Bar 1 --> */}
                                     
@@ -64,18 +64,18 @@ export default class Speakers extends Component {
                                     {/* <!-- Memebr Photo, Name & Position --> */}
                                     <div className="member-photo">
                                         <img alt="" src="images/users/p2.jpg" />
-                                        <div className="member-name">Chris John <span>Developer dfsfosdfjsodfsdfjsddfks</span>
+                                        <div className="member-name">Chris John <span>Developer dfsfosdfjsodaaaaaafsdfjsddfks aa</span>
                                         </div>
                                     </div>
                                     {/* <!-- Memebr Words --> */}
                                     <div className="member-info">
-                                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore fugiat.</p>
+                                        <p style= {{whiteSpace :'pre-line'}}>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore fugiat.</p>
                                     </div>
                                 </div>
                             </div>
-                            {/* <!-- End Memebr 3 -->
+                            {/* <!-- End Memebr 3 --> */}
 
-                            <!-- Start Memebr 4 --> */}
+                            {/* <!-- Start Memebr 4 --> */}
                             <div className="col-md-3 col-sm-6 col-xs-12" data-animation="fadeIn" data-animation-delay="06">
                                 <div className="team-member modern">
                                     {/* <!-- Memebr Photo, Name & Position --> */}
@@ -86,11 +86,45 @@ export default class Speakers extends Component {
                                     </div>
                                     {/* <!-- Memebr Words --> */}
                                     <div className="member-info">
-                                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore fugiat.</p>
+                                        <p style= {{whiteSpace :'pre-line'}}>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore fugiat.</p>
                                     </div>
                                 </div>
                             </div>
                             {/* <!-- End Memebr 4 --> */}
+
+
+                          
+                            <div className="col-md-3 col-sm-6 col-xs-12" data-animation="fadeIn" data-animation-delay="06">
+                                <div className="team-member modern">
+                                    {/* <!-- Memebr Photo, Name & Position --> */}
+                                    <div className="member-photo">
+                                        <img alt="" src="images/users/p5.jpg" />
+                                        <div className="member-name">Sara John <span>Developer</span>
+                                        </div>
+                                    </div>
+                                    {/* <!-- Memebr Words --> */}
+                                    <div className="member-info">
+                                        <p style= {{whiteSpace :'pre-line'}}>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore fugiat.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            {/* <!-- End Memebr 4 --> */}
+
+                            <div className="col-md-3 col-sm-6 col-xs-12" data-animation="fadeIn" data-animation-delay="03">
+                                <div className="team-member modern">
+                                    {/* <!-- Memebr Photo, Name & Position --> */}
+                                    <div className="member-photo">
+                                        <img alt="" src="images/users/p4.jpg" />
+                                        <div className="member-name">John Doeafasfasfsasf <span>Developer</span>
+                                        </div>
+                                    </div>
+                                    {/* <!-- Memebr Words --> */}
+                                    <div className="member-info">
+                                        <p style= {{whiteSpace :'pre-line'}}>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore fugiat.</p>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                 </div>
                 {/* <!-- .container --> */}
