@@ -1,6 +1,6 @@
-import React, { useState, Fragment } from "react";
+import React, { useState, Fragment,useEffect } from "react";
 import { nanoid } from "nanoid";
-
+import axios from "axios";
 import "react-toggle/style.css" // for ES6 modules
 import Toggle from 'react-toggle'
 import info from "../../../../../JSON/Authors/date.json";
@@ -73,7 +73,7 @@ const ReadOnlyRow = ({ contact, handleEditClick, handleDeleteClick }) => {
                 </button>
                 <button
                     class="btn btn-secondary"
-                    type="button" onClick={() => handleDeleteClick(contact.id)} style={{ marginLeft: '4%' }}>
+                    type="button" onClick={() => handleDeleteClick(contact._id)} style={{ marginLeft: '4%' }}>
                     Delete
                 </button>
             </td>
@@ -83,13 +83,78 @@ const ReadOnlyRow = ({ contact, handleEditClick, handleDeleteClick }) => {
 
 
 const EImpDates = () => {
-    const [contacts, setContacts] = useState(info.data.dates);
-    const [displayNotice, setdisplayNotice] = useState(false);
+    const [allData, setAllData] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const [displayNotice, setDisplayNotice] = useState(false);
     const [displayeNoticeHead, setDisplayeNoticeHead] = useState('');
     const [displayeNoticeContent, setDisplayeNoticeContent] = useState('')
     const [maintainanceBreak, setMaintainanceBreak] = useState(false);
     const [maintainanceBreakHead, setMaintainanceBreakHead] = useState('');
     const [maintainanceBreakContent, setMaintainanceBreakContent] = useState('');
+    const [dates, setDates] = useState([]);
+    const [finalData, setFinalData] = useState();
+    const [finalMessage, setFinalMessage] = useState("");
+
+
+    useEffect(() => {
+        const getData = async () => {
+            await axios.get(
+                "http://localhost:5000/get/dates"
+            ).then((response)=>{
+                if(response.data[0]){
+                    setAllData(response.data[0]);
+                }
+               setIsLoading(false);
+            }).catch((e)=>{
+             /* HANDLE THE ERROR (e) */
+                console.log(e);
+                setIsLoading(false);
+            });
+            
+        };
+        getData();
+        setIsLoading(false);
+        console.log('end of use Effect')
+    },[])
+
+    useEffect(() => {
+        if(!isLoading){
+            setDates(allData.data.dates)
+            setDisplayNotice(allData.displayNoticeStatus)
+            setDisplayeNoticeHead(allData.displayNoticeHeading)
+            setDisplayeNoticeContent(allData.displayNoticeContent)
+            
+            setMaintainanceBreak(allData.maintenanceBreakStatus)
+            setMaintainanceBreakHead(allData.maintenanceBreakHeading)
+            setMaintainanceBreakContent(allData.maintenanceBreakContent)
+            console.log('end of if')
+            console.log(allData)
+        }
+    
+    }, [allData])
+
+    useEffect(() => {
+        if(dates){
+            console.log("hu")
+            console.log(dates)
+        }
+    }, [dates])
+
+    useEffect(() => {
+        if(finalData){
+            console.log('useE')
+            console.log(finalData)
+            uploadContent()
+        }
+    }, [finalData])
+
+    useEffect(() => {
+        
+    }, [displayNotice,displayeNoticeHead,displayeNoticeContent])
+    
+    useEffect(() => {
+    }, [maintainanceBreak,maintainanceBreakHead,maintainanceBreakContent])
+
 
     const [addFormData, setAddFormData] = useState({
         impDate: " ",
@@ -141,8 +206,8 @@ const EImpDates = () => {
 
         };
 
-        const newContacts = [...contacts, newContact];
-        setContacts(newContacts);
+        const newContacts = [...dates, newContact];
+        setDates(newContacts);
     };
 
     const handleEditFormSubmit = (event) => {
@@ -156,19 +221,19 @@ const EImpDates = () => {
 
         };
 
-        const newContacts = [...contacts];
+        const newContacts = [...dates];
 
-        const index = contacts.findIndex((contact) => contact.id === editContactId);
+        const index = dates.findIndex((contact) => contact._id === editContactId);
 
         newContacts[index] = editedContact;
 
-        setContacts(newContacts);
+        setDates(newContacts);
         setEditContactId(null);
     };
 
     const handleEditClick = (event, contact) => {
         event.preventDefault();
-        setEditContactId(contact.id);
+        setEditContactId(contact._id);
 
         const formValues = {
             impDate: contact.impDate,
@@ -179,10 +244,9 @@ const EImpDates = () => {
     };
     const handleSubmit = (e) => {
         e.preventDefault();
-        let datatoSend = {
-            dates:contacts
-        }
-        console.log(datatoSend);
+        endFormater();
+
+        console.log(dates);
 
     }
 
@@ -191,14 +255,49 @@ const EImpDates = () => {
     };
 
     const handleDeleteClick = (contactId) => {
-        const newContacts = [...contacts];
+        const newContacts = [...dates];
 
-        const index = contacts.findIndex((contact) => contact.id === contactId);
+        const index = dates.findIndex((contact) => contact._id === contactId);
 
         newContacts.splice(index, 1);
 
-        setContacts(newContacts);
+        setDates(newContacts);
     };
+
+    const endFormater = () => {
+        const Dates = []
+        dates.map((li)=>{
+            Dates.push({"impDate":li.impDate,"details":li.details});
+        }
+           
+        )
+        const final = {
+            "displayNoticeStatus":displayNotice,
+            "displayNoticeHeading":displayeNoticeHead,
+            "displayNoticeContent":displayeNoticeContent,
+            "maintenanceBreakStatus":maintainanceBreak,
+            "maintenanceBreakHeading":maintainanceBreakHead,
+            "maintenanceBreakContent":maintainanceBreakContent,
+            "data":{
+                "dates":Dates
+            }
+        }
+        setFinalData(final)
+        // console.log('Final data')
+        console.log(finalData)
+    }
+
+
+    const uploadContent = () => {
+        const headers = { 
+            'x-access-token': localStorage.getItem("x-access-token")
+        };
+        axios.put('http://localhost:5000/put/dates/6182558f89abeb6ea605d482', finalData, { headers })
+            .then(response => console.log(response));
+        //console.log('aaaa')
+        //console.log(finalMessage)
+    }
+
 
     return (
         <div>
@@ -215,9 +314,9 @@ const EImpDates = () => {
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {contacts.map((contact) => (
+                                            {dates.map((contact) => (
                                                 <Fragment>
-                                                    {editContactId === contact.id ? (
+                                                    {editContactId === contact._id ? (
                                                         <EditableRow
                                                             editFormData={editFormData}
                                                             handleEditFormChange={handleEditFormChange}
@@ -268,7 +367,7 @@ const EImpDates = () => {
                                 </form>
 
                                 <div className="hr5" style={{ marginTop: '20px', marginBottom: '20px' }}></div>
-                                <NoticeBoard title={'Display Notice'} titleMessage={'Notice is : '} noticeState ={displayNotice} noticeStateChange={setdisplayNotice} noticeHead={displayeNoticeHead} noticeHeadChange={setDisplayeNoticeHead} noticeContent={displayeNoticeContent} noticeContentChange={setDisplayeNoticeContent} headLabel={'Notice Heading'} contentLabel={'Notice Content'} />
+                                <NoticeBoard title={'Display Notice'} titleMessage={'Notice is : '} noticeState ={displayNotice} noticeStateChange={setDisplayNotice} noticeHead={displayeNoticeHead} noticeHeadChange={setDisplayeNoticeHead} noticeContent={displayeNoticeContent} noticeContentChange={setDisplayeNoticeContent} headLabel={'Notice Heading'} contentLabel={'Notice Content'} />
                                 <NoticeBoard title={'Maintainance Break'} titleMessage={'Maintainance break is : '} noticeState ={maintainanceBreak} noticeStateChange={setMaintainanceBreak} noticeHead={maintainanceBreakHead} noticeHeadChange={setMaintainanceBreakHead} noticeContent={maintainanceBreakContent} noticeContentChange={setMaintainanceBreakContent} headLabel={'Maintainance Break Heading'} contentLabel={'Maintainance Break Message Content'} />           
                                
                                 
