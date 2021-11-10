@@ -1,17 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-import {
-  Link,
-  NavLink,
-  withRouter
-} from "react-router-dom";
+import { Link } from "react-router-dom";
 
-function Navbar({history}) {
 
-  
+function Navbar() {
+
+  const [activeComponent, setActiveComponent] = useState("");
   return (
     <div>
-      {console.log(history)}
       <div className="navbar navbar-default navbar-top" style={{ marginTop: '4%' }}>
         <div className="container">
           <div className="navbar-header">
@@ -24,39 +20,39 @@ function Navbar({history}) {
           <div className="navbar-collapse collapse" >
             <ul className="nav navbar-nav " >
               
-              
+             
               {/* Home - start */}
               <li>
-                <NavLink exact to="/" activeClassName='active'>
+                <Link className={`${activeComponent == "" ? 'active':''}`} exact to="/" onClick={() => setActiveComponent("")}>
                   <span style={{marginRight:"10px"}}><i className="fa fa-home"></i></span>Home
-                </NavLink>
+                </Link>
               </li>
               {/* Home - end */}
 
 
               {/* Authors - start */}
               <li className="drop">
-                <NavLink to="/authors" activeClassName='active'>
+                <a className={`${activeComponent == 'authors' ? 'active':''}`}>
                   <span ><i className="fa fa-group" style={{marginRight:"10px"}}></i></span>Authors
-                </NavLink>
+                </a>
                 <ul className="dropdown">
                   <li>
-                    <Link exact to="/authors/call-for-contribution">
+                    <Link exact to="/authors/call-for-contribution" onClick={() => setActiveComponent("authors")}>
                       Call for Contributions <span style={{marginLeft:"10px"}}><i className="fa fa-bullhorn"></i></span>
                     </Link>
                   </li>
                   <li>
-                    <Link exact to="/authors/Guidlines">
+                    <Link exact to="/authors/Guidlines" onClick={() => setActiveComponent("authors")}>
                       Submission Guidlines<span style={{marginLeft:"10px"}}><i className="fa fa-info-circle"></i></span>
                     </Link>
                   </li>
                   <li>
-                    <Link exact to="/authors/Paper-Submission">
+                    <Link exact to="/authors/Paper-Submission" onClick={() => setActiveComponent("authors")}>
                       Paper Submission <span style={{marginLeft:"10px"}}><i className="fa fa-upload"></i></span>
                     </Link>
                   </li>
                   <li>
-                    <Link exact to="/authors/Important-Dates">
+                    <Link exact to="/authors/Important-Dates" onClick={() => setActiveComponent("authors")}>
                       Important Dates<span style={{marginLeft:"10px"}}><i className="fa fa-calendar"></i></span>
                     </Link>
                   </li>
@@ -70,37 +66,37 @@ function Navbar({history}) {
 
               {/* Programs - start */}
               <li className="drop">
-                <NavLink to="/Programs" activeClassName='active' >
+                <a className={`${activeComponent == 'programs' ? 'active':''}`} >
                   <span style={{marginRight:"10px"}}><i className="fa fa-calendar"></i></span>Programs
-                </NavLink>
+                </a>
                 <ul className="dropdown">
                   <li>
-                    <Link exact to="/programs/Keynotes">
+                    <Link exact to="/programs/Keynotes" onClick={() => setActiveComponent("programs")}>
                       Keynotes & Awards Presentation<span style={{marginLeft:"10px"}}><i className="fa fa-microphone"></i></span>
                     </Link>
                   </li>
                   <li>
-                    <Link exact to="/programs/Paper-Presentation">
+                    <Link exact to="/programs/Paper-Presentation" onClick={() => setActiveComponent("programs")}>
                       Paper Presentation<span style={{marginLeft:"10px"}}><i className="fa fa-file"></i></span>
                     </Link>
                   </li>
                   <li>
-                    <Link exact to="/programs/Poster-Presentation">
+                    <Link exact to="/programs/Poster-Presentation" onClick={() => setActiveComponent("programs")}>
                       Poster Presentation<span style={{marginLeft:"10px"}}><i className="fa fa-image"></i></span>
                     </Link>
                   </li>
                    <li>
-                    <Link exact to="/programs/IPS">
+                    <Link exact to="/programs/IPS" onClick={() => setActiveComponent("programs")}>
                       Innovative Project Showcase<span style={{marginLeft:"10px"}}><i className="fa fa-file"></i></span>
                     </Link>
                   </li>
                   <li>
-                    <Link exact to="/programs/Schedule">
+                    <Link exact to="/programs/Schedule" onClick={() => setActiveComponent("programs")}>
                       Event Schedule<span style={{marginLeft:"10px"}}><i className="fa fa-calendar"></i></span>
                     </Link>
                   </li>
                   <li>
-                    <Link exact to="/programs/Register">
+                    <Link exact to="/programs/Register" onClick={() => setActiveComponent("programs")}>
                       Event Registration<span style={{marginLeft:"10px"}}><i className="fa fa-edit"></i></span>
                     </Link>
                   </li>
@@ -111,17 +107,17 @@ function Navbar({history}) {
 
               {/* Organisation - start */}
               <li className="drop">
-                <NavLink to="/organisation" activeClassName='active'>
+                <a className={`${activeComponent == 'organisation' ? 'active':''}`}>
                   <span style={{marginRight:"10px"}}><i className="fa fa-sitemap"></i></span>Organisation
-                </NavLink>
+                </a>
                 <ul className="dropdown">
                   <li>
-                    <Link exact to="/organisation/org_committee">
+                    <Link exact to="/organisation/org_committee" onClick={() => setActiveComponent("organisation")}>
                       Organising Committee<span style={{marginLeft:"10px"}}><i className="fa fa-group"></i></span>
                     </Link>
                   </li>
                   <li>
-                    <Link exact to="/organisation/adv_committee">
+                    <Link exact to="/organisation/adv_committee" onClick={() => setActiveComponent("organisation")}>
                       Advisory Committee<span style={{marginLeft:"10px"}}><i className="fa fa-group"></i></span>
                     </Link>
                   </li>
@@ -131,22 +127,22 @@ function Navbar({history}) {
               
               {/* LocalInfo - start */}
               <li className="drop">
-                <NavLink to="/localInfo"  activeClassName='active'>
+                <a className={`${activeComponent == 'localInfo' ? 'active':''}`} >
                   <span style={{marginRight:"10px"}}><i className="fa fa-info-circle"></i></span>Local Information
-                </NavLink>
+                </a>
                 <ul className="dropdown">
                   <li>
-                    <Link exact to="/localInfo/venue">
+                    <Link exact to="/localInfo/venue" onClick={() => setActiveComponent("localInfo")}>
                       Conference Venue<span style={{marginLeft:"10px"}}><i className="fa fa-location-arrow"></i></span>
                     </Link>
                   </li>
                   <li>
-                    <Link exact to="/localInfo/location">
+                    <Link exact to="/localInfo/location" onClick={() => setActiveComponent("localInfo")}>
                       Conference Location<span style={{marginLeft:"10px"}}><i className="fa fa-map-marker"></i></span>
                     </Link>
                   </li>
                   <li>
-                    <Link exact to="/localInfo/accessing">
+                    <Link exact to="/localInfo/accessing" onClick={() => setActiveComponent("localInfo")}>
                       Accessing Sangli<span style={{marginLeft:"10px"}}><i className="fa fa-plane"></i></span>
                     </Link>
                   </li>
@@ -157,36 +153,36 @@ function Navbar({history}) {
 
               {/* Gallery - start */}
               <li>
-                <NavLink exact to="/gallery"  activeClassName='active'>
+                <Link exact to="/gallery" className={`${activeComponent == 'gallery' ? 'active':''}`} onClick={() => setActiveComponent("gallery")}>
                   <span style={{marginRight:"10px"}}><i className="fa fa-image"></i></span>Gallery
-                </NavLink>
+                </Link>
               </li>
               {/* Gallery - end */}
               
 
               {/* About - start */}
                 <li>
-                <NavLink exact to="/about"  activeClassName='active'>
+                <Link exact to="/about" className={`${activeComponent == 'about' ? 'active':''}`} onClick={() => setActiveComponent("about")}>
                   <span style={{marginRight:"10px"}}><i className="fa fa-info-circle"></i></span>About
-                </NavLink>
+                </Link>
               </li>
               {/* About - end */}
              
 
               {/* Contact - start */}
               <li>
-                <NavLink exact to="/contact"  activeClassName='active'>
+                <Link exact to="/contact" className={`${activeComponent == 'contact' ? 'active':''}`} onClick={() => setActiveComponent("contact")}>
                   <span style={{marginRight:"10px"}}><i className="fa fa-envelope"></i></span>Contact
-                </NavLink>
+                </Link>
               </li>
               {/* Contact - end */}
               
 
               {/* Admin - start */}
               <li>
-                <NavLink exact to="/admin"  activeClassName='active'>
+                <Link exact to="/admin" className={`${activeComponent == 'admin' ? 'active':''}`} onClick={() => setActiveComponent("admin")}>
                   <span style={{marginRight:"10px"}}><i className="fa fa-lock" aria-hidden="true"></i>,<span style={{width:'40px'}}></span><i className="fa fa-lock" aria-hidden="true"></i></span>Admin
-                </NavLink>
+                </Link>
               </li>
               {/* Admin - end */}
              
@@ -199,4 +195,4 @@ function Navbar({history}) {
   );
 }
 
-export default withRouter(Navbar);
+export default Navbar;

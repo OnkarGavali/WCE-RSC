@@ -7,7 +7,7 @@ import CallFor from './Author/CallFor';
 import EHome from './Home/EHome';
 import EPaperSub from './Author/EPaperSub';
 import EPosterPre from './Programs/EPosterPre';
-import { SwitchComponents } from './SwitchComponents';
+import { SwitchComponents } from '../../SwitchComponents';
 import ERegister from './Programs/ERegister';
 import EAdvCom from './Committe/EAdvCom'
 
