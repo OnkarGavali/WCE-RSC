@@ -45,7 +45,7 @@ export default class Speakers extends Component {
                                     {/* <!-- Memebr Photo, Name & Position --> */}
                                     <div className="member-photo" >
                                         <img alt="" src="images/users/p1.jpg" />
-                                        <div className="member-name">Name Name <span>Date a</span>
+                                        <div className="member-name">Name Name <span>Day 3 | 27/09 | 3pm</span>
                                         </div>
                                     </div>
                                     {/* <!-- Memebr Words --> */}
@@ -115,6 +115,22 @@ export default class Speakers extends Component {
                                     {/* <!-- Memebr Photo, Name & Position --> */}
                                     <div className="member-photo">
                                         <img alt="" src="images/users/p4.jpg" />
+                                        <div className="member-name">John Doeafasfasfsasf <span>Developer</span>
+                                        </div>
+                                    </div>
+                                    {/* <!-- Memebr Words --> */}
+                                    <div className="member-info">
+                                        <p style= {{whiteSpace :'pre-line'}}>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore fugiat.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div className="col-md-3 col-sm-6 col-xs-12" data-animation="fadeIn" data-animation-delay="03">
+                                <div className="team-member modern">
+                                    {/* <!-- Memebr Photo, Name & Position --> */}
+                                    <div className="member-photo">
+                                        <img alt="" src="images/ext/3.png" />
                                         <div className="member-name">John Doeafasfasfsasf <span>Developer</span>
                                         </div>
                                     </div>

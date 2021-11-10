@@ -2713,7 +2713,7 @@ ul.icons-list li i {
 }
 
 .team-member .member-socail {
-  //text-align: center;
+  text-align: center;
 }
 
 .team-member .member-socail a i {
@@ -2764,6 +2764,7 @@ ul.icons-list li i {
 
 .team-member.modern .member-info {
   padding: 14px 0;
+  margin-top: 12px;
 }
 
 .team-member.modern .member-photo img {
@@ -2789,7 +2790,6 @@ ul.icons-list li i {
   display: block;
   padding: 10px;
 }
-
 
 .team-member.modern .member-photo {
   position: relative;
