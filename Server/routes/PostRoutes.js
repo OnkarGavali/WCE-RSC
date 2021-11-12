@@ -13,7 +13,7 @@ const contributionTopics = require('../models/contributionTopics');
 const dates = require('../models/date');
 const registration = require('../models/registration');
 const image = require('../models/image');
-
+const posterPresentation = require('../models/posterPresentation');
 
 
 const storage = multer.diskStorage({
@@ -63,7 +63,7 @@ router.post('/paragraphs/:name',verifyJWT,async (req,res) => {
     
 })
 
-router.post('/organization',async(req,res) => {
+router.post('/organization',verifyJWT,async(req,res) => {
     try{
         console.log(req.body);
         const data = new organization(req.body);
@@ -75,7 +75,7 @@ router.post('/organization',async(req,res) => {
     }
 })
 
-router.post('/keynote',async(req,res) => {
+router.post('/keynote',verifyJWT,async(req,res) => {
     try{
         console.log(req.body);
         const data = new keyNote(req.body);
@@ -87,7 +87,7 @@ router.post('/keynote',async(req,res) => {
     }
 })
 
-router.post('/advisory',async(req,res) => {
+router.post('/advisory',verifyJWT,async(req,res) => {
     try{
         console.log(req.body);
         const data = new advisory(req.body);
@@ -99,7 +99,7 @@ router.post('/advisory',async(req,res) => {
     }
 })
 
-router.post('/contributionTopics',async (req,res) => {
+router.post('/contributionTopics',verifyJWT,async (req,res) => {
     try{
         console.log(req.body);
         const data = new contributionTopics(req.body);
@@ -111,7 +111,7 @@ router.post('/contributionTopics',async (req,res) => {
     }
 })
 
-router.post('/dates',async (req,res) => {
+router.post('/dates',verifyJWT,async (req,res) => {
     try{
         console.log(req.body);
         const data = new dates(req.body);
@@ -123,7 +123,7 @@ router.post('/dates',async (req,res) => {
     }
 })
 
-router.post('/registration',async (req,res) => {
+router.post('/registration',verifyJWT,async (req,res) => {
     try{
         console.log(req.body);
         const data = new registration(req.body);
@@ -135,7 +135,7 @@ router.post('/registration',async (req,res) => {
     }
 })
 
-router.post('/image',uploads.single('sliderImage'),async (req,res) => {
+router.post('/image',verifyJWT,uploads.single('sliderImage'),async (req,res) => {
      console.log(req.file);
     const data = new image({
         imagetype:req.body.imageType,
@@ -144,6 +144,18 @@ router.post('/image',uploads.single('sliderImage'),async (req,res) => {
     });
     await data.save();
     res.send('Image uploaded');
+})
+
+router.post('/posterPresentation',verifyJWT,async(req,res) => {
+    try{
+        console.log(req.body);
+        const data = new posterPresentation(req.body);
+        await data.save();
+        res.status(200).json({success:true, data });
+    }
+    catch(err){
+        console.log(err);
+    }
 })
 
 module.exports = router;

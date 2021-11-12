@@ -10,6 +10,7 @@ const contributionTopics = require('../models/contributionTopics');
 const dates = require('../models/date');
 const registration = require('../models/registration');
 const image = require('../models/image');
+const posterPresentation = require('../models/posterPresentation');
 
 router.get('/Paragraphs/:name',async (req,res) => {
     const para = await paragraph.findOne({id:1});
@@ -54,6 +55,11 @@ router.get('/registration',async (req,res) => {
 
 router.get('/images',async(req,res) => {
     const data = await image.find({});
+    res.send(data);
+})
+
+router.get('/posterPresentation',async (req,res) => {
+    const data = await posterPresentation.find({});
     res.send(data);
 })
 
