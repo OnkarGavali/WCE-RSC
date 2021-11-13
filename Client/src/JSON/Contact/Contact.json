@@ -1,0 +1,38 @@
+{
+    "email":"rsc2022@walchandsangli.ac.in",
+    "website":"http://rsc.wce.ac.in",
+    "contact":[
+        {
+            "name":"Ms. Nandinee Mudegol",
+            "mobileNumber":"9359644838"
+        },
+        {
+            "name":"Ms. Pooja Mundada ",
+            "mobileNumber":"7030226700"
+        }
+      
+    ],
+    "socialLinks":[
+        {
+            "type":"facebook",
+            "link":"https://www.facebook.com/wceacm"
+
+        },
+        {
+            "type":"linkedin",
+            "link":"https://www.linkedin.com/company/wce-acm-student-chapter/mycompany/"
+
+        },
+        {
+            "type":"twitter",
+            "link":"https://twitter.com/wce_acm"
+
+        },
+        {
+            "type":"instagram",
+            "link":"https://www.instagram.com/wce_acm/"
+
+        }
+
+    ]
+}

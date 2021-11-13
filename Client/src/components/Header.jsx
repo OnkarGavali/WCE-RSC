@@ -2,9 +2,16 @@ import React from 'react';
 import Navbar from './Navbar';
 import {Link} from "react-router-dom";
 import data from '../JSON/Header.json';
+import cdata from '../JSON/Contact/Contact.json' ;
+
+const mail = "mailto: " + cdata.email
+
 
 
 function Header() {
+
+  
+
   return (
     <div>
       <div className="top-bar">
@@ -16,9 +23,9 @@ function Header() {
               <ul className="contact-details">
                 <li><Link to="/contact"><i className="fa fa-map-marker"></i> Walchand College of Engineering, Sangli, MH-IN</Link>
                 </li>
-                <li><a href="mailto:  rsc2022@walchandsangli.ac.in  "><i className="fa fa-envelope-o"></i>  rsc2022@walchandsangli.ac.in</a>
+                <li><a href={mail}><i className="fa fa-envelope-o"></i>  {cdata.email}</a>
                 </li>
-                <li><Link to="/contact"><i className="fa fa-phone"></i>   +91 88057 09102 | 7030226700  </Link>
+                <li><Link to="/contact"><i className="fa fa-phone"></i>   {cdata.contact[0].mobileNumber} | {cdata.contact[1].mobileNumber}  </Link>
                 </li>
               </ul>
 
