@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from './Navbar';
 import {Link} from "react-router-dom";
+import data from '../JSON/Header.json';
 
 
 function Header() {
@@ -48,8 +49,8 @@ function Header() {
         <div className="container">
           <div style={{ marginBottom: '-4%' }} >
               <a href="index.html"></a>
-              <h1 style={{paddingTop:'1%'}}> {/* <img src="images/iferp.png" alt="IFERP" style={{ width: '100px', paddingTop: '1%' }} /> */}WCE Research Symposium on Computing - RSC 2022  </h1>
-              <small   style={{ paddingLeft: '' , fontSize:'15px' }}> SIXTH RESEARCH SYMPOSIUM ON COMPUTING  </small>
+              <h1 style={{paddingTop:'1%'}}> {/* <img src="images/iferp.png" alt="IFERP" style={{ width: '100px', paddingTop: '1%' }} /> */}{data.title}</h1>
+              <small   style={{ paddingLeft: '' , fontSize:'15px' }}> {data.subtitle}  </small>
           </div>
         </div>
       </div>
