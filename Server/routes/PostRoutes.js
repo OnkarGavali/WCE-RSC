@@ -135,7 +135,7 @@ router.post('/registration',verifyJWT,async (req,res) => {
     }
 })
 
-router.post('/image',verifyJWT,uploads.single('sliderImage'),async (req,res) => {
+router.post('/image',verifyJWT,uploads.single('Image'),async (req,res) => {
      console.log(req.file);
     const data = new image({
         imagetype:req.body.imageType,

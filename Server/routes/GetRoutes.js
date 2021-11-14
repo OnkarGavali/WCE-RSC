@@ -53,8 +53,8 @@ router.get('/registration',async (req,res) => {
     res.send(data);
 })
 
-router.get('/images',async(req,res) => {
-    const data = await image.find({});
+router.get('/images/:imagetype',async(req,res) => {
+    const data = await image.find({imagetype:req.params.imagetype});
     res.send(data);
 })
 

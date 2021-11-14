@@ -42,7 +42,7 @@ router.delete('/keyNote/:id',verifyJWT,(req,res) => {
     })
 })
 
-router.delete('/image/:id',async (req,res) => {
+router.delete('/image/:id',verifyJWT,async (req,res) => {
     const id = mongoose.Types.ObjectId(req.params.id);
     const filenames =  image.find({_id:id}).select("filename").then((data) => {
         console.log(data[0].filename);
