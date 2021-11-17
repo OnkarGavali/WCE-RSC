@@ -3,7 +3,7 @@ const dotenv = require('dotenv')
 const connectDB = require('./config/db')
 const cors = require('cors');
 const bodyParser = require('body-parser')
-
+const path = require('path')
 
 
 dotenv.config({path:'./config/config.env'});
@@ -32,13 +32,13 @@ app.use('/put',require('./routes/updateRoutes.js'))
 // Serve static assets if in production
 if (process.env.NODE_ENV === 'production') {
     // Set static folder
-    app.use(express.static('client/build'));
+    app.use(express.static(path.join(__dirname ,'/client/build')));
   
     app.get('*', (req, res) => {
-      res.sendFile(path.resolve(__dirname, 'Client', 'build', 'index.html'));
+      res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
     });
 }
 
-// app.listen(process.env.PORT,() => {
-//     console.log("Server is Running on port " + process.env.PORT );
-// })
+app.listen(process.env.PORT,() => {
+    console.log("Server is Running on port " + process.env.PORT );
+})
