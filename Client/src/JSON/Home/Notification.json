@@ -87,7 +87,7 @@
         {
             "id":15,
             "text":"RSC Copyright Consent Paper submission M.Tech Poster Submission and IPS instructions",
-            "link":"/asset/Paper%20submission%20M.Tech%20Poster%20Submission%20and%20IPS%20instructions.pdf",
+            "link":"/asset/Submission%20Instructions.pdf",
             "new":"false"
         },
         {
@@ -134,13 +134,13 @@
         },
         {
             "id":23,
-            "text":"Second National Research Symposium RSC-2018",
+            "text":"Third National Research Symposium RSC-2018",
             "link":"/asset/RSC-2018.pdf",
             "new":"false"
         },
         {
             "id":24,
-            "text":"Second National Research Symposium RSC-2019",
+            "text":"Fourth National Research Symposium RSC-2019",
             "link":"/asset/RSC%202019%20Proceeding.pdf",
             "new":"false"
         }
