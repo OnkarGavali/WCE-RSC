@@ -11,6 +11,7 @@ dotenv.config({path:'./config/config.env'});
 connectDB();
 
 const app = express();
+console.log(process.env.NODE_ENV);
 
 app.use(
     cors({
@@ -28,6 +29,16 @@ app.use('/get',require('./routes/GetRoutes.js'))
 app.use('/delete',require('./routes/DeleteRoutes.js'))
 app.use('/put',require('./routes/updateRoutes.js'))
 
-app.listen(process.env.PORT,() => {
-    console.log("Server is Running on port " + process.env.PORT );
-})
+// Serve static assets if in production
+if (process.env.NODE_ENV === 'production') {
+    // Set static folder
+    app.use(express.static('client/build'));
+  
+    app.get('*', (req, res) => {
+      res.sendFile(path.resolve(__dirname, 'Client', 'build', 'index.html'));
+    });
+}
+
+// app.listen(process.env.PORT,() => {
+//     console.log("Server is Running on port " + process.env.PORT );
+// })

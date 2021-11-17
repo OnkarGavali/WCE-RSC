@@ -5,7 +5,7 @@ const verifyJWT = (req,res,next) => {
     if(!token)
         res.send("Yoo you dont have any token");
     else{
-        jwt.verify(token,"miniProject",(err,decoded) => {
+        jwt.verify(token,process.env.jwtSecret,(err,decoded) => {
             if(err){
                 res.json({auth:false,msg:"You failed to authenticate"});
             }else{
