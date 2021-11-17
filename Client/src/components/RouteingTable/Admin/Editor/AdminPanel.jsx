@@ -10,24 +10,25 @@ import EPosterPre from './Programs/EPosterPre';
 import { SwitchComponents } from '../../SwitchComponents';
 import ERegister from './Programs/ERegister';
 import EAdvCom from './Committe/EAdvCom'
+import ENotification from './Home/ENotification';
 
-export default function AdminPanel({isLoggedIn, handleLogout}) {
+export default function AdminPanel({ isLoggedIn, handleLogout }) {
 
 
-    const [activeComponent, setActiveComponent] = useState("callForContribution")
+    const [activeComponent, setActiveComponent] = useState("home")
 
     return (
         <div>
             {/* PageBanner - start */}
-            <div className="page-banner" style={{"padding" :'40px 0', 'background': 'url(/images/slide-02-bg.jpg) center #f9f9f9'}}>
+            <div className="page-banner" style={{ "padding": '40px 0', 'background': 'url(/images/slide-02-bg.jpg) center #f9f9f9' }}>
                 <div className="container">
                     <div className="row">
                         <div className="col-md-6">
                             <h2>Admin Panel</h2>
-                        </div> 
-                        <div className="col-md-6">  
+                        </div>
+                        <div className="col-md-6">
                             <ul className="breadcrumbs">
-                                <li><button 
+                                <li><button
                                 onClick={()=>{
                                     localStorage.clear();
                                     handleLogout()
@@ -47,19 +48,32 @@ export default function AdminPanel({isLoggedIn, handleLogout}) {
                         {/* Related Links - start */}
                         <div className="col-md-3 sidebar right-sidebar">
                             <div className="widget widget-categories">
+                                <h4 className='accent-color'>Home<span className="head-line"></span></h4>
+                                <ul>
+                                    <li>
+                                        <a onClick={() => setActiveComponent("home")}>Home Body</a>
+                                    </li>
+                                    <li>
+                                        <a onClick={() => setActiveComponent("notification")}>Notifications</a>
+                                    </li>
+
+                                </ul>
+                            </div>
+
+                            <div className="widget widget-categories">
                                 <h4 className='accent-color'>Author<span className="head-line"></span></h4>
                                 <ul>
                                     <li>
-                                        <a onClick={()=>setActiveComponent("callForContribution")}>CAll</a>
+                                        <a onClick={() => setActiveComponent("callForContribution")}>Call for Contribution</a>
                                     </li>
                                     <li>
-                                        <a onClick={()=>setActiveComponent("submissionGuidelines")}>E guidlines</a>
+                                        <a onClick={() => setActiveComponent("submissionGuidelines")}>Submission Guidlines</a>
                                     </li>
-                                     <li>
-                                        <a onClick={()=>setActiveComponent("impoetatntDates")}>Important Dates</a>
+                                    <li>
+                                        <a onClick={() => setActiveComponent("impoetatntDates")}>Important Dates</a>
                                     </li>
-                                     <li>
-                                        <a onClick={()=>setActiveComponent("paperSubmission")}>Paper Submission</a>
+                                    <li>
+                                        <a onClick={() => setActiveComponent("paperSubmission")}>Paper Submission</a>
                                     </li>
                                 </ul>
                             </div>
@@ -67,13 +81,13 @@ export default function AdminPanel({isLoggedIn, handleLogout}) {
                                 <h4 className='accent-color'>Programs<span className="head-line"></span></h4>
                                 <ul>
                                     <li>
-                                        <a onClick={()=>setActiveComponent("keynotes")}>Keynotes</a>
+                                        <a onClick={() => setActiveComponent("keynotes")}>Keynotes</a>
                                     </li>
                                     <li>
-                                        <a onClick={()=>setActiveComponent("posterPresentation")}>Poster Presentation</a>
+                                        <a onClick={() => setActiveComponent("posterPresentation")}>Poster Presentation</a>
                                     </li>
                                     <li>
-                                        <a onClick={()=>setActiveComponent("registration")}>Resgitration</a>
+                                        <a onClick={() => setActiveComponent("registration")}>Resgitration</a>
                                     </li>
                                 </ul>
                             </div>
@@ -81,52 +95,54 @@ export default function AdminPanel({isLoggedIn, handleLogout}) {
                                 <h4 className='accent-color'>Organisation<span className="head-line"></span></h4>
                                 <ul>
                                     <li>
-                                        <a onClick={()=>setActiveComponent("advisoryCommitte")}>Advisory Committe</a>
+                                        <a onClick={() => setActiveComponent("advisoryCommitte")}>Advisory Committe</a>
                                     </li>
-                                    
+
                                 </ul>
                             </div>
                         </div>
 
-                        
+
                         {/* Related Links - end */}
-                        
+
                         {/* Main Content - start */}
                         <div className="col-md-9">
-                          
+
                             <SwitchComponents active={activeComponent}>
-                                
-                               
+
+
 
                                 {/* Authors start */}
 
-                                    <CallFor name="callForContribution"/>
-                                    <EGuidlines name="submissionGuidelines"/>
-                                    <EImpDates name='impoetatntDates'/>
-                                    <EPaperSub name='paperSubmission'/>
+                                <CallFor name="callForContribution" />
+                                <EGuidlines name="submissionGuidelines" />
+                                <EImpDates name='impoetatntDates' />
+                                <EPaperSub name='paperSubmission' />
+                                <ENotification name="notification"/>
+                                <EHome name="home" />
 
                                 {/* Authors end */}
                                 {/* programs start */}
-                                    <Ekeynotes name='keynotes'/>
-                                    <EPosterPre name='posterPresentation'/>
-                                    <ERegister name="registration"/>
+                                <Ekeynotes name='keynotes' />
+                                <EPosterPre name='posterPresentation' />
+                                <ERegister name="registration" />
                                 {/* programs end */}
                                 {/* programs start */}
-                                   <EAdvCom name='advisoryCommitte'/>
+                                <EAdvCom name='advisoryCommitte' />
                                 {/* programs end */}
 
 
-                                
+
                             </SwitchComponents>
                         </div>
                         {/* Main Content - end */}
-                        
-                       
+
+
 
                     </div>
                 </div>
             </div>
-        
+
         </div>
     )
 }

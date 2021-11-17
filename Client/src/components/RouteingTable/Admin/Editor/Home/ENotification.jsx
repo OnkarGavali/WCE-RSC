@@ -24,8 +24,9 @@ const EditableRow = ({
                     text="text"
                     required="required"
                     placeholder="Enter Notification Text"
+                    rows="3"
                     name="text"
-                    style={{ width: '80%' }}
+                    style={{ width: '' }}
                     value={editFormData.text}
                     onChange={handleEditFormChange}
                 ></input>
@@ -38,7 +39,7 @@ const EditableRow = ({
                     required="required"
                     placeholder="Enter  Notification link"
                     name="link"
-                    style={{ width: '80%' }}
+                    style={{ width: '' }}
                     value={editFormData.link}
                     onChange={handleEditFormChange}
                 ></input>
@@ -52,7 +53,7 @@ const EditableRow = ({
                     required="required"
                     placeholder="Is New Notification (true/false)*Case Sensitive"
                     name="new"
-                    style={{ width: '80%' }}
+                    style={{ width: '' }}
                     value={editFormData.new}
                     onChange={handleEditFormChange}
                 ></input>
@@ -258,7 +259,7 @@ const ENotification = () => {
 
                     <input
                         className="email"
-                        style={{ maxWidth: '60%' }}
+                        style={{ maxWidth: '' }}
                         type="text"
                         name="text"
                         required="required"
@@ -268,7 +269,7 @@ const ENotification = () => {
 
                     <input
                         className="email"
-                        style={{ maxWidth: '60%' }}
+                        style={{ maxWidth: '' }}
                         type="text"
                         name="link"
                         required="required"
@@ -278,7 +279,7 @@ const ENotification = () => {
 
                     <input
                         className="email"
-                        style={{ maxWidth: '60%' }}
+                        style={{ maxWidth: '' }}
                         type="text"
                         name="new"
 
@@ -286,7 +287,7 @@ const ENotification = () => {
                         onChange={handleAddFormChange}
                     />
 
-                    <div className=" " style={{ textAlign: 'center', maxWidth: '60%' }}>
+                    <div className=" " style={{ textAlign: 'center', maxWidth: '' }}>
                         <button text="submit" class="btn btn-primary">Add</button>
                     </div>
                     </form>

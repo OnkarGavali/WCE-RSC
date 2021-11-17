@@ -1,12 +1,12 @@
 import React from 'react';
 import {
     Link
-  } from "react-router-dom";
+} from "react-router-dom";
 import Chair from '../../../images/publication/chair.png';
 import Notifications from './Notifications';
 import Publications from './Publications';
 import SponsorsOld from './SponsorsOld';
-
+import data from '../../../JSON/Home/HomeBody.json';
 function ImpDates() {
     return (
         <div>
@@ -15,13 +15,13 @@ function ImpDates() {
             <div className="container">
                 <div className="row">
                     <div className="col-md-4">
-                    <Link to="Programs/Register" style={{marginLeft:'25%'}} className="btn btn-lg btn-system"> Register Now</Link>
-                   
+                        <Link to="Programs/Register" style={{ marginLeft: '25%' }} className="btn btn-lg btn-system"> Register Now</Link>
+
                         <div className="tab-content">
                             <div className="latest-posts">
-                            <br/>
-                    <br/>
-                            <Link to='/Important-Dates'><h3 className="classic-title" id="notifications"><span>Important Dates</span></h3></Link>
+                                <br />
+                                <br />
+                                <Link to='/Important-Dates'><h3 className="classic-title" id="notifications"><span>Important Dates</span></h3></Link>
 
                                 <div className="latest-posts-classic touch-carousel">
 
@@ -33,7 +33,7 @@ function ImpDates() {
 
                                         </div>
                                         <h4 className="post-title"><Link to="/Paper-Submission">Last Date for Paper Submission</Link></h4>
-                                        
+
 
                                     </div>
                                     <br />
@@ -46,7 +46,7 @@ function ImpDates() {
                                         <h4 className="post-title"><Link to="/Paper-Submission">Paper Acceptance Notification</Link></h4>
 
                                     </div>
-                                    <br/>
+                                    <br />
                                     <div className="post-row item">
                                         <div className="left-meta-post">
                                             <div className="post-date"><span className="day">25</span><span className="month">JAN</span>
@@ -77,29 +77,30 @@ function ImpDates() {
 
                                     </div>
                                     <br />
-                                    
+
                                     <br />
-                                    
+
 
 
                                 </div>
                             </div>
                         </div>
-                        <br/>
-                     
-                        <br/>
-                        <br/>
-                        <SponsorsOld/>
-                        <br/>
+                        <br />
 
-                        <br/>
-                        <Publications/>
-                        <br/>
+                        <br />
+                        <br />
+                        <SponsorsOld />
+                        <br />
+
+                        <br />
+                        <Publications />
+                        <br />
                         <div className="tab-content">
                             <div className="latest-posts" >
                                 <h3 className="classic-title" id="notifications"><span>Paper Submission</span></h3>
-                                <img src={Chair}></img>
-
+                                <a href={data.data.links.paperSubmission} target="_blank">
+                                    <img src={Chair}></img>
+                                </a>
                             </div>
                         </div>
 
