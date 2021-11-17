@@ -1,6 +1,6 @@
 import React from 'react';
 import Notifications from './Notifications';
-
+import Timer from './Timer';
 
 function HomeBody() {
     return (
@@ -33,6 +33,7 @@ function HomeBody() {
                     actively participate in critical discussions at the symposium. The selected papers will be forwarded for 
                     its publication in Springer's Book series. (Under Process)</p><br />
             <Notifications/>
+            <Timer/>
             </div>
         </div>
     );

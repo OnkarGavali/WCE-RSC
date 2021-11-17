@@ -4,7 +4,7 @@ import HomeBody from './HomeBody';
 import Slider from './Slider';
 import ImpDates from './ImpDates';
 import Speakers from './Speakers';
-
+import Timer from './Timer';
 
 
 
@@ -22,11 +22,13 @@ function Home() {
                         <ImpDates/> 
                     </div>
                 </div>
+                
                  <Speakers/>
                 <div className="hr5" style={{marginTop:'30px',marginBottom:'40px'}}></div>
                 <Sponsors />
                 <div className="hr5" style={{marginTop:'30px',marginBottom:'40px'}}></div>
             </div>
+         
         </div>
     );
 }
