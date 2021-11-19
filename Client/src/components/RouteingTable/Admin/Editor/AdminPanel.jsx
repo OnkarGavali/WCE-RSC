@@ -13,6 +13,7 @@ import EAdvCom from './Committe/EAdvCom'
 import ENotification from './Home/ENotification';
 import EOrgCom from './Committe/EOrgCom';
 import EHeader from './Home/EHeader';
+import EContact from './Home/EContact';
 
 export default function AdminPanel({ isLoggedIn, handleLogout }) {
 
@@ -127,6 +128,7 @@ export default function AdminPanel({ isLoggedIn, handleLogout }) {
                             <ENotification name="notification"/>
                             <EHome name="home" />
                             <EHeader name="header"/>
+                            <EContact name="contact"/>
                              {/* Home Ends */}
 
                                 {/* Authors start */}
