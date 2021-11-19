@@ -11,6 +11,7 @@ import { SwitchComponents } from '../../SwitchComponents';
 import ERegister from './Programs/ERegister';
 import EAdvCom from './Committe/EAdvCom'
 import ENotification from './Home/ENotification';
+import EOrgCom from './Committe/EOrgCom';
 
 export default function AdminPanel({ isLoggedIn, handleLogout }) {
 
@@ -97,6 +98,9 @@ export default function AdminPanel({ isLoggedIn, handleLogout }) {
                                     <li>
                                         <a onClick={() => setActiveComponent("advisoryCommitte")}>Advisory Committe</a>
                                     </li>
+                                    <li>
+                                        <a onClick={() => setActiveComponent("orgCommitte")}>Organising Committe</a>
+                                    </li>
 
                                 </ul>
                             </div>
@@ -110,7 +114,11 @@ export default function AdminPanel({ isLoggedIn, handleLogout }) {
 
                             <SwitchComponents active={activeComponent}>
 
+                             {/* Home Starts */}
 
+                            <ENotification name="notification"/>
+                            <EHome name="home" />
+                             {/* Home Ends */}
 
                                 {/* Authors start */}
 
@@ -118,8 +126,7 @@ export default function AdminPanel({ isLoggedIn, handleLogout }) {
                                 <EGuidlines name="submissionGuidelines" />
                                 <EImpDates name='impoetatntDates' />
                                 <EPaperSub name='paperSubmission' />
-                                <ENotification name="notification"/>
-                                <EHome name="home" />
+                                
 
                                 {/* Authors end */}
                                 {/* programs start */}
@@ -129,6 +136,7 @@ export default function AdminPanel({ isLoggedIn, handleLogout }) {
                                 {/* programs end */}
                                 {/* programs start */}
                                 <EAdvCom name='advisoryCommitte' />
+                                <EOrgCom name='orgCommitte'/>
                                 {/* programs end */}
 
 
