@@ -37,20 +37,7 @@ function EHome() {
             <form id='login' acceptCharset='UTF-8' onSubmit={handleSubmit}>
                 <input type='hidden' name='submitted' id='submitted' value='1' />
 
-                <div className="form-group">
-                    <div className="controls">
-                        <h3 style={{ marginBottom: '9px' }}>Title : </h3>
-                        <textarea type="text" value={title}  name="title" className="email"
-                            required="required" onChange={(e) => setTitle(e.target.value)}style={{}} />
-                    </div>
-                </div>
-                <div className="form-group">
-                    <div className="controls">
-                        <h3 style={{ marginBottom: '9px' }}>Subtitle : </h3>
-                        <textarea type="text" value={subtitle}  name="subtitle" className="email"
-                            required="required" onChange={(e) => setSubtitle(e.target.value)}style={{}} />
-                    </div>
-                </div>
+               
                 <div className="form-group">
                     <div className="controls">
                         <h3 style={{ marginBottom: '9px' }}>Subhead : </h3>

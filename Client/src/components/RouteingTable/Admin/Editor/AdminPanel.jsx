@@ -12,6 +12,7 @@ import ERegister from './Programs/ERegister';
 import EAdvCom from './Committe/EAdvCom'
 import ENotification from './Home/ENotification';
 import EOrgCom from './Committe/EOrgCom';
+import EHeader from './Home/EHeader';
 
 export default function AdminPanel({ isLoggedIn, handleLogout }) {
 
@@ -52,11 +53,18 @@ export default function AdminPanel({ isLoggedIn, handleLogout }) {
                                 <h4 className='accent-color'>Home<span className="head-line"></span></h4>
                                 <ul>
                                     <li>
+                                        <a onClick={() => setActiveComponent("header")}>Header</a>
+                                    </li>
+                                    <li>
                                         <a onClick={() => setActiveComponent("home")}>Home Body</a>
                                     </li>
                                     <li>
                                         <a onClick={() => setActiveComponent("notification")}>Notifications</a>
                                     </li>
+                                    <li>
+                                        <a onClick={() => setActiveComponent("contact")}>Contact Info</a>
+                                    </li>
+                                  
 
                                 </ul>
                             </div>
@@ -118,6 +126,7 @@ export default function AdminPanel({ isLoggedIn, handleLogout }) {
 
                             <ENotification name="notification"/>
                             <EHome name="home" />
+                            <EHeader name="header"/>
                              {/* Home Ends */}
 
                                 {/* Authors start */}
