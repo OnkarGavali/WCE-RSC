@@ -1,0 +1,48 @@
+{
+    "displayNoticeStatus":false,
+    "displayNoticeHeading":"Display Notice Heading",
+    "displayNoticeContent":"Display Notice Content",
+    "maintenanceBreakStatus":false,
+    "maintenanceBreakHeading":"MB Notice Heading",
+    "maintenanceBreakContent":"MB Notice Heading",
+    "data":{
+        "paperSubGuidelineList":[
+            {   
+                "id":0,
+                "listItem":"Simultaneous submissions (papers already submitted to other conferences/journals) are not allowed."
+            },
+            {
+                "id":1,
+                "listItem":"All papers must follow the conference template strictly for the submission.Violation of which leads to rejection of the paper."
+            },
+            {
+                "id":2,
+                "listItem":"Double Blind Review: The author's identity such as name, affiliation and email address need to be provided in Easy Chair Account.No identity information shall be included in the initial paper."
+            },
+            {
+                "id":3,
+                "listItem":"Plagiarism Policy: Document content similarity upto 15% (Turn-It-In) will be considered acceptable for the review process."
+            },
+            {
+                "id":4,
+                "listItem":"Maximum number of authors per paper shall not be more than four."
+            },
+
+            {
+                "id":5,
+                "listItem":"Paper Length limited to 8 pages including figures, tables and references. A maximum of two additional pages are permitted with an additional charge of INR 1000/- per page and is to be paid during author registration"
+            },
+            {
+                "id":6,
+                "listItem":"File Size limitation: 5.0 MB."
+            },
+            {
+                "id":7,
+                "listItem":"No page numbering on the manuscript is allowed."
+            }
+        ],
+        "publicationInfo":"All the selected and presented papers in the conference except E-learning Track will bepublished in Springer Book Series (in Process). The papers of E-learning track will be published in RSC proceedings only. The Organizing Committee's decision will be final on publications of paper in the journals.",
+        "noteInfo":"All the three documents must be written in English."
+    }
+    
+}

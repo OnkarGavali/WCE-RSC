@@ -1,0 +1,26 @@
+{
+    "displayNoticeStatus":false,
+    "displayNoticeHeading":"Display Notice Heading",
+    "displayNoticeContent":"Display Notice Content",
+    "maintenanceBreakStatus":false,
+    "maintenanceBreakHeading":"MB Notice Heading",
+    "maintenanceBreakContent":"MB Notice Heading",
+    "data":[
+        {
+            "heading":"By Road",
+            "paragraph":"Mumbai (Bombay) - 390 km.\nPune - 220 km.\nBangalore - 630 km.\nGoa - 190 km.\nBelgaum - 154 km."
+        },
+        {
+            "heading":"By Train",
+            "paragraph":""
+        },
+        {
+            "heading":"By Air",
+            "paragraph":""
+        },
+        {
+            "heading":"Local Transportation",
+            "paragraph":""
+        }
+    ]
+}

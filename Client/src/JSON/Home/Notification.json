@@ -1,0 +1,152 @@
+{
+    "data":[
+        {
+            "id":1,
+            "text":"Groupwise allocation of teams for Poster Presentation: Group 1",
+            "link":"/asset/2021_grp1.pdf",
+            "new":"true"
+        },
+        {
+            "id":2,
+            "text":"Groupwise allocation of teams for Poster Presentation: Group 2",
+            "link":"/asset/2021_grp2.pdf",
+            "new":"true"
+        },
+        {
+            "id":3,
+            "text":"Papers Selected in IPS category RSC 2021",
+            "link":"/asset/2021_IPS_Category.pdf",
+            "new":"true"
+        },
+        {
+            "id":4,
+            "text":"Papers Selected in Poster category RSC 2021",
+            "link":"/asset/2021_Poster_Category.pdf",
+            "new":"true"
+        },
+        {
+            "id":5,
+            "text":"Papers Selected in Oral Presentation category RSC 2021",
+            "link":"/asset/2021_Oral_Presentation_Category.pdf",
+            "new":"true"
+        },
+        {
+            "id":6,
+            "text":"Schedule RSC 2021",
+            "link":"/asset/2021_schedule.pdf",
+            "new":"true"
+        },
+        {
+            "id":7,
+            "text":"Guidelines for Innovative Project Showcasing IPS-2019",
+            "link":"/asset/ips.pdf",
+            "new":"true"
+        },
+        {
+            "id":8,
+            "text":"The IEEE template for paper submissions for IPS",
+            "link":"/asset/ieee_template.doc",
+            "new":"true"
+        },
+        {
+            "id":9,
+            "text":"Latex template for paper submissions for IPS",
+            "link":"/asset/latex.zip",
+            "new":"true"
+        },
+        {
+            "id":10,
+            "text":"Springer Consent To Publish Form",
+            "link":"/asset/CTP_RSC%202019.pdf",
+            "new":"true"
+        },
+        {
+            "id":11,
+            "text":"Copyright Form: Track-1(DSP/DIP)",
+            "link":"/asset/CTP_DSP_DIP.doc",
+            "new":"false"
+        },
+        {
+            "id":12,
+            "text":"Copyright Form: Track-2(Next Gen. Computing)",
+            "link":"/asset/CTP_Others.doc",
+            "new":"false"
+        },
+        {
+            "id":13,
+            "text":"Response sheet on Reviewers Comments",
+            "link":"/asset/Reviewers%20Response%20Sheet.pdf",
+            "new":"false"
+        },
+        {
+            "id":14,
+            "text":"WCE RSC 2021 Form",
+            "link":"/asset/rsc_copyright.pdf",
+            "new":"false"
+        },
+        {
+            "id":15,
+            "text":"RSC Copyright Consent Paper submission M.Tech Poster Submission and IPS instructions",
+            "link":"/asset/Submission%20Instructions.pdf",
+            "new":"false"
+        },
+        {
+            "id":16,
+            "text":"Copy Right Form (Blank)",
+            "link":"/asset/2021_copyrightform.docx",
+            "new":"false"
+        },
+        {
+            "id":17,
+            "text":"Reviewers' Response Sheet",
+            "link":"/asset/2021_reviewers_response_sheet.docx",
+            "new":"false"
+        },
+        {
+            "id":18,
+            "text":"Presentation Guidelines",
+            "link":"/asset/2021_Presentation_Guidelines.pptx",
+            "new":"false"
+        },
+        {
+            "id":19,
+            "text":"(IPS) Presentation Guidelines",
+            "link":"/asset/2021_IPS_Presentation_Guidelines.pptx",
+            "new":"false"
+        },
+        {
+            "id":20,
+            "text":"Fee Waiver Form",
+            "link":"/asset/2021_Fee_waiver.docx",
+            "new":"false"
+        },
+        {
+            "id":21,
+            "text":"First National Research Symposium RSC-2016",
+            "link":"/asset/RSC-2016.pdf",
+            "new":"false"
+        },
+        {
+            "id":22,
+            "text":"Second National Research Symposium RSC-2017",
+            "link":"/asset/RSC-2017.pdf",
+            "new":"false"
+        },
+        {
+            "id":23,
+            "text":"Third National Research Symposium RSC-2018",
+            "link":"/asset/RSC-2018.pdf",
+            "new":"false"
+        },
+        {
+            "id":24,
+            "text":"Fourth National Research Symposium RSC-2019",
+            "link":"/asset/RSC%202019%20Proceeding.pdf",
+            "new":"false"
+        }
+
+
+
+        
+    ]
+}

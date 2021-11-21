@@ -1,0 +1,56 @@
+{
+    "displayNoticeStatus":false,
+    "displayNoticeHeading":"Display Notice Heading",
+    "displayNoticeContent":"Display Notice Content",
+    "maintenanceBreakStatus":false,
+    "maintenanceBreakHeading":"MB Notice Heading",
+    "maintenanceBreakContent":"MB Notice Content",
+    "advisoryList":[
+        {
+            "name": "Dr. R Venkateswaran (Persistent)"
+        },
+        {
+            "name": "Dr. Shashidhar Koolagudi (NIT)"
+        },
+        {
+            "name": "Prof. Harsh Verma"
+        },
+        {
+            "name": "Dr. Govardhan"
+        },
+        {
+            "name": "Dr. Dilip N. Malkhede"
+        },
+        {
+            "name": "Dr. Yashwant Joshi (SGGS)"
+        },
+        {
+            "name": "Dr. Umakant Kulkarni (SDM)"
+        },
+        {
+            "name": "Dr. Meghshyam Prasad (Videoken)"
+        },
+        {
+            "name": "Dr. Brijesh Iyer (BATU)"
+        },
+        {
+            "name": "Dr. Mrs. M. A. Joshi (IET)"
+        },
+        {
+            "name": "Dr. Rajesh Ingle (PICT)"
+        },
+        {
+            "name": "Dr. Shailja Shukla (JEC)"
+        },
+        {
+            "name": "Dr. Prakash J. Kulkarni"
+        },
+        {
+            "name": "Dr. Vidyadhar Dharmadhikari (WCE)"
+        },
+        {
+            "name": "Dr. R. K. Kamat (SUK)"
+        }
+    ]
+
+}

@@ -1,0 +1,42 @@
+{
+    "displayNoticeStatus":false,
+    "displayNoticeHeading":"Display Notice Heading",
+    "displayNoticeContent":"Display Notice Content",
+    "maintenanceBreakStatus":false,
+    "maintenanceBreakHeading":"MB Notice Heading",
+    "maintenanceBreakContent":"MB Notice Heading",
+
+    "Speakers":[
+    {
+        "id":1,
+        "name":"Dr. D. Venkateswaran",
+        "designation":"Persistent, Pune"
+    },
+    
+    {
+        "id":2,
+        "name":"Dr. D. S. Guru",
+        "designation":"Prof. and Chairman, Dept. of Studies in Computer Science, University of Mysore"
+    },
+    
+    
+    {
+        "id":3,
+        "name":"Dr. Aniruddha Gokhale",
+        "designation":"Professor of Computer Science & Computer Engineering,Institute for Software Integrated Systems, Dept of EECS Vanderbilt University"
+    },
+    {
+        "id":4,
+        "name":"Dr. Ganesh Bhutkar",
+        "designation":"VIT Pune"
+    },
+    {
+        "id":5,
+        "name":"Dr. Prachi Gharpure",
+        "designation":"SPIT Mumbai"
+    }
+]
+
+    
+
+}

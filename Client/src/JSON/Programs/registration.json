@@ -1,0 +1,67 @@
+{
+    "displayNoticeStatus":false,
+    "displayNoticeHeading":"Display Notice Heading",
+    "displayNoticeContent":"Display Notice Content",
+    "maintenanceBreakStatus":false,
+    "maintenanceBreakHeading":"MB Notice Heading",
+    "maintenanceBreakContent":"MB Notice Heading",
+    "data":{
+        "note":"On account of ongoing Pandemic situation (COVID-19), the symposium will be organized via Virtual Mode (Online).\n\nPublication of the paper in conference proceedings, Book of Abstracts, Participation in all technical sessions, for two days of the symposium and Certificate of Speaker/Attendance\n\nEach author registration will cover only one paper.\n\nList of selected papers will be published on the symposium website.",
+        "regitrationFees":[
+            {
+                "id":1,
+                "type":"Academia/Students",
+                "fees":"INR 4000",
+                "late":"INR 4500"
+            },
+            {
+                "id":2,
+                "type":"Industry Personnel",
+                "fees":"INR 5000",
+                "late":"INR 5500"
+            },
+            {
+                "id":3,
+                "type":"Attendee",
+                "fees":"INR 1000",
+                "late":""
+            },
+            {
+                "id":4,
+                "type":"Co-Author",
+                "fees":"INR 1000",
+                "late":""
+            },
+            {
+                "id":5,
+                "type":"Innovative Project Showcasing",
+                "fees":"INR 300",
+                "late":""
+            }
+        ],
+        "feeWaiver":[
+            {
+                "text":"Google Drive folder for UG",
+                "link":"https://drive.google.com/drive/folders/1rTO_0CU67I-wE28mjeYXkCAhUWSjEkj3?usp=sharing"
+            },
+            {
+                "text":"Google Drive folder for M.Tech",
+                "link":"https://drive.google.com/drive/folders/1WNPTAToUZlRVjNamS_4SOEPJYBC0LVNx?usp=sharing"
+            },
+            {
+                "text":"Google Drive folder for P.H.D.",
+                "link":"https://drive.google.com/drive/folders/1rTO_0CU67I-wE28mjeYXkCAhUWSjEkj3?usp=sharing"
+            }
+        ],
+        "feeWaiverNotice":"Note : Prefer your 'walchandsangli' domain email id for the links. Mention paper id in the doc name.",
+        "bankDetails":{
+            "accountNo":"150710200003900",
+            "accountName":"Director, Walchand College of Engineering Vishrambag, Sangli - 416415",
+            "nameOfBank":"Bank of India, Vishrambag, Sangli",
+            "IFSCCode":"BKID0001507",
+            "MICRCode":"416013154",
+            "branchCode":"BKID001507"
+        },
+        "regitrationFormLink":"https://docs.google.com/forms/d/e/1FAIpQLSeVXgC5F9Mqi25oWfxFnge_Ei0UgywMgV59Sxlcy_pyJTEy2w/viewform?usp=sf_link"
+    }
+}

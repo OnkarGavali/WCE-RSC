@@ -1,0 +1,50 @@
+{
+    "sliderImg"  : [
+        {
+            "id": "1",
+            "url": "images/slider/2.jpg"
+        },
+        {
+            "id": "2",
+            "url": "images/slider/3.jpg"
+        },
+        {
+            "id": "3",
+            "url": "images/slider/4.jpg"
+        },
+        {
+            "id": "4",
+            "url": "images/slider/5.jpg"
+        },
+        {
+            "id": "5",
+            "url": "images/slider/6.jpg"
+        },
+        {
+            "id": "6",
+            "url": "images/slider/7.jpg"
+        }
+    ],
+
+    "homePage" : [
+        {
+            "type": "Published by",
+            "url": "../../../images/publication/Springer.jpg"
+        },
+        {
+            "type": "paperSubmission",
+            "url": "../../../images/publication/chair.png"
+        }
+    ],
+
+    "support":[
+        {
+            "name":"WCE ACM",
+            "url":"images/wceacm.png"
+        }
+
+    ],
+    "paperSubmissionTemplate":"/images/Sub.jpg",
+    "posterSubmission":"images/poster.png"
+    
+}

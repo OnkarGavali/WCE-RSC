@@ -1,0 +1,74 @@
+{
+        
+        "displayNoticeStatus":false,
+        "displayNoticeHeading":"Display Notice Heading",
+        "displayNoticeContent":"Display Notice Content",
+        "maintenanceBreakStatus":false,
+        "maintenanceBreakHeading":"MB Notice Heading",
+        "maintenanceBreakContent":"MB Notice Heading",
+        "data":{
+            "paragraph":"The WCE Research Symposium on Computing - RSC 2022 welcomes research paper submissions from faculty, doctoral students, research scholars and industry experts who are actively working in the area of Computer Science and Engineering and allied branches.The selected papers will be forwarded for its publication in Springer book series (in process).\n\nTopics covered include, but are not limited to:",
+            "topicList":[
+                {
+                    "id": 0,
+                    "topicName": "Al, Big Data Analytics & Machine Learning"
+                },
+            
+                {
+                    "id": 1,
+                    "topicName": "Mobile & Ubiquitous Computing"
+                },
+                
+                {
+                    "id": 2,
+                    "topicName": "IoT Architectures & Protocol"
+                },
+            
+                {
+                    "id": 3,
+                    "topicName": "High Performance Computing"
+                },
+                
+                {
+                    "id": 4,
+                    "topicName": " Image & Pattern Recognition"
+                },
+            
+                {
+                    "id": 5,
+                    "topicName": "Natural Language Processing"
+                },
+            
+                {
+                    "id": 6,
+                    "topicName": "Human Computer Interaction, Signal Processing"
+                },
+                
+                {
+                    "id": 7,
+                    "topicName": "Cryptography & Data Security"
+                },
+                
+                {
+                    "id": 8,
+                    "topicName": "Software Engineering"
+                },
+                
+                {
+                    "id": 9,
+                    "topicName": "Smart City Applications"
+                },
+                
+                {
+                    "id": 10,
+                    "topicName": "Multimedia, Game Development and Virtual Reality"
+                },
+                
+                {
+                    "id": 11,
+                    "topicName": "IoT in Smart Agriculture"
+                }
+            ]
+        }
+        
+    }
