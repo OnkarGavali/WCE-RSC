@@ -99,7 +99,7 @@ const EImpDates = () => {
     useEffect(() => {
         const getData = async () => {
             await axios.get(
-                "http://localhost:5000/get/dates"
+                "get/dates"
             ).then((response)=>{
                 if(response.data[0]){
                     setAllData(response.data[0]);
@@ -292,7 +292,7 @@ const EImpDates = () => {
         const headers = { 
             'x-access-token': localStorage.getItem("x-access-token")
         };
-        axios.put('http://localhost:5000/put/dates/6182558f89abeb6ea605d482', finalData, { headers })
+        axios.put('put/dates/6182558f89abeb6ea605d482', finalData, { headers })
             .then(response => console.log(response));
         //console.log('aaaa')
         //console.log(finalMessage)

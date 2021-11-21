@@ -126,7 +126,7 @@ const ERegister = () => {
     useEffect(() => {
         const getData = async () => {
             await axios.get(
-                "http://localhost:5000/get/registration"
+                "get/registration"
             ).then((response)=>{
                 if(response.data[0]){
                     setAllData(response.data[0]);
@@ -316,7 +316,7 @@ const ERegister = () => {
         const headers = { 
             'x-access-token': localStorage.getItem("x-access-token")
         };
-        axios.put('http://localhost:5000/put/registration/618651d544dc3852c0a1adc3', finalData, { headers })
+        axios.put('put/registration/618651d544dc3852c0a1adc3', finalData, { headers })
             .then(response => console.log(response));
     }
 

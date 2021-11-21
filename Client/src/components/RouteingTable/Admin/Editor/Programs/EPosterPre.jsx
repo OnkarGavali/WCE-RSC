@@ -27,7 +27,7 @@ function EPosterPre() {
     useEffect(() => {
         const getData = async () => {
             await axios.get(
-                "http://localhost:5000/get/posterPresentation"
+                "get/posterPresentation"
             ).then((response)=>{
                 if(response.data[0]){
                     setAllData(response.data[0]);
@@ -87,7 +87,7 @@ function EPosterPre() {
         const headers = { 
             'x-access-token': localStorage.getItem("x-access-token")
         };
-        axios.put('http://localhost:5000/put/posterPresentation/618e38ec67d01ef1b504194f', finalData, { headers })
+        axios.put('put/posterPresentation/618e38ec67d01ef1b504194f', finalData, { headers })
             .then(response => console.log(response));
     }
 

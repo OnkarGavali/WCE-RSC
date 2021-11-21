@@ -103,7 +103,7 @@ const Ekeynotes = () => {
     useEffect(() => {
         const getData = async () => {
             await axios.get(
-                "http://localhost:5000/get/keyNotes"
+                "get/keyNotes"
             ).then((response)=>{
                 if(response.data[0]){
                     setAllData(response.data[0]);
@@ -283,7 +283,7 @@ const Ekeynotes = () => {
         const headers = { 
             'x-access-token': localStorage.getItem("x-access-token")
         };
-        axios.put('http://localhost:5000/put/keynotes/61828581c970a26fc8e9aa72', finalData, { headers })
+        axios.put('put/keynotes/61828581c970a26fc8e9aa72', finalData, { headers })
             .then(response => console.log(response));
         //console.log('aaaa')
         //console.log(finalMessage)

@@ -88,7 +88,7 @@ const CallFor = () => {
     useEffect(() => {
         const getData = async () => {
             await axios.get(
-                "http://localhost:5000/get/contributionTopics"
+                "get/contributionTopics"
             ).then((response)=>{
                 if(response.data[0]){
                     setAllData(response.data[0]);
@@ -292,7 +292,7 @@ const CallFor = () => {
         const headers = { 
             'x-access-token': localStorage.getItem("x-access-token")
         };
-        axios.put('http://localhost:5000/put/contributionTopics/61824d66526d96edd615c586', finalData, { headers })
+        axios.put('put/contributionTopics/61824d66526d96edd615c586', finalData, { headers })
             .then(response => console.log(response));
         //console.log('aaaa')
         //console.log(finalMessage)

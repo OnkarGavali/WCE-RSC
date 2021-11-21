@@ -35,9 +35,8 @@ function CallForContriBution() {
 
     useEffect(() => {
         const getData = async () => {
-            await axios.get(
-                "http://localhost:5000/get/contributionTopics"
-            ).then((response)=>{
+            
+            await axios.get("/get/contributionTopics").then((response)=>{
                 if(response.data[0]){
                     setAllData(response.data[0]); 
                     console.log(response)

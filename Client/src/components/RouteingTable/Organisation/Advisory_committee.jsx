@@ -30,7 +30,7 @@ function Adv_Committee() {
     useEffect(() => {
         const getData = async () => {
             await axios.get(
-                "http://localhost:5000/get/advisory"
+                "get/advisory"
             ).then((response)=>{
                 if(response.data){
                     setAllData(response.data[0]); 

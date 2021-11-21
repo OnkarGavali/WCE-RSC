@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import PageBanner from '../PageBanner';
 import AdminPanel from './Editor/AdminPanel';
-
-
+import {baseUrl} from '../../../App';
 class Login extends Component {
 
     constructor() {
@@ -35,7 +34,8 @@ class Login extends Component {
             Password: this.state.password
         };
         //console.log(JSON.stringify(dataToSend))
-        let url = "http://localhost:5000/auth/login";
+        console.log(baseUrl)
+        let url = `${baseUrl}auth/login`;
 
         fetch(url, {
             method: "POST",
