@@ -2,10 +2,11 @@ import React from 'react';
 import {
     Link
 } from "react-router-dom";
-import Chair from '../../../images/publication/chair.png';
+import Chair from "../../../images/publication/chair.png";
 import Notifications from './Notifications';
 import Publications from './Publications';
 import SponsorsOld from './SponsorsOld';
+import imgsrc from '../../../JSON/Images.json';
 import data from '../../../JSON/Home/HomeBody.json';
 function ImpDates() {
     return (
@@ -99,7 +100,10 @@ function ImpDates() {
                             <div className="latest-posts" >
                                 <h3 className="classic-title" id="notifications"><span>Paper Submission</span></h3>
                                 <a href={data.data.links.paperSubmission} target="_blank">
-                                    <img src={Chair}></img>
+                                   
+                                        <img src={Chair}></img>
+                                  
+                                 
                                 </a>
                             </div>
                         </div>

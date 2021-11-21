@@ -1,6 +1,5 @@
 {
     "sliderImg"  : [
-
         {
             "id": "1",
             "url": "images/slider/2.jpg"
@@ -29,20 +28,23 @@
 
     "homePage" : [
         {
-            "type": "Supported by",
-            "url": ""
-        },
-        {
             "type": "Published by",
-            "url": ""
+            "url": "../../../images/publication/Springer.jpg"
         },
-        
         {
-            "type": "Paper Submission",
-            "url": ""
+            "type": "paperSubmission",
+            "url": "../../../images/publication/chair.png"
         }
-        
+    ],
 
+    "support":[
+        {
+            "name":"WCE ACM",
+            "url":"images/wceacm.png"
+        }
 
-    ]
+    ],
+    "paperSubmissionTemplate":"/images/Sub.jpg",
+    "posterSubmission":"images/poster.png"
+    
 }
