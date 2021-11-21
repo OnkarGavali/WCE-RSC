@@ -5,6 +5,7 @@ import Slider from './Slider';
 import ImpDates from './ImpDates';
 import Speakers from './Speakers';
 import Timer from './Timer';
+import CountDown from './Countdown';
 
 
 
@@ -23,10 +24,12 @@ function Home() {
                     </div>
                 </div>
                 
-                 <Speakers/>
+                {/*<Speakers/>
                 <div className="hr5" style={{marginTop:'30px',marginBottom:'40px'}}></div>
                 <Sponsors />
                 <div className="hr5" style={{marginTop:'30px',marginBottom:'40px'}}></div>
+                */} 
+                <CountDown/>
             </div>
          
         </div>

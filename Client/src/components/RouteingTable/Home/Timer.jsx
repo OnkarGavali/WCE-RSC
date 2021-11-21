@@ -137,7 +137,7 @@ const CTimer = ({ countdownTimestampMs }) => {
 function Timer() {
     return (
         <div>
-            <CTimer countdownTimestampMs={1659983662000} />
+            <CTimer countdownTimestampMs={10000000} />
         </div>
     );
 
