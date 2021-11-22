@@ -214,7 +214,7 @@ const EOrgCom = () => {
 
     return (
         <div>
-            <PageBanner name="Organising Committee" head="Admin Panel" />
+         
 
             <div className="contenti">
                 <div className="container">

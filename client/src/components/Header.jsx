@@ -3,6 +3,7 @@ import Navbar from './Navbar';
 import {Link} from "react-router-dom";
 import data from '../JSON/Header.json';
 import cdata from '../JSON/Contact/Contact.json' ;
+
 const mail = "mailto: " + cdata.email
 
 

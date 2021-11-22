@@ -14,6 +14,7 @@ import ENotification from './Home/ENotification';
 import EOrgCom from './Committe/EOrgCom';
 import EHeader from './Home/EHeader';
 import EContact from './Home/EContact';
+import ESlider from './Images/ESlider';
 
 export default function AdminPanel({ isLoggedIn, handleLogout }) {
 
@@ -113,6 +114,18 @@ export default function AdminPanel({ isLoggedIn, handleLogout }) {
 
                                 </ul>
                             </div>
+                            <div className="widget widget-categories">
+                                <h4 className='accent-color'>Images<span className="head-line"></span></h4>
+                                <ul>
+                                    <li>
+                                        <a onClick={() => setActiveComponent("slider")}>Slider Images</a>
+                                    </li>
+                                    <li>
+                                        <a onClick={() => setActiveComponent("orgCommitte")}>Organising Committe</a>
+                                    </li>
+
+                                </ul>
+                            </div>
                         </div>
 
 
@@ -130,6 +143,11 @@ export default function AdminPanel({ isLoggedIn, handleLogout }) {
                             <EHeader name="header"/>
                             <EContact name="contact"/>
                              {/* Home Ends */}
+
+                              {/* Images Starts */}
+                                <ESlider name="slider"/>
+                         
+                             {/* Images Ends */}
 
                                 {/* Authors start */}
 
