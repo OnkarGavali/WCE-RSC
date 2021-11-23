@@ -17,6 +17,7 @@ import EContact from './Home/EContact';
 import ESlider from './Images/ESlider';
 import ESupport from './Images/ESupport';
 import EImages from './Images/EImages';
+import EGallery from './Images/EGallery';
 export default function AdminPanel({ isLoggedIn, handleLogout }) {
 
 
@@ -125,8 +126,12 @@ export default function AdminPanel({ isLoggedIn, handleLogout }) {
                                         <a onClick={() => setActiveComponent("support")}>Supported by Images</a>
                                     </li>
                                     <li>
+                                        <a onClick={() => setActiveComponent("gallery")}>Gallery Images</a>
+                                    </li>
+                                    <li>
                                         <a onClick={() => setActiveComponent("images")}>Other Images</a>
                                     </li>
+                                   
 
                                 </ul>
                             </div>
@@ -152,6 +157,7 @@ export default function AdminPanel({ isLoggedIn, handleLogout }) {
                                 <ESlider name="slider"/>
                                 <ESupport name="support"/>
                                 <EImages name="images"/>
+                                <EGallery name="gallery"/>
                          
                              {/* Images Ends */}
 

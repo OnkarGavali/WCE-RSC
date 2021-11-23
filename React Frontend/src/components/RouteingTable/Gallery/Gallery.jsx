@@ -24,7 +24,7 @@ function Gallery ()
                   {isImages?
                     (
                         galleryImgs.map(
-                            (img) => <GalleryImages key={img.id} path={img.imagePath} alt={img.alt}/>
+                            (img) => <GalleryImages key={img.id} path={img.url} alt={img.name}/>
                         ) 
                       )
                     

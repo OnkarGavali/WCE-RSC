@@ -1,148 +1,148 @@
 [
     {
         "id":1,
-        "imagePath":"/images/gallery/1.jpg",
-        "alt" : "gallery Image"
+        "url":"/images/gallery/1.jpg",
+        "name" : "gallery Image"
     },
     {
         "id":2,
-        "imagePath":"/images/gallery/2.jpg",
-        "alt" : "gallery Image"
+        "url":"/images/gallery/2.jpg",
+        "name" : "gallery Image"
     },
     {
         "id":3,
-        "imagePath":"/images/gallery/3.jpg",
-        "alt" : "gallery Image"
+        "url":"/images/gallery/3.jpg",
+        "name" : "gallery Image"
     },
     {
         "id":4,
-        "imagePath":"/images/gallery/4.jpg",
-        "alt" : "gallery Image"
+        "url":"/images/gallery/4.jpg",
+        "name" : "gallery Image"
     },
     {
         "id":5,
-        "imagePath":"/images/gallery/5.jpg",
-        "alt" : "gallery Image"
+        "url":"/images/gallery/5.jpg",
+        "name" : "gallery Image"
     },
     {
         "id":6,
-        "imagePath":"/images/gallery/6.jpg",
-        "alt" : "gallery Image"
+        "url":"/images/gallery/6.jpg",
+        "name" : "gallery Image"
     },
     {
         "id":7,
-        "imagePath":"/images/gallery/7.jpg",
-        "alt" : "gallery Image"
+        "url":"/images/gallery/7.jpg",
+        "name" : "gallery Image"
     },
     {
         "id":8,
-        "imagePath":"/images/gallery/8.jpg",
-        "alt" : "gallery Image"
+        "url":"/images/gallery/8.jpg",
+        "name" : "gallery Image"
     },
     {
         "id":9,
-        "imagePath":"/images/gallery/9.jpg",
-        "alt" : "gallery Image"
+        "url":"/images/gallery/9.jpg",
+        "name" : "gallery Image"
     },
     {
         "id":10,
-        "imagePath":"/images/gallery/10.jpg",
-        "alt" : "gallery Image"
+        "url":"/images/gallery/10.jpg",
+        "name" : "gallery Image"
     },
     {
         "id":11,
-        "imagePath":"/images/gallery/11.jpg",
-        "alt" : "gallery Image"
+        "url":"/images/gallery/11.jpg",
+        "name" : "gallery Image"
     },
     {
         "id":12,
-        "imagePath":"/images/gallery/12.jpg",
-        "alt" : "gallery Image"
+        "url":"/images/gallery/12.jpg",
+        "name" : "gallery Image"
     },
     {
         "id":13,
-        "imagePath":"/images/gallery/13.jpg",
-        "alt" : "gallery Image"
+        "url":"/images/gallery/13.jpg",
+        "name" : "gallery Image"
     },
     {
         "id":14,
-        "imagePath":"/images/gallery/14.jpg",
-        "alt" : "gallery Image"
+        "url":"/images/gallery/14.jpg",
+        "name" : "gallery Image"
     },
     {
         "id":15,
-        "imagePath":"/images/gallery/15.jpg",
-        "alt" : "gallery Image"
+        "url":"/images/gallery/15.jpg",
+        "name" : "gallery Image"
     },
     {
         "id":16,
-        "imagePath":"/images/gallery/16.jpg",
-        "alt" : "gallery Image"
+        "url":"/images/gallery/16.jpg",
+        "name" : "gallery Image"
     },
     {
         "id":17,
-        "imagePath":"/images/gallery/17.jpg",
-        "alt" : "gallery Image"
+        "url":"/images/gallery/17.jpg",
+        "name" : "gallery Image"
     },
     {
         "id":18,
-        "imagePath":"/images/gallery/18.jpg",
-        "alt" : "gallery Image"
+        "url":"/images/gallery/18.jpg",
+        "name" : "gallery Image"
     },
     {
         "id":19,
-        "imagePath":"/images/gallery/19.jpg",
-        "alt" : "gallery Image"
+        "url":"/images/gallery/19.jpg",
+        "name" : "gallery Image"
     },
     {
         "id":20,
-        "imagePath":"/images/gallery/20.jpg",
-        "alt" : "gallery Image"
+        "url":"/images/gallery/20.jpg",
+        "name" : "gallery Image"
     },
     {
         "id":21,
-        "imagePath":"/images/gallery/21.jpg",
-        "alt" : "gallery Image"
+        "url":"/images/gallery/21.jpg",
+        "name" : "gallery Image"
     },
     {
         "id":22,
-        "imagePath":"/images/gallery/22.jpg",
-        "alt" : "gallery Image"
+        "url":"/images/gallery/22.jpg",
+        "name" : "gallery Image"
     },
     {
         "id":23,
-        "imagePath":"/images/gallery/23.jpg",
-        "alt" : "gallery Image"
+        "url":"/images/gallery/23.jpg",
+        "name" : "gallery Image"
     },
     {
         "id":24,
-        "imagePath":"/images/gallery/24.jpg",
-        "alt" : "gallery Image"
+        "url":"/images/gallery/24.jpg",
+        "name" : "gallery Image"
     },
     {
         "id":25,
-        "imagePath":"/images/gallery/25.jpg",
-        "alt" : "gallery Image"
+        "url":"/images/gallery/25.jpg",
+        "name" : "gallery Image"
     },
     {
         "id":26,
-        "imagePath":"/images/gallery/26.jpg",
-        "alt" : "gallery Image"
+        "url":"/images/gallery/26.jpg",
+        "name" : "gallery Image"
     },
     {
         "id":27,
-        "imagePath":"/images/gallery/27.jpg",
-        "alt" : "gallery Image"
+        "url":"/images/gallery/27.jpg",
+        "name" : "gallery Image"
     },
     {
         "id":28,
-        "imagePath":"/images/gallery/28.jpg",
-        "alt" : "gallery Image"
+        "url":"/images/gallery/28.jpg",
+        "name" : "gallery Image"
     },
     {
         "id":29,
-        "imagePath":"/images/gallery/29.jpg",
-        "alt" : "gallery Image"
+        "url":"/images/gallery/29.jpg",
+        "name" : "gallery Image"
     }
     
 ]
