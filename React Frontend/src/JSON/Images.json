@@ -1,32 +1,32 @@
 {
     "sliderImg"  : [
         {
-            "srno": "1",
+            "id": "1",
             "name":"wcersc",
             "url": "images/slider/2.jpg"
         },
         {
-            "srno": "2",
+            "id": "2",
             "name":"wcersc",
             "url": "images/slider/3.jpg"
         },
         {
-            "srno": "3",
+            "id": "3",
             "name":"wcersc",
             "url": "images/slider/4.jpg"
         },
         {
-            "srno": "4",
+            "id": "4",
             "name":"wcersc",
             "url": "images/slider/5.jpg"
         },
         {
-            "srno": "5",
+            "id": "5",
             "name":"wcersc",
             "url": "images/slider/6.jpg"
         },
         {
-            "srno": "6",
+            "id": "6",
             "name":"wcersc",
             "url": "images/slider/7.jpg"
         }
@@ -45,6 +45,7 @@
 
     "support":[
         {
+            "id": "1",
             "name":"WCE ACM",
             "url":"images/wceacm.png"
         }

@@ -18,8 +18,8 @@ const EditableRow = ({
                     type="text"
                     required="required"
                     placeholder="Enter Name"
-                    name="srno"
-                    value={editFormData.srno}
+                    name="id"
+                    value={editFormData.id}
                     onChange={handleEditFormChange}
                 ></input>
             </td>
@@ -62,7 +62,7 @@ const EditableRow = ({
 const ReadOnlyRow = ({ contact, handleEditClick, handleDeleteClick, convertedJSON }) => {
     return (
         <tr>
-            <td>{contact.srno}</td>
+            <td>{contact.id}</td>
             <td>{contact.name}</td>
             <td>{contact.url}</td>
             <td>
@@ -101,7 +101,7 @@ const ESlider = () => {
 
     const [addFormData, setAddFormData] = useState({
         name: "",
-        srno:"",
+        id:"",
         url:""
 
 
@@ -109,7 +109,7 @@ const ESlider = () => {
 
     const [editFormData, setEditFormData] = useState({
         name: "",
-        srno:"",
+        id:"",
         url:""
 
     });
@@ -145,8 +145,9 @@ const ESlider = () => {
 
         const newContact = {
             id: nanoid(),
+            id:addFormData.id,
             name: addFormData.name,
-            srno:addFormData.srno,
+           
             url:addFormData.url
 
 
@@ -161,8 +162,8 @@ const ESlider = () => {
 
         const editedContact = {
             id: editContactId,
+            id:editFormData.id,
             name: editFormData.name,
-            srno:editFormData.srno,
             url:editFormData.url
 
 
@@ -183,8 +184,8 @@ const ESlider = () => {
         setEditContactId(contact.id);
 
         const formValues = {
+            id: contact.id,
             name: contact.name,
-            srno: contact.srno,
             url:contact.url
 
 
@@ -223,7 +224,7 @@ const ESlider = () => {
                         <div className="col-md-9">
                             <div>
                                 {/*
-                                <h2>Select srno</h2>
+                                <h2>Select id</h2>
                                  <button onClick={() =>
                                     setContacts(data.organsingList[option].persons)}>Symposium Patron</button>
                                 <button onClick={() =>
@@ -278,9 +279,9 @@ const ESlider = () => {
                                             className="email"
                                             style={{ maxWidth: '60%' }}
                                             type="text"
-                                            name="srno"
+                                            name="id"
                                             required="required"
-                                            placeholder="Enter a srno"
+                                            placeholder="Enter a id"
                                             onChange={handleAddFormChange}
                                         />
                                           <input

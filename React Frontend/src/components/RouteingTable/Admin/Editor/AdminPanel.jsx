@@ -15,7 +15,7 @@ import EOrgCom from './Committe/EOrgCom';
 import EHeader from './Home/EHeader';
 import EContact from './Home/EContact';
 import ESlider from './Images/ESlider';
-
+import ESupport from './Images/ESupport';
 export default function AdminPanel({ isLoggedIn, handleLogout }) {
 
 
@@ -121,7 +121,7 @@ export default function AdminPanel({ isLoggedIn, handleLogout }) {
                                         <a onClick={() => setActiveComponent("slider")}>Slider Images</a>
                                     </li>
                                     <li>
-                                        <a onClick={() => setActiveComponent("orgCommitte")}>Organising Committe</a>
+                                        <a onClick={() => setActiveComponent("support")}>Supported by Images</a>
                                     </li>
 
                                 </ul>
@@ -146,6 +146,7 @@ export default function AdminPanel({ isLoggedIn, handleLogout }) {
 
                               {/* Images Starts */}
                                 <ESlider name="slider"/>
+                                <ESupport name="support"/>
                          
                              {/* Images Ends */}
 
