@@ -42,7 +42,7 @@ class CountDown extends Component {
                 <div className="big-title text-center classic-title " data-animation="fadeInDown" data-animation-delay="01">
                             <h1><span><strong>Symposium Countdown</strong></span></h1>
                         </div>
-                <div classNameName="" style={{ marginLeft: '25%' }}>
+                <div className="" style={{ marginLeft: '25%' }}>
 
                     <div className="row pricing-tables">
 

@@ -9,9 +9,6 @@ const mail = "mailto: " + cdata.email
 
 
 function Header() {
-
-  
-
   return (
     <div>
       <div className="top-bar">

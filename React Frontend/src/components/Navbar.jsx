@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-
 import { Link } from "react-router-dom";
-
 
 function Navbar() {
 
@@ -10,6 +8,7 @@ function Navbar() {
     <div>
       <div className="navbar navbar-default navbar-top" style={{ marginTop: '4%' }}>
         <div className="container">
+          
           <div className="navbar-header">
             <button type="button" className="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" style={{ marginBottom: '0%' }}>
               <i className="fa fa-bars"></i>
@@ -23,7 +22,7 @@ function Navbar() {
              
               {/* Home - start */}
               <li>
-                <Link className={`${activeComponent == "" ? 'active':''}`} exact to="/" onClick={() => setActiveComponent("")}>
+                <Link className={`${activeComponent == "" ? 'active':''}`} to="/" onClick={() => setActiveComponent("")}>
                   <span style={{marginRight:"10px"}}><i className="fa fa-home"></i></span>Home
                 </Link>
               </li>
@@ -37,22 +36,22 @@ function Navbar() {
                 </a>
                 <ul className="dropdown">
                   <li>
-                    <Link exact to="/authors/call-for-contribution" onClick={() => setActiveComponent("authors")}>
+                    <Link  to="/authors/call-for-contribution" onClick={() => setActiveComponent("authors")}>
                       Call for Contributions <span style={{marginLeft:"10px"}}><i className="fa fa-bullhorn"></i></span>
                     </Link>
                   </li>
                   <li>
-                    <Link exact to="/authors/Guidlines" onClick={() => setActiveComponent("authors")}>
+                    <Link  to="/authors/Guidlines" onClick={() => setActiveComponent("authors")}>
                       Submission Guidlines<span style={{marginLeft:"10px"}}><i className="fa fa-info-circle"></i></span>
                     </Link>
                   </li>
                   <li>
-                    <Link exact to="/authors/Paper-Submission" onClick={() => setActiveComponent("authors")}>
+                    <Link  to="/authors/Paper-Submission" onClick={() => setActiveComponent("authors")}>
                       Paper Submission <span style={{marginLeft:"10px"}}><i className="fa fa-upload"></i></span>
                     </Link>
                   </li>
                   <li>
-                    <Link exact to="/authors/Important-Dates" onClick={() => setActiveComponent("authors")}>
+                    <Link  to="/authors/Important-Dates" onClick={() => setActiveComponent("authors")}>
                       Important Dates<span style={{marginLeft:"10px"}}><i className="fa fa-calendar"></i></span>
                     </Link>
                   </li>
@@ -71,32 +70,32 @@ function Navbar() {
                 </a>
                 <ul className="dropdown">
                   <li>
-                    <Link exact to="/programs/Keynotes" onClick={() => setActiveComponent("programs")}>
+                    <Link  to="/programs/Keynotes" onClick={() => setActiveComponent("programs")}>
                       Keynotes & Awards Presentation<span style={{marginLeft:"10px"}}><i className="fa fa-microphone"></i></span>
                     </Link>
                   </li>
                   <li>
-                    <Link exact to="/programs/Paper-Presentation" onClick={() => setActiveComponent("programs")}>
+                    <Link  to="/programs/Paper-Presentation" onClick={() => setActiveComponent("programs")}>
                       Paper Presentation<span style={{marginLeft:"10px"}}><i className="fa fa-file"></i></span>
                     </Link>
                   </li>
                   <li>
-                    <Link exact to="/programs/Poster-Presentation" onClick={() => setActiveComponent("programs")}>
+                    <Link  to="/programs/Poster-Presentation" onClick={() => setActiveComponent("programs")}>
                       Poster Presentation<span style={{marginLeft:"10px"}}><i className="fa fa-image"></i></span>
                     </Link>
                   </li>
                    <li>
-                    <Link exact to="/programs/IPS" onClick={() => setActiveComponent("programs")}>
+                    <Link  to="/programs/IPS" onClick={() => setActiveComponent("programs")}>
                       Innovative Project Showcase<span style={{marginLeft:"10px"}}><i className="fa fa-file"></i></span>
                     </Link>
                   </li>
                   <li>
-                    <Link exact to="/programs/Schedule" onClick={() => setActiveComponent("programs")}>
+                    <Link  to="/programs/Schedule" onClick={() => setActiveComponent("programs")}>
                       Event Schedule<span style={{marginLeft:"10px"}}><i className="fa fa-calendar"></i></span>
                     </Link>
                   </li>
                   <li>
-                    <Link exact to="/programs/Register" onClick={() => setActiveComponent("programs")}>
+                    <Link  to="/programs/Register" onClick={() => setActiveComponent("programs")}>
                       Event Registration<span style={{marginLeft:"10px"}}><i className="fa fa-edit"></i></span>
                     </Link>
                   </li>
@@ -112,12 +111,12 @@ function Navbar() {
                 </a>
                 <ul className="dropdown">
                   <li>
-                    <Link exact to="/organisation/org_committee" onClick={() => setActiveComponent("organisation")}>
+                    <Link  to="/organisation/org_committee" onClick={() => setActiveComponent("organisation")}>
                       Organising Committee<span style={{marginLeft:"10px"}}><i className="fa fa-group"></i></span>
                     </Link>
                   </li>
                   <li>
-                    <Link exact to="/organisation/adv_committee" onClick={() => setActiveComponent("organisation")}>
+                    <Link  to="/organisation/adv_committee" onClick={() => setActiveComponent("organisation")}>
                       Advisory Committee<span style={{marginLeft:"10px"}}><i className="fa fa-group"></i></span>
                     </Link>
                   </li>
@@ -132,17 +131,17 @@ function Navbar() {
                 </a>
                 <ul className="dropdown">
                   <li>
-                    <Link exact to="/localInfo/venue" onClick={() => setActiveComponent("localInfo")}>
+                    <Link  to="/localInfo/venue" onClick={() => setActiveComponent("localInfo")}>
                       Conference Venue<span style={{marginLeft:"10px"}}><i className="fa fa-location-arrow"></i></span>
                     </Link>
                   </li>
                   <li>
-                    <Link exact to="/localInfo/location" onClick={() => setActiveComponent("localInfo")}>
+                    <Link  to="/localInfo/location" onClick={() => setActiveComponent("localInfo")}>
                       Conference Location<span style={{marginLeft:"10px"}}><i className="fa fa-map-marker"></i></span>
                     </Link>
                   </li>
                   <li>
-                    <Link exact to="/localInfo/accessing" onClick={() => setActiveComponent("localInfo")}>
+                    <Link  to="/localInfo/accessing" onClick={() => setActiveComponent("localInfo")}>
                       Accessing Sangli<span style={{marginLeft:"10px"}}><i className="fa fa-plane"></i></span>
                     </Link>
                   </li>
@@ -153,7 +152,7 @@ function Navbar() {
 
               {/* Gallery - start */}
               <li>
-                <Link exact to="/gallery" className={`${activeComponent == 'gallery' ? 'active':''}`} onClick={() => setActiveComponent("gallery")}>
+                <Link  to="/gallery" className={`${activeComponent == 'gallery' ? 'active':''}`} onClick={() => setActiveComponent("gallery")}>
                   <span style={{marginRight:"10px"}}><i className="fa fa-image"></i></span>Gallery
                 </Link>
               </li>
@@ -162,7 +161,7 @@ function Navbar() {
 
               {/* About - start */}
                 <li>
-                <Link exact to="/about" className={`${activeComponent == 'about' ? 'active':''}`} onClick={() => setActiveComponent("about")}>
+                <Link  to="/about" className={`${activeComponent == 'about' ? 'active':''}`} onClick={() => setActiveComponent("about")}>
                   <span style={{marginRight:"10px"}}><i className="fa fa-info-circle"></i></span>About
                 </Link>
               </li>
@@ -171,7 +170,7 @@ function Navbar() {
 
               {/* Contact - start */}
               <li>
-                <Link exact to="/contact" className={`${activeComponent == 'contact' ? 'active':''}`} onClick={() => setActiveComponent("contact")}>
+                <Link  to="/contact" className={`${activeComponent == 'contact' ? 'active':''}`} onClick={() => setActiveComponent("contact")}>
                   <span style={{marginRight:"10px"}}><i className="fa fa-envelope"></i></span>Contact
                 </Link>
               </li>
@@ -180,7 +179,7 @@ function Navbar() {
 
               {/* Admin - start */}
               <li>
-                <Link exact to="/admin" className={`${activeComponent == 'admin' ? 'active':''}`} onClick={() => setActiveComponent("admin")}>
+                <Link  to="/admin" className={`${activeComponent == 'admin' ? 'active':''}`} onClick={() => setActiveComponent("admin")}>
                   <span style={{marginRight:"10px"}}><i className="fa fa-lock" aria-hidden="true"></i>,<span style={{width:'40px'}}></span><i className="fa fa-lock" aria-hidden="true"></i></span>Admin
                 </Link>
               </li>
