@@ -23,12 +23,12 @@ function Home() {
                         <ImpDates/> 
                     </div>
                 </div>
-                
+                {/*
                 <Speakers/>
                 <div className="hr5" style={{marginTop:'30px',marginBottom:'40px'}}></div>
                 <Sponsors />
                 <div className="hr5" style={{marginTop:'30px',marginBottom:'40px'}}></div>
-                
+                */}
                 <CountDown/>
             </div>
          

@@ -53,8 +53,8 @@ function Header() {
         <div className="container">
           <div style={{ marginBottom: '-4%' }} >
               <a href="index.html"></a>
-              <h1 style={{paddingTop:'1%'}}> {/* <img src="images/iferp.png" alt="IFERP" style={{ width: '100px', paddingTop: '1%' }} /> */}{data.title}</h1>
-              <small   style={{ paddingLeft: '' , fontSize:'15px' }}> {data.subtitle}  </small>
+              <h1 style={{paddingTop:'1%' , textAlign:'center' , fontSize:'30px'}}> {/* <img src="images/iferp.png" alt="IFERP" style={{ width: '100px', paddingTop: '1%' }} /> */}{data.title}</h1>
+              <h5  style={{  paddingTop:'1%', fontSize:'15px' , textAlign:'center' , color:'gray'}}> {data.subtitle}  </h5>
           </div>
         </div>
       </div>
