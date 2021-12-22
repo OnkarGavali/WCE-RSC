@@ -26,8 +26,8 @@ const EditableRow = ({
 
 
             <td>
-                <button type="submit" class="btn btn-success" >Save</button>
-                <button type="button" onClick={handleCancelClick} style={{marginLeft:'4%'}}  class="btn btn-secondary" >
+                <button type="submit" className="btn btn-success" >Save</button>
+                <button type="button" onClick={handleCancelClick} style={{marginLeft:'4%'}}  className="btn btn-secondary" >
                     Cancel
                 </button>
             </td>
@@ -43,14 +43,14 @@ const ReadOnlyRow = ({ contact, handleEditClick, handleDeleteClick }) => {
 
             <td>
                 <button
-                   class="btn btn-primary"
+                   className="btn btn-primary"
                     type="button"
                     onClick={(event) => handleEditClick(event, contact)}
                 >
                     Edit
                 </button>
                 <button 
-                class="btn btn-secondary"
+                className="btn btn-secondary"
                 type="button" onClick={() => handleDeleteClick(contact._id)} style={{marginLeft:'4%'}}>
                     Delete
                 </button>
@@ -61,19 +61,6 @@ const ReadOnlyRow = ({ contact, handleEditClick, handleDeleteClick }) => {
 
 
 const EAdvCom = () => {
-
-
-    const format = {
-        "displayNoticeStatus":false,
-        "displayNoticeHeading":"",
-        "displayNoticeContent":"",
-        "maintenanceBreakStatus":false,
-        "maintenanceBreakHeading":"",
-        "maintenanceBreakContent":"",
-        "advisoryList":[
-            
-        ]
-    }
 
     const [allData, setAllData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
@@ -88,23 +75,6 @@ const EAdvCom = () => {
 
     const [finalData, setFinalData] = useState();
     const [finalMessage, setFinalMessage] = useState("");
-
-    // const format = {
-    //     "displayNoticeStatus":false,
-    //     "displayNoticeHeading":"",
-    //     "displayNoticeContent":"",
-    //     "maintenanceBreakStatus":false,
-    //     "maintenanceBreakHeading":"",
-    //     "maintenanceBreakContent":"",
-    //     "advisoryList":[
-    //         {
-    //             "name": ""
-    //         }
-    //     ]
-    // }
-
-    
-
 
     useEffect(() => {
         const getData = async () => {
@@ -169,17 +139,12 @@ const EAdvCom = () => {
     }, [displayNotice,displayeNoticeHead,displayeNoticeContent])
     
     useEffect(() => {
-        //  console.log('mB')
-        // console.log(maintainanceBreak)
-        // console.log(maintainanceBreakHead)
-        // console.log(maintainanceBreakContent)
+        
     }, [maintainanceBreak,maintainanceBreakHead,maintainanceBreakContent])
    
 
     const [addFormData, setAddFormData] = useState({
         name: "",
-
-
     });
 
     const [editFormData, setEditFormData] = useState({

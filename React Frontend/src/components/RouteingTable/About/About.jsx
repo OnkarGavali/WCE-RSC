@@ -15,7 +15,7 @@ function About() {
                     <div className="page-content">
                         <div className="row" style={{ textAlign: 'justify' }}>
                             <div className="col-md-12">
-                                <h4 className="classic-title"><span>Welcome To WCE Research Symposium on Computing 2022</span></h4>
+                               
                                 <ul className="nav nav-tabs">
                                     <li className="active"><a href="#tab1" data-toggle="tab"><i className="icon-award-1"></i>About Research Symposium</a></li>
                                     <li><a href="#tab2" data-toggle="tab"><i className="icon-beaker"></i>About Walchand College of Engineering, Sangli </a></li>

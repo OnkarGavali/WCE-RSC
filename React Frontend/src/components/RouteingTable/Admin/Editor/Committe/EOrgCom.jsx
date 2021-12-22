@@ -1,9 +1,7 @@
 import React, { useState, Fragment, useEffect } from "react";
 import { nanoid } from "nanoid";
-import PageBanner from "../../../PageBanner";
 import data from "../../../../../JSON/org_com.json";
-//import ReadOnlyRow from "./components/ReadOnlyRow";
-//import EditableRow from "./components/EditableRow";
+import axios from "axios";
 
 const EditableRow = ({
     editFormData,
@@ -50,8 +48,8 @@ const EditableRow = ({
 
 
             <td>
-                <button type="submit" class="btn btn-success" >Save</button>
-                <button type="button" onClick={handleCancelClick} style={{ marginLeft: '4%' }} class="btn btn-secondary" >
+                <button type="submit" className="btn btn-success" >Save</button>
+                <button type="button" onClick={handleCancelClick} style={{ marginLeft: '4%' }} className="btn btn-secondary" >
                     Cancel
                 </button>
             </td>
@@ -61,21 +59,21 @@ const EditableRow = ({
 
 const ReadOnlyRow = ({ contact, handleEditClick, handleDeleteClick, convertedJSON }) => {
     return (
-        <tr>
+        <tr key={contact._id}>
             <td>{contact.role}</td>
             <td>{contact.name}</td>
             <td>{contact.designation}</td>
             <td>
                 <button
-                    class="btn btn-primary"
+                    className="btn btn-primary"
                     type="button"
                     onClick={(event) => handleEditClick(event, contact)}
                 >
                     Edit
                 </button>
                 <button
-                    class="btn btn-secondary"
-                    type="button" onClick={() => handleDeleteClick(contact.id)} style={{ marginLeft: '4%' }}>
+                    className="btn btn-secondary"
+                    type="button" onClick={() => handleDeleteClick(contact._id)} style={{ marginLeft: '4%' }}>
                     Delete
                 </button>
             </td>
@@ -88,23 +86,101 @@ const ReadOnlyRow = ({ contact, handleEditClick, handleDeleteClick, convertedJSO
 
 
 const EOrgCom = () => {
-    const [option, setOption] = useState(0);
-    const [allData, setAllData] = useState('');
-    const [isLoading, setIsLoading] = useState(true);
     const [contacts, setContacts] = useState(data);
     const [convertedJSON, setConvertedJSON] = useState([])
 
 
+    const [allData, setAllData] = useState(null);
+    const [isLoading, setIsLoading] = useState(true);
+
+    const [displayNotice, setDisplayNotice] = useState(false);
+    const [displayeNoticeHead, setDisplayeNoticeHead] = useState('');
+    const [displayeNoticeContent, setDisplayeNoticeContent] = useState('')
+    const [maintainanceBreak, setMaintainanceBreak] = useState(false);
+    const [maintainanceBreakHead, setMaintainanceBreakHead] = useState('');
+    const [maintainanceBreakContent, setMaintainanceBreakContent] = useState('');
+    const [organsingList, setOrgansingList] = useState([]);
+    const [rolesList, setRolesList] = useState([]);
+    const [finalData, setFinalData] = useState();
+    const [finalMessage, setFinalMessage] = useState("");
 
 
+    useEffect(() => {
+        const getData = async () => {
+            await axios.get(
+                "get/organization"
+            ).then((response)=>{
+                if(response.data[0]){
+                    setAllData(response.data[0]);
+                    console.log(response) 
+                }
+                setIsLoading(false);
+            }).catch((e)=>{
+             /* HANDLE THE ERROR (e) */
+                console.log(e);
+                setIsLoading(false);
+            });
+            
+        };
+        getData();
+        setIsLoading(false);
+        console.log('end of use Effect')
+        console.log(allData)
+    },[])
+
+     
+
+    useEffect(() => {
+        if(!isLoading){
+            setDisplayNotice(allData.displayNoticeStatus)
+            setDisplayeNoticeHead(allData.displayNoticeHeading)
+            setDisplayeNoticeContent(allData.displayNoticeContent)
+            setMaintainanceBreak(allData.maintenanceBreakStatus)
+            setMaintainanceBreakHead(allData.maintenanceBreakHeading)
+            setMaintainanceBreakContent(allData.maintenanceBreakContent)
+            console.log('end of if')
+            console.log(allData)
+            if(allData.organsingList){
+                let tmp = []
+                let roles =[]
+                allData.organsingList.map((roleLi)=>{
+                    let role = roleLi.role
+                    roles.push(role)
+                    roleLi.persons.map( person => {
+                        tmp.push({
+                            ...person,
+                            role : role
+                        })
+                    })
+
+                })
+                setRolesList(roles)
+                setOrgansingList(tmp)
+            }
+            setIsLoading(false);
+        }
+
+    }, [allData])
+    useEffect(() => {
+       console.log(organsingList) 
+    }, [isLoading,organsingList])
+
+
+    // useEffect(() => {
+    //     if(finalData){
+    //         console.log('useE')
+    //         console.log(finalData)
+    //         uploadContent()
+    //     }
+    // }, [finalData])
+
+  
 
 
     const [addFormData, setAddFormData] = useState({
         name: "",
         role:"",
         designation:""
-
-
     });
 
     const [editFormData, setEditFormData] = useState({
@@ -121,7 +197,7 @@ const EOrgCom = () => {
 
         const fieldName = event.target.getAttribute("name");
         const fieldValue = event.target.value;
-
+        console.log(event.target,event.target.value)
         const newFormData = { ...addFormData };
         newFormData[fieldName] = fieldValue;
 
@@ -144,7 +220,7 @@ const EOrgCom = () => {
         event.preventDefault();
 
         const newContact = {
-            id: nanoid(),
+            _id: nanoid(),
             name: addFormData.name,
             role:addFormData.role,
             designation:addFormData.designation
@@ -152,15 +228,15 @@ const EOrgCom = () => {
 
         };
 
-        const newContacts = [...contacts, newContact];
-        setContacts(newContacts);
+        const newContacts = [...organsingList, newContact];
+        setOrgansingList(newContacts);
     };
 
     const handleEditFormSubmit = (event) => {
         event.preventDefault();
 
         const editedContact = {
-            id: editContactId,
+            _id: editContactId,
             name: editFormData.name,
             role:editFormData.role,
             designation:editFormData.designation
@@ -168,33 +244,31 @@ const EOrgCom = () => {
 
         };
 
-        const newContacts = [...contacts];
+        const newContacts = [...organsingList];
 
-        const index = contacts.findIndex((contact) => contact.id === editContactId);
+        const index = organsingList.findIndex((contact) => contact._id === editContactId);
 
         newContacts[index] = editedContact;
 
-        setContacts(newContacts);
+        setOrgansingList(newContacts);
         setEditContactId(null);
     };
 
     const handleEditClick = (event, contact) => {
         event.preventDefault();
-        setEditContactId(contact.id);
+        setEditContactId(contact._id);
 
         const formValues = {
             name: contact.name,
             role: contact.role,
             designation:contact.designation
-
-
         };
 
         setEditFormData(formValues);
     };
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(contacts);
+        //console.log(contacts);
 
     }
 
@@ -203,115 +277,134 @@ const EOrgCom = () => {
     };
 
     const handleDeleteClick = (contactId) => {
-        const newContacts = [...contacts];
+        const newContacts = [...organsingList];
 
-        const index = contacts.findIndex((contact) => contact.id === contactId);
+        const index = organsingList.findIndex((contact) => contact._id === contactId);
 
         newContacts.splice(index, 1);
 
-        setContacts(newContacts);
+        setOrgansingList(newContacts);
     };
 
     return (
         <div>
-         
-
             <div className="contenti">
                 <div className="container">
                     <div className="page-content">
 
                         <div className="col-md-9">
-                            <div>
-                                {/*
-                                <h2>Select Role</h2>
-                                 <button onClick={() =>
-                                    setContacts(data.organsingList[option].persons)}>Symposium Patron</button>
-                                <button onClick={() =>
-                                    setContacts(data.organsingList[option+1].persons)}>Convener</button>
-                                <button onClick={() =>
-                                    setContacts(data.organsingList[option+2].persons)}>IET</button>
-                                <button onClick={() =>
-                                    setContacts(data.organsingList[option+3].persons)}>Local Committe</button> */}
-
-                            </div>
 
                             <h2 className="classic-title"><span>Edit Organising Committee </span></h2>
-                            <div className="EOrgCom-container">
-                                <form onSubmit={handleEditFormSubmit}>
-                                    <table className="table table-responsive table-condensed table-bordered">
-                                        <thead>
-                                            <tr>
-                                                <th>Role</th>
-                                                <th>Name</th>
-                                                <th>Designation</th>
-                                                <th>Actions</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            {contacts && contacts.map((contact) => (
-                                                <Fragment>
-                                                    {editContactId === contact.id ? (
-                                                        <EditableRow
-                                                            editFormData={editFormData}
-                                                            handleEditFormChange={handleEditFormChange}
-                                                            handleCancelClick={handleCancelClick}
-                                                        />
+                            {
+                                isLoading ? (
+                                    <div>loading...</div>
+                                ) : (
+                                    <div className="EOrgCom-container">
+                                        <form onSubmit={handleEditFormSubmit}>
+                                            <table className="table table-responsive table-condensed table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Role</th>
+                                                        <th>Name</th>
+                                                        <th>Designation</th>
+                                                        <th>Actions</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {   
+                                                        allData && organsingList ? (
+                                                            <>
+                                                            {
+                                                                organsingList.map((contact) => (
+                                                                    <Fragment key={contact._id}>
+                                                                        {editContactId === organsingList._id ? (
+                                                                            <EditableRow
+                                                                                editFormData={editFormData}
+                                                                                handleEditFormChange={handleEditFormChange}
+                                                                                handleCancelClick={handleCancelClick}
+                                                                            />
+                                                                        ) : (
+                                                                            <ReadOnlyRow
+                                                                                contact={contact}
+                                                                                handleEditClick={handleEditClick}
+                                                                                handleDeleteClick={handleDeleteClick}
+                                                                                convertedJSON={convertedJSON}
+                                                                            />
+                                                                        )}
+                                                                    </Fragment>
+                                                                ))
+                                                                }
+                                                            </>
+                                                        ) : (
+                                                            <tr>
+                                                                No data in database
+                                                            </tr>
+                                                        )
+                                                       
+                                                    }
+                                                </tbody>
+                                            </table>
+                                        </form>
+                                        <br />
+                                        <h2>Add a New Entry</h2>
+                                        <br />
+                                        <form onSubmit={handleAddFormSubmit} style={{ justifyContent: 'space-between' }}>
+                                                {/* <input
+                                                    className="email"
+                                                    
+                                                    type="text"
+                                                    name="role"
+                                                    required="required"
+                                                    placeholder="Enter a role"
+                                                    onChange={handleAddFormChange}
+                                                /> */}
+                                                    <input
+                                                    className="email"
+                                                     style={{ maxWidth: '100%' }}
+                                                    type="text"
+                                                    name="name"
+                                                    required="required"
+                                                    placeholder="Enter a name"
+                                                    onChange={handleAddFormChange}
+                                                />
+                                                    <input
+                                                    className="email"
+                                                    style={{ maxWidth: '100%' }}
+                                                    type="text"
+                                                    name="designation"
+                                                    required="required"
+                                                    placeholder="Enter a designation"
+                                                    onChange={handleAddFormChange}
+                                                /> 
+                                                {
+                                                    rolesList ? (
+                                                        <>
+                                                            <select className="email" id="cars" name="role" required onChange={handleAddFormChange}>
+                                                                {
+                                                                    rolesList.map((role)=> <option value={role}>{role}</option>)
+                                                                }
+                                                            </select>
+                                                        </>
                                                     ) : (
-                                                        <ReadOnlyRow
-                                                            contact={contact}
-                                                            handleEditClick={handleEditClick}
-                                                            handleDeleteClick={handleDeleteClick}
-                                                            convertedJSON={convertedJSON}
-                                                        />
-                                                    )}
-                                                </Fragment>
-                                            ))}
-                                        </tbody>
-                                    </table>
-                                </form>
-                                <br />
-                                <h2>Add a New Entry</h2>
-                                <br />
-                                <form onSubmit={handleAddFormSubmit} style={{ justifyContent: 'space-between' }}>
-                                    
-                                        <input
-                                            className="email"
-                                            style={{ maxWidth: '60%' }}
-                                            type="text"
-                                            name="role"
-                                            required="required"
-                                            placeholder="Enter a role"
-                                            onChange={handleAddFormChange}
-                                        />
-                                          <input
-                                            className="email"
-                                            style={{ maxWidth: '60%' }}
-                                            type="text"
-                                            name="name"
-                                            required="required"
-                                            placeholder="Enter a name"
-                                            onChange={handleAddFormChange}
-                                        />
-                                          <input
-                                            className="email"
-                                            style={{ maxWidth: '60%' }}
-                                            type="text"
-                                            name="designation"
-                                            required="required"
-                                            placeholder="Enter a designation"
-                                            onChange={handleAddFormChange}
-                                        />
-                                      <div className=" " style={{ textAlign: 'center', maxWidth: '60%' }}>
-                                    <button type="submit" className="btn btn-primary">Add</button>
-                                </div>
+                                                        <option value="A">A</option>
+                                                    )
+                                                }
+                                                   
+                                                
+                                                <div className=" " style={{ textAlign: 'center', maxWidth: '60%', float: "right"  }}>
+                                            <button type="submit" className="btn btn-primary">Add</button>
+                                        </div>
 
-                                </form>
-                                <br />
-                                <br />
-                                <div className=" " style={{ textAlign: 'center' }}>
-                                    <button type="submit" onClick={handleSubmit} className="btn btn-lg btn-system" style={{ marginTop: '10px' }}>Update Content</button>
-                                </div>
-                            </div>
+                                        </form>
+                                        <br />
+                                        <br />
+                                        <div style={{ textAlign: 'center', float: "right" }}>
+                                            <button type="submit" onClick={handleSubmit} className="btn btn-lg btn-system" style={{ marginTop: '10px' }}>Update Content</button>
+                                        </div>
+                                    </div>
+                                )
+                            }
+                           
                         </div>
                     </div>
                 </div>

@@ -18,6 +18,7 @@ import ESlider from './Images/ESlider';
 import ESupport from './Images/ESupport';
 import EImages from './Images/EImages';
 import EGallery from './Images/EGallery';
+import EOrgComCopy from './Committe/EOrgComCopy';
 export default function AdminPanel({ isLoggedIn, handleLogout }) {
 
 
@@ -57,16 +58,16 @@ export default function AdminPanel({ isLoggedIn, handleLogout }) {
                                 <h4 className='accent-color'>Home<span className="head-line"></span></h4>
                                 <ul>
                                     <li>
-                                        <a onClick={() => setActiveComponent("header")}>Header</a>
+                                        <a onClick={() => setActiveComponent("header")} style={{cursor:"pointer"}}>Header</a>
                                     </li>
                                     <li>
-                                        <a onClick={() => setActiveComponent("home")}>Home Body</a>
+                                        <a onClick={() => setActiveComponent("home")} style={{cursor:"pointer"}}>Home Body</a>
                                     </li>
                                     <li>
-                                        <a onClick={() => setActiveComponent("notification")}>Notifications</a>
+                                        <a onClick={() => setActiveComponent("notification")} style={{cursor:"pointer"}}>Notifications</a>
                                     </li>
                                     <li>
-                                        <a onClick={() => setActiveComponent("contact")}>Contact Info</a>
+                                        <a onClick={() => setActiveComponent("contact")} style={{cursor:"pointer"}}>Contact Info</a>
                                     </li>
                                   
 
@@ -77,16 +78,16 @@ export default function AdminPanel({ isLoggedIn, handleLogout }) {
                                 <h4 className='accent-color'>Author<span className="head-line"></span></h4>
                                 <ul>
                                     <li>
-                                        <a onClick={() => setActiveComponent("callForContribution")}>Call for Contribution</a>
+                                        <a onClick={() => setActiveComponent("callForContribution")} style={{cursor:"pointer"}}>Call for Contribution</a>
                                     </li>
                                     <li>
-                                        <a onClick={() => setActiveComponent("submissionGuidelines")}>Submission Guidlines</a>
+                                        <a onClick={() => setActiveComponent("submissionGuidelines")} style={{cursor:"pointer"}}>Submission Guidlines</a>
                                     </li>
                                     <li>
-                                        <a onClick={() => setActiveComponent("impoetatntDates")}>Important Dates</a>
+                                        <a onClick={() => setActiveComponent("impoetatntDates")} style={{cursor:"pointer"}}>Important Dates</a>
                                     </li>
                                     <li>
-                                        <a onClick={() => setActiveComponent("paperSubmission")}>Paper Submission</a>
+                                        <a onClick={() => setActiveComponent("paperSubmission")} style={{cursor:"pointer"}}>Paper Submission</a>
                                     </li>
                                 </ul>
                             </div>
@@ -94,13 +95,13 @@ export default function AdminPanel({ isLoggedIn, handleLogout }) {
                                 <h4 className='accent-color'>Programs<span className="head-line"></span></h4>
                                 <ul>
                                     <li>
-                                        <a onClick={() => setActiveComponent("keynotes")}>Keynotes</a>
+                                        <a onClick={() => setActiveComponent("keynotes")} style={{cursor:"pointer"}}>Keynotes</a>
                                     </li>
                                     <li>
-                                        <a onClick={() => setActiveComponent("posterPresentation")}>Poster Presentation</a>
+                                        <a onClick={() => setActiveComponent("posterPresentation")} style={{cursor:"pointer"}}>Poster Presentation</a>
                                     </li>
                                     <li>
-                                        <a onClick={() => setActiveComponent("registration")}>Resgitration</a>
+                                        <a onClick={() => setActiveComponent("registration")} style={{cursor:"pointer"}}>Resgitration</a>
                                     </li>
                                 </ul>
                             </div>
@@ -108,10 +109,13 @@ export default function AdminPanel({ isLoggedIn, handleLogout }) {
                                 <h4 className='accent-color'>Organisation<span className="head-line"></span></h4>
                                 <ul>
                                     <li>
-                                        <a onClick={() => setActiveComponent("advisoryCommitte")}>Advisory Committe</a>
+                                        <a onClick={() => setActiveComponent("advisoryCommitte")} style={{cursor:"pointer"}}>Advisory Committe</a>
                                     </li>
                                     <li>
-                                        <a onClick={() => setActiveComponent("orgCommitte")}>Organising Committe</a>
+                                        <a onClick={() => setActiveComponent("orgCommitte")} style={{cursor:"pointer"}}>Organising Committe</a>
+                                    </li>
+                                    <li>
+                                        <a onClick={() => setActiveComponent("orgCommittecopy")} style={{cursor:"pointer"}}>Organising Committe Copy</a>
                                     </li>
 
                                 </ul>
@@ -120,16 +124,16 @@ export default function AdminPanel({ isLoggedIn, handleLogout }) {
                                 <h4 className='accent-color'>Images<span className="head-line"></span></h4>
                                 <ul>
                                     <li>
-                                        <a onClick={() => setActiveComponent("slider")}>Slider Images</a>
+                                        <a onClick={() => setActiveComponent("slider")} style={{cursor:"pointer"}}>Slider Images</a>
                                     </li>
                                     <li>
-                                        <a onClick={() => setActiveComponent("support")}>Supported by Images</a>
+                                        <a onClick={() => setActiveComponent("support")} style={{cursor:"pointer"}}>Supported by Images</a>
                                     </li>
                                     <li>
-                                        <a onClick={() => setActiveComponent("gallery")}>Gallery Images</a>
+                                        <a onClick={() => setActiveComponent("gallery")} style={{cursor:"pointer"}}>Gallery Images</a>
                                     </li>
                                     <li>
-                                        <a onClick={() => setActiveComponent("images")}>Other Images</a>
+                                        <a onClick={() => setActiveComponent("images")} style={{cursor:"pointer"}}>Other Images</a>
                                     </li>
                                    
 
@@ -178,6 +182,7 @@ export default function AdminPanel({ isLoggedIn, handleLogout }) {
                                 {/* programs start */}
                                 <EAdvCom name='advisoryCommitte' />
                                 <EOrgCom name='orgCommitte'/>
+                                 <EOrgComCopy name='orgCommittecopy'/>
                                 {/* programs end */}
 
 
