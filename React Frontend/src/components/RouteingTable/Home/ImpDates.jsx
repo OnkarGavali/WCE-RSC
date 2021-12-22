@@ -29,7 +29,7 @@ function ImpDates() {
 
                                     <div className="post-row item">
                                         <div className="left-meta-post">
-                                            <div className="post-date"><span className="day">10</span><span className="month">DEC</span>
+                                            <div className="post-date"><span className="day">10</span><span className="month">FEB</span>
                                             </div>
 
                                         </div>
@@ -40,7 +40,18 @@ function ImpDates() {
                                     <br />
                                     <div className="post-row item">
                                         <div className="left-meta-post">
-                                            <div className="post-date"><span className="day">20</span><span className="month">JAN</span>
+                                            <div className="post-date"><span className="day">20</span><span className="month">FEB</span>
+                                            </div>
+
+                                        </div>
+                                        <h4 className="post-title"><Link to="/Paper-Submission">Last Date for IPS Submission</Link></h4>
+
+
+                                    </div>
+                                    <br />
+                                    <div className="post-row item">
+                                        <div className="left-meta-post">
+                                            <div className="post-date"><span className="day">20</span><span className="month">MAR</span>
                                             </div>
 
                                         </div>
@@ -50,33 +61,34 @@ function ImpDates() {
                                     <br />
                                     <div className="post-row item">
                                         <div className="left-meta-post">
-                                            <div className="post-date"><span className="day">25</span><span className="month">JAN</span>
+                                            <div className="post-date"><span className="day">7</span><span className="month">APR</span>
                                             </div>
 
                                         </div>
-                                        <h4 className="post-title"><Link to="#">Last Date for Submission of IPS</Link></h4>
+                                        <h4 className="post-title"><Link to="#">Last Date for Camera Ready Submission</Link></h4>
 
                                     </div>
                                     <br />
                                     <div className="post-row item">
                                         <div className="left-meta-post">
-                                            <div className="post-date"><span className="day">20</span><span className="month">FEB</span>
+                                            <div className="post-date"><span className="day">7</span><span className="month">APR</span>
                                             </div>
 
                                         </div>
-                                        <h4 className="post-title"><Link to="#">Last Date for Camera Ready Submission </Link></h4>
+                                        <h4 className="post-title"><Link to="#">Last Date for Registration</Link></h4>
 
                                     </div>
                                     <br />
                                     <div className="post-row item">
                                         <div className="left-meta-post">
-                                            <div className="post-date"><span className="day">28</span><span className="month">FEB</span>
+                                            <div className="post-date"><span className="day">24</span><span className="month">APR</span>
                                             </div>
 
                                         </div>
-                                        <h4 className="post-title"><Link to="/Register">Final Deadline for Registration</Link></h4>
+                                        <h4 className="post-title"><Link to="#">Result Declaration </Link></h4>
 
                                     </div>
+                                    
                                     <br />
 
                                     <br />
