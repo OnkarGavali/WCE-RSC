@@ -2784,7 +2784,7 @@ ul.icons-list li i {
 }
 
 .team-member.modern .sponsor-photo img {
-  height: 90px;
+  max-height: 110px;
   margin-left: auto;
   margin-right: auto;
   display: block;

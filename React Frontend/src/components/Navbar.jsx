@@ -31,7 +31,7 @@ function Navbar() {
 
               {/* Authors - start */}
               <li className="drop">
-                <a className={`${activeComponent == 'authors' ? 'active':''}`}>
+                <a className={`${activeComponent == 'authors' ? 'active':''}`} style={{cursor:"pointer"}}>
                   <span ><i className="fa fa-group" style={{marginRight:"10px"}}></i></span>Authors
                 </a>
                 <ul className="dropdown">
@@ -65,7 +65,7 @@ function Navbar() {
 
               {/* Programs - start */}
               <li className="drop">
-                <a className={`${activeComponent == 'programs' ? 'active':''}`} >
+                <a className={`${activeComponent == 'programs' ? 'active':''}`} style={{cursor:"pointer"}}>
                   <span style={{marginRight:"10px"}}><i className="fa fa-calendar"></i></span>Programs
                 </a>
                 <ul className="dropdown">
@@ -106,7 +106,7 @@ function Navbar() {
 
               {/* Organisation - start */}
               <li className="drop">
-                <a className={`${activeComponent == 'organisation' ? 'active':''}`}>
+                <a className={`${activeComponent == 'organisation' ? 'active':''}`} style={{cursor:"pointer"}}>
                   <span style={{marginRight:"10px"}}><i className="fa fa-sitemap"></i></span>Organisation
                 </a>
                 <ul className="dropdown">
@@ -126,7 +126,7 @@ function Navbar() {
               
               {/* LocalInfo - start */}
               <li className="drop">
-                <a className={`${activeComponent == 'localInfo' ? 'active':''}`} >
+                <a className={`${activeComponent == 'localInfo' ? 'active':''}`} style={{cursor:"pointer"}}>
                   <span style={{marginRight:"10px"}}><i className="fa fa-info-circle"></i></span>Local Information
                 </a>
                 <ul className="dropdown">
@@ -180,7 +180,7 @@ function Navbar() {
               {/* Admin - start */}
               <li>
                 <Link  to="/admin" className={`${activeComponent == 'admin' ? 'active':''}`} onClick={() => setActiveComponent("admin")}>
-                  <span style={{marginRight:"10px"}}><i className="fa fa-lock" aria-hidden="true"></i>,<span style={{width:'40px'}}></span><i className="fa fa-lock" aria-hidden="true"></i></span>Admin
+                  <span style={{marginRight:"10px"}}><i className="fa fa-sign-in" aria-hidden="true"></i></span>Admin
                 </Link>
               </li>
               {/* Admin - end */}
