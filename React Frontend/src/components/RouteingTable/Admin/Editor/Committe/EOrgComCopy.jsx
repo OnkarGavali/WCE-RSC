@@ -8,9 +8,6 @@ import { NoticeBoard } from "../../NoticeBoard";
 
 
 const EOrgComCopy = () => {
-    const [contacts, setContacts] = useState(data);
-    const [convertedJSON, setConvertedJSON] = useState([])
-
 
     const [allData, setAllData] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
@@ -105,16 +102,13 @@ const EOrgComCopy = () => {
     }, [isLoading,organsingList])
 
 
-    // useEffect(() => {
-    //     if(finalData){
-    //         console.log('useE')
-    //         console.log(finalData)
-    //         uploadContent()
-    //     }
-    // }, [finalData])
-
-  
-
+    useEffect(() => {
+        if(finalData){
+            console.log('useE')
+            console.log(finalData)
+            uploadContent()
+        }
+    }, [finalData])
 
     const handleFormChange = (event) => {
         const fieldName = event.target.getAttribute("name");
@@ -221,8 +215,12 @@ const EOrgComCopy = () => {
             }
         })
         if(r){
-            v.push({role:r,_id:nanoid() })
+            let t = {role:r,_id:nanoid() }
+            v.push(t)
             setRolesList(v)
+            let tmpOrgansingList = [...organsingList ]
+            tmpOrgansingList.push({role:r,persons:[],_id:t._id})
+            setOrgansingList(tmpOrgansingList)
         }
         setNewRole("")
     }
@@ -257,40 +255,45 @@ const EOrgComCopy = () => {
         }
     }
 
-    // const endFormater = () => {
-    //     const advlist = []
-    //     advisoryList.map((li)=>(
-    //         advlist.push({"name":li.name})
-    //     ))
-    //     const final = {
-    //         "displayNoticeStatus":displayNotice,
-    //         "displayNoticeHeading":displayeNoticeHead,
-    //         "displayNoticeContent":displayeNoticeContent,
-    //         "maintenanceBreakStatus":maintainanceBreak,
-    //         "maintenanceBreakHeading":maintainanceBreakHead,
-    //         "maintenanceBreakContent":maintainanceBreakContent,
-    //         "advisoryList":advlist
-    //     }
-    //     setFinalData(final)
-    //     // console.log('Final data')
-    //     // console.log(finalData)
-    // }
+    const endFormater = () => {
+        let orglist = []
+        organsingList.map((orgRole)=>{
+            let  a = []
+            orgRole.persons.map((person)=>{
+                a.push({name: person.name, designation:person.designation})
+            })
+            orglist.push({role:orgRole.role,persons:a})
+            
+        })
+        const final = {
+            "displayNoticeStatus":displayNotice,
+            "displayNoticeHeading":displayeNoticeHead,
+            "displayNoticeContent":displayeNoticeContent,
+            "maintenanceBreakStatus":maintainanceBreak,
+            "maintenanceBreakHeading":maintainanceBreakHead,
+            "maintenanceBreakContent":maintainanceBreakContent,
+            "organsingList":orglist
+        }
+        setFinalData(final)
+        console.log('Final data')
+        console.log(finalData)
+    }
 
 
 
-    // const uploadContent = () => {
-    //     const headers = { 
-    //         'x-access-token': localStorage.getItem("x-access-token")
-    //     };
-    //     axios.put('put/advisory/61801c803668749496043b57', finalData, { headers })
-    //         .then(response => console.log(response));
-    //     //console.log('aaaa')
-    //     //console.log(finalMessage)
-    // }
+    const uploadContent = () => {
+        const headers = { 
+            'x-access-token': localStorage.getItem("x-access-token")
+        };
+        axios.put('put/organization/617ff298460d102107fa5248', finalData, { headers })
+            .then(response => console.log(response));
+        //console.log('aaaa')
+        //console.log(finalMessage)
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        //endFormater()
+        endFormater()
     }
 
     return (
