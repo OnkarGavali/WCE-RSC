@@ -6,6 +6,7 @@ import ImpDates from './ImpDates';
 import Speakers from './Speakers';
 import Timer from './Timer';
 import CountDown from './Countdown';
+import { Sidebar } from './Sidebar';
 
 
 
@@ -18,9 +19,9 @@ function Home() {
             <div className="contenti" style={{padding:'60px 0px'}}>
                 <div className="container " style={{ textAlign: 'justify' }}>
                     <Slider/>
-                    <div className="row">                 
+                    <div className="page-content" style={{marginTop:"30px"}}>   
                         <HomeBody/>
-                        <ImpDates/> 
+                        <Sidebar/> 
                     </div>
                 </div>
                 {/*

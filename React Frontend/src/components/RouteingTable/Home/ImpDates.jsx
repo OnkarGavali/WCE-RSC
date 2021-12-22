@@ -1,129 +1,90 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {Link} from "react-router-dom";
 import Chair from "../../../images/publication/chair.png";
 import Publications from './Publications';
 import SponsorsOld from './SponsorsOld';
 import data from '../../../JSON/Home/HomeBody.json';
+import axios from 'axios';
 function ImpDates() {
+    
+    const [allData, setAllData] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const [toShow, setToShow] = useState(true);
+    const [maintenanceBreakMessageStatus, setMaintenanceBreakMessageStatus] = useState(false);
+    const [displayNoticeStatus, setDisplayNoticeStatus] = useState(false);
+    
+    useEffect(() => {
+        const getData = async () => {
+            await axios.get(
+                "/get/dates"
+            ).then((response) => {
+                if (response.data[0]) {
+                    setAllData(response.data[0]);
+                }
+                setIsLoading(false);
+            }).catch((e) => {
+                /* HANDLE THE ERROR (e) */
+                console.log(e);
+                setIsLoading(false);
+            });
+        };
+        getData();
+        setIsLoading(false);
+    }, [])
+
+    useEffect(() => {
+        if(!isLoading){
+            if(allData.maintenanceBreakStatus){
+                setToShow(false);
+                setMaintenanceBreakMessageStatus(allData.maintenanceBreakStatus) 
+            } else {
+                setToShow(true);
+                if(allData.displayNoticeStatus){
+                    setDisplayNoticeStatus(allData.displayNoticeStatus)
+                }
+            }
+        }
+    }, [allData])
+
     return (
-        <div>
-
-
-            <div className="container">
-                <div className="row">
-                    <div className="col-md-4">
-                        <Link to="Programs/Register" style={{ marginLeft: '25%' }} className="btn btn-lg btn-system"> Register Now</Link>
-
-                        <div className="tab-content">
-                            <div className="latest-posts">
-                                <br />
-                                <br />
-                                <Link to='/Important-Dates'><h3 className="classic-title" id="notifications"><span>Important Dates</span></h3></Link>
-
-                                <div className="latest-posts-classic touch-carousel">
-
-
-                                    <div className="post-row item">
-                                        <div className="left-meta-post">
-                                            <div className="post-date"><span className="day">10</span><span className="month">FEB</span>
-                                            </div>
-
-                                        </div>
-                                        <h4 className="post-title"><Link to="/Paper-Submission">Last Date for Paper Submission</Link></h4>
-
-
-                                    </div>
-                                    <br />
-                                    <div className="post-row item">
-                                        <div className="left-meta-post">
-                                            <div className="post-date"><span className="day">20</span><span className="month">FEB</span>
-                                            </div>
-
-                                        </div>
-                                        <h4 className="post-title"><Link to="/Paper-Submission">Last Date for IPS Submission</Link></h4>
-
-
-                                    </div>
-                                    <br />
-                                    <div className="post-row item">
-                                        <div className="left-meta-post">
-                                            <div className="post-date"><span className="day">20</span><span className="month">MAR</span>
-                                            </div>
-
-                                        </div>
-                                        <h4 className="post-title"><Link to="/Paper-Submission">Paper Acceptance Notification</Link></h4>
-
-                                    </div>
-                                    <br />
-                                    <div className="post-row item">
-                                        <div className="left-meta-post">
-                                            <div className="post-date"><span className="day">7</span><span className="month">APR</span>
-                                            </div>
-
-                                        </div>
-                                        <h4 className="post-title"><Link to="#">Last Date for Camera Ready Submission</Link></h4>
-
-                                    </div>
-                                    <br />
-                                    <div className="post-row item">
-                                        <div className="left-meta-post">
-                                            <div className="post-date"><span className="day">7</span><span className="month">APR</span>
-                                            </div>
-
-                                        </div>
-                                        <h4 className="post-title"><Link to="#">Last Date for Registration</Link></h4>
-
-                                    </div>
-                                    <br />
-                                    <div className="post-row item">
-                                        <div className="left-meta-post">
-                                            <div className="post-date"><span className="day">24</span><span className="month">APR</span>
-                                            </div>
-
-                                        </div>
-                                        <h4 className="post-title"><Link to="#">Result Declaration </Link></h4>
-
-                                    </div>
-                                    
-                                    <br />
-
-                                    <br />
-
-
-
-                                </div>
-                            </div>
-                        </div>
-                        <br />
-
-                        <br />
-                        <br />
-                        <SponsorsOld />
-                        <br />
-
-                        <br />
-                        <Publications />
-                        <br />
-                        <div className="tab-content">
-                            <div className="latest-posts" >
-                                <h3 className="classic-title" id="notifications"><span>Paper Submission</span></h3>
-                                <a href={data.data.links.paperSubmission} target="_blank">
-                                   
-                                        <img src={Chair}></img>
-                                  
-                                 
-                                </a>
-                            </div>
-                        </div>
-
-                    </div>
+        <>
+            <div className="tab-content">
+            <div className="latest-posts">
+                <div style={{display:'flex', justifyContent:'space-between'}}>
+                    <h3 className="classic-title" id="notifications"><span>Important Dates</span></h3>
+                    <Link to='authors/Important-Dates'><i className='fa fa-arrow-right'></i></Link>
+                </div>
+               
+                {
+                    allData.data && toShow ? (
+                        <>
+                            {
+                                allData.data.dates ? (
+                                    <>
+                                        {
+                                            allData.data.dates.map((day) => (
+                                                <table className="table table-responsive table-condensed table-bordered" style={{margin:"0px"}}>
+                                                    <thead>
+                                                        <th>{day.details}</th>
+                                                    </thead>
+                                                    <tbody>
+                                                    <td>{day.impDate}</td>
+                                                    </tbody>
+                                                </table>
+                                            ))
+                                        }
+                                    </>
+                                ) : (
+                                    <div style={{justifyContent:"center"}}>Information will update soon</div>
+                                )
+                            }
+                        </>
+                    ) : null
+                }
 
                 </div>
             </div>
-
-
-        </div>
-
+        </>
     );
 }
 
