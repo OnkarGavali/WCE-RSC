@@ -23,6 +23,7 @@ function Downloads() {
 
                         <div className="col-md-9">
                             <h1 className="accent-color">Downloads</h1>
+                            <br/>
                             <table className="table table-responsive table-condensed table-bordered">
                                 <thead>
                                     <th>Title</th>
@@ -44,6 +45,7 @@ function Downloads() {
 
                                 </tbody>
                             </table>
+                            <br/>
                         </div>
                     </div>
                 </div>
