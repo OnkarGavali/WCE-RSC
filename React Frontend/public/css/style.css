@@ -5721,3 +5721,30 @@ table tbody td {
   color: #666;
   /* border: 1px solid #00afd1 !important; */
 }
+
+.headerLogo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.headerLogo1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 550px) {
+  .headerLogo img {
+    display: none !important;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .headertitle {
+    font-size: 25px !important;
+    padding-bottom: 10px;
+  }
+  .headersubtitle {
+    display: none;
+  }
+}

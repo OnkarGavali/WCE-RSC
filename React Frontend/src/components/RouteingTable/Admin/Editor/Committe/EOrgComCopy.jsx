@@ -262,8 +262,9 @@ const EOrgComCopy = () => {
             orgRole.persons.map((person)=>{
                 a.push({name: person.name, designation:person.designation})
             })
-            orglist.push({role:orgRole.role,persons:a})
-            
+            if(a.length){
+                orglist.push({role:orgRole.role,persons:a})
+            }
         })
         const final = {
             "displayNoticeStatus":displayNotice,

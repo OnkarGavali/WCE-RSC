@@ -80,10 +80,10 @@ function Adv_Committee() {
     useEffect(() => {
         if(maintenanceBreakMessageStatus){
             if(!maintenanceBreakMessageHead){ 
-                setMaintenanceBreakMessageHead("hi")
+                setMaintenanceBreakMessageHead("No data")
             }
             if(!maintenanceBreakMessageContent){
-                setMaintenanceBreakMessageContent("hihi")
+                setMaintenanceBreakMessageContent("No data")
             }
         }
     }, [maintenanceBreakMessageContent,maintenanceBreakMessageHead,maintenanceBreakMessageStatus])
