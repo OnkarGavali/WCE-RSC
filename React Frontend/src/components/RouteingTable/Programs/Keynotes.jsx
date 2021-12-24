@@ -83,7 +83,7 @@ function Keynotes() {
     return (
         <div>
             {/* PageBanner - start */}
-            <PageBanner name="Presentations" head="Programs" subhead="Keynotes & Presentation" info="Feel Free To Get In Touch" />
+            <PageBanner name="Keynotes Speakers" head="Programs" subhead="Keynotes & Presentation" info="" />
             {/* PageBanner - end */}
             <div className="contenti">
                 <div className="container">
