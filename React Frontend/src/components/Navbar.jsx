@@ -41,6 +41,11 @@ function Navbar() {
                     </Link>
                   </li>
                   <li>
+                    <Link  to="/authors/downloads" onClick={() => setActiveComponent("authors")}>
+                     Downloads <span style={{marginLeft:"10px"}}><i className="fa fa-bullhorn"></i></span>
+                    </Link>
+                  </li>
+                  <li>
                     <Link  to="/authors/Guidlines" onClick={() => setActiveComponent("authors")}>
                       Submission Guidlines<span style={{marginLeft:"10px"}}><i className="fa fa-info-circle"></i></span>
                     </Link>

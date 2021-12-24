@@ -22,6 +22,7 @@ import Guidlines from './RouteingTable/Authors/Guidlines'
 import Login from './RouteingTable/Admin/Login'
 import AdminPanel from './RouteingTable/Admin/Editor/AdminPanel'
 import ENotification from './RouteingTable/Admin/Editor/Home/ENotification'
+import Downloads from './RouteingTable/Authors/Downloads'
 
 
 export default class RoutingTable extends Component {
@@ -41,6 +42,9 @@ export default class RoutingTable extends Component {
                     {/* Authors - start*/}
                         <Route exact path="/authors/call-for-contribution">
                             <CallForContriBution />
+                        </Route>
+                        <Route exact path="/authors/downloads">
+                            <Downloads/>
                         </Route>
                         <Route exact path="/authors/Guidlines">
                             <Guidlines/>
