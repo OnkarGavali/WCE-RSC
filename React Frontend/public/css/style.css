@@ -5726,15 +5726,19 @@ table tbody td {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  max-width: 10%;
+  min-width: 70px;
 }
 .headerLogo1 {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  max-width: 10%;
+  min-width: 70px;
 }
 
 @media only screen and (max-width: 550px) {
-  .headerLogo img {
+  .headerLogo {
     display: none !important;
   }
 }
@@ -5743,6 +5747,7 @@ table tbody td {
   .headertitle {
     font-size: 25px !important;
     padding-bottom: 10px;
+    text-align: left !important;
   }
   .headersubtitle {
     display: none;
