@@ -5745,7 +5745,7 @@ table tbody td {
 
 @media only screen and (max-width: 550px) {
   .headertitle {
-    font-size: 25px !important;
+    font-size: 35px !important;
     padding-bottom: 10px;
     text-align: left !important;
   }

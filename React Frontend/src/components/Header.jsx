@@ -56,8 +56,9 @@ function Header() {
                 <img src="/images/WCE75.jpeg" alt="IFERP" style={{  width:'100%',minWidth:"70px" }} />
               </div>
               <div style={{margin:"0", width: "100%"}}>
-                <h1 style={{margin:"10px", paddingTop:'1%' , textAlign:'center' , fontSize:'50px',fontWeight:"700", whiteSpace:'pre-line',letterSpacing: "3px"}} className='headertitle'> {data.title}</h1> 
-                <h2  style={{  paddingTop:'2%', textAlign:'center' , color:'gray', whiteSpace:'pre-line',fontWeight:"700"}} className='headersubtitle'> {data.subtitle} </h2>
+                <h1 style={{margin:"10px", paddingTop:'1%' , textAlign:'center' ,color: "#272727", fontSize:'50px',fontWeight:"800",letterSpacing: "5px"}} className='headertitle'> {data.title}</h1> 
+                <h1  style={{  paddingTop:'2%', textAlign:'center' , color:'#383838',fontSize:'35px',fontWeight:"800"}} className='headersubtitle'> {data.subtitle1} </h1>
+                <h2  style={{  paddingTop:'2%', textAlign:'center' , color:'gray',fontWeight:"700"}} className='headersubtitle'> {data.subtitle2} </h2>
               </div>
               <div  className='headerLogo' >
                 <img src="https://static.wixstatic.com/media/e192f7_f60a1d7e58ba4708b9d94820fe99b0e2~mv2.png/v1/fill/w_300,h_300,al_c,q_85,usm_0.66_1.00_0.01/Drawing2.webp" alt="IFERP" style={{  width:'100%',minWidth:"70px" }} />
