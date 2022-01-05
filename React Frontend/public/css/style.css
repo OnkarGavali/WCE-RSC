@@ -2678,6 +2678,20 @@ ul.icons-list li i {
   -o-transition: all 0.2s ease-in-out;
 }
 
+.team-member .org-photo {
+  padding: 3px;
+  border: 1px solid #eee;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -o-border-radius: 3px;
+  position: relative;
+  transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+}
+
 .team-member .member-photo .member-name {
   position: absolute;
   bottom: 12px;
@@ -2771,6 +2785,10 @@ ul.icons-list li i {
   height: 256px;
   width: 256px;
 }
+.team-member.modern .org-photo img {
+  height: 256px;
+  width: 256px;
+}
 
 .team-member.modern .sponsor-photo {
   justify-content: center;
@@ -2792,6 +2810,15 @@ ul.icons-list li i {
 }
 
 .team-member.modern .member-photo {
+  position: relative;
+  padding: 0px;
+  border: none;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -o-border-radius: 0;
+}
+.team-member.modern .org-photo {
   position: relative;
   padding: 0px;
   border: none;

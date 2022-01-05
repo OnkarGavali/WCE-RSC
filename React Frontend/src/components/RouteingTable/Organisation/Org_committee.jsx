@@ -5,6 +5,7 @@ import org from '../../../JSON/Organisation/organinsing.json';
 import axios from 'axios';
 import MaintenanceBreak from '../MaintenanceBreak';
 import { DisplayNotice } from '../DisplayNotice';
+import OrgCommitteMemberPhoto from './OrgCommitteMemberPhoto';
 
 
 function Org_Committee() {
@@ -116,9 +117,13 @@ function Org_Committee() {
                     <div className="page-content">
 
                         {/* Main Content - start */}
-                        <div className="col-md-9">
+                        <div className="col-md-12">
                             <h1 className="accent-color"> Organising Committee</h1>
-                             <br />
+                            <br/>
+
+                            <OrgCommitteMemberPhoto />
+
+                            <br />
                             {
                                 isLoading ? (
                                     <div>Loading</div>
@@ -133,7 +138,7 @@ function Org_Committee() {
                                                     ) : null
                                                 }
                                     
-                                                <table className="table table-responsive table-condensed table-bordered">
+                                                <table className="table table-responsive table-condensed table-bordered" style={{padding:"1%"}}>
                                                     <thead>
                                                         <th>Role</th>
                                                         <th>Name</th>
@@ -167,7 +172,7 @@ function Org_Committee() {
                         {/* Main Content - end */}
 
                         {/* Related Links - start */}
-                        <div className ="col-md-3 sidebar right-sidebar">
+                        {/* <div className ="col-md-3 sidebar right-sidebar">
                             <div className ="widget widget-categories">
                                 <h4 className="accent-color">Related Links <span className ="head-line"></span></h4>
                                 <ul>
@@ -177,7 +182,7 @@ function Org_Committee() {
                                     
                                 </ul>
                             </div>
-                        </div>
+                        </div> */}
                         {/* Related Links - end */}
 
 

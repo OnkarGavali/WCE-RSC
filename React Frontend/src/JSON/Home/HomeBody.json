@@ -1,7 +1,7 @@
 {
     "data":{
-        "title":"WCE Research Symposium on Computing - RSC 2022 ",
-        "subtitle":"SIXTH RESEARCH SYMPOSIUM ON COMPUTING",
+        "title":"6th Research Symposium on Computing ",
+        "subtitle":"",
         "subhead":"On the occasion of Platinum Jubilee Year of Walchand College of Engineering, Sangli The Computer Science & Engineering and Information Technology Department are organising Sixth Research Symposium on Computing RSC 2022 in association with FATER Academy of India",
         "info":{
         "para1":"At Walchand College of Engineering (WCE) Sangli, Computer Science and Engineering (CSE) Department as well as Information Technology (IT) Department are active in promoting research in advances in CSE/ IT under Association for Computing Machinery (ACM) India. This has resulted into instituting WCE-ACM chapter. First, Second, Third, Fourth and Fifth National Research Symposiums were organized during Dec 19-20 2016, Dec 15-16 2017, Dec 22-23 2018, Dec 20-21 2019 and March 20-21 2021 respectively at WCE and it received excellent response from researchers.",
@@ -10,7 +10,6 @@
         }
         ,
         "links":{
-           
             "publication":"",
             "support":"http://wce.acm.org/",
             "paperSubmission":"https://easychair.org/conferences/?conf=rsc2021"
